@@ -1,0 +1,12 @@
+# Python scripts & caches
+*.py
+*.pyc
+__pycache__/
+
+# Inspection temporary files
+a_pages_summary.json
+q_pages_summary.json
+test_renders/
+
+# Raw large PDFs (original problem source files)
+온라인 SKCT 유형별 문제집/
