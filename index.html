@@ -133,30 +133,102 @@
 
       <!-- 25% Side Panel (Top: Notepad, Bottom: Calculator) -->
       <aside id="side-panel" class="workspace-col-25">
-        <!-- Top Half: Notepad (메모장) -->
+        <!-- Top Half: Notepad & Paint Canvas (메모장 & 그림판) -->
         <div id="notepad-container" class="side-half">
-          <div class="side-header">
-            <div class="notepad-tabs">
-              <button id="tab-q-memo" class="tab-btn active" data-tab="question">
-                📝 문제별 메모 (<span id="memo-q-num">1</span>)
-              </button>
-              <button id="tab-global-memo" class="tab-btn" data-tab="global">
-                📒 공통 연습장
-              </button>
+          <!-- Top Tab Bar: Memo vs Paint Switcher -->
+          <div class="side-top-tabs" role="tablist">
+            <button id="side-tab-memo" class="side-top-tab active" role="tab" aria-selected="true" aria-controls="memo-panel-view">
+              📝 메모장
+            </button>
+            <button id="side-tab-paint" class="side-top-tab" role="tab" aria-selected="false" aria-controls="paint-panel-view">
+              🎨 그림판
+            </button>
+          </div>
+
+          <!-- Memo View Panel -->
+          <div id="memo-panel-view" class="tool-view-panel">
+            <div class="side-header">
+              <div class="notepad-tabs">
+                <button id="tab-q-memo" class="tab-btn active" data-tab="question">
+                  📝 문제별 메모 (<span id="memo-q-num">1</span>)
+                </button>
+                <button id="tab-global-memo" class="tab-btn" data-tab="global">
+                  📒 공통 연습장
+                </button>
+              </div>
+              <div class="notepad-actions">
+                <button id="notepad-font-dec" class="tool-icon-btn" title="글자 작게">A-</button>
+                <button id="notepad-font-inc" class="tool-icon-btn" title="글자 크게">A+</button>
+                <button id="notepad-copy-btn" class="tool-icon-btn" title="메모 복사">📋</button>
+                <button id="notepad-clear-btn" class="tool-icon-btn" title="메모 지우기">🗑️</button>
+              </div>
             </div>
-            <div class="notepad-actions">
-              <button id="notepad-font-dec" class="tool-icon-btn" title="글자 작게">A-</button>
-              <button id="notepad-font-inc" class="tool-icon-btn" title="글자 크게">A+</button>
-              <button id="notepad-copy-btn" class="tool-icon-btn" title="메모 복사">📋</button>
-              <button id="notepad-clear-btn" class="tool-icon-btn" title="메모 지우기">🗑️</button>
+            <div class="notepad-body">
+              <textarea id="notepad-textarea" placeholder="여기에 풀이 과정, 조건 표, 메모를 자유롭게 작성하세요. (문제 이동 시 자동 저장됩니다)"></textarea>
+            </div>
+            <div class="side-footer-status">
+              <span id="notepad-save-indicator" class="save-status">💾 자동 저장됨</span>
+              <span id="notepad-char-count" class="char-count">0자</span>
             </div>
           </div>
-          <div class="notepad-body">
-            <textarea id="notepad-textarea" placeholder="여기에 풀이 과정, 조건 표, 메모를 자유롭게 작성하세요. (문제 이동 시 자동 저장됩니다)"></textarea>
-          </div>
-          <div class="side-footer-status">
-            <span id="notepad-save-indicator" class="save-status">💾 자동 저장됨</span>
-            <span id="notepad-char-count" class="char-count">0자</span>
+
+          <!-- Paint / Drawing Board View Panel -->
+          <div id="paint-panel-view" class="tool-view-panel" style="display: none;">
+            <div class="paint-sub-header">
+              <div class="paint-tabs">
+                <button id="tab-q-paint" class="tab-btn active" data-tab="question">
+                  🎯 문제별 (<span id="paint-q-num">1</span>)
+                </button>
+                <button id="tab-global-paint" class="tab-btn" data-tab="global">
+                  📋 공통 스케치
+                </button>
+              </div>
+              <div class="paint-quick-actions">
+                <button id="paint-undo-btn" class="tool-icon-btn" title="되돌리기 (Ctrl+Z)">↩️ 되돌리기</button>
+                <button id="paint-clear-btn" class="tool-icon-btn" title="전체 지우기">🗑️ 지우기</button>
+              </div>
+            </div>
+
+            <div class="paint-toolbar">
+              <div class="paint-tool-group">
+                <button id="paint-tool-pen" class="paint-tool-btn active" data-tool="pen" title="펜 (P)">✏️</button>
+                <button id="paint-tool-highlighter" class="paint-tool-btn" data-tool="highlighter" title="형광펜 (H)">🖍️</button>
+                <button id="paint-tool-eraser" class="paint-tool-btn" data-tool="eraser" title="지우개 (E)">🧹</button>
+              </div>
+
+              <div class="paint-divider-v"></div>
+
+              <div class="paint-colors-group">
+                <button class="color-dot active" data-color="#0f172a" style="background:#0f172a;" title="검정"></button>
+                <button class="color-dot" data-color="#2563eb" style="background:#2563eb;" title="파랑"></button>
+                <button class="color-dot" data-color="#dc2626" style="background:#dc2626;" title="빨강"></button>
+                <button class="color-dot" data-color="#facc15" style="background:#facc15;" title="형광노랑"></button>
+                <button class="color-dot" data-color="#10b981" style="background:#10b981;" title="초록"></button>
+              </div>
+
+              <div class="paint-divider-v"></div>
+
+              <div class="paint-sizes-group">
+                <button class="size-btn" data-size="1.5" title="얇게">
+                  <span class="size-indicator" style="width:3px; height:3px;"></span>
+                </button>
+                <button class="size-btn active" data-size="3" title="보통">
+                  <span class="size-indicator" style="width:6px; height:6px;"></span>
+                </button>
+                <button class="size-btn" data-size="7" title="두껍게">
+                  <span class="size-indicator" style="width:10px; height:10px;"></span>
+                </button>
+              </div>
+            </div>
+
+            <div class="paint-canvas-container" id="paint-canvas-wrapper">
+              <canvas id="paint-canvas"></canvas>
+            </div>
+
+            <div class="side-footer-status">
+              <span id="paint-save-indicator" class="save-status">💾 드로잉 자동 저장</span>
+              <span id="paint-mode-label" class="char-count">✏️ 펜 · 3px</span>
+            </div>
           </div>
         </div>
 
@@ -347,6 +419,7 @@
   <script src="data/skct_data.js"></script>
   <!-- Load App Logic -->
   <script src="training-core.js"></script>
+  <script src="paint.js"></script>
   <script src="training.js"></script>
 </body>
 </html>

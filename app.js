@@ -259,6 +259,11 @@
     // Notepad content
     updateNotepadView();
 
+    // Drawing canvas update
+    if (window.SKCTPaint && typeof window.SKCTPaint.onQuestionChange === 'function') {
+      window.SKCTPaint.onQuestionChange(q.id, currentQIndex + 1);
+    }
+
     // Review Mode status
     if (isReviewMode) {
       els.reviewStatusTag.style.display = 'block';

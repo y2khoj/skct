@@ -196,6 +196,7 @@
     $('omr-answered-count').textContent=questions().filter(q=>C.manual(q)?attempt(q).response:attempt(q).answer!=null).length;
     $('omr-total-count').textContent=block().ids.length;
     renderMemo();updateClock();
+    if(window.SKCTPaint&&typeof window.SKCTPaint.onQuestionChange==='function')window.SKCTPaint.onQuestionChange(q.id,session.index+1);
   }
   function move(index) {if(index<0||index>=block().ids.length)return;tick();if(session.review||running){session.index=index;attempt().visits++;renderQuestion();persist();}}
   function pick(value) {if(session.review||!running||C.manual(question()))return;tick();if(session.review)return;attempt().answer=value;attempt().deferred=false;renderQuestion();persist();}
