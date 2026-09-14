@@ -2,8 +2,15 @@
 (function (root) {
   'use strict';
   const manual = q => q.id.startsWith('math_');
-  const status = (q, a = {}) => manual(q) ? (a.manual || 'manual') :
-    a.answer == null ? 'unanswered' : a.answer === q.answer ? 'correct' : 'wrong';
+  const status = (q, a = {}) => {
+    if (manual(q)) return (a.manual || 'manual');
+    const subs = q.subQuestions && q.subQuestions.length ? q.subQuestions : [{ id: q.id, answer: q.answer }];
+    const answers = a.answers || (a.answer != null ? { [subs[0].id]: a.answer } : {});
+    const answeredCount = subs.filter(sq => answers[sq.id] != null).length;
+    if (answeredCount === 0) return 'unanswered';
+    const allCorrect = subs.every(sq => answers[sq.id] === sq.answer);
+    return allCorrect ? 'correct' : 'wrong';
+  };
   function summary(questions, attempts) {
     const out = {correct: 0, wrong: 0, unanswered: 0, manual: 0, slow: 0, recovered: 0, seconds: 0};
     questions.forEach(q => {

@@ -410,31 +410,68 @@ html, body {
 
 /* Question Footer (OMR Marking & Navigation) */
 #q-footer {
-  height: var(--footer-height);
+  min-height: var(--footer-height);
+  height: auto;
   background: rgba(15, 23, 42, 0.95);
   border-top: 1px solid var(--border-color);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 1.5rem;
+  padding: 0.65rem 1.25rem;
   z-index: 10;
+  gap: 1rem;
 }
 
 .omr-options-bar {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  flex-wrap: wrap;
+  gap: 0.6rem 0.85rem;
+  flex: 1;
+  max-width: calc(100% - 250px);
 }
 
-.omr-bar-title {
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: var(--text-muted);
+.omr-q-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(30, 41, 59, 0.6);
+  padding: 4px 8px;
+  border-radius: 9px;
+  border: 1.5px solid var(--border-color);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+}
+
+.omr-q-group:hover {
+  background: rgba(30, 41, 59, 0.85);
+  border-color: var(--border-light);
+}
+
+.omr-q-group.active {
+  border-color: #38bdf8;
+  background: rgba(14, 165, 233, 0.12);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+}
+
+.omr-q-badge {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #38bdf8;
+  min-width: 30px;
+  text-align: center;
+  letter-spacing: -0.2px;
+  cursor: pointer;
+}
+
+.omr-q-group.active .omr-q-badge {
+  color: #7dd3fc;
+  text-shadow: 0 0 8px rgba(56, 189, 248, 0.6);
 }
 
 .options-group {
   display: flex;
-  gap: 0.6rem;
+  gap: 0.35rem;
 }
 
 .opt-btn {
@@ -442,28 +479,29 @@ html, body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 52px;
-  height: 52px;
+  width: 44px;
+  height: 44px;
   background: var(--bg-card);
-  border: 2px solid var(--border-color);
-  border-radius: 10px;
+  border: 1.5px solid var(--border-color);
+  border-radius: 8px;
   color: var(--text-main);
   cursor: pointer;
   transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
+  padding: 0;
 }
 
 .opt-btn:hover {
-  border-color: var(--primary);
+  border-color: #38bdf8;
   background: var(--bg-card-hover);
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }
 
 .opt-btn.selected {
   background: linear-gradient(135deg, #2563eb, #1d4ed8);
   border-color: #60a5fa;
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
-  transform: translateY(-2px);
+  box-shadow: 0 3px 10px rgba(37, 99, 235, 0.45);
+  transform: translateY(-1px);
 }
 
 .opt-btn.selected .opt-num {
@@ -476,32 +514,57 @@ html, body {
 }
 
 .opt-num {
-  font-size: 1.3rem;
+  font-size: 1.15rem;
   font-weight: 700;
   line-height: 1;
 }
 
 .opt-key {
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   color: var(--text-dim);
-  margin-top: 2px;
+  margin-top: 1px;
 }
 
-.clear-ans-btn {
+.omr-sub-clear-btn {
   background: none;
-  border: 1px solid var(--border-color);
+  border: 1px solid transparent;
   color: var(--text-dim);
-  padding: 0.4rem 0.75rem;
-  border-radius: 6px;
-  font-size: 0.8rem;
+  border-radius: 4px;
+  padding: 2px 5px;
+  font-size: 0.72rem;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.15s;
 }
 
-.clear-ans-btn:hover {
+.omr-sub-clear-btn:hover:not(:disabled) {
   color: var(--danger);
-  border-color: var(--danger);
-  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.3);
+  background: rgba(239, 68, 68, 0.15);
+}
+
+.omr-sub-clear-btn:disabled {
+  opacity: 0.2;
+  cursor: default;
+}
+
+.sub-review-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.sub-review-badge.correct {
+  background: rgba(16, 185, 129, 0.2);
+  color: var(--success);
+  border: 1px solid var(--success);
+}
+
+.sub-review-badge.wrong {
+  background: rgba(239, 68, 68, 0.2);
+  color: var(--danger);
+  border: 1px solid var(--danger);
 }
 
 .q-nav-actions {

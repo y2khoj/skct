@@ -19,6 +19,7 @@
   let globalMemo = '';
   let activeMemoTab = 'question'; // 'question' | 'global'
   let memoFontSize = 14;
+  let activeSubQIndex = 0; // Active sub-question index on current page
 
   // Timer State
   let timerSeconds = 25 * 60;
@@ -54,6 +55,7 @@
     omrAnsweredCount: document.getElementById('omr-answered-count'),
     omrTotalCount: document.getElementById('omr-total-count'),
     submitExamBtn: document.getElementById('submit-exam-btn'),
+    examQuestionTime: document.getElementById('exam-question-time'),
 
     // Question
     qCategoryText: document.getElementById('q-category-text'),
@@ -71,6 +73,7 @@
     // OMR & Nav
     optBtns: document.querySelectorAll('.opt-btn'),
     clearAnsBtn: document.getElementById('clear-ans-btn'),
+    omrOptionsBar: document.getElementById('omr-options-bar') || document.querySelector('.omr-options-bar'),
     prevQBtn: document.getElementById('prev-q-btn'),
     nextQBtn: document.getElementById('next-q-btn'),
     viewSolBtn: document.getElementById('view-sol-btn'),
@@ -236,20 +239,16 @@
     els.currentQNum.textContent = String(currentQIndex + 1).padStart(2, '0');
     els.totalQNum.textContent = activeSection.questions.length;
     els.memoQNum.textContent = currentQIndex + 1;
-    els.qCategoryText.textContent = `${q.section} · ${q.category || ''}`;
+    els.qCategoryText.textContent = `${q.section} · ${q.q_label ? q.q_label + ' (' + (q.category || '') + ')' : q.category || ''}`;
 
     // Question Image
     els.questionImage.src = q.image;
 
-    // Update Answer selection
-    const chosen = userAnswers[q.id];
-    els.optBtns.forEach(btn => {
-      const val = parseInt(btn.getAttribute('data-val'), 10);
-      btn.classList.toggle('selected', chosen === val);
-    });
+    // Dynamic OMR Options rendering for all subQuestions on this page
+    renderOMROptions(q);
 
     // Flag status
-    const isFlagged = !!userFlags[q.id];
+    const isFlagged = !!(userFlags[q.id] || userFlags[q.page_id]);
     els.flagBtn.classList.toggle('active', isFlagged);
 
     // Nav buttons disabled state
@@ -267,11 +266,14 @@
     // Review Mode status
     if (isReviewMode) {
       els.reviewStatusTag.style.display = 'block';
-      const isCorrect = chosen === q.answer;
-      els.reviewStatusBadge.className = `badge-result ${isCorrect ? 'correct' : 'wrong'}`;
-      els.reviewStatusBadge.textContent = isCorrect
-        ? `✓ 정답 (선택: ${chosen}번)`
-        : `✕ 오답 (선택: ${chosen ? chosen + '번' : '미응답'} / 정답: ${q.answer}번)`;
+      const subQuestions = q.subQuestions && q.subQuestions.length ? q.subQuestions : [
+        { id: q.id, num: q.num, title: `${q.num}번`, answer: q.answer }
+      ];
+      const allCorrect = subQuestions.every(sq => userAnswers[sq.id] === sq.answer);
+      els.reviewStatusBadge.className = `badge-result ${allCorrect ? 'correct' : 'wrong'}`;
+      els.reviewStatusBadge.textContent = allCorrect
+        ? `✓ ${subQuestions.length > 1 ? '전체 정답' : '정답'}`
+        : `✕ ${subQuestions.length > 1 ? '오답 포함 (하단 확인)' : '오답'}`;
       els.viewSolBtn.style.display = 'inline-flex';
     } else {
       els.reviewStatusTag.style.display = 'none';
@@ -282,23 +284,140 @@
     updateQuestionClock();
   }
 
-  function pickAnswer(val) {
+  function renderOMROptions(q) {
+    if (!els.omrOptionsBar) return;
+    els.omrOptionsBar.innerHTML = '';
+
+    const subQuestions = q.subQuestions && q.subQuestions.length ? q.subQuestions : [
+      { id: q.id, num: q.num, title: `${q.num}번`, answer: q.answer }
+    ];
+
+    if (activeSubQIndex >= subQuestions.length) {
+      activeSubQIndex = 0;
+    }
+
+    const isMulti = subQuestions.length > 1;
+
+    subQuestions.forEach((subQ, idx) => {
+      const chosen = userAnswers[subQ.id];
+      const isSubActive = (idx === activeSubQIndex);
+      const isAnswered = chosen !== undefined;
+
+      const group = document.createElement('div');
+      group.className = `omr-q-group ${isSubActive ? 'active' : ''}`;
+      group.dataset.subIdx = idx;
+      group.dataset.qid = subQ.id;
+
+      let reviewBadgeHtml = '';
+      if (isReviewMode) {
+        const isCorrect = chosen === subQ.answer;
+        reviewBadgeHtml = `
+          <span class="sub-review-badge ${isCorrect ? 'correct' : 'wrong'}">
+            ${isCorrect ? `✓ 정답 (${chosen}번)` : `✕ 정답 ${subQ.answer}번 (선택: ${chosen ? chosen + '번' : '미응답'})`}
+          </span>
+        `;
+      }
+
+      group.innerHTML = `
+        <span class="omr-q-badge" title="${subQ.title} (클릭하여 선택)">${subQ.title}</span>
+        <div class="options-group">
+          ${[1, 2, 3, 4, 5].map(val => `
+            <button type="button" class="opt-btn ${chosen === val ? 'selected' : ''}" data-qid="${subQ.id}" data-val="${val}" title="${val}번 마킹">
+              <span class="opt-num">${['①', '②', '③', '④', '⑤'][val - 1]}</span>
+              ${!isMulti ? `<span class="opt-key">키 ${val}</span>` : ''}
+            </button>
+          `).join('')}
+        </div>
+        <button type="button" class="omr-sub-clear-btn" data-qid="${subQ.id}" title="${subQ.title} 선택 취소" ${!isAnswered ? 'disabled' : ''}>✕</button>
+        ${reviewBadgeHtml}
+      `;
+
+      // Click group to set active
+      group.addEventListener('click', (e) => {
+        if (e.target.closest('.opt-btn') || e.target.closest('.omr-sub-clear-btn')) return;
+        activeSubQIndex = idx;
+        updateActiveSubQHighlight();
+      });
+
+      // Click option button
+      group.querySelectorAll('.opt-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          if (isReviewMode) return;
+          const val = parseInt(btn.getAttribute('data-val'), 10);
+          activeSubQIndex = idx;
+          pickAnswer(val, subQ.id);
+        });
+      });
+
+      // Clear button
+      const clearBtn = group.querySelector('.omr-sub-clear-btn');
+      if (clearBtn) {
+        clearBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          if (isReviewMode) return;
+          activeSubQIndex = idx;
+          clearAnswer(subQ.id);
+        });
+      }
+
+      els.omrOptionsBar.appendChild(group);
+    });
+  }
+
+  function updateActiveSubQHighlight() {
+    if (!els.omrOptionsBar) return;
+    const groups = els.omrOptionsBar.querySelectorAll('.omr-q-group');
+    groups.forEach((g, idx) => {
+      g.classList.toggle('active', idx === activeSubQIndex);
+    });
+  }
+
+  function pickAnswer(val, targetQId) {
     if (!activeSection || isReviewMode) return;
     const q = activeSection.questions[currentQIndex];
     if (!q) return;
 
-    userAnswers[q.id] = val;
+    const subQuestions = q.subQuestions && q.subQuestions.length ? q.subQuestions : [
+      { id: q.id, num: q.num, title: `${q.num}번`, answer: q.answer }
+    ];
+
+    let qid = targetQId;
+    if (!qid) {
+      if (activeSubQIndex < 0 || activeSubQIndex >= subQuestions.length) {
+        activeSubQIndex = 0;
+      }
+      qid = subQuestions[activeSubQIndex].id;
+      // If multiple sub-questions on this page, advance to next
+      if (activeSubQIndex < subQuestions.length - 1) {
+        activeSubQIndex++;
+      }
+    }
+
+    userAnswers[qid] = val;
     savePersistence();
     renderQuestion();
     updateOMRDrawer();
   }
 
-  function clearAnswer() {
+  function clearAnswer(targetQId) {
     if (!activeSection || isReviewMode) return;
     const q = activeSection.questions[currentQIndex];
     if (!q) return;
 
-    delete userAnswers[q.id];
+    const subQuestions = q.subQuestions && q.subQuestions.length ? q.subQuestions : [
+      { id: q.id, num: q.num, title: `${q.num}번`, answer: q.answer }
+    ];
+
+    let qid = targetQId;
+    if (!qid) {
+      if (activeSubQIndex < 0 || activeSubQIndex >= subQuestions.length) {
+        activeSubQIndex = 0;
+      }
+      qid = subQuestions[activeSubQIndex].id;
+    }
+
+    delete userAnswers[qid];
     savePersistence();
     renderQuestion();
     updateOMRDrawer();
@@ -319,6 +438,7 @@
     accrueTime();
     if (currentQIndex < activeSection.questions.length - 1) {
       currentQIndex++;
+      activeSubQIndex = 0;
       renderQuestion();
       els.qViewport.scrollTop = 0;
     }
@@ -328,15 +448,17 @@
     accrueTime();
     if (currentQIndex > 0) {
       currentQIndex--;
+      activeSubQIndex = 0;
       renderQuestion();
       els.qViewport.scrollTop = 0;
     }
   }
 
-  function jumpToQuestion(idx) {
+  function jumpToQuestion(idx, subIdx = 0) {
     accrueTime();
     if (idx >= 0 && idx < activeSection.questions.length) {
       currentQIndex = idx;
+      activeSubQIndex = subIdx || 0;
       renderQuestion();
       els.qViewport.scrollTop = 0;
     }
@@ -461,40 +583,54 @@
   function updateOMRCount() {
     if (!activeSection) return;
     let answered = 0;
-    activeSection.questions.forEach(q => {
-      if (userAnswers[q.id] !== undefined) answered++;
+    let total = 0;
+
+    activeSection.questions.forEach(pageQ => {
+      const subQuestions = pageQ.subQuestions && pageQ.subQuestions.length ? pageQ.subQuestions : [
+        { id: pageQ.id, num: pageQ.num, title: `${pageQ.num}번`, answer: pageQ.answer }
+      ];
+      total += subQuestions.length;
+      subQuestions.forEach(sq => {
+        if (userAnswers[sq.id] !== undefined) answered++;
+      });
     });
 
     els.omrAnsweredCount.textContent = answered;
-    els.omrTotalCount.textContent = activeSection.questions.length;
+    els.omrTotalCount.textContent = total;
   }
 
   function updateOMRDrawer() {
     if (!activeSection) return;
     els.omrGrid.innerHTML = '';
 
-    activeSection.questions.forEach((q, idx) => {
-      const item = document.createElement('div');
-      item.className = 'omr-item';
-      if (idx === currentQIndex) item.classList.add('current');
-      if (userFlags[q.id]) item.classList.add('flagged');
+    activeSection.questions.forEach((pageQ, pageIdx) => {
+      const subQuestions = pageQ.subQuestions && pageQ.subQuestions.length ? pageQ.subQuestions : [
+        { id: pageQ.id, num: pageQ.num, title: `${pageQ.num}번`, answer: pageQ.answer }
+      ];
 
-      const ans = userAnswers[q.id];
-      if (ans !== undefined) {
-        item.classList.add('answered');
-      }
+      subQuestions.forEach((sq, sIdx) => {
+        const item = document.createElement('div');
+        item.className = 'omr-item';
+        if (pageIdx === currentQIndex && sIdx === activeSubQIndex) item.classList.add('current');
+        if (userFlags[pageQ.id] || userFlags[sq.id]) item.classList.add('flagged');
 
-      item.innerHTML = `
-        <span class="omr-item-num">${idx + 1}</span>
-        <span class="omr-item-ans">${ans ? `[${ans}]` : '-'}</span>
-      `;
+        const ans = userAnswers[sq.id];
+        if (ans !== undefined) {
+          item.classList.add('answered');
+        }
 
-      item.addEventListener('click', () => {
-        jumpToQuestion(idx);
-        els.omrDrawer.classList.remove('open');
+        item.innerHTML = `
+          <span class="omr-item-num">${sq.title}</span>
+          <span class="omr-item-ans">${ans ? `[${ans}]` : '-'}</span>
+        `;
+
+        item.addEventListener('click', () => {
+          jumpToQuestion(pageIdx, sIdx);
+          els.omrDrawer.classList.remove('open');
+        });
+
+        els.omrGrid.appendChild(item);
       });
-
-      els.omrGrid.appendChild(item);
     });
   }
 
@@ -685,23 +821,29 @@
     if (!activeSection) return;
     pauseTimer();
 
-    let total = activeSection.questions.length;
+    let total = 0;
     let correct = 0;
     let wrong = 0;
     let unanswered = 0;
 
-    activeSection.questions.forEach(q => {
-      const chosen = userAnswers[q.id];
-      if (chosen === undefined) {
-        unanswered++;
-      } else if (chosen === q.answer) {
-        correct++;
-      } else {
-        wrong++;
-      }
+    activeSection.questions.forEach(p => {
+      const subQuestions = p.subQuestions && p.subQuestions.length ? p.subQuestions : [
+        { id: p.id, num: p.num, title: `${p.num}번`, answer: p.answer }
+      ];
+      total += subQuestions.length;
+      subQuestions.forEach(sq => {
+        const chosen = userAnswers[sq.id];
+        if (chosen === undefined) {
+          unanswered++;
+        } else if (chosen === sq.answer) {
+          correct++;
+        } else {
+          wrong++;
+        }
+      });
     });
 
-    const score = Math.round((correct / total) * 100);
+    const score = total > 0 ? Math.round((correct / total) * 100) : 0;
     const answeredCount = correct + wrong;
     const accuracy = answeredCount > 0 ? ((correct / answeredCount) * 100).toFixed(1) + '%' : '0.0%';
 
@@ -728,45 +870,53 @@
   function renderScoreReviewGrid(filter = 'all') {
     els.scoreReviewGrid.innerHTML = '';
 
-    activeSection.questions.forEach((q, idx) => {
-      const chosen = userAnswers[q.id];
-      const isFlagged = !!userFlags[q.id];
-      let status = 'unanswered';
-      let icon = '－';
+    activeSection.questions.forEach((p, pageIdx) => {
+      const subQuestions = p.subQuestions && p.subQuestions.length ? p.subQuestions : [
+        { id: p.id, num: p.num, title: `${p.num}번`, answer: p.answer }
+      ];
 
-      if (chosen !== undefined) {
-        if (chosen === q.answer) {
-          status = 'correct';
-          icon = '✓';
-        } else {
-          status = 'wrong';
-          icon = '✕';
+      subQuestions.forEach((sq, sIdx) => {
+        const chosen = userAnswers[sq.id];
+        const isFlagged = !!(userFlags[p.id] || userFlags[sq.id]);
+        let status = 'unanswered';
+        let icon = '－';
+
+        if (chosen !== undefined) {
+          if (chosen === sq.answer) {
+            status = 'correct';
+            icon = '✓';
+          } else {
+            status = 'wrong';
+            icon = '✕';
+          }
         }
-      }
 
-      if (filter === 'wrong' && status !== 'wrong') return;
-      if (filter === 'flagged' && !isFlagged) return;
+        if (filter === 'wrong' && status !== 'wrong') return;
+        if (filter === 'correct' && status !== 'correct') return;
+        if (filter === 'unanswered' && status !== 'unanswered') return;
+        if (filter === 'flagged' && !isFlagged) return;
 
-      const card = document.createElement('div');
-      card.className = `res-q-card ${status}`;
-      card.innerHTML = `
-        <div class="res-q-header">
-          <span>문제 ${idx + 1}</span>
-          <span class="res-status-icon">${icon}</span>
-        </div>
-        <div class="res-q-answers">
-          <span>선택: ${chosen ? chosen + '번' : '-'}</span>
-          <span>정답: ${q.answer}번</span>
-        </div>
-        <div class="res-q-time">누적 풀이 ${formatQuestionTime(questionTimes[q.id])}</div>
-      `;
+        const card = document.createElement('div');
+        card.className = `res-q-card ${status}`;
+        card.innerHTML = `
+          <div class="res-q-header">
+            <span>${sq.title}</span>
+            <span class="res-status-icon">${icon}</span>
+          </div>
+          <div class="res-q-answers">
+            <span>선택: ${chosen ? chosen + '번' : '-'}</span>
+            <span>정답: ${sq.answer}번</span>
+          </div>
+          <div class="res-q-time">${p.section} · ${p.page ? `P.${p.page}` : ''}</div>
+        `;
 
-      card.addEventListener('click', () => {
-        els.scoreModal.classList.remove('open');
-        jumpToQuestion(idx);
+        card.addEventListener('click', () => {
+          els.scoreModal.classList.remove('open');
+          jumpToQuestion(pageIdx, sIdx);
+        });
+
+        els.scoreReviewGrid.appendChild(card);
       });
-
-      els.scoreReviewGrid.appendChild(card);
     });
   }
 
@@ -775,8 +925,14 @@
     const q = activeSection.questions[currentQIndex];
     if (!q) return;
 
+    const subQuestions = q.subQuestions && q.subQuestions.length ? q.subQuestions : [
+      { id: q.id, num: q.num, title: `${q.num}번`, answer: q.answer }
+    ];
+
+    const ansSummary = subQuestions.map(sq => `${sq.title}: ${sq.answer}번`).join(' | ');
+
     els.solModalTitle.textContent = `📖 ${q.title} 상세 해설`;
-    els.solCorrectNum.textContent = `정답 ${q.answer}번`;
+    els.solCorrectNum.textContent = `정답 [${ansSummary}]`;
     els.solCategoryName.textContent = `${q.section} (${q.category || ''})`;
 
     if (q.solution_image) {
@@ -836,8 +992,13 @@
     // Submit
     els.submitExamBtn.addEventListener('click', () => {
       let unansweredCount = 0;
-      activeSection.questions.forEach(q => {
-        if (userAnswers[q.id] === undefined) unansweredCount++;
+      activeSection.questions.forEach(p => {
+        const subQuestions = p.subQuestions && p.subQuestions.length ? p.subQuestions : [
+          { id: p.id, num: p.num, title: `${p.num}번`, answer: p.answer }
+        ];
+        subQuestions.forEach(sq => {
+          if (userAnswers[sq.id] === undefined) unansweredCount++;
+        });
       });
 
       let msg = '시험을 제출하고 자동 채점을 진행하시겠습니까?';
@@ -932,39 +1093,38 @@
               calcClear(true);
               break;
             case 'ce':
-              calcClear(false);
+              calcClearEntry();
               break;
             case 'backspace':
               calcBackspace();
+              break;
+            case 'sign':
+            case 'reciprocal':
+            case 'sq':
+            case 'sqrt':
+            case 'pct':
+              calcSpecial(action);
               break;
             case 'mc':
             case 'mr':
             case 'm-plus':
             case 'm-minus':
-              calcMemoryOp(action);
-              break;
-            case 'sqr':
-            case 'sqrt':
-            case 'recip':
-            case 'neg':
-            case 'pct':
-              calcSpecial(action);
+              calcMemAction(action);
               break;
           }
         }
       });
     });
 
+    // Calculator History Drawer
     els.calcHistoryToggle.addEventListener('click', () => {
       els.calcHistoryDrawer.classList.toggle('open');
     });
 
     els.calcClearHistory.addEventListener('click', () => {
-      if (confirm('계산 기록을 모두 삭제하시겠습니까?')) {
-        calcHistory = [];
-        savePersistence();
-        renderCalcHistory();
-      }
+      calcHistory = [];
+      savePersistence();
+      renderCalcHistory();
     });
 
     // Score Modal Filters & Actions
@@ -988,10 +1148,16 @@
 
     els.btnRetryExam.addEventListener('click', () => {
       if (confirm('기존 답안을 모두 초기화하고 처음부터 다시 응시하시겠습니까?')) {
-        activeSection.questions.forEach(q => {
-          delete userAnswers[q.id];
-          delete userFlags[q.id];
-          delete questionTimes[q.id];
+        activeSection.questions.forEach(p => {
+          delete userFlags[p.id];
+          delete questionTimes[p.id];
+          const subQuestions = p.subQuestions && p.subQuestions.length ? p.subQuestions : [
+            { id: p.id }
+          ];
+          subQuestions.forEach(sq => {
+            delete userAnswers[sq.id];
+            delete userFlags[sq.id];
+          });
         });
         savePersistence();
         isReviewMode = false;
@@ -1047,56 +1213,49 @@
         return;
       }
 
-      // 1. Numeric Keypad (숫자패드: Numpad0~Numpad9, NumpadDecimal, NumpadAdd, NumpadSubtract, NumpadMultiply, NumpadDivide, NumpadEnter)
+      // 1. Numeric Keypad
       if (e.code && e.code.startsWith('Numpad')) {
         e.preventDefault();
-
-        // Numpad Digits (Numpad0 ~ Numpad9)
-        if (/^Numpad[0-9]$/.test(e.code)) {
-          const digit = e.code.replace('Numpad', '');
+        const k = e.code;
+        if (k >= 'Numpad0' && k <= 'Numpad9') {
+          const digit = k.replace('Numpad', '');
           calcInputDigit(digit);
           highlightCalcKey(`data-val="${digit}"`);
           return;
         }
-
-        // Numpad Decimal
-        if (e.code === 'NumpadDecimal') {
+        if (k === 'NumpadDecimal') {
           calcInputDecimal();
           highlightCalcKey('data-val="."');
           return;
         }
-
-        // Numpad Operators (+ - * /)
-        if (e.code === 'NumpadAdd') {
+        if (k === 'NumpadAdd') {
           calcPerformOp('add');
           highlightCalcKey('data-action="add"');
           return;
         }
-        if (e.code === 'NumpadSubtract') {
+        if (k === 'NumpadSubtract') {
           calcPerformOp('sub');
           highlightCalcKey('data-action="sub"');
           return;
         }
-        if (e.code === 'NumpadMultiply') {
+        if (k === 'NumpadMultiply') {
           calcPerformOp('mult');
           highlightCalcKey('data-action="mult"');
           return;
         }
-        if (e.code === 'NumpadDivide') {
+        if (k === 'NumpadDivide') {
           calcPerformOp('div');
           highlightCalcKey('data-action="div"');
           return;
         }
-
-        // Numpad Enter -> Calculate & Show Result!
-        if (e.code === 'NumpadEnter') {
+        if (k === 'NumpadEnter') {
           calcEvaluate();
           highlightCalcKey('data-action="equals"');
           return;
         }
       }
 
-      // 2. Math operators (+, -, *, /, %) or Enter / Equal (from main keyboard or numpad)
+      // 2. Standard Keyboard operators
       if (e.key === '+' || e.key === 'Add') {
         e.preventDefault();
         calcPerformOp('add');
@@ -1167,6 +1326,38 @@
       }
 
       // 4. Question Screen Hotkeys (when calculator is NOT specifically focused)
+      // Tab or Shift+Tab: cycle sub-questions on the current page
+      if (e.key === 'Tab') {
+        const q = activeSection?.questions[currentQIndex];
+        const subLen = q?.subQuestions?.length || 1;
+        if (subLen > 1) {
+          e.preventDefault();
+          if (e.shiftKey) {
+            activeSubQIndex = (activeSubQIndex - 1 + subLen) % subLen;
+          } else {
+            activeSubQIndex = (activeSubQIndex + 1) % subLen;
+          }
+          updateActiveSubQHighlight();
+          return;
+        }
+      }
+
+      // ArrowUp / ArrowDown: cycle sub-questions on the current page
+      if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+        const q = activeSection?.questions[currentQIndex];
+        const subLen = q?.subQuestions?.length || 1;
+        if (subLen > 1) {
+          e.preventDefault();
+          if (e.key === 'ArrowUp') {
+            activeSubQIndex = (activeSubQIndex - 1 + subLen) % subLen;
+          } else {
+            activeSubQIndex = (activeSubQIndex + 1) % subLen;
+          }
+          updateActiveSubQHighlight();
+          return;
+        }
+      }
+
       // Top-row numbers 1 ~ 5 for question answer marking
       if (['Digit1', 'Digit2', 'Digit3', 'Digit4', 'Digit5'].includes(e.code)) {
         e.preventDefault();

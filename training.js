@@ -169,6 +169,57 @@
     $('coach').classList.toggle('is-late',late);
     $('coach-message').textContent=session.review?'해설을 대조하고 다음 시도에서 바꿀 행동을 기록하세요.':C.manual(question())?'계산연습은 한 페이지에 여러 문제입니다. 페이지 시간을 기록합니다.':a.seconds>45?'45초를 넘겼어요. 계속 풀지, 보류할지 결정하세요.':late?'풀이 방향이 보이나요? 안 보이면 보류하고 다음 문제로.':'조건 확인 → 풀이 방향 판단 → 확실한 답 마킹';
   }
+  let activeSubIdx = 0;
+  function renderTrainingOMROptions(q, a) {
+    const bar = $('omr-options-bar') || document.querySelector('.omr-options-bar');
+    if (!bar) return;
+    bar.replaceChildren();
+    const subs = q.subQuestions && q.subQuestions.length ? q.subQuestions : [{ id: q.id, num: q.num, title: `${q.num}번`, answer: q.answer }];
+    if (activeSubIdx >= subs.length) activeSubIdx = 0;
+    a.answers ||= {};
+    if (a.answer != null && a.answers[subs[0].id] == null) a.answers[subs[0].id] = a.answer;
+
+    subs.forEach((subQ, idx) => {
+      const group = el('div', `omr-q-group ${idx === activeSubIdx ? 'active' : ''}`);
+      if (subs.length > 1) {
+        const badge = el('span', 'omr-q-badge', `[${subQ.title || (subQ.num + '번')}]`);
+        badge.style.cursor = 'pointer';
+        badge.addEventListener('click', () => { activeSubIdx = idx; renderQuestion(); });
+        group.append(badge);
+      }
+      if (session.review) {
+        const chosen = a.answers[subQ.id];
+        const isCorrect = chosen === subQ.answer;
+        const reviewBadge = el('span', `sub-review-badge ${isCorrect ? 'correct' : 'wrong'}`,
+          isCorrect ? `✓ 정답 (${chosen}번)` : `✕ 정답 ${subQ.answer}번 (${chosen ? chosen + '번' : '미응답'})`
+        );
+        group.append(reviewBadge);
+      }
+      const optGroup = el('div', 'options-group');
+      [1, 2, 3, 4, 5].forEach(val => {
+        const btn = el('button', `opt-btn ${a.answers[subQ.id] === val ? 'selected' : ''}`);
+        btn.disabled = session.review;
+        btn.append(el('span', 'opt-num', ['①','②','③','④','⑤'][val - 1]));
+        btn.append(el('span', 'opt-key', `키 ${val}`));
+        btn.addEventListener('click', () => {
+          activeSubIdx = idx;
+          pickSub(subQ.id, val);
+        });
+        optGroup.append(btn);
+      });
+      const clearBtn = el('button', 'omr-sub-clear-btn', '✕');
+      clearBtn.disabled = session.review;
+      clearBtn.title = `${subQ.title || (subQ.num + '번')} 답안 취소`;
+      clearBtn.addEventListener('click', () => {
+        delete a.answers[subQ.id];
+        if (subs[0].id === subQ.id) delete a.answer;
+        renderQuestion();
+        persist();
+      });
+      group.append(optGroup, clearBtn);
+      bar.append(group);
+    });
+  }
   function renderQuestion() {
     const q=question(),a=attempt(),isManual=C.manual(q);
     $('session-label').textContent=`${labels[session.mode]} · ${session.block+1}/${session.blocks.length}영역`;
@@ -176,16 +227,22 @@
     $('q-category-text').textContent=`${q.section} · 원본 ${q.num}${isManual?'페이지':'번'} · ${q.category}`;
     if($('question-image').getAttribute('src')!==q.image){$('question-image').src=q.image;$('q-viewport').scrollTop=0;}
     $('question-image').alt=q.title;
-    document.querySelectorAll('.opt-btn').forEach(b=>{b.classList.toggle('selected',Number(b.dataset.val)===a.answer);b.disabled=session.review;});
-    document.querySelector('.omr-options-bar').hidden=isManual;$('manual-answer').hidden=!isManual;
+    renderTrainingOMROptions(q, a);
+    const bar = $('omr-options-bar') || document.querySelector('.omr-options-bar');
+    if(bar) bar.hidden = isManual;
+    $('manual-answer').hidden=!isManual;
     $('manual-response').value=a.response||'';$('manual-response').disabled=session.review;
     $('manual-done').hidden=$('manual-retry').hidden=!session.review;
     $('manual-help').textContent=a.manual==='done'?'해설 대조 완료':a.manual==='retry'?'다시 연습할 페이지':'여러 문제를 담은 페이지 · 자동 채점 제외';
-    $('clear-ans-btn').disabled=session.review;
     $('prev-q-btn').disabled=session.index===0;$('next-q-btn').disabled=session.index===block().ids.length-1;
     $('flag-btn').classList.toggle('active',!!a.flagged);
     $('review-status-tag').style.display=session.review?'block':'none';
-    $('review-status-badge').textContent=isManual?'페이지 직접 점검':`${statusLabels[C.status(q,a)]} · 선택 ${a.answer||'—'} / 정답 ${q.answer}`;
+    const subs = q.subQuestions && q.subQuestions.length ? q.subQuestions : [{ id: q.id, num: q.num, title: `${q.num}번`, answer: q.answer }];
+    const st = C.status(q, a);
+    let stText = isManual ? '페이지 직접 점검' :
+      subs.length === 1 ? `${statusLabels[st]} · 선택 ${a.answers?.[subs[0].id] || a.answer || '—'} / 정답 ${subs[0].answer}` :
+      `${statusLabels[st]} · ` + subs.map(sq => `${sq.title || (sq.num + '번')}: ${a.answers?.[sq.id] || '—'}(정답 ${sq.answer})`).join(', ');
+    $('review-status-badge').textContent = stText;
     $('view-sol-btn').style.display=session.review?'inline-flex':'none';
     $('review-form').hidden=!session.review;
     $('review-reason').value=a.reason||'';$('review-rule').value=a.rule||'';
@@ -193,13 +250,34 @@
     $('timer-toggle-btn').disabled=session.review;
     $('pause-cover').hidden=session.review||running;
     $('recover-questions').textContent=`보류 회수 (${block().ids.filter(id=>session.attempts[id]?.deferred).length})`;
-    $('omr-answered-count').textContent=questions().filter(q=>C.manual(q)?attempt(q).response:attempt(q).answer!=null).length;
+    $('omr-answered-count').textContent=questions().filter(item=>{
+      if(C.manual(item)) return attempt(item).response;
+      const sbs = item.subQuestions && item.subQuestions.length ? item.subQuestions : [{ id: item.id }];
+      const ans = attempt(item).answers || (attempt(item).answer != null ? { [sbs[0].id]: attempt(item).answer } : {});
+      return sbs.some(sq => ans[sq.id] != null);
+    }).length;
     $('omr-total-count').textContent=block().ids.length;
     renderMemo();updateClock();
     if(window.SKCTPaint&&typeof window.SKCTPaint.onQuestionChange==='function')window.SKCTPaint.onQuestionChange(q.id,session.index+1);
   }
-  function move(index) {if(index<0||index>=block().ids.length)return;tick();if(session.review||running){session.index=index;attempt().visits++;renderQuestion();persist();}}
-  function pick(value) {if(session.review||!running||C.manual(question()))return;tick();if(session.review)return;attempt().answer=value;attempt().deferred=false;renderQuestion();persist();}
+  function move(index) {if(index<0||index>=block().ids.length)return;tick();if(session.review||running){session.index=index;activeSubIdx=0;attempt().visits++;renderQuestion();persist();}}
+  function pick(value) {
+    const subs = question().subQuestions || [{ id: question().id }];
+    const target = subs[activeSubIdx] || subs[0];
+    pickSub(target.id, value);
+  }
+  function pickSub(qid, value) {
+    if(session.review||!running||C.manual(question()))return;
+    tick();if(session.review)return;
+    const a = attempt();
+    a.answers ||= {};
+    a.answers[qid] = value;
+    const subs = question().subQuestions || [{ id: question().id }];
+    if(subs[0].id === qid) a.answer = value;
+    a.deferred = false;
+    renderQuestion();
+    persist();
+  }
   function skip() {if(session.review||!running)return;tick();if(session.review)return;attempt().deferred=true;attempt().skipped=true;persist();if(session.index<block().ids.length-1)move(session.index+1);else{renderQuestion();$('coach-message').textContent='마지막 문제입니다. 보류 회수로 돌아가거나 제출하세요.';}}
   function recover() {const ids=block().ids;const idx=ids.findIndex((id,i)=>i>session.index&&session.attempts[id]?.deferred);const first=ids.findIndex(id=>session.attempts[id]?.deferred);if(first>=0)move(idx>=0?idx:first);else $('coach-message').textContent='남은 보류 문제가 없습니다.';}
   function renderMemo() {
@@ -210,7 +288,21 @@
   function saveMemo(){if(memoTab==='global')db.globalMemo=$('notepad-textarea').value;else attempt().memo=$('notepad-textarea').value;persist();$('notepad-char-count').textContent=$('notepad-textarea').value.length+'자';$('notepad-save-indicator').textContent=storageFailed?'저장 실패 · 백업 권장':'자동 저장됨';}
   function renderOMR() {
     $('omr-grid').replaceChildren();questions().forEach((q,i)=>{
-      const a=attempt(q),b=el('button',`omr-item ${i===session.index?'current':''} ${a.answer!=null||a.response?'answered':''} ${a.deferred||a.flagged?'flagged':''}`,`${i+1} · ${a.answer|| (a.response?'작성':a.deferred?'보류':'—')}`);
+      const a=attempt(q);
+      const subs = q.subQuestions && q.subQuestions.length ? q.subQuestions : [{ id: q.id, num: q.num, title: `${q.num}번` }];
+      a.answers ||= {};
+      if(a.answer != null && a.answers[subs[0].id] == null) a.answers[subs[0].id] = a.answer;
+      const hasAnswers = subs.some(sq => a.answers[sq.id] != null) || a.response;
+      let text = `${i+1} · `;
+      if (C.manual(q)) {
+        text += a.response ? '작성' : '—';
+      } else if (subs.length === 1) {
+        text += a.answers[subs[0].id] || (a.deferred ? '보류' : '—');
+      } else {
+        const subStr = subs.map(sq => a.answers[sq.id] ? `${sq.num}번:${a.answers[sq.id]}` : `${sq.num}번:—`).join(' ');
+        text += subStr || (a.deferred ? '보류' : '—');
+      }
+      const b=el('button',`omr-item ${i===session.index?'current':''} ${hasAnswers?'answered':''} ${a.deferred||a.flagged?'flagged':''}`, text);
       b.addEventListener('click',()=>{move(i);$('omr-drawer').classList.remove('open');});$('omr-grid').append(b);
     });
   }
@@ -248,8 +340,17 @@
     questions().forEach((q,i)=>{
       const a=attempt(q),status=C.status(q,a);
       if(filter==='wrong'&&status!=='wrong'||filter==='unanswered'&&status!=='unanswered'||filter==='flagged'&&!a.flagged||filter==='slow'&&(C.manual(q)||a.seconds<=45))return;
+      const subs = q.subQuestions && q.subQuestions.length ? q.subQuestions : [{ id: q.id, num: q.num, title: `${q.num}번`, answer: q.answer }];
       const b=el('button',`res-q-card ${status}`);
-      b.append(el('b','',`${i+1} · ${statusLabels[status]}`),el('small','',C.manual(q)?'원본 '+q.num+'페이지':`선택 ${a.answer||'—'} / 정답 ${q.answer}`),el('small','',`${fmt(a.seconds)}${a.skipped?' · 보류 이력':''}${a.reason?' · '+a.reason:''}`));
+      let ansText = '';
+      if (C.manual(q)) {
+        ansText = '원본 '+q.num+'페이지';
+      } else if (subs.length === 1) {
+        ansText = `선택 ${a.answers?.[subs[0].id] || a.answer || '—'} / 정답 ${subs[0].answer}`;
+      } else {
+        ansText = subs.map(sq => `${sq.num}번:${a.answers?.[sq.id] || '—'}(답:${sq.answer})`).join(' ');
+      }
+      b.append(el('b','',`${i+1} · ${statusLabels[status]}`),el('small','',ansText),el('small','',`${fmt(a.seconds)}${a.skipped?' · 보류 이력':''}${a.reason?' · '+a.reason:''}`));
       b.addEventListener('click',()=>{$('score-modal').classList.remove('open');move(i);});$('score-review-grid').append(b);
     });
     if(!$('score-review-grid').children.length)$('score-review-grid').append(el('p','muted','해당하는 문항이 없습니다.'));
@@ -261,7 +362,15 @@
     persist();
   }
   function solution() {
-    if(!session.review)return;const q=question();$('sol-modal-title').textContent=q.title+' · 해설';$('sol-correct-num').textContent=C.manual(q)?'페이지별 해설 대조':q.answer+'번';$('sol-category-name').textContent=q.section;$('solution-image').src=q.solution_image;$('solution-modal').classList.add('open');
+    if(!session.review)return;
+    const q=question();
+    const subs = q.subQuestions && q.subQuestions.length ? q.subQuestions : [{ answer: q.answer }];
+    const ansStr = subs.length > 1 ? subs.map(s => `${s.num}번: ${s.answer}번`).join(', ') : `${q.answer}번`;
+    $('sol-modal-title').textContent=q.title+' · 해설';
+    $('sol-correct-num').textContent=C.manual(q)?'페이지별 해설 대조':ansStr;
+    $('sol-category-name').textContent=q.section;
+    $('solution-image').src=q.solution_image;
+    $('solution-modal').classList.add('open');
   }
   function home() {if(session&&!session.review)pause();else running=false;persist();session=null;document.querySelectorAll('.modal-overlay').forEach(n=>n.classList.remove('open'));renderHome();}
   function setZoom(n){zoom=Math.max(.5,Math.min(2.5,n));$('q-image-container').style.transform='none';$('q-image-container').style.width=zoom*100+'%';$('q-image-container').style.maxWidth=900*zoom+'px';$('zoom-level-text').textContent=Math.round(zoom*100)+'%';}
@@ -272,7 +381,7 @@
     on('timer-toggle-btn',()=>running?pause():startClock());on('resume-timer',startClock);
     on('prev-q-btn',()=>move(session.index-1));on('next-q-btn',()=>move(session.index+1));on('skip-question',skip);on('recover-questions',recover);
     document.querySelectorAll('.opt-btn').forEach(b=>b.addEventListener('click',()=>pick(Number(b.dataset.val))));
-    on('clear-ans-btn',()=>{if(!session.review&&running){delete attempt().answer;renderQuestion();persist();}});
+    if($('clear-ans-btn'))on('clear-ans-btn',()=>{if(!session.review&&running){delete attempt().answer;renderQuestion();persist();}});
     on('flag-btn',()=>{attempt().flagged=!attempt().flagged;renderQuestion();if(session.review)updateReview();else persist();});
     on('manual-response',()=>{attempt().response=$('manual-response').value;persist();},'input');
     on('manual-done',()=>{attempt().manual='done';updateReview();renderQuestion();});on('manual-retry',()=>{attempt().manual='retry';updateReview();renderQuestion();});
@@ -306,7 +415,31 @@
       if(e.key==='Escape'){if(running)pause();return;}
       if(!running&&!session.review)return;
       if(session.calc&&handleCalcKey(e))return;
-      if(/^Digit[1-5]$/.test(e.code)){e.preventDefault();pick(Number(e.code.slice(-1)));}
+      if(/^Digit[1-5]$/.test(e.code)){
+        e.preventDefault();
+        const val=Number(e.code.slice(-1));
+        const subs=question().subQuestions||[{id:question().id}];
+        const subQ=subs[activeSubIdx]||subs[0];
+        pickSub(subQ.id, val);
+        if(activeSubIdx<subs.length-1){activeSubIdx++;renderQuestion();}
+      }
+      else if(e.key==='Tab'){
+        const subs=question().subQuestions||[];
+        if(subs.length>1){e.preventDefault();activeSubIdx=(activeSubIdx+(e.shiftKey?-1:1)+subs.length)%subs.length;renderQuestion();}
+      }
+      else if(e.key==='ArrowUp'||e.key==='ArrowDown'){
+        const subs=question().subQuestions||[];
+        if(subs.length>1){e.preventDefault();activeSubIdx=(activeSubIdx+(e.key==='ArrowDown'?1:-1)+subs.length)%subs.length;renderQuestion();}
+      }
+      else if(e.code==='Space'||e.key==='Delete'){
+        e.preventDefault();
+        const subs=question().subQuestions||[{id:question().id}];
+        const subQ=subs[activeSubIdx]||subs[0];
+        const a=attempt();
+        if(a.answers)delete a.answers[subQ.id];
+        if(subs[0].id===subQ.id)delete a.answer;
+        renderQuestion();persist();
+      }
       else if(e.key==='ArrowRight'){e.preventDefault();move(session.index+1);}else if(e.key==='ArrowLeft'){e.preventDefault();move(session.index-1);}else if(e.code==='KeyS'){e.preventDefault();skip();}
     });
     window.addEventListener('pagehide',()=>{if(session){tick();persist();}});

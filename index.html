@@ -90,31 +90,8 @@
 
         <!-- Answer & Navigation Bar (Bottom of 75% area) -->
         <footer id="q-footer">
-          <div class="omr-options-bar">
-            <span class="omr-bar-title">정답 마킹:</span>
-            <div class="options-group">
-              <button class="opt-btn" data-val="1">
-                <span class="opt-num">①</span>
-                <span class="opt-key">키 1</span>
-              </button>
-              <button class="opt-btn" data-val="2">
-                <span class="opt-num">②</span>
-                <span class="opt-key">키 2</span>
-              </button>
-              <button class="opt-btn" data-val="3">
-                <span class="opt-num">③</span>
-                <span class="opt-key">키 3</span>
-              </button>
-              <button class="opt-btn" data-val="4">
-                <span class="opt-num">④</span>
-                <span class="opt-key">키 4</span>
-              </button>
-              <button class="opt-btn" data-val="5">
-                <span class="opt-num">⑤</span>
-                <span class="opt-key">키 5</span>
-              </button>
-            </div>
-            <button id="clear-ans-btn" class="clear-ans-btn" title="답안 선택 해제 (Space/Delete)">답안 취소</button>
+          <div id="omr-options-bar" class="omr-options-bar">
+            <!-- Dynamically populated per question/page for single or multi-question support -->
           </div>
 
           <div class="q-nav-actions">
