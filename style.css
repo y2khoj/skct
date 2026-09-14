@@ -584,6 +584,11 @@ html, body {
   cursor: pointer;
   transition: all 0.2s;
   border: 1px solid var(--border-color);
+  user-select: none;
+}
+
+.nav-btn * {
+  pointer-events: none;
 }
 
 .prev-btn {

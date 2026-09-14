@@ -149,14 +149,29 @@
   // --- PERSISTENCE ---
   function loadPersistence() {
     try {
-      userAnswers = JSON.parse(localStorage.getItem('skct_answers') || '{}');
-      userFlags = JSON.parse(localStorage.getItem('skct_flags') || '{}');
-      questionMemos = JSON.parse(localStorage.getItem('skct_q_memos') || '{}');
-      globalMemo = localStorage.getItem('skct_global_memo') || '';
-      calcHistory = JSON.parse(localStorage.getItem('skct_calc_history') || '[]');
-      questionTimes = JSON.parse(localStorage.getItem('skct_question_times') || '{}');
+      const parseObj = (key) => {
+        try {
+          const val = JSON.parse(localStorage.getItem(key) || '{}');
+          return (val && typeof val === 'object' && !Array.isArray(val)) ? val : {};
+        } catch (_) { return {}; }
+      };
+      userAnswers = parseObj('skct_answers');
+      userFlags = parseObj('skct_flags');
+      questionMemos = parseObj('skct_q_memos');
+      globalMemo = typeof localStorage.getItem('skct_global_memo') === 'string' ? localStorage.getItem('skct_global_memo') : '';
+      try {
+        const arr = JSON.parse(localStorage.getItem('skct_calc_history') || '[]');
+        calcHistory = Array.isArray(arr) ? arr : [];
+      } catch (_) { calcHistory = []; }
+      questionTimes = parseObj('skct_question_times');
     } catch (e) {
       console.warn('Storage read error:', e);
+      userAnswers = {};
+      userFlags = {};
+      questionMemos = {};
+      globalMemo = '';
+      calcHistory = [];
+      questionTimes = {};
     }
   }
 
@@ -253,44 +268,62 @@
     els.nextQBtn.disabled = currentQIndex === activeSection.questions.length - 1;
 
     // Notepad content
-    updateNotepadView();
+    try {
+      updateNotepadView();
+    } catch (memoErr) {
+      console.warn('updateNotepadView error:', memoErr);
+    }
 
     // Drawing canvas update
-    if (window.SKCTPaint && typeof window.SKCTPaint.onQuestionChange === 'function') {
-      window.SKCTPaint.onQuestionChange(q.id, currentQIndex + 1);
+    try {
+      if (window.SKCTPaint && typeof window.SKCTPaint.onQuestionChange === 'function') {
+        window.SKCTPaint.onQuestionChange(q.id, currentQIndex + 1);
+      }
+    } catch (paintErr) {
+      console.warn('SKCTPaint onQuestionChange error:', paintErr);
     }
 
     // Review Mode status
     if (isReviewMode) {
       if (q.is_passage) {
-        els.reviewStatusTag.style.display = 'none';
-        els.viewSolBtn.style.display = 'none';
+        if (els.reviewStatusTag) els.reviewStatusTag.style.display = 'none';
+        if (els.viewSolBtn) els.viewSolBtn.style.display = 'none';
       } else {
-        els.reviewStatusTag.style.display = 'block';
+        if (els.reviewStatusTag) els.reviewStatusTag.style.display = 'block';
         const subQuestions = q.subQuestions && q.subQuestions.length ? q.subQuestions : [
           { id: q.id, num: q.num, title: `${q.num}번`, answer: q.answer }
         ];
         const allCorrect = subQuestions.every(sq => userAnswers[sq.id] === sq.answer);
-        els.reviewStatusBadge.className = `badge-result ${allCorrect ? 'correct' : 'wrong'}`;
-        if (subQuestions.length === 1) {
-          const isCorrect = userAnswers[subQuestions[0].id] === subQuestions[0].answer;
-          els.reviewStatusBadge.textContent = isCorrect
-            ? `✓ 정답 (${subQuestions[0].answer}번)`
-            : `✕ 오답 (정답: ${subQuestions[0].answer}번, 선택: ${userAnswers[subQuestions[0].id] ? userAnswers[subQuestions[0].id] + '번' : '미응답'})`;
-        } else {
-          els.reviewStatusBadge.textContent = allCorrect
-            ? '✓ 전체 정답'
-            : '✕ 오답 포함 (하단 확인)';
+        if (els.reviewStatusBadge) {
+          els.reviewStatusBadge.className = `badge-result ${allCorrect ? 'correct' : 'wrong'}`;
+          if (subQuestions.length === 1) {
+            const isCorrect = userAnswers[subQuestions[0].id] === subQuestions[0].answer;
+            els.reviewStatusBadge.textContent = isCorrect
+              ? `✓ 정답 (${subQuestions[0].answer}번)`
+              : `✕ 오답 (정답: ${subQuestions[0].answer}번, 선택: ${userAnswers[subQuestions[0].id] ? userAnswers[subQuestions[0].id] + '번' : '미응답'})`;
+          } else {
+            els.reviewStatusBadge.textContent = allCorrect
+              ? '✓ 전체 정답'
+              : '✕ 오답 포함 (하단 확인)';
+          }
         }
-        els.viewSolBtn.style.display = 'inline-flex';
+        if (els.viewSolBtn) els.viewSolBtn.style.display = 'inline-flex';
       }
     } else {
-      els.reviewStatusTag.style.display = 'none';
-      els.viewSolBtn.style.display = 'none';
+      if (els.reviewStatusTag) els.reviewStatusTag.style.display = 'none';
+      if (els.viewSolBtn) els.viewSolBtn.style.display = 'none';
     }
 
-    updateOMRCount();
-    updateQuestionClock();
+    try {
+      updateOMRCount();
+    } catch (omrErr) {
+      console.warn('updateOMRCount error:', omrErr);
+    }
+    try {
+      updateQuestionClock();
+    } catch (clockErr) {
+      console.warn('updateQuestionClock error:', clockErr);
+    }
   }
 
   function renderOMROptions(q) {
@@ -454,32 +487,56 @@
   }
 
   function nextQuestion() {
-    accrueTime();
-    if (currentQIndex < activeSection.questions.length - 1) {
+    try {
+      accrueTime();
+    } catch (e) {
+      console.warn('accrueTime error:', e);
+    }
+    if (activeSection && activeSection.questions && currentQIndex < activeSection.questions.length - 1) {
       currentQIndex++;
       activeSubQIndex = 0;
-      renderQuestion();
-      els.qViewport.scrollTop = 0;
+      try {
+        renderQuestion();
+      } catch (err) {
+        console.error('renderQuestion error in nextQuestion:', err);
+      }
+      if (els.qViewport) els.qViewport.scrollTop = 0;
     }
   }
 
   function prevQuestion() {
-    accrueTime();
-    if (currentQIndex > 0) {
+    try {
+      accrueTime();
+    } catch (e) {
+      console.warn('accrueTime error:', e);
+    }
+    if (activeSection && activeSection.questions && currentQIndex > 0) {
       currentQIndex--;
       activeSubQIndex = 0;
-      renderQuestion();
-      els.qViewport.scrollTop = 0;
+      try {
+        renderQuestion();
+      } catch (err) {
+        console.error('renderQuestion error in prevQuestion:', err);
+      }
+      if (els.qViewport) els.qViewport.scrollTop = 0;
     }
   }
 
   function jumpToQuestion(idx, subIdx = 0) {
-    accrueTime();
-    if (idx >= 0 && idx < activeSection.questions.length) {
+    try {
+      accrueTime();
+    } catch (e) {
+      console.warn('accrueTime error:', e);
+    }
+    if (activeSection && activeSection.questions && idx >= 0 && idx < activeSection.questions.length) {
       currentQIndex = idx;
       activeSubQIndex = subIdx || 0;
-      renderQuestion();
-      els.qViewport.scrollTop = 0;
+      try {
+        renderQuestion();
+      } catch (err) {
+        console.error('renderQuestion error in jumpToQuestion:', err);
+      }
+      if (els.qViewport) els.qViewport.scrollTop = 0;
     }
   }
 
@@ -503,15 +560,21 @@
   }
 
   function accrueTime() {
-    if (!isTimerRunning || isReviewMode || !activeSection) return;
-    const now = performance.now();
-    const delta = Math.min(Math.max(0, (now - lastClockTick) / 1000), timerSeconds);
-    lastClockTick = now;
-    const q = activeSection.questions[currentQIndex];
-    questionTimes[q.id] = (questionTimes[q.id] || 0) + delta;
-    elapsedTime += delta;
-    timerSeconds = Math.max(0, timerSeconds - delta);
-    updateQuestionClock();
+    try {
+      if (!isTimerRunning || isReviewMode || !activeSection || !activeSection.questions) return;
+      const now = performance.now();
+      const delta = Math.min(Math.max(0, (now - lastClockTick) / 1000), timerSeconds);
+      lastClockTick = now;
+      const q = activeSection.questions[currentQIndex];
+      if (q && q.id) {
+        questionTimes[q.id] = (questionTimes[q.id] || 0) + delta;
+      }
+      elapsedTime += delta;
+      timerSeconds = Math.max(0, timerSeconds - delta);
+      updateQuestionClock();
+    } catch (e) {
+      console.warn('accrueTime error:', e);
+    }
   }
 
   function startTimer() {
@@ -1007,10 +1070,43 @@
     }
 
     // Navigation
-    if (els.prevQBtn) els.prevQBtn.addEventListener('click', prevQuestion);
-    if (els.nextQBtn) els.nextQBtn.addEventListener('click', nextQuestion);
+    if (els.prevQBtn) {
+      els.prevQBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        prevQuestion();
+      });
+    }
+    if (els.nextQBtn) {
+      els.nextQBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        nextQuestion();
+      });
+    }
     if (els.flagBtn) els.flagBtn.addEventListener('click', toggleFlag);
     if (els.viewSolBtn) els.viewSolBtn.addEventListener('click', showSolutionModal);
+
+    // Global click delegation as an unbreakable fallback for next/prev navigation
+    document.addEventListener('click', (e) => {
+      if (e.defaultPrevented) return;
+      const nextBtn = e.target.closest('#next-q-btn, .next-btn');
+      if (nextBtn) {
+        e.preventDefault();
+        if (!nextBtn.disabled) {
+          nextQuestion();
+        }
+        return;
+      }
+      const prevBtn = e.target.closest('#prev-q-btn, .prev-btn');
+      if (prevBtn) {
+        e.preventDefault();
+        if (!prevBtn.disabled) {
+          prevQuestion();
+        }
+        return;
+      }
+    });
 
     // Zoom
     if (els.zoomInBtn) els.zoomInBtn.addEventListener('click', () => setZoom(zoomLevel + 0.15));
@@ -1461,13 +1557,13 @@
         return;
       }
 
-      // Arrow keys for question navigation
-      if (e.key === 'ArrowLeft') {
+      // Arrow keys and hotkeys for question navigation
+      if (e.key === 'ArrowLeft' || e.key === 'PageUp' || e.code === 'KeyP') {
         e.preventDefault();
         prevQuestion();
         return;
       }
-      if (e.key === 'ArrowRight') {
+      if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.code === 'KeyN') {
         e.preventDefault();
         nextQuestion();
         return;

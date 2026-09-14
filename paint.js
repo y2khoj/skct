@@ -79,20 +79,26 @@
 
   // Save current canvas to DB
   function saveCurrentCanvas() {
-    if (!canvas || !ctx) return;
-    const key = getStorageKey();
+    try {
+      if (!canvas || !ctx) return;
+      if (canvas.width <= 0 || canvas.height <= 0) return;
+      const key = getStorageKey();
 
-    // Check if canvas is completely empty to save storage
-    if (isCanvasBlank()) {
-      delete drawingsDb[key];
-    } else {
-      drawingsDb[key] = canvas.toDataURL('image/png');
+      // Check if canvas is completely empty to save storage
+      if (isCanvasBlank()) {
+        delete drawingsDb[key];
+      } else {
+        drawingsDb[key] = canvas.toDataURL('image/png');
+      }
+      saveDrawings();
+    } catch (e) {
+      console.warn('saveCurrentCanvas error:', e);
     }
-    saveDrawings();
   }
 
   function isCanvasBlank() {
     if (!canvas || !ctx) return true;
+    if (canvas.width <= 0 || canvas.height <= 0) return true;
     // Fast check: if no undo steps and no saved data
     if (undoStack.length === 0 && !drawingsDb[getStorageKey()]) return true;
     
@@ -109,21 +115,27 @@
 
   // Restore canvas from DB
   function restoreCanvas() {
-    if (!canvas || !ctx) return;
-    clearCanvas(false);
-    undoStack = [];
+    try {
+      if (!canvas || !ctx) return;
+      clearCanvas(false);
+      undoStack = [];
 
-    const key = getStorageKey();
-    const dataUrl = drawingsDb[key];
-    if (dataUrl) {
-      const img = new Image();
-      img.onload = function () {
-        ctx.save();
-        ctx.setTransform(1, 0, 0, 1, 0, 0); // reset scale for direct pixel copy
-        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-        ctx.restore();
-      };
-      img.src = dataUrl;
+      const key = getStorageKey();
+      const dataUrl = drawingsDb[key];
+      if (dataUrl) {
+        const img = new Image();
+        img.onload = function () {
+          try {
+            ctx.save();
+            ctx.setTransform(1, 0, 0, 1, 0, 0); // reset scale for direct pixel copy
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+            ctx.restore();
+          } catch (_) {}
+        };
+        img.src = dataUrl;
+      }
+    } catch (e) {
+      console.warn('restoreCanvas error:', e);
     }
   }
 
@@ -359,23 +371,27 @@
 
   // Question navigation hook called by app.js / training.js
   function onQuestionChange(qId, qNum) {
-    // If currently on a question drawing, save it before switching
-    if (activePaintTab === 'question') {
-      saveCurrentCanvas();
-    }
+    try {
+      // If currently on a question drawing, save it before switching
+      if (activePaintTab === 'question') {
+        saveCurrentCanvas();
+      }
 
-    currentQId = qId || 'q_' + qNum;
-    currentQNum = qNum || 1;
+      currentQId = qId || 'q_' + qNum;
+      currentQNum = qNum || 1;
 
-    // Update Question number in paint tab button
-    const paintQNumEl = document.getElementById('paint-q-num');
-    if (paintQNumEl) {
-      paintQNumEl.textContent = currentQNum;
-    }
+      // Update Question number in paint tab button
+      const paintQNumEl = document.getElementById('paint-q-num');
+      if (paintQNumEl) {
+        paintQNumEl.textContent = currentQNum;
+      }
 
-    // If paint view is active, restore the question's drawing
-    if (activePaintTab === 'question') {
-      restoreCanvas();
+      // If paint view is active, restore the question's drawing
+      if (activePaintTab === 'question') {
+        restoreCanvas();
+      }
+    } catch (e) {
+      console.warn('paint onQuestionChange error:', e);
     }
   }
 
