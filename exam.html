@@ -2,11 +2,15 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="SKCT 모의고사">
   <title>SKCT 기존 모의고사 · 온라인 실전 풀이관</title>
   <meta name="description" content="SKCT 유형 진단, 15분 집중 훈련, 문항별 풀이시간 기록과 보류·회수·오답 복습">
-  <link rel="stylesheet" href="style.css?v=20260915_03">
-  <link rel="stylesheet" href="exam.css?v=20260915_03">
+  <link rel="stylesheet" href="style.css?v=20260915_04">
+  <link rel="stylesheet" href="exam.css?v=20260915_04">
 </head>
 <body>
   <div id="app-container">
@@ -44,6 +48,11 @@
       </div>
 
       <div class="header-right">
+        <button id="fullscreen-btn" class="header-action-btn fullscreen-btn" title="태블릿/PC 전체화면 몰입 모드 (F11)">
+          <span class="fullscreen-icon">⛶</span>
+          <span class="fullscreen-text">전체화면</span>
+        </button>
+
         <button id="flag-btn" class="header-action-btn flag-btn" title="나중에 다시 볼 문제로 표시">
           <span class="flag-icon">★</span>
           <span class="flag-text">검토 표시</span>
@@ -405,10 +414,12 @@
   </div>
 
   <!-- Load Dataset -->
-  <script src="data/skct_data.js?v=20260915_03"></script>
+  <script src="data/skct_data.js?v=20260915_04"></script>
   <!-- Load Drawing Canvas Engine -->
-  <script src="paint.js?v=20260915_03"></script>
+  <script src="paint.js?v=20260915_04"></script>
+  <!-- Load Fullscreen Controller -->
+  <script src="fullscreen.js?v=20260915_04"></script>
   <!-- Load App Logic -->
-  <script src="app.js?v=20260915_03"></script>
+  <script src="app.js?v=20260915_04"></script>
 </body>
 </html>

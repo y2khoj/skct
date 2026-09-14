@@ -2,11 +2,15 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="SKCT 계산연습">
   <title>SKCT 스피드 계산 연습관 · 자료해석 속산 특훈</title>
   <meta name="description" content="SKCT 자료해석 및 수리 대비 스피드 계산 연습: 분수 크기 비교, 증가율 어림셈, 구성비, 2자리 곱셈 비타민 연산 훈련">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="calc-drill.css">
+  <link rel="stylesheet" href="style.css?v=20260915_04">
+  <link rel="stylesheet" href="calc-drill.css?v=20260915_04">
 </head>
 <body>
   <div id="calc-app">
@@ -32,6 +36,10 @@
       </div>
 
       <div class="calc-nav-right">
+        <button id="fullscreen-btn" class="header-action-btn fullscreen-btn" style="padding: 6px 12px; font-size: 0.85rem;" title="태블릿/PC 전체화면 몰입 모드 (F11)">
+          <span class="fullscreen-icon">⛶</span>
+          <span class="fullscreen-text">전체화면</span>
+        </button>
         <a href="index.html" class="nav-link-btn" title="전략 훈련실로 이동">🎯 훈련실</a>
         <a href="exam.html" class="nav-link-btn primary" title="기존 모의고사 화면으로 이동">📝 모의고사</a>
       </div>
@@ -263,6 +271,7 @@
     </main>
   </div>
 
-  <script src="calc-drill.js"></script>
+  <script src="fullscreen.js?v=20260915_04"></script>
+  <script src="calc-drill.js?v=20260915_04"></script>
 </body>
 </html>
