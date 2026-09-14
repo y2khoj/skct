@@ -161,19 +161,25 @@
   }
   function pause() {tick();running=false;if(!session.review){$('pause-cover').hidden=false;$('timer-toggle-btn').textContent='▶️';}persist();}
   function updateClock() {
-    const b=block(),a=attempt();
+    const b=block(),a=attempt(),q=question();
     $('timer-display').textContent=fmt(b.limit?b.limit-b.elapsed:b.elapsed);
     $('timer-display').classList.toggle('urgent',!!b.limit&&b.limit-b.elapsed<60);
     $('question-clock').textContent='이 문제 '+fmt(a.seconds);
-    const late=!session.review&&!C.manual(question())&&a.seconds>=15&&a.answer==null;
+    const late=!session.review&&!C.manual(q)&&!q.is_passage&&a.seconds>=15&&a.answer==null;
     $('coach').classList.toggle('is-late',late);
-    $('coach-message').textContent=session.review?'해설을 대조하고 다음 시도에서 바꿀 행동을 기록하세요.':C.manual(question())?'계산연습은 한 페이지에 여러 문제입니다. 페이지 시간을 기록합니다.':a.seconds>45?'45초를 넘겼어요. 계속 풀지, 보류할지 결정하세요.':late?'풀이 방향이 보이나요? 안 보이면 보류하고 다음 문제로.':'조건 확인 → 풀이 방향 판단 → 확실한 답 마킹';
+    $('coach-message').textContent=session.review?'해설을 대조하고 다음 시도에서 바꿀 행동을 기록하세요.':q.is_passage?'본문 지문 페이지입니다. 지문을 읽고 다음 문제로 이동하세요.':C.manual(q)?'계산연습은 한 페이지에 여러 문제입니다. 페이지 시간을 기록합니다.':a.seconds>45?'45초를 넘겼어요. 계속 풀지, 보류할지 결정하세요.':late?'풀이 방향이 보이나요? 안 보이면 보류하고 다음 문제로.':'조건 확인 → 풀이 방향 판단 → 확실한 답 마킹';
   }
   let activeSubIdx = 0;
   function renderTrainingOMROptions(q, a) {
     const bar = $('omr-options-bar') || document.querySelector('.omr-options-bar');
     if (!bar) return;
     bar.replaceChildren();
+    if (q.is_passage) {
+      const banner = el('div', 'passage-info-bar');
+      banner.innerHTML = `<span>📖 <strong>${q.title || '본문 지문'}</strong>입니다. 본문을 정독하신 후 [다음 ▶]으로 이동하여 문제를 풀어주세요.</span>`;
+      bar.append(banner);
+      return;
+    }
     const subs = q.subQuestions && q.subQuestions.length ? q.subQuestions : [{ id: q.id, num: q.num, title: `${q.num}번`, answer: q.answer }];
     if (activeSubIdx >= subs.length) activeSubIdx = 0;
     a.answers ||= {};
@@ -221,10 +227,10 @@
     });
   }
   function renderQuestion() {
-    const q=question(),a=attempt(),isManual=C.manual(q);
+    const q=question(),a=attempt(),isManual=C.manual(q),isPassage=!!q.is_passage;
     $('session-label').textContent=`${labels[session.mode]} · ${session.block+1}/${session.blocks.length}영역`;
     $('current-q-num').textContent=session.index+1;$('total-q-num').textContent=block().ids.length;$('memo-q-num').textContent=q.num;
-    $('q-category-text').textContent=`${q.section} · 원본 ${q.num}${isManual?'페이지':'번'} · ${q.category}`;
+    $('q-category-text').textContent=`${q.section} · ${q.part ? q.part + ' · ' : ''}${q.q_label || (q.num + (isManual ? '페이지' : '번'))} · ${q.category}`;
     if($('question-image').getAttribute('src')!==q.image){$('question-image').src=q.image;$('q-viewport').scrollTop=0;}
     $('question-image').alt=q.title;
     renderTrainingOMROptions(q, a);
@@ -236,38 +242,40 @@
     $('manual-help').textContent=a.manual==='done'?'해설 대조 완료':a.manual==='retry'?'다시 연습할 페이지':'여러 문제를 담은 페이지 · 자동 채점 제외';
     $('prev-q-btn').disabled=session.index===0;$('next-q-btn').disabled=session.index===block().ids.length-1;
     $('flag-btn').classList.toggle('active',!!a.flagged);
-    $('review-status-tag').style.display=session.review?'block':'none';
+    $('review-status-tag').style.display=session.review&&!isPassage?'block':'none';
     const subs = q.subQuestions && q.subQuestions.length ? q.subQuestions : [{ id: q.id, num: q.num, title: `${q.num}번`, answer: q.answer }];
     const st = C.status(q, a);
     let stText = isManual ? '페이지 직접 점검' :
       subs.length === 1 ? `${statusLabels[st]} · 선택 ${a.answers?.[subs[0].id] || a.answer || '—'} / 정답 ${subs[0].answer}` :
       `${statusLabels[st]} · ` + subs.map(sq => `${sq.title || (sq.num + '번')}: ${a.answers?.[sq.id] || '—'}(정답 ${sq.answer})`).join(', ');
     $('review-status-badge').textContent = stText;
-    $('view-sol-btn').style.display=session.review?'inline-flex':'none';
-    $('review-form').hidden=!session.review;
+    $('view-sol-btn').style.display=session.review&&!isPassage?'inline-flex':'none';
+    $('review-form').hidden=!session.review||isPassage;
     $('review-reason').value=a.reason||'';$('review-rule').value=a.rule||'';
     $('skip-question').disabled=session.review;
     $('timer-toggle-btn').disabled=session.review;
     $('pause-cover').hidden=session.review||running;
     $('recover-questions').textContent=`보류 회수 (${block().ids.filter(id=>session.attempts[id]?.deferred).length})`;
     $('omr-answered-count').textContent=questions().filter(item=>{
+      if(item.is_passage) return false;
       if(C.manual(item)) return attempt(item).response;
       const sbs = item.subQuestions && item.subQuestions.length ? item.subQuestions : [{ id: item.id }];
       const ans = attempt(item).answers || (attempt(item).answer != null ? { [sbs[0].id]: attempt(item).answer } : {});
       return sbs.some(sq => ans[sq.id] != null);
     }).length;
-    $('omr-total-count').textContent=block().ids.length;
+    $('omr-total-count').textContent=questions().filter(item => !item.is_passage).length;
     renderMemo();updateClock();
     if(window.SKCTPaint&&typeof window.SKCTPaint.onQuestionChange==='function')window.SKCTPaint.onQuestionChange(q.id,session.index+1);
   }
   function move(index) {if(index<0||index>=block().ids.length)return;tick();if(session.review||running){session.index=index;activeSubIdx=0;attempt().visits++;renderQuestion();persist();}}
   function pick(value) {
+    if(question().is_passage)return;
     const subs = question().subQuestions || [{ id: question().id }];
     const target = subs[activeSubIdx] || subs[0];
     pickSub(target.id, value);
   }
   function pickSub(qid, value) {
-    if(session.review||!running||C.manual(question()))return;
+    if(session.review||!running||C.manual(question())||question().is_passage)return;
     tick();if(session.review)return;
     const a = attempt();
     a.answers ||= {};
@@ -289,6 +297,12 @@
   function renderOMR() {
     $('omr-grid').replaceChildren();questions().forEach((q,i)=>{
       const a=attempt(q);
+      if (q.is_passage) {
+        const b=el('button',`omr-item passage-item ${i===session.index?'current':''}`, `${i+1} · 📖 지문`);
+        b.addEventListener('click',()=>{move(i);$('omr-drawer').classList.remove('open');});
+        $('omr-grid').append(b);
+        return;
+      }
       const subs = q.subQuestions && q.subQuestions.length ? q.subQuestions : [{ id: q.id, num: q.num, title: `${q.num}번` }];
       a.answers ||= {};
       if(a.answer != null && a.answers[subs[0].id] == null) a.answers[subs[0].id] = a.answer;
@@ -338,6 +352,7 @@
   function renderResults(filter) {
     $('score-review-grid').replaceChildren();
     questions().forEach((q,i)=>{
+      if (q.is_passage) return;
       const a=attempt(q),status=C.status(q,a);
       if(filter==='wrong'&&status!=='wrong'||filter==='unanswered'&&status!=='unanswered'||filter==='flagged'&&!a.flagged||filter==='slow'&&(C.manual(q)||a.seconds<=45))return;
       const subs = q.subQuestions && q.subQuestions.length ? q.subQuestions : [{ id: q.id, num: q.num, title: `${q.num}번`, answer: q.answer }];
@@ -364,6 +379,7 @@
   function solution() {
     if(!session.review)return;
     const q=question();
+    if(q.is_passage)return;
     const subs = q.subQuestions && q.subQuestions.length ? q.subQuestions : [{ answer: q.answer }];
     const ansStr = subs.length > 1 ? subs.map(s => `${s.num}번: ${s.answer}번`).join(', ') : `${q.answer}번`;
     $('sol-modal-title').textContent=q.title+' · 해설';

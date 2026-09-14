@@ -6,6 +6,7 @@ __pycache__/
 # Inspection temporary files
 a_pages_summary.json
 q_pages_summary.json
+pages_scan.json
 test_renders/
 
 # Raw large PDFs (original problem source files)

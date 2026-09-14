@@ -239,7 +239,7 @@
     els.currentQNum.textContent = String(currentQIndex + 1).padStart(2, '0');
     els.totalQNum.textContent = activeSection.questions.length;
     els.memoQNum.textContent = currentQIndex + 1;
-    els.qCategoryText.textContent = `${q.section} · ${q.q_label ? q.q_label + ' (' + (q.category || '') + ')' : q.category || ''}`;
+    els.qCategoryText.textContent = `${q.section} · ${q.part ? q.part + ' · ' : ''}${q.q_label ? q.q_label : (q.category || '')}`;
 
     // Question Image
     els.questionImage.src = q.image;
@@ -265,16 +265,28 @@
 
     // Review Mode status
     if (isReviewMode) {
-      els.reviewStatusTag.style.display = 'block';
-      const subQuestions = q.subQuestions && q.subQuestions.length ? q.subQuestions : [
-        { id: q.id, num: q.num, title: `${q.num}번`, answer: q.answer }
-      ];
-      const allCorrect = subQuestions.every(sq => userAnswers[sq.id] === sq.answer);
-      els.reviewStatusBadge.className = `badge-result ${allCorrect ? 'correct' : 'wrong'}`;
-      els.reviewStatusBadge.textContent = allCorrect
-        ? `✓ ${subQuestions.length > 1 ? '전체 정답' : '정답'}`
-        : `✕ ${subQuestions.length > 1 ? '오답 포함 (하단 확인)' : '오답'}`;
-      els.viewSolBtn.style.display = 'inline-flex';
+      if (q.is_passage) {
+        els.reviewStatusTag.style.display = 'none';
+        els.viewSolBtn.style.display = 'none';
+      } else {
+        els.reviewStatusTag.style.display = 'block';
+        const subQuestions = q.subQuestions && q.subQuestions.length ? q.subQuestions : [
+          { id: q.id, num: q.num, title: `${q.num}번`, answer: q.answer }
+        ];
+        const allCorrect = subQuestions.every(sq => userAnswers[sq.id] === sq.answer);
+        els.reviewStatusBadge.className = `badge-result ${allCorrect ? 'correct' : 'wrong'}`;
+        if (subQuestions.length === 1) {
+          const isCorrect = userAnswers[subQuestions[0].id] === subQuestions[0].answer;
+          els.reviewStatusBadge.textContent = isCorrect
+            ? `✓ 정답 (${subQuestions[0].answer}번)`
+            : `✕ 오답 (정답: ${subQuestions[0].answer}번, 선택: ${userAnswers[subQuestions[0].id] ? userAnswers[subQuestions[0].id] + '번' : '미응답'})`;
+        } else {
+          els.reviewStatusBadge.textContent = allCorrect
+            ? '✓ 전체 정답'
+            : '✕ 오답 포함 (하단 확인)';
+        }
+        els.viewSolBtn.style.display = 'inline-flex';
+      }
     } else {
       els.reviewStatusTag.style.display = 'none';
       els.viewSolBtn.style.display = 'none';
@@ -287,6 +299,16 @@
   function renderOMROptions(q) {
     if (!els.omrOptionsBar) return;
     els.omrOptionsBar.innerHTML = '';
+
+    if (q.is_passage) {
+      els.omrOptionsBar.innerHTML = `
+        <div class="passage-info-bar">
+          <span class="passage-icon">📖</span>
+          <span class="passage-text"><strong>${q.title}</strong> · 본문 지문 페이지입니다. 본문을 정독하신 후 <strong>[다음 문제 ▶]</strong>로 이동하여 문제를 풀고 답안을 마킹하세요.</span>
+        </div>
+      `;
+      return;
+    }
 
     const subQuestions = q.subQuestions && q.subQuestions.length ? q.subQuestions : [
       { id: q.id, num: q.num, title: `${q.num}번`, answer: q.answer }
@@ -376,7 +398,7 @@
   function pickAnswer(val, targetQId) {
     if (!activeSection || isReviewMode) return;
     const q = activeSection.questions[currentQIndex];
-    if (!q) return;
+    if (!q || q.is_passage) return;
 
     const subQuestions = q.subQuestions && q.subQuestions.length ? q.subQuestions : [
       { id: q.id, num: q.num, title: `${q.num}번`, answer: q.answer }
@@ -403,7 +425,7 @@
   function clearAnswer(targetQId) {
     if (!activeSection || isReviewMode) return;
     const q = activeSection.questions[currentQIndex];
-    if (!q) return;
+    if (!q || q.is_passage) return;
 
     const subQuestions = q.subQuestions && q.subQuestions.length ? q.subQuestions : [
       { id: q.id, num: q.num, title: `${q.num}번`, answer: q.answer }
@@ -586,6 +608,7 @@
     let total = 0;
 
     activeSection.questions.forEach(pageQ => {
+      if (pageQ.is_passage) return;
       const subQuestions = pageQ.subQuestions && pageQ.subQuestions.length ? pageQ.subQuestions : [
         { id: pageQ.id, num: pageQ.num, title: `${pageQ.num}번`, answer: pageQ.answer }
       ];
@@ -604,6 +627,22 @@
     els.omrGrid.innerHTML = '';
 
     activeSection.questions.forEach((pageQ, pageIdx) => {
+      if (pageQ.is_passage) {
+        const item = document.createElement('div');
+        item.className = 'omr-item passage-item';
+        if (pageIdx === currentQIndex) item.classList.add('current');
+        item.innerHTML = `
+          <span class="omr-item-num">${pageQ.q_label || '지문'}</span>
+          <span class="omr-item-ans">📖</span>
+        `;
+        item.addEventListener('click', () => {
+          jumpToQuestion(pageIdx, 0);
+          els.omrDrawer.classList.remove('open');
+        });
+        els.omrGrid.appendChild(item);
+        return;
+      }
+
       const subQuestions = pageQ.subQuestions && pageQ.subQuestions.length ? pageQ.subQuestions : [
         { id: pageQ.id, num: pageQ.num, title: `${pageQ.num}번`, answer: pageQ.answer }
       ];
@@ -827,6 +866,7 @@
     let unanswered = 0;
 
     activeSection.questions.forEach(p => {
+      if (p.is_passage) return;
       const subQuestions = p.subQuestions && p.subQuestions.length ? p.subQuestions : [
         { id: p.id, num: p.num, title: `${p.num}번`, answer: p.answer }
       ];
@@ -871,6 +911,7 @@
     els.scoreReviewGrid.innerHTML = '';
 
     activeSection.questions.forEach((p, pageIdx) => {
+      if (p.is_passage) return;
       const subQuestions = p.subQuestions && p.subQuestions.length ? p.subQuestions : [
         { id: p.id, num: p.num, title: `${p.num}번`, answer: p.answer }
       ];

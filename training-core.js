@@ -3,6 +3,7 @@
   'use strict';
   const manual = q => q.id.startsWith('math_');
   const status = (q, a = {}) => {
+    if (q.is_passage) return 'passage';
     if (manual(q)) return (a.manual || 'manual');
     const subs = q.subQuestions && q.subQuestions.length ? q.subQuestions : [{ id: q.id, answer: q.answer }];
     const answers = a.answers || (a.answer != null ? { [subs[0].id]: a.answer } : {});
@@ -13,20 +14,26 @@
   };
   function summary(questions, attempts) {
     const out = {correct: 0, wrong: 0, unanswered: 0, manual: 0, slow: 0, recovered: 0, seconds: 0};
+    let gradedCount = 0;
     questions.forEach(q => {
+      if (q.is_passage) return;
       const a = attempts[q.id] || {};
       if (manual(q)) out.manual++;
-      else out[status(q, a)]++;
+      else {
+        out[status(q, a)]++;
+        gradedCount++;
+      }
       if (!manual(q) && (a.seconds || 0) > 45) out.slow++;
       if (!manual(q) && a.skipped && status(q, a) === 'correct') out.recovered++;
       out.seconds += a.seconds || 0;
     });
-    out.graded = questions.length - out.manual;
+    out.graded = gradedCount;
     out.accuracy = out.correct + out.wrong ? Math.round(out.correct / (out.correct + out.wrong) * 100) : null;
     return out;
   }
   function choose(questions, count, history, random = Math.random) {
-    return questions.map(q => ({q, seen: history[q.id]?.count || 0, r: random()}))
+    const pool = questions.filter(q => !q.is_passage);
+    return pool.map(q => ({q, seen: history[q.id]?.count || 0, r: random()}))
       .sort((a,b) => a.seen - b.seen || a.r - b.r).slice(0,count).map(x => x.q.id);
   }
   function needsReview(q, record) {

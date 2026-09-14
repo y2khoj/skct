@@ -1640,3 +1640,27 @@ html, body {
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
+
+/* Passage Banner & OMR item */
+.passage-info-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(30, 58, 95, 0.6);
+  border: 1px solid rgba(59, 130, 246, 0.45);
+  border-radius: 8px;
+  padding: 10px 18px;
+  color: #bfdbfe;
+  font-size: 0.95rem;
+  font-weight: 500;
+  width: 100%;
+}
+.passage-icon {
+  font-size: 1.4rem;
+}
+.omr-item.passage-item {
+  background: rgba(59, 130, 246, 0.12);
+  border-color: rgba(59, 130, 246, 0.4);
+  color: #93c5fd;
+}
+

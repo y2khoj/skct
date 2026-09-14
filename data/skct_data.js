@@ -7,23 +7,25 @@ const SKCT_DATA = {
     {
       "id": "lang",
       "name": "언어이해",
-      "description": "글의 중심 내용, 일치/불일치, 논리적 비판 및 추론 (48문항)",
+      "description": "글의 중심 내용, 일치/불일치, 논리적 비판 및 추론 (48문항, 48페이지)",
       "page_count": 48,
       "question_count": 48,
       "time_limit_minutes": 25,
       "questions": [
         {
-          "id": "lang_1",
+          "id": "lang_exp_1",
           "page_id": "lang_p01",
           "num": 1,
           "section": "언어이해",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "언어이해 1번",
           "q_label": "1번",
           "answer": 5,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "lang_1",
+              "id": "lang_exp_1",
               "num": 1,
               "title": "1번",
               "answer": 5
@@ -34,17 +36,19 @@ const SKCT_DATA = {
           "page": 4
         },
         {
-          "id": "lang_2",
+          "id": "lang_exp_2",
           "page_id": "lang_p02",
           "num": 2,
           "section": "언어이해",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "언어이해 2번",
           "q_label": "2번",
           "answer": 4,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "lang_2",
+              "id": "lang_exp_2",
               "num": 2,
               "title": "2번",
               "answer": 4
@@ -55,17 +59,19 @@ const SKCT_DATA = {
           "page": 5
         },
         {
-          "id": "lang_3",
+          "id": "lang_exp_3",
           "page_id": "lang_p03",
           "num": 3,
           "section": "언어이해",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "언어이해 3번",
           "q_label": "3번",
           "answer": 5,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "lang_3",
+              "id": "lang_exp_3",
               "num": 3,
               "title": "3번",
               "answer": 5
@@ -76,17 +82,19 @@ const SKCT_DATA = {
           "page": 6
         },
         {
-          "id": "lang_4",
+          "id": "lang_exp_4",
           "page_id": "lang_p04",
           "num": 4,
           "section": "언어이해",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "언어이해 4번",
           "q_label": "4번",
           "answer": 2,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "lang_4",
+              "id": "lang_exp_4",
               "num": 4,
               "title": "4번",
               "answer": 2
@@ -97,17 +105,19 @@ const SKCT_DATA = {
           "page": 7
         },
         {
-          "id": "lang_5",
+          "id": "lang_exp_5",
           "page_id": "lang_p05",
           "num": 5,
           "section": "언어이해",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "언어이해 5번",
           "q_label": "5번",
           "answer": 4,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "lang_5",
+              "id": "lang_exp_5",
               "num": 5,
               "title": "5번",
               "answer": 4
@@ -118,17 +128,19 @@ const SKCT_DATA = {
           "page": 8
         },
         {
-          "id": "lang_6",
+          "id": "lang_exp_6",
           "page_id": "lang_p06",
           "num": 6,
           "section": "언어이해",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "언어이해 6번",
           "q_label": "6번",
           "answer": 4,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "lang_6",
+              "id": "lang_exp_6",
               "num": 6,
               "title": "6번",
               "answer": 4
@@ -139,17 +151,19 @@ const SKCT_DATA = {
           "page": 9
         },
         {
-          "id": "lang_7",
+          "id": "lang_exp_7",
           "page_id": "lang_p07",
           "num": 7,
           "section": "언어이해",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "언어이해 7번",
           "q_label": "7번",
           "answer": 4,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "lang_7",
+              "id": "lang_exp_7",
               "num": 7,
               "title": "7번",
               "answer": 4
@@ -160,17 +174,19 @@ const SKCT_DATA = {
           "page": 10
         },
         {
-          "id": "lang_8",
+          "id": "lang_exp_8",
           "page_id": "lang_p08",
           "num": 8,
           "section": "언어이해",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "언어이해 8번",
           "q_label": "8번",
           "answer": 5,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "lang_8",
+              "id": "lang_exp_8",
               "num": 8,
               "title": "8번",
               "answer": 5
@@ -181,17 +197,19 @@ const SKCT_DATA = {
           "page": 11
         },
         {
-          "id": "lang_9",
+          "id": "lang_exp_9",
           "page_id": "lang_p09",
           "num": 9,
           "section": "언어이해",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "언어이해 9번",
           "q_label": "9번",
           "answer": 2,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "lang_9",
+              "id": "lang_exp_9",
               "num": 9,
               "title": "9번",
               "answer": 2
@@ -202,17 +220,19 @@ const SKCT_DATA = {
           "page": 12
         },
         {
-          "id": "lang_10",
+          "id": "lang_exp_10",
           "page_id": "lang_p10",
           "num": 10,
           "section": "언어이해",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "언어이해 10번",
           "q_label": "10번",
           "answer": 3,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "lang_10",
+              "id": "lang_exp_10",
               "num": 10,
               "title": "10번",
               "answer": 3
@@ -223,17 +243,19 @@ const SKCT_DATA = {
           "page": 13
         },
         {
-          "id": "lang_11",
+          "id": "lang_exp_11",
           "page_id": "lang_p11",
           "num": 11,
           "section": "언어이해",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "언어이해 11번",
           "q_label": "11번",
           "answer": 2,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "lang_11",
+              "id": "lang_exp_11",
               "num": 11,
               "title": "11번",
               "answer": 2
@@ -244,17 +266,19 @@ const SKCT_DATA = {
           "page": 14
         },
         {
-          "id": "lang_12",
+          "id": "lang_exp_12",
           "page_id": "lang_p12",
           "num": 12,
           "section": "언어이해",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "언어이해 12번",
           "q_label": "12번",
           "answer": 4,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "lang_12",
+              "id": "lang_exp_12",
               "num": 12,
               "title": "12번",
               "answer": 4
@@ -265,17 +289,19 @@ const SKCT_DATA = {
           "page": 15
         },
         {
-          "id": "lang_13",
+          "id": "lang_exp_13",
           "page_id": "lang_p13",
           "num": 13,
           "section": "언어이해",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "언어이해 13번",
           "q_label": "13번",
           "answer": 5,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "lang_13",
+              "id": "lang_exp_13",
               "num": 13,
               "title": "13번",
               "answer": 5
@@ -286,17 +312,19 @@ const SKCT_DATA = {
           "page": 16
         },
         {
-          "id": "lang_14",
+          "id": "lang_exp_14",
           "page_id": "lang_p14",
           "num": 14,
           "section": "언어이해",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "언어이해 14번",
           "q_label": "14번",
           "answer": 2,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "lang_14",
+              "id": "lang_exp_14",
               "num": 14,
               "title": "14번",
               "answer": 2
@@ -307,17 +335,19 @@ const SKCT_DATA = {
           "page": 17
         },
         {
-          "id": "lang_15",
+          "id": "lang_exp_15",
           "page_id": "lang_p15",
           "num": 15,
           "section": "언어이해",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "언어이해 15번",
           "q_label": "15번",
           "answer": 3,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "lang_15",
+              "id": "lang_exp_15",
               "num": 15,
               "title": "15번",
               "answer": 3
@@ -328,17 +358,19 @@ const SKCT_DATA = {
           "page": 18
         },
         {
-          "id": "lang_16",
+          "id": "lang_exp_16",
           "page_id": "lang_p16",
           "num": 16,
           "section": "언어이해",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "언어이해 16번",
           "q_label": "16번",
           "answer": 2,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "lang_16",
+              "id": "lang_exp_16",
               "num": 16,
               "title": "16번",
               "answer": 2
@@ -349,17 +381,19 @@ const SKCT_DATA = {
           "page": 19
         },
         {
-          "id": "lang_17",
+          "id": "lang_exp_17",
           "page_id": "lang_p17",
           "num": 17,
           "section": "언어이해",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "언어이해 17번",
           "q_label": "17번",
           "answer": 2,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "lang_17",
+              "id": "lang_exp_17",
               "num": 17,
               "title": "17번",
               "answer": 2
@@ -370,17 +404,19 @@ const SKCT_DATA = {
           "page": 20
         },
         {
-          "id": "lang_18",
+          "id": "lang_exp_18",
           "page_id": "lang_p18",
           "num": 18,
           "section": "언어이해",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "언어이해 18번",
           "q_label": "18번",
           "answer": 2,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "lang_18",
+              "id": "lang_exp_18",
               "num": 18,
               "title": "18번",
               "answer": 2
@@ -391,17 +427,19 @@ const SKCT_DATA = {
           "page": 21
         },
         {
-          "id": "lang_19",
+          "id": "lang_exp_19",
           "page_id": "lang_p19",
           "num": 19,
           "section": "언어이해",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "언어이해 19번",
           "q_label": "19번",
           "answer": 3,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "lang_19",
+              "id": "lang_exp_19",
               "num": 19,
               "title": "19번",
               "answer": 3
@@ -412,17 +450,19 @@ const SKCT_DATA = {
           "page": 22
         },
         {
-          "id": "lang_20",
+          "id": "lang_exp_20",
           "page_id": "lang_p20",
           "num": 20,
           "section": "언어이해",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "언어이해 20번",
           "q_label": "20번",
           "answer": 2,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "lang_20",
+              "id": "lang_exp_20",
               "num": 20,
               "title": "20번",
               "answer": 2
@@ -433,19 +473,21 @@ const SKCT_DATA = {
           "page": 23
         },
         {
-          "id": "lang_21",
+          "id": "lang_psat_p24",
           "page_id": "lang_p21",
           "num": 21,
           "section": "언어이해",
+          "part": "PSAT 기출문제",
           "category": "PSAT 기출문제",
-          "title": "언어이해 21번",
-          "q_label": "21번",
+          "title": "언어이해 (PSAT 1번)",
+          "q_label": "PSAT 1번",
+          "is_passage": false,
           "answer": 5,
           "subQuestions": [
             {
-              "id": "lang_21",
-              "num": 21,
-              "title": "21번",
+              "id": "lang_psat_1",
+              "num": 1,
+              "title": "PSAT 1번",
               "answer": 5
             }
           ],
@@ -454,19 +496,21 @@ const SKCT_DATA = {
           "page": 24
         },
         {
-          "id": "lang_22",
+          "id": "lang_psat_p25",
           "page_id": "lang_p22",
           "num": 22,
           "section": "언어이해",
+          "part": "PSAT 기출문제",
           "category": "PSAT 기출문제",
-          "title": "언어이해 22번",
-          "q_label": "22번",
+          "title": "언어이해 (PSAT 2번)",
+          "q_label": "PSAT 2번",
+          "is_passage": false,
           "answer": 5,
           "subQuestions": [
             {
-              "id": "lang_22",
-              "num": 22,
-              "title": "22번",
+              "id": "lang_psat_2",
+              "num": 2,
+              "title": "PSAT 2번",
               "answer": 5
             }
           ],
@@ -475,19 +519,21 @@ const SKCT_DATA = {
           "page": 25
         },
         {
-          "id": "lang_23",
+          "id": "lang_psat_p26",
           "page_id": "lang_p23",
           "num": 23,
           "section": "언어이해",
+          "part": "PSAT 기출문제",
           "category": "PSAT 기출문제",
-          "title": "언어이해 23번",
-          "q_label": "23번",
+          "title": "언어이해 (PSAT 3번)",
+          "q_label": "PSAT 3번",
+          "is_passage": false,
           "answer": 3,
           "subQuestions": [
             {
-              "id": "lang_23",
-              "num": 23,
-              "title": "23번",
+              "id": "lang_psat_3",
+              "num": 3,
+              "title": "PSAT 3번",
               "answer": 3
             }
           ],
@@ -496,19 +542,21 @@ const SKCT_DATA = {
           "page": 26
         },
         {
-          "id": "lang_24",
+          "id": "lang_psat_p27",
           "page_id": "lang_p24",
           "num": 24,
           "section": "언어이해",
+          "part": "PSAT 기출문제",
           "category": "PSAT 기출문제",
-          "title": "언어이해 24번",
-          "q_label": "24번",
+          "title": "언어이해 (PSAT 4번)",
+          "q_label": "PSAT 4번",
+          "is_passage": false,
           "answer": 5,
           "subQuestions": [
             {
-              "id": "lang_24",
-              "num": 24,
-              "title": "24번",
+              "id": "lang_psat_4",
+              "num": 4,
+              "title": "PSAT 4번",
               "answer": 5
             }
           ],
@@ -517,19 +565,21 @@ const SKCT_DATA = {
           "page": 27
         },
         {
-          "id": "lang_25",
+          "id": "lang_psat_p28",
           "page_id": "lang_p25",
           "num": 25,
           "section": "언어이해",
+          "part": "PSAT 기출문제",
           "category": "PSAT 기출문제",
-          "title": "언어이해 25번",
-          "q_label": "25번",
+          "title": "언어이해 (PSAT 5번)",
+          "q_label": "PSAT 5번",
+          "is_passage": false,
           "answer": 3,
           "subQuestions": [
             {
-              "id": "lang_25",
-              "num": 25,
-              "title": "25번",
+              "id": "lang_psat_5",
+              "num": 5,
+              "title": "PSAT 5번",
               "answer": 3
             }
           ],
@@ -538,19 +588,21 @@ const SKCT_DATA = {
           "page": 28
         },
         {
-          "id": "lang_26",
+          "id": "lang_psat_p29",
           "page_id": "lang_p26",
           "num": 26,
           "section": "언어이해",
+          "part": "PSAT 기출문제",
           "category": "PSAT 기출문제",
-          "title": "언어이해 26번",
-          "q_label": "26번",
+          "title": "언어이해 (PSAT 6번)",
+          "q_label": "PSAT 6번",
+          "is_passage": false,
           "answer": 3,
           "subQuestions": [
             {
-              "id": "lang_26",
-              "num": 26,
-              "title": "26번",
+              "id": "lang_psat_6",
+              "num": 6,
+              "title": "PSAT 6번",
               "answer": 3
             }
           ],
@@ -559,19 +611,21 @@ const SKCT_DATA = {
           "page": 29
         },
         {
-          "id": "lang_27",
+          "id": "lang_psat_p30",
           "page_id": "lang_p27",
           "num": 27,
           "section": "언어이해",
+          "part": "PSAT 기출문제",
           "category": "PSAT 기출문제",
-          "title": "언어이해 27번",
-          "q_label": "27번",
+          "title": "언어이해 (PSAT 7번)",
+          "q_label": "PSAT 7번",
+          "is_passage": false,
           "answer": 4,
           "subQuestions": [
             {
-              "id": "lang_27",
-              "num": 27,
-              "title": "27번",
+              "id": "lang_psat_7",
+              "num": 7,
+              "title": "PSAT 7번",
               "answer": 4
             }
           ],
@@ -580,40 +634,44 @@ const SKCT_DATA = {
           "page": 30
         },
         {
-          "id": "lang_28",
+          "id": "lang_psat_p31",
           "page_id": "lang_p28",
           "num": 28,
           "section": "언어이해",
-          "category": "PSAT 기출문제",
-          "title": "언어이해 28번",
-          "q_label": "28번",
-          "answer": 2,
-          "subQuestions": [
-            {
-              "id": "lang_28",
-              "num": 28,
-              "title": "28번",
-              "answer": 2
-            }
-          ],
+          "part": "PSAT 기출문제",
+          "category": "PSAT 기출 (공통 지문)",
+          "title": "언어이해 (PSAT 08~09번 본문 지문)",
+          "q_label": "08~09번 본문 지문",
+          "is_passage": true,
+          "passage_target": "다음 페이지의 문제를 읽고 답을 마킹하세요",
+          "answer": null,
+          "subQuestions": [],
           "image": "assets/questions/lang_28.png",
           "solution_image": "assets/solutions/sol_lang_28.png",
           "page": 31
         },
         {
-          "id": "lang_29",
+          "id": "lang_psat_p32",
           "page_id": "lang_p29",
           "num": 29,
           "section": "언어이해",
+          "part": "PSAT 기출문제",
           "category": "PSAT 기출문제",
-          "title": "언어이해 29번",
-          "q_label": "29번",
-          "answer": 1,
+          "title": "언어이해 (PSAT 8번, 9번)",
+          "q_label": "PSAT 8번, 9번",
+          "is_passage": false,
+          "answer": 2,
           "subQuestions": [
             {
-              "id": "lang_29",
-              "num": 29,
-              "title": "29번",
+              "id": "lang_psat_8",
+              "num": 8,
+              "title": "PSAT 8번",
+              "answer": 2
+            },
+            {
+              "id": "lang_psat_9",
+              "num": 9,
+              "title": "PSAT 9번",
               "answer": 1
             }
           ],
@@ -622,19 +680,21 @@ const SKCT_DATA = {
           "page": 32
         },
         {
-          "id": "lang_30",
+          "id": "lang_psat_p33",
           "page_id": "lang_p30",
           "num": 30,
           "section": "언어이해",
+          "part": "PSAT 기출문제",
           "category": "PSAT 기출문제",
-          "title": "언어이해 30번",
-          "q_label": "30번",
+          "title": "언어이해 (PSAT 10번)",
+          "q_label": "PSAT 10번",
+          "is_passage": false,
           "answer": 5,
           "subQuestions": [
             {
-              "id": "lang_30",
-              "num": 30,
-              "title": "30번",
+              "id": "lang_psat_10",
+              "num": 10,
+              "title": "PSAT 10번",
               "answer": 5
             }
           ],
@@ -643,19 +703,21 @@ const SKCT_DATA = {
           "page": 33
         },
         {
-          "id": "lang_31",
+          "id": "lang_psat_p34",
           "page_id": "lang_p31",
           "num": 31,
           "section": "언어이해",
+          "part": "PSAT 기출문제",
           "category": "PSAT 기출문제",
-          "title": "언어이해 31번",
-          "q_label": "31번",
+          "title": "언어이해 (PSAT 11번)",
+          "q_label": "PSAT 11번",
+          "is_passage": false,
           "answer": 4,
           "subQuestions": [
             {
-              "id": "lang_31",
-              "num": 31,
-              "title": "31번",
+              "id": "lang_psat_11",
+              "num": 11,
+              "title": "PSAT 11번",
               "answer": 4
             }
           ],
@@ -664,40 +726,44 @@ const SKCT_DATA = {
           "page": 34
         },
         {
-          "id": "lang_32",
+          "id": "lang_psat_p35",
           "page_id": "lang_p32",
           "num": 32,
           "section": "언어이해",
-          "category": "PSAT 기출문제",
-          "title": "언어이해 32번",
-          "q_label": "32번",
-          "answer": 4,
-          "subQuestions": [
-            {
-              "id": "lang_32",
-              "num": 32,
-              "title": "32번",
-              "answer": 4
-            }
-          ],
+          "part": "PSAT 기출문제",
+          "category": "PSAT 기출 (공통 지문)",
+          "title": "언어이해 (PSAT 12~13번 본문 지문)",
+          "q_label": "12~13번 본문 지문",
+          "is_passage": true,
+          "passage_target": "다음 페이지의 문제를 읽고 답을 마킹하세요",
+          "answer": null,
+          "subQuestions": [],
           "image": "assets/questions/lang_32.png",
           "solution_image": "assets/solutions/sol_lang_32.png",
           "page": 35
         },
         {
-          "id": "lang_33",
+          "id": "lang_psat_p36",
           "page_id": "lang_p33",
           "num": 33,
           "section": "언어이해",
+          "part": "PSAT 기출문제",
           "category": "PSAT 기출문제",
-          "title": "언어이해 33번",
-          "q_label": "33번",
+          "title": "언어이해 (PSAT 12번, 13번)",
+          "q_label": "PSAT 12번, 13번",
+          "is_passage": false,
           "answer": 4,
           "subQuestions": [
             {
-              "id": "lang_33",
-              "num": 33,
-              "title": "33번",
+              "id": "lang_psat_12",
+              "num": 12,
+              "title": "PSAT 12번",
+              "answer": 4
+            },
+            {
+              "id": "lang_psat_13",
+              "num": 13,
+              "title": "PSAT 13번",
               "answer": 4
             }
           ],
@@ -706,19 +772,21 @@ const SKCT_DATA = {
           "page": 36
         },
         {
-          "id": "lang_34",
+          "id": "lang_psat_p37",
           "page_id": "lang_p34",
           "num": 34,
           "section": "언어이해",
+          "part": "PSAT 기출문제",
           "category": "PSAT 기출문제",
-          "title": "언어이해 34번",
-          "q_label": "34번",
+          "title": "언어이해 (PSAT 14번)",
+          "q_label": "PSAT 14번",
+          "is_passage": false,
           "answer": 1,
           "subQuestions": [
             {
-              "id": "lang_34",
-              "num": 34,
-              "title": "34번",
+              "id": "lang_psat_14",
+              "num": 14,
+              "title": "PSAT 14번",
               "answer": 1
             }
           ],
@@ -727,19 +795,21 @@ const SKCT_DATA = {
           "page": 37
         },
         {
-          "id": "lang_35",
+          "id": "lang_psat_p38",
           "page_id": "lang_p35",
           "num": 35,
           "section": "언어이해",
+          "part": "PSAT 기출문제",
           "category": "PSAT 기출문제",
-          "title": "언어이해 35번",
-          "q_label": "35번",
+          "title": "언어이해 (PSAT 15번)",
+          "q_label": "PSAT 15번",
+          "is_passage": false,
           "answer": 3,
           "subQuestions": [
             {
-              "id": "lang_35",
-              "num": 35,
-              "title": "35번",
+              "id": "lang_psat_15",
+              "num": 15,
+              "title": "PSAT 15번",
               "answer": 3
             }
           ],
@@ -748,19 +818,21 @@ const SKCT_DATA = {
           "page": 38
         },
         {
-          "id": "lang_36",
+          "id": "lang_psat_p39",
           "page_id": "lang_p36",
           "num": 36,
           "section": "언어이해",
+          "part": "PSAT 기출문제",
           "category": "PSAT 기출문제",
-          "title": "언어이해 36번",
-          "q_label": "36번",
+          "title": "언어이해 (PSAT 16번)",
+          "q_label": "PSAT 16번",
+          "is_passage": false,
           "answer": 4,
           "subQuestions": [
             {
-              "id": "lang_36",
-              "num": 36,
-              "title": "36번",
+              "id": "lang_psat_16",
+              "num": 16,
+              "title": "PSAT 16번",
               "answer": 4
             }
           ],
@@ -769,19 +841,21 @@ const SKCT_DATA = {
           "page": 39
         },
         {
-          "id": "lang_37",
+          "id": "lang_psat_p40",
           "page_id": "lang_p37",
           "num": 37,
           "section": "언어이해",
+          "part": "PSAT 기출문제",
           "category": "PSAT 기출문제",
-          "title": "언어이해 37번",
-          "q_label": "37번",
+          "title": "언어이해 (PSAT 17번)",
+          "q_label": "PSAT 17번",
+          "is_passage": false,
           "answer": 5,
           "subQuestions": [
             {
-              "id": "lang_37",
-              "num": 37,
-              "title": "37번",
+              "id": "lang_psat_17",
+              "num": 17,
+              "title": "PSAT 17번",
               "answer": 5
             }
           ],
@@ -790,19 +864,21 @@ const SKCT_DATA = {
           "page": 40
         },
         {
-          "id": "lang_38",
+          "id": "lang_psat_p41",
           "page_id": "lang_p38",
           "num": 38,
           "section": "언어이해",
+          "part": "PSAT 기출문제",
           "category": "PSAT 기출문제",
-          "title": "언어이해 38번",
-          "q_label": "38번",
+          "title": "언어이해 (PSAT 18번)",
+          "q_label": "PSAT 18번",
+          "is_passage": false,
           "answer": 3,
           "subQuestions": [
             {
-              "id": "lang_38",
-              "num": 38,
-              "title": "38번",
+              "id": "lang_psat_18",
+              "num": 18,
+              "title": "PSAT 18번",
               "answer": 3
             }
           ],
@@ -811,19 +887,21 @@ const SKCT_DATA = {
           "page": 41
         },
         {
-          "id": "lang_39",
+          "id": "lang_psat_p42",
           "page_id": "lang_p39",
           "num": 39,
           "section": "언어이해",
+          "part": "PSAT 기출문제",
           "category": "PSAT 기출문제",
-          "title": "언어이해 39번",
-          "q_label": "39번",
+          "title": "언어이해 (PSAT 19번)",
+          "q_label": "PSAT 19번",
+          "is_passage": false,
           "answer": 1,
           "subQuestions": [
             {
-              "id": "lang_39",
-              "num": 39,
-              "title": "39번",
+              "id": "lang_psat_19",
+              "num": 19,
+              "title": "PSAT 19번",
               "answer": 1
             }
           ],
@@ -832,19 +910,21 @@ const SKCT_DATA = {
           "page": 42
         },
         {
-          "id": "lang_40",
+          "id": "lang_psat_p43",
           "page_id": "lang_p40",
           "num": 40,
           "section": "언어이해",
+          "part": "PSAT 기출문제",
           "category": "PSAT 기출문제",
-          "title": "언어이해 40번",
-          "q_label": "40번",
+          "title": "언어이해 (PSAT 20번)",
+          "q_label": "PSAT 20번",
+          "is_passage": false,
           "answer": 5,
           "subQuestions": [
             {
-              "id": "lang_40",
-              "num": 40,
-              "title": "40번",
+              "id": "lang_psat_20",
+              "num": 20,
+              "title": "PSAT 20번",
               "answer": 5
             }
           ],
@@ -853,19 +933,21 @@ const SKCT_DATA = {
           "page": 43
         },
         {
-          "id": "lang_41",
+          "id": "lang_psat_p44",
           "page_id": "lang_p41",
           "num": 41,
           "section": "언어이해",
+          "part": "PSAT 기출문제",
           "category": "PSAT 기출문제",
-          "title": "언어이해 41번",
-          "q_label": "41번",
+          "title": "언어이해 (PSAT 21번)",
+          "q_label": "PSAT 21번",
+          "is_passage": false,
           "answer": 5,
           "subQuestions": [
             {
-              "id": "lang_41",
-              "num": 41,
-              "title": "41번",
+              "id": "lang_psat_21",
+              "num": 21,
+              "title": "PSAT 21번",
               "answer": 5
             }
           ],
@@ -874,19 +956,21 @@ const SKCT_DATA = {
           "page": 44
         },
         {
-          "id": "lang_42",
+          "id": "lang_psat_p45",
           "page_id": "lang_p42",
           "num": 42,
           "section": "언어이해",
+          "part": "PSAT 기출문제",
           "category": "PSAT 기출문제",
-          "title": "언어이해 42번",
-          "q_label": "42번",
+          "title": "언어이해 (PSAT 22번)",
+          "q_label": "PSAT 22번",
+          "is_passage": false,
           "answer": 5,
           "subQuestions": [
             {
-              "id": "lang_42",
-              "num": 42,
-              "title": "42번",
+              "id": "lang_psat_22",
+              "num": 22,
+              "title": "PSAT 22번",
               "answer": 5
             }
           ],
@@ -895,19 +979,21 @@ const SKCT_DATA = {
           "page": 45
         },
         {
-          "id": "lang_43",
+          "id": "lang_psat_p46",
           "page_id": "lang_p43",
           "num": 43,
           "section": "언어이해",
+          "part": "PSAT 기출문제",
           "category": "PSAT 기출문제",
-          "title": "언어이해 43번",
-          "q_label": "43번",
+          "title": "언어이해 (PSAT 23번)",
+          "q_label": "PSAT 23번",
+          "is_passage": false,
           "answer": 5,
           "subQuestions": [
             {
-              "id": "lang_43",
-              "num": 43,
-              "title": "43번",
+              "id": "lang_psat_23",
+              "num": 23,
+              "title": "PSAT 23번",
               "answer": 5
             }
           ],
@@ -916,19 +1002,21 @@ const SKCT_DATA = {
           "page": 46
         },
         {
-          "id": "lang_44",
+          "id": "lang_psat_p47",
           "page_id": "lang_p44",
           "num": 44,
           "section": "언어이해",
+          "part": "PSAT 기출문제",
           "category": "PSAT 기출문제",
-          "title": "언어이해 44번",
-          "q_label": "44번",
+          "title": "언어이해 (PSAT 24번)",
+          "q_label": "PSAT 24번",
+          "is_passage": false,
           "answer": 2,
           "subQuestions": [
             {
-              "id": "lang_44",
-              "num": 44,
-              "title": "44번",
+              "id": "lang_psat_24",
+              "num": 24,
+              "title": "PSAT 24번",
               "answer": 2
             }
           ],
@@ -937,19 +1025,21 @@ const SKCT_DATA = {
           "page": 47
         },
         {
-          "id": "lang_45",
+          "id": "lang_psat_p48",
           "page_id": "lang_p45",
           "num": 45,
           "section": "언어이해",
+          "part": "PSAT 기출문제",
           "category": "PSAT 기출문제",
-          "title": "언어이해 45번",
-          "q_label": "45번",
+          "title": "언어이해 (PSAT 25번)",
+          "q_label": "PSAT 25번",
+          "is_passage": false,
           "answer": 5,
           "subQuestions": [
             {
-              "id": "lang_45",
-              "num": 45,
-              "title": "45번",
+              "id": "lang_psat_25",
+              "num": 25,
+              "title": "PSAT 25번",
               "answer": 5
             }
           ],
@@ -958,19 +1048,21 @@ const SKCT_DATA = {
           "page": 48
         },
         {
-          "id": "lang_46",
+          "id": "lang_psat_p49",
           "page_id": "lang_p46",
           "num": 46,
           "section": "언어이해",
+          "part": "PSAT 기출문제",
           "category": "PSAT 기출문제",
-          "title": "언어이해 46번",
-          "q_label": "46번",
+          "title": "언어이해 (PSAT 26번)",
+          "q_label": "PSAT 26번",
+          "is_passage": false,
           "answer": 4,
           "subQuestions": [
             {
-              "id": "lang_46",
-              "num": 46,
-              "title": "46번",
+              "id": "lang_psat_26",
+              "num": 26,
+              "title": "PSAT 26번",
               "answer": 4
             }
           ],
@@ -979,19 +1071,21 @@ const SKCT_DATA = {
           "page": 49
         },
         {
-          "id": "lang_47",
+          "id": "lang_psat_p50",
           "page_id": "lang_p47",
           "num": 47,
           "section": "언어이해",
+          "part": "PSAT 기출문제",
           "category": "PSAT 기출문제",
-          "title": "언어이해 47번",
-          "q_label": "47번",
+          "title": "언어이해 (PSAT 27번)",
+          "q_label": "PSAT 27번",
+          "is_passage": false,
           "answer": 5,
           "subQuestions": [
             {
-              "id": "lang_47",
-              "num": 47,
-              "title": "47번",
+              "id": "lang_psat_27",
+              "num": 27,
+              "title": "PSAT 27번",
               "answer": 5
             }
           ],
@@ -1000,19 +1094,21 @@ const SKCT_DATA = {
           "page": 50
         },
         {
-          "id": "lang_48",
+          "id": "lang_psat_p51",
           "page_id": "lang_p48",
           "num": 48,
           "section": "언어이해",
+          "part": "PSAT 기출문제",
           "category": "PSAT 기출문제",
-          "title": "언어이해 48번",
-          "q_label": "48번",
+          "title": "언어이해 (PSAT 28번)",
+          "q_label": "PSAT 28번",
+          "is_passage": false,
           "answer": 5,
           "subQuestions": [
             {
-              "id": "lang_48",
-              "num": 48,
-              "title": "48번",
+              "id": "lang_psat_28",
+              "num": 28,
+              "title": "PSAT 28번",
               "answer": 5
             }
           ],
@@ -1025,7 +1121,7 @@ const SKCT_DATA = {
     {
       "id": "data",
       "name": "자료해석",
-      "description": "통계표, 그래프, 수치 데이터 분석 및 신속한 가계산 (30문항)",
+      "description": "통계표, 그래프, 수치 데이터 분석 및 신속한 가계산 (30문항, 30페이지)",
       "page_count": 30,
       "question_count": 30,
       "time_limit_minutes": 30,
@@ -1035,10 +1131,12 @@ const SKCT_DATA = {
           "page_id": "data_p01",
           "num": 1,
           "section": "자료해석",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "자료해석 1번",
           "q_label": "1번",
           "answer": 5,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "data_1",
@@ -1056,10 +1154,12 @@ const SKCT_DATA = {
           "page_id": "data_p02",
           "num": 2,
           "section": "자료해석",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "자료해석 2번",
           "q_label": "2번",
           "answer": 5,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "data_2",
@@ -1077,16 +1177,18 @@ const SKCT_DATA = {
           "page_id": "data_p03",
           "num": 3,
           "section": "자료해석",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "자료해석 3번",
           "q_label": "3번",
-          "answer": 4,
+          "answer": 2,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "data_3",
               "num": 3,
               "title": "3번",
-              "answer": 4
+              "answer": 2
             }
           ],
           "image": "assets/questions/data_03.png",
@@ -1098,10 +1200,12 @@ const SKCT_DATA = {
           "page_id": "data_p04",
           "num": 4,
           "section": "자료해석",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "자료해석 4번",
           "q_label": "4번",
           "answer": 2,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "data_4",
@@ -1119,10 +1223,12 @@ const SKCT_DATA = {
           "page_id": "data_p05",
           "num": 5,
           "section": "자료해석",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "자료해석 5번",
           "q_label": "5번",
           "answer": 4,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "data_5",
@@ -1140,10 +1246,12 @@ const SKCT_DATA = {
           "page_id": "data_p06",
           "num": 6,
           "section": "자료해석",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "자료해석 6번",
           "q_label": "6번",
           "answer": 4,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "data_6",
@@ -1161,10 +1269,12 @@ const SKCT_DATA = {
           "page_id": "data_p07",
           "num": 7,
           "section": "자료해석",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "자료해석 7번",
           "q_label": "7번",
           "answer": 2,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "data_7",
@@ -1182,10 +1292,12 @@ const SKCT_DATA = {
           "page_id": "data_p08",
           "num": 8,
           "section": "자료해석",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "자료해석 8번",
           "q_label": "8번",
           "answer": 5,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "data_8",
@@ -1203,10 +1315,12 @@ const SKCT_DATA = {
           "page_id": "data_p09",
           "num": 9,
           "section": "자료해석",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "자료해석 9번",
           "q_label": "9번",
           "answer": 5,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "data_9",
@@ -1224,10 +1338,12 @@ const SKCT_DATA = {
           "page_id": "data_p10",
           "num": 10,
           "section": "자료해석",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "자료해석 10번",
           "q_label": "10번",
           "answer": 1,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "data_10",
@@ -1245,10 +1361,12 @@ const SKCT_DATA = {
           "page_id": "data_p11",
           "num": 11,
           "section": "자료해석",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "자료해석 11번",
           "q_label": "11번",
           "answer": 3,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "data_11",
@@ -1266,10 +1384,12 @@ const SKCT_DATA = {
           "page_id": "data_p12",
           "num": 12,
           "section": "자료해석",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "자료해석 12번",
           "q_label": "12번",
           "answer": 3,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "data_12",
@@ -1287,10 +1407,12 @@ const SKCT_DATA = {
           "page_id": "data_p13",
           "num": 13,
           "section": "자료해석",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "자료해석 13번",
           "q_label": "13번",
           "answer": 4,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "data_13",
@@ -1308,10 +1430,12 @@ const SKCT_DATA = {
           "page_id": "data_p14",
           "num": 14,
           "section": "자료해석",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "자료해석 14번",
           "q_label": "14번",
           "answer": 4,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "data_14",
@@ -1329,10 +1453,12 @@ const SKCT_DATA = {
           "page_id": "data_p15",
           "num": 15,
           "section": "자료해석",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "자료해석 15번",
           "q_label": "15번",
           "answer": 5,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "data_15",
@@ -1350,10 +1476,12 @@ const SKCT_DATA = {
           "page_id": "data_p16",
           "num": 16,
           "section": "자료해석",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "자료해석 16번",
           "q_label": "16번",
           "answer": 5,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "data_16",
@@ -1371,10 +1499,12 @@ const SKCT_DATA = {
           "page_id": "data_p17",
           "num": 17,
           "section": "자료해석",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "자료해석 17번",
           "q_label": "17번",
           "answer": 4,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "data_17",
@@ -1392,10 +1522,12 @@ const SKCT_DATA = {
           "page_id": "data_p18",
           "num": 18,
           "section": "자료해석",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "자료해석 18번",
           "q_label": "18번",
           "answer": 4,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "data_18",
@@ -1413,10 +1545,12 @@ const SKCT_DATA = {
           "page_id": "data_p19",
           "num": 19,
           "section": "자료해석",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "자료해석 19번",
           "q_label": "19번",
           "answer": 2,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "data_19",
@@ -1434,10 +1568,12 @@ const SKCT_DATA = {
           "page_id": "data_p20",
           "num": 20,
           "section": "자료해석",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "자료해석 20번",
           "q_label": "20번",
           "answer": 2,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "data_20",
@@ -1455,10 +1591,12 @@ const SKCT_DATA = {
           "page_id": "data_p21",
           "num": 21,
           "section": "자료해석",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "자료해석 21번",
           "q_label": "21번",
           "answer": 3,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "data_21",
@@ -1476,10 +1614,12 @@ const SKCT_DATA = {
           "page_id": "data_p22",
           "num": 22,
           "section": "자료해석",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "자료해석 22번",
           "q_label": "22번",
           "answer": 4,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "data_22",
@@ -1497,10 +1637,12 @@ const SKCT_DATA = {
           "page_id": "data_p23",
           "num": 23,
           "section": "자료해석",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "자료해석 23번",
           "q_label": "23번",
           "answer": 4,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "data_23",
@@ -1518,10 +1660,12 @@ const SKCT_DATA = {
           "page_id": "data_p24",
           "num": 24,
           "section": "자료해석",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "자료해석 24번",
           "q_label": "24번",
           "answer": 4,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "data_24",
@@ -1539,10 +1683,12 @@ const SKCT_DATA = {
           "page_id": "data_p25",
           "num": 25,
           "section": "자료해석",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "자료해석 25번",
           "q_label": "25번",
           "answer": 2,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "data_25",
@@ -1560,10 +1706,12 @@ const SKCT_DATA = {
           "page_id": "data_p26",
           "num": 26,
           "section": "자료해석",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "자료해석 26번",
           "q_label": "26번",
           "answer": 3,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "data_26",
@@ -1581,10 +1729,12 @@ const SKCT_DATA = {
           "page_id": "data_p27",
           "num": 27,
           "section": "자료해석",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "자료해석 27번",
           "q_label": "27번",
           "answer": 3,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "data_27",
@@ -1602,10 +1752,12 @@ const SKCT_DATA = {
           "page_id": "data_p28",
           "num": 28,
           "section": "자료해석",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "자료해석 28번",
           "q_label": "28번",
           "answer": 3,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "data_28",
@@ -1623,10 +1775,12 @@ const SKCT_DATA = {
           "page_id": "data_p29",
           "num": 29,
           "section": "자료해석",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "자료해석 29번",
           "q_label": "29번",
           "answer": 2,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "data_29",
@@ -1644,10 +1798,12 @@ const SKCT_DATA = {
           "page_id": "data_p30",
           "num": 30,
           "section": "자료해석",
+          "part": "출제예상문제",
           "category": "출제예상문제",
           "title": "자료해석 30번",
           "q_label": "30번",
           "answer": 5,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "data_30",
@@ -1665,7 +1821,7 @@ const SKCT_DATA = {
     {
       "id": "reason",
       "name": "언어추리",
-      "description": "명제 삼단논법, 참/거짓 판단, 조건 배치 퀴즈 (96문항)",
+      "description": "명제 삼단논법(60문항), 조건 배치 퀴즈(16문항), 실전 모의(20문항) (총 96문항, 48페이지)",
       "page_count": 48,
       "question_count": 96,
       "time_limit_minutes": 30,
@@ -1675,19 +1831,21 @@ const SKCT_DATA = {
           "page_id": "reason_p01",
           "num": 1,
           "section": "언어추리",
-          "category": "명제추리 (삼단논법/결론/전제)",
-          "title": "언어추리 (1번, 2번)",
+          "part": "명제추리",
+          "category": "명제추리 (삼단논법/결론)",
+          "title": "명제추리 (1번, 2번)",
           "q_label": "1번, 2번",
           "answer": 2,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "reason_1",
+              "id": "reason_prop_1",
               "num": 1,
               "title": "1번",
               "answer": 2
             },
             {
-              "id": "reason_2",
+              "id": "reason_prop_2",
               "num": 2,
               "title": "2번",
               "answer": 1
@@ -1702,19 +1860,21 @@ const SKCT_DATA = {
           "page_id": "reason_p02",
           "num": 2,
           "section": "언어추리",
-          "category": "명제추리 (삼단논법/결론/전제)",
-          "title": "언어추리 (3번, 4번)",
+          "part": "명제추리",
+          "category": "명제추리 (삼단논법/결론)",
+          "title": "명제추리 (3번, 4번)",
           "q_label": "3번, 4번",
           "answer": 4,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "reason_3",
+              "id": "reason_prop_3",
               "num": 3,
               "title": "3번",
               "answer": 4
             },
             {
-              "id": "reason_4",
+              "id": "reason_prop_4",
               "num": 4,
               "title": "4번",
               "answer": 1
@@ -1729,19 +1889,21 @@ const SKCT_DATA = {
           "page_id": "reason_p03",
           "num": 3,
           "section": "언어추리",
-          "category": "명제추리 (삼단논법/결론/전제)",
-          "title": "언어추리 (5번, 6번)",
+          "part": "명제추리",
+          "category": "명제추리 (삼단논법/결론)",
+          "title": "명제추리 (5번, 6번)",
           "q_label": "5번, 6번",
           "answer": 4,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "reason_5",
+              "id": "reason_prop_5",
               "num": 5,
               "title": "5번",
               "answer": 4
             },
             {
-              "id": "reason_6",
+              "id": "reason_prop_6",
               "num": 6,
               "title": "6번",
               "answer": 3
@@ -1756,19 +1918,21 @@ const SKCT_DATA = {
           "page_id": "reason_p04",
           "num": 4,
           "section": "언어추리",
-          "category": "명제추리 (삼단논법/결론/전제)",
-          "title": "언어추리 (7번, 8번)",
+          "part": "명제추리",
+          "category": "명제추리 (삼단논법/결론)",
+          "title": "명제추리 (7번, 8번)",
           "q_label": "7번, 8번",
           "answer": 4,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "reason_7",
+              "id": "reason_prop_7",
               "num": 7,
               "title": "7번",
               "answer": 4
             },
             {
-              "id": "reason_8",
+              "id": "reason_prop_8",
               "num": 8,
               "title": "8번",
               "answer": 2
@@ -1783,19 +1947,21 @@ const SKCT_DATA = {
           "page_id": "reason_p05",
           "num": 5,
           "section": "언어추리",
-          "category": "명제추리 (삼단논법/결론/전제)",
-          "title": "언어추리 (9번, 10번)",
+          "part": "명제추리",
+          "category": "명제추리 (삼단논법/결론)",
+          "title": "명제추리 (9번, 10번)",
           "q_label": "9번, 10번",
           "answer": 4,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "reason_9",
+              "id": "reason_prop_9",
               "num": 9,
               "title": "9번",
               "answer": 4
             },
             {
-              "id": "reason_10",
+              "id": "reason_prop_10",
               "num": 10,
               "title": "10번",
               "answer": 3
@@ -1810,19 +1976,21 @@ const SKCT_DATA = {
           "page_id": "reason_p06",
           "num": 6,
           "section": "언어추리",
-          "category": "명제추리 (삼단논법/결론/전제)",
-          "title": "언어추리 (11번, 12번)",
+          "part": "명제추리",
+          "category": "명제추리 (삼단논법/결론)",
+          "title": "명제추리 (11번, 12번)",
           "q_label": "11번, 12번",
           "answer": 4,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "reason_11",
+              "id": "reason_prop_11",
               "num": 11,
               "title": "11번",
               "answer": 4
             },
             {
-              "id": "reason_12",
+              "id": "reason_prop_12",
               "num": 12,
               "title": "12번",
               "answer": 4
@@ -1837,19 +2005,21 @@ const SKCT_DATA = {
           "page_id": "reason_p07",
           "num": 7,
           "section": "언어추리",
-          "category": "명제추리 (삼단논법/결론/전제)",
-          "title": "언어추리 (13번, 14번)",
+          "part": "명제추리",
+          "category": "명제추리 (삼단논법/결론)",
+          "title": "명제추리 (13번, 14번)",
           "q_label": "13번, 14번",
           "answer": 5,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "reason_13",
+              "id": "reason_prop_13",
               "num": 13,
               "title": "13번",
               "answer": 5
             },
             {
-              "id": "reason_14",
+              "id": "reason_prop_14",
               "num": 14,
               "title": "14번",
               "answer": 2
@@ -1864,19 +2034,21 @@ const SKCT_DATA = {
           "page_id": "reason_p08",
           "num": 8,
           "section": "언어추리",
-          "category": "명제추리 (삼단논법/결론/전제)",
-          "title": "언어추리 (15번, 16번)",
+          "part": "명제추리",
+          "category": "명제추리 (삼단논법/결론)",
+          "title": "명제추리 (15번, 16번)",
           "q_label": "15번, 16번",
           "answer": 1,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "reason_15",
+              "id": "reason_prop_15",
               "num": 15,
               "title": "15번",
               "answer": 1
             },
             {
-              "id": "reason_16",
+              "id": "reason_prop_16",
               "num": 16,
               "title": "16번",
               "answer": 5
@@ -1891,19 +2063,21 @@ const SKCT_DATA = {
           "page_id": "reason_p09",
           "num": 9,
           "section": "언어추리",
-          "category": "명제추리 (삼단논법/결론/전제)",
-          "title": "언어추리 (17번, 18번)",
+          "part": "명제추리",
+          "category": "명제추리 (삼단논법/결론)",
+          "title": "명제추리 (17번, 18번)",
           "q_label": "17번, 18번",
           "answer": 4,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "reason_17",
+              "id": "reason_prop_17",
               "num": 17,
               "title": "17번",
               "answer": 4
             },
             {
-              "id": "reason_18",
+              "id": "reason_prop_18",
               "num": 18,
               "title": "18번",
               "answer": 2
@@ -1918,19 +2092,21 @@ const SKCT_DATA = {
           "page_id": "reason_p10",
           "num": 10,
           "section": "언어추리",
-          "category": "명제추리 (삼단논법/결론/전제)",
-          "title": "언어추리 (19번, 20번)",
+          "part": "명제추리",
+          "category": "명제추리 (삼단논법/결론)",
+          "title": "명제추리 (19번, 20번)",
           "q_label": "19번, 20번",
           "answer": 2,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "reason_19",
+              "id": "reason_prop_19",
               "num": 19,
               "title": "19번",
               "answer": 2
             },
             {
-              "id": "reason_20",
+              "id": "reason_prop_20",
               "num": 20,
               "title": "20번",
               "answer": 2
@@ -1945,19 +2121,21 @@ const SKCT_DATA = {
           "page_id": "reason_p11",
           "num": 11,
           "section": "언어추리",
-          "category": "명제추리 (삼단논법/결론/전제)",
-          "title": "언어추리 (21번, 22번)",
+          "part": "명제추리",
+          "category": "명제추리 (삼단논법/결론)",
+          "title": "명제추리 (21번, 22번)",
           "q_label": "21번, 22번",
           "answer": 4,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "reason_21",
+              "id": "reason_prop_21",
               "num": 21,
               "title": "21번",
               "answer": 4
             },
             {
-              "id": "reason_22",
+              "id": "reason_prop_22",
               "num": 22,
               "title": "22번",
               "answer": 5
@@ -1972,19 +2150,21 @@ const SKCT_DATA = {
           "page_id": "reason_p12",
           "num": 12,
           "section": "언어추리",
-          "category": "명제추리 (삼단논법/결론/전제)",
-          "title": "언어추리 (23번, 24번)",
+          "part": "명제추리",
+          "category": "명제추리 (삼단논법/결론)",
+          "title": "명제추리 (23번, 24번)",
           "q_label": "23번, 24번",
           "answer": 3,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "reason_23",
+              "id": "reason_prop_23",
               "num": 23,
               "title": "23번",
               "answer": 3
             },
             {
-              "id": "reason_24",
+              "id": "reason_prop_24",
               "num": 24,
               "title": "24번",
               "answer": 4
@@ -1999,19 +2179,21 @@ const SKCT_DATA = {
           "page_id": "reason_p13",
           "num": 13,
           "section": "언어추리",
-          "category": "명제추리 (삼단논법/결론/전제)",
-          "title": "언어추리 (25번, 26번)",
+          "part": "명제추리",
+          "category": "명제추리 (삼단논법/결론)",
+          "title": "명제추리 (25번, 26번)",
           "q_label": "25번, 26번",
           "answer": 3,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "reason_25",
+              "id": "reason_prop_25",
               "num": 25,
               "title": "25번",
               "answer": 3
             },
             {
-              "id": "reason_26",
+              "id": "reason_prop_26",
               "num": 26,
               "title": "26번",
               "answer": 2
@@ -2026,19 +2208,21 @@ const SKCT_DATA = {
           "page_id": "reason_p14",
           "num": 14,
           "section": "언어추리",
-          "category": "명제추리 (삼단논법/결론/전제)",
-          "title": "언어추리 (27번, 28번)",
+          "part": "명제추리",
+          "category": "명제추리 (삼단논법/결론)",
+          "title": "명제추리 (27번, 28번)",
           "q_label": "27번, 28번",
           "answer": 3,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "reason_27",
+              "id": "reason_prop_27",
               "num": 27,
               "title": "27번",
               "answer": 3
             },
             {
-              "id": "reason_28",
+              "id": "reason_prop_28",
               "num": 28,
               "title": "28번",
               "answer": 4
@@ -2053,19 +2237,21 @@ const SKCT_DATA = {
           "page_id": "reason_p15",
           "num": 15,
           "section": "언어추리",
-          "category": "명제추리 (삼단논법/결론/전제)",
-          "title": "언어추리 (29번, 30번)",
+          "part": "명제추리",
+          "category": "명제추리 (삼단논법/결론)",
+          "title": "명제추리 (29번, 30번)",
           "q_label": "29번, 30번",
           "answer": 4,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "reason_29",
+              "id": "reason_prop_29",
               "num": 29,
               "title": "29번",
               "answer": 4
             },
             {
-              "id": "reason_30",
+              "id": "reason_prop_30",
               "num": 30,
               "title": "30번",
               "answer": 2
@@ -2080,19 +2266,21 @@ const SKCT_DATA = {
           "page_id": "reason_p16",
           "num": 16,
           "section": "언어추리",
-          "category": "명제추리 (삼단논법/결론/전제)",
-          "title": "언어추리 (31번, 32번)",
+          "part": "명제추리",
+          "category": "명제추리 (삼단논법/결론)",
+          "title": "명제추리 (31번, 32번)",
           "q_label": "31번, 32번",
           "answer": 3,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "reason_31",
+              "id": "reason_prop_31",
               "num": 31,
               "title": "31번",
               "answer": 3
             },
             {
-              "id": "reason_32",
+              "id": "reason_prop_32",
               "num": 32,
               "title": "32번",
               "answer": 4
@@ -2107,19 +2295,21 @@ const SKCT_DATA = {
           "page_id": "reason_p17",
           "num": 17,
           "section": "언어추리",
-          "category": "명제추리 (삼단논법/결론/전제)",
-          "title": "언어추리 (33번, 34번)",
+          "part": "명제추리",
+          "category": "명제추리 (삼단논법/결론)",
+          "title": "명제추리 (33번, 34번)",
           "q_label": "33번, 34번",
           "answer": 4,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "reason_33",
+              "id": "reason_prop_33",
               "num": 33,
               "title": "33번",
               "answer": 4
             },
             {
-              "id": "reason_34",
+              "id": "reason_prop_34",
               "num": 34,
               "title": "34번",
               "answer": 3
@@ -2134,19 +2324,21 @@ const SKCT_DATA = {
           "page_id": "reason_p18",
           "num": 18,
           "section": "언어추리",
-          "category": "명제추리 (삼단논법/결론/전제)",
-          "title": "언어추리 (35번, 36번)",
+          "part": "명제추리",
+          "category": "명제추리 (삼단논법/결론)",
+          "title": "명제추리 (35번, 36번)",
           "q_label": "35번, 36번",
           "answer": 5,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "reason_35",
+              "id": "reason_prop_35",
               "num": 35,
               "title": "35번",
               "answer": 5
             },
             {
-              "id": "reason_36",
+              "id": "reason_prop_36",
               "num": 36,
               "title": "36번",
               "answer": 2
@@ -2161,19 +2353,21 @@ const SKCT_DATA = {
           "page_id": "reason_p19",
           "num": 19,
           "section": "언어추리",
-          "category": "명제추리 (삼단논법/결론/전제)",
-          "title": "언어추리 (37번, 38번)",
+          "part": "명제추리",
+          "category": "명제추리 (삼단논법/결론)",
+          "title": "명제추리 (37번, 38번)",
           "q_label": "37번, 38번",
           "answer": 2,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "reason_37",
+              "id": "reason_prop_37",
               "num": 37,
               "title": "37번",
               "answer": 2
             },
             {
-              "id": "reason_38",
+              "id": "reason_prop_38",
               "num": 38,
               "title": "38번",
               "answer": 3
@@ -2188,19 +2382,21 @@ const SKCT_DATA = {
           "page_id": "reason_p20",
           "num": 20,
           "section": "언어추리",
-          "category": "명제추리 (삼단논법/결론/전제)",
-          "title": "언어추리 (39번, 40번)",
+          "part": "명제추리",
+          "category": "명제추리 (삼단논법/결론)",
+          "title": "명제추리 (39번, 40번)",
           "q_label": "39번, 40번",
           "answer": 5,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "reason_39",
+              "id": "reason_prop_39",
               "num": 39,
               "title": "39번",
               "answer": 5
             },
             {
-              "id": "reason_40",
+              "id": "reason_prop_40",
               "num": 40,
               "title": "40번",
               "answer": 4
@@ -2215,19 +2411,21 @@ const SKCT_DATA = {
           "page_id": "reason_p21",
           "num": 21,
           "section": "언어추리",
-          "category": "명제추리 (삼단논법/결론/전제)",
-          "title": "언어추리 (41번, 42번)",
+          "part": "명제추리",
+          "category": "명제추리 (삼단논법/결론)",
+          "title": "명제추리 (41번, 42번)",
           "q_label": "41번, 42번",
           "answer": 4,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "reason_41",
+              "id": "reason_prop_41",
               "num": 41,
               "title": "41번",
               "answer": 4
             },
             {
-              "id": "reason_42",
+              "id": "reason_prop_42",
               "num": 42,
               "title": "42번",
               "answer": 3
@@ -2242,19 +2440,21 @@ const SKCT_DATA = {
           "page_id": "reason_p22",
           "num": 22,
           "section": "언어추리",
-          "category": "명제추리 (삼단논법/결론/전제)",
-          "title": "언어추리 (43번, 44번)",
+          "part": "명제추리",
+          "category": "명제추리 (삼단논법/결론)",
+          "title": "명제추리 (43번, 44번)",
           "q_label": "43번, 44번",
           "answer": 1,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "reason_43",
+              "id": "reason_prop_43",
               "num": 43,
               "title": "43번",
               "answer": 1
             },
             {
-              "id": "reason_44",
+              "id": "reason_prop_44",
               "num": 44,
               "title": "44번",
               "answer": 2
@@ -2269,19 +2469,21 @@ const SKCT_DATA = {
           "page_id": "reason_p23",
           "num": 23,
           "section": "언어추리",
-          "category": "명제추리 (삼단논법/결론/전제)",
-          "title": "언어추리 (45번, 46번)",
+          "part": "명제추리",
+          "category": "명제추리 (삼단논법/결론)",
+          "title": "명제추리 (45번, 46번)",
           "q_label": "45번, 46번",
           "answer": 2,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "reason_45",
+              "id": "reason_prop_45",
               "num": 45,
               "title": "45번",
               "answer": 2
             },
             {
-              "id": "reason_46",
+              "id": "reason_prop_46",
               "num": 46,
               "title": "46번",
               "answer": 3
@@ -2296,19 +2498,21 @@ const SKCT_DATA = {
           "page_id": "reason_p24",
           "num": 24,
           "section": "언어추리",
-          "category": "명제추리 (삼단논법/결론/전제)",
-          "title": "언어추리 (47번, 48번)",
+          "part": "명제추리",
+          "category": "명제추리 (삼단논법/결론)",
+          "title": "명제추리 (47번, 48번)",
           "q_label": "47번, 48번",
           "answer": 4,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "reason_47",
+              "id": "reason_prop_47",
               "num": 47,
               "title": "47번",
               "answer": 4
             },
             {
-              "id": "reason_48",
+              "id": "reason_prop_48",
               "num": 48,
               "title": "48번",
               "answer": 3
@@ -2323,19 +2527,21 @@ const SKCT_DATA = {
           "page_id": "reason_p25",
           "num": 25,
           "section": "언어추리",
-          "category": "명제추리 (삼단논법/결론/전제)",
-          "title": "언어추리 (49번, 50번)",
+          "part": "명제추리",
+          "category": "명제추리 (삼단논법/결론)",
+          "title": "명제추리 (49번, 50번)",
           "q_label": "49번, 50번",
           "answer": 5,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "reason_49",
+              "id": "reason_prop_49",
               "num": 49,
               "title": "49번",
               "answer": 5
             },
             {
-              "id": "reason_50",
+              "id": "reason_prop_50",
               "num": 50,
               "title": "50번",
               "answer": 4
@@ -2350,19 +2556,21 @@ const SKCT_DATA = {
           "page_id": "reason_p26",
           "num": 26,
           "section": "언어추리",
+          "part": "명제추리",
           "category": "명제추리 (명제 3개 초과)",
-          "title": "언어추리 (51번, 52번)",
+          "title": "명제추리 (51번, 52번)",
           "q_label": "51번, 52번",
           "answer": 4,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "reason_51",
+              "id": "reason_prop_51",
               "num": 51,
               "title": "51번",
               "answer": 4
             },
             {
-              "id": "reason_52",
+              "id": "reason_prop_52",
               "num": 52,
               "title": "52번",
               "answer": 5
@@ -2377,19 +2585,21 @@ const SKCT_DATA = {
           "page_id": "reason_p27",
           "num": 27,
           "section": "언어추리",
+          "part": "명제추리",
           "category": "명제추리 (명제 3개 초과)",
-          "title": "언어추리 (53번, 54번)",
+          "title": "명제추리 (53번, 54번)",
           "q_label": "53번, 54번",
           "answer": 1,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "reason_53",
+              "id": "reason_prop_53",
               "num": 53,
               "title": "53번",
               "answer": 1
             },
             {
-              "id": "reason_54",
+              "id": "reason_prop_54",
               "num": 54,
               "title": "54번",
               "answer": 2
@@ -2404,19 +2614,21 @@ const SKCT_DATA = {
           "page_id": "reason_p28",
           "num": 28,
           "section": "언어추리",
+          "part": "명제추리",
           "category": "명제추리 (명제 3개 초과)",
-          "title": "언어추리 (55번, 56번)",
+          "title": "명제추리 (55번, 56번)",
           "q_label": "55번, 56번",
           "answer": 4,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "reason_55",
+              "id": "reason_prop_55",
               "num": 55,
               "title": "55번",
               "answer": 4
             },
             {
-              "id": "reason_56",
+              "id": "reason_prop_56",
               "num": 56,
               "title": "56번",
               "answer": 5
@@ -2431,19 +2643,21 @@ const SKCT_DATA = {
           "page_id": "reason_p29",
           "num": 29,
           "section": "언어추리",
+          "part": "명제추리",
           "category": "명제추리 (명제 3개 초과)",
-          "title": "언어추리 (57번, 58번)",
+          "title": "명제추리 (57번, 58번)",
           "q_label": "57번, 58번",
           "answer": 3,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "reason_57",
+              "id": "reason_prop_57",
               "num": 57,
               "title": "57번",
               "answer": 3
             },
             {
-              "id": "reason_58",
+              "id": "reason_prop_58",
               "num": 58,
               "title": "58번",
               "answer": 4
@@ -2458,19 +2672,21 @@ const SKCT_DATA = {
           "page_id": "reason_p30",
           "num": 30,
           "section": "언어추리",
+          "part": "명제추리",
           "category": "명제추리 (명제 3개 초과)",
-          "title": "언어추리 (59번, 60번)",
+          "title": "명제추리 (59번, 60번)",
           "q_label": "59번, 60번",
           "answer": 2,
+          "is_passage": false,
           "subQuestions": [
             {
-              "id": "reason_59",
+              "id": "reason_prop_59",
               "num": 59,
               "title": "59번",
               "answer": 2
             },
             {
-              "id": "reason_60",
+              "id": "reason_prop_60",
               "num": 60,
               "title": "60번",
               "answer": 4
@@ -2485,23 +2701,23 @@ const SKCT_DATA = {
           "page_id": "reason_p31",
           "num": 31,
           "section": "언어추리",
+          "part": "조건퀴즈",
           "category": "조건퀴즈 (표 그리기/배치)",
-          "title": "언어추리 (조건퀴즈 1번, 2번)",
-          "q_label": "조건퀴즈 1번, 2번",
+          "title": "조건퀴즈 (조건 1번, 2번)",
+          "q_label": "조건 1번, 2번",
           "answer": 4,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "reason_quiz_1",
-              "num": 61,
-              "orig_num": 1,
-              "title": "조건퀴즈 1번",
+              "num": 1,
+              "title": "조건 1번",
               "answer": 4
             },
             {
               "id": "reason_quiz_2",
-              "num": 62,
-              "orig_num": 2,
-              "title": "조건퀴즈 2번",
+              "num": 2,
+              "title": "조건 2번",
               "answer": 4
             }
           ],
@@ -2514,23 +2730,23 @@ const SKCT_DATA = {
           "page_id": "reason_p32",
           "num": 32,
           "section": "언어추리",
+          "part": "조건퀴즈",
           "category": "조건퀴즈 (표 그리기/배치)",
-          "title": "언어추리 (조건퀴즈 3번, 4번)",
-          "q_label": "조건퀴즈 3번, 4번",
+          "title": "조건퀴즈 (조건 3번, 4번)",
+          "q_label": "조건 3번, 4번",
           "answer": 4,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "reason_quiz_3",
-              "num": 63,
-              "orig_num": 3,
-              "title": "조건퀴즈 3번",
+              "num": 3,
+              "title": "조건 3번",
               "answer": 4
             },
             {
               "id": "reason_quiz_4",
-              "num": 64,
-              "orig_num": 4,
-              "title": "조건퀴즈 4번",
+              "num": 4,
+              "title": "조건 4번",
               "answer": 4
             }
           ],
@@ -2543,23 +2759,23 @@ const SKCT_DATA = {
           "page_id": "reason_p33",
           "num": 33,
           "section": "언어추리",
+          "part": "조건퀴즈",
           "category": "조건퀴즈 (표 그리기/배치)",
-          "title": "언어추리 (조건퀴즈 5번, 6번)",
-          "q_label": "조건퀴즈 5번, 6번",
+          "title": "조건퀴즈 (조건 5번, 6번)",
+          "q_label": "조건 5번, 6번",
           "answer": 5,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "reason_quiz_5",
-              "num": 65,
-              "orig_num": 5,
-              "title": "조건퀴즈 5번",
+              "num": 5,
+              "title": "조건 5번",
               "answer": 5
             },
             {
               "id": "reason_quiz_6",
-              "num": 66,
-              "orig_num": 6,
-              "title": "조건퀴즈 6번",
+              "num": 6,
+              "title": "조건 6번",
               "answer": 5
             }
           ],
@@ -2572,23 +2788,23 @@ const SKCT_DATA = {
           "page_id": "reason_p34",
           "num": 34,
           "section": "언어추리",
+          "part": "조건퀴즈",
           "category": "조건퀴즈 (표 그리기/배치)",
-          "title": "언어추리 (조건퀴즈 7번, 8번)",
-          "q_label": "조건퀴즈 7번, 8번",
+          "title": "조건퀴즈 (조건 7번, 8번)",
+          "q_label": "조건 7번, 8번",
           "answer": 5,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "reason_quiz_7",
-              "num": 67,
-              "orig_num": 7,
-              "title": "조건퀴즈 7번",
+              "num": 7,
+              "title": "조건 7번",
               "answer": 5
             },
             {
               "id": "reason_quiz_8",
-              "num": 68,
-              "orig_num": 8,
-              "title": "조건퀴즈 8번",
+              "num": 8,
+              "title": "조건 8번",
               "answer": 3
             }
           ],
@@ -2601,23 +2817,23 @@ const SKCT_DATA = {
           "page_id": "reason_p35",
           "num": 35,
           "section": "언어추리",
+          "part": "조건퀴즈",
           "category": "조건퀴즈 (표 그리기/배치)",
-          "title": "언어추리 (조건퀴즈 9번, 10번)",
-          "q_label": "조건퀴즈 9번, 10번",
+          "title": "조건퀴즈 (조건 9번, 10번)",
+          "q_label": "조건 9번, 10번",
           "answer": 2,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "reason_quiz_9",
-              "num": 69,
-              "orig_num": 9,
-              "title": "조건퀴즈 9번",
+              "num": 9,
+              "title": "조건 9번",
               "answer": 2
             },
             {
               "id": "reason_quiz_10",
-              "num": 70,
-              "orig_num": 10,
-              "title": "조건퀴즈 10번",
+              "num": 10,
+              "title": "조건 10번",
               "answer": 2
             }
           ],
@@ -2630,23 +2846,23 @@ const SKCT_DATA = {
           "page_id": "reason_p36",
           "num": 36,
           "section": "언어추리",
+          "part": "조건퀴즈",
           "category": "조건퀴즈 (표 그리기/배치)",
-          "title": "언어추리 (조건퀴즈 11번, 12번)",
-          "q_label": "조건퀴즈 11번, 12번",
+          "title": "조건퀴즈 (조건 11번, 12번)",
+          "q_label": "조건 11번, 12번",
           "answer": 5,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "reason_quiz_11",
-              "num": 71,
-              "orig_num": 11,
-              "title": "조건퀴즈 11번",
+              "num": 11,
+              "title": "조건 11번",
               "answer": 5
             },
             {
               "id": "reason_quiz_12",
-              "num": 72,
-              "orig_num": 12,
-              "title": "조건퀴즈 12번",
+              "num": 12,
+              "title": "조건 12번",
               "answer": 5
             }
           ],
@@ -2659,23 +2875,23 @@ const SKCT_DATA = {
           "page_id": "reason_p37",
           "num": 37,
           "section": "언어추리",
+          "part": "조건퀴즈",
           "category": "조건퀴즈 (표 그리기/배치)",
-          "title": "언어추리 (조건퀴즈 13번, 14번)",
-          "q_label": "조건퀴즈 13번, 14번",
+          "title": "조건퀴즈 (조건 13번, 14번)",
+          "q_label": "조건 13번, 14번",
           "answer": 4,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "reason_quiz_13",
-              "num": 73,
-              "orig_num": 13,
-              "title": "조건퀴즈 13번",
+              "num": 13,
+              "title": "조건 13번",
               "answer": 4
             },
             {
               "id": "reason_quiz_14",
-              "num": 74,
-              "orig_num": 14,
-              "title": "조건퀴즈 14번",
+              "num": 14,
+              "title": "조건 14번",
               "answer": 5
             }
           ],
@@ -2688,23 +2904,23 @@ const SKCT_DATA = {
           "page_id": "reason_p38",
           "num": 38,
           "section": "언어추리",
+          "part": "조건퀴즈",
           "category": "조건퀴즈 (표 그리기/배치)",
-          "title": "언어추리 (조건퀴즈 15번, 16번)",
-          "q_label": "조건퀴즈 15번, 16번",
+          "title": "조건퀴즈 (조건 15번, 16번)",
+          "q_label": "조건 15번, 16번",
           "answer": 4,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "reason_quiz_15",
-              "num": 75,
-              "orig_num": 15,
-              "title": "조건퀴즈 15번",
+              "num": 15,
+              "title": "조건 15번",
               "answer": 4
             },
             {
               "id": "reason_quiz_16",
-              "num": 76,
-              "orig_num": 16,
-              "title": "조건퀴즈 16번",
+              "num": 16,
+              "title": "조건 16번",
               "answer": 4
             }
           ],
@@ -2717,30 +2933,29 @@ const SKCT_DATA = {
           "page_id": "reason_p39",
           "num": 39,
           "section": "언어추리",
+          "part": "실전모의",
           "category": "실전모의 (전체유형)",
-          "title": "언어추리 (실전모의 1~3번)",
-          "q_label": "실전모의 1~3번",
+          "title": "실전모의 (실전 1~3번)",
+          "q_label": "실전 1~3번",
           "answer": 1,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "reason_mock_1",
-              "num": 77,
-              "orig_num": 1,
-              "title": "실전모의 1번",
+              "num": 1,
+              "title": "실전 1번",
               "answer": 1
             },
             {
               "id": "reason_mock_2",
-              "num": 78,
-              "orig_num": 2,
-              "title": "실전모의 2번",
+              "num": 2,
+              "title": "실전 2번",
               "answer": 1
             },
             {
               "id": "reason_mock_3",
-              "num": 79,
-              "orig_num": 3,
-              "title": "실전모의 3번",
+              "num": 3,
+              "title": "실전 3번",
               "answer": 1
             }
           ],
@@ -2753,23 +2968,23 @@ const SKCT_DATA = {
           "page_id": "reason_p40",
           "num": 40,
           "section": "언어추리",
+          "part": "실전모의",
           "category": "실전모의 (전체유형)",
-          "title": "언어추리 (실전모의 4~5번)",
-          "q_label": "실전모의 4~5번",
+          "title": "실전모의 (실전 4~5번)",
+          "q_label": "실전 4~5번",
           "answer": 1,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "reason_mock_4",
-              "num": 80,
-              "orig_num": 4,
-              "title": "실전모의 4번",
+              "num": 4,
+              "title": "실전 4번",
               "answer": 1
             },
             {
               "id": "reason_mock_5",
-              "num": 81,
-              "orig_num": 5,
-              "title": "실전모의 5번",
+              "num": 5,
+              "title": "실전 5번",
               "answer": 3
             }
           ],
@@ -2782,23 +2997,23 @@ const SKCT_DATA = {
           "page_id": "reason_p41",
           "num": 41,
           "section": "언어추리",
+          "part": "실전모의",
           "category": "실전모의 (전체유형)",
-          "title": "언어추리 (실전모의 6~7번)",
-          "q_label": "실전모의 6~7번",
+          "title": "실전모의 (실전 6~7번)",
+          "q_label": "실전 6~7번",
           "answer": 5,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "reason_mock_6",
-              "num": 82,
-              "orig_num": 6,
-              "title": "실전모의 6번",
+              "num": 6,
+              "title": "실전 6번",
               "answer": 5
             },
             {
               "id": "reason_mock_7",
-              "num": 83,
-              "orig_num": 7,
-              "title": "실전모의 7번",
+              "num": 7,
+              "title": "실전 7번",
               "answer": 4
             }
           ],
@@ -2811,23 +3026,23 @@ const SKCT_DATA = {
           "page_id": "reason_p42",
           "num": 42,
           "section": "언어추리",
+          "part": "실전모의",
           "category": "실전모의 (전체유형)",
-          "title": "언어추리 (실전모의 8~9번)",
-          "q_label": "실전모의 8~9번",
+          "title": "실전모의 (실전 8~9번)",
+          "q_label": "실전 8~9번",
           "answer": 4,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "reason_mock_8",
-              "num": 84,
-              "orig_num": 8,
-              "title": "실전모의 8번",
+              "num": 8,
+              "title": "실전 8번",
               "answer": 4
             },
             {
               "id": "reason_mock_9",
-              "num": 85,
-              "orig_num": 9,
-              "title": "실전모의 9번",
+              "num": 9,
+              "title": "실전 9번",
               "answer": 5
             }
           ],
@@ -2840,23 +3055,23 @@ const SKCT_DATA = {
           "page_id": "reason_p43",
           "num": 43,
           "section": "언어추리",
+          "part": "실전모의",
           "category": "실전모의 (전체유형)",
-          "title": "언어추리 (실전모의 10~11번)",
-          "q_label": "실전모의 10~11번",
+          "title": "실전모의 (실전 10~11번)",
+          "q_label": "실전 10~11번",
           "answer": 2,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "reason_mock_10",
-              "num": 86,
-              "orig_num": 10,
-              "title": "실전모의 10번",
+              "num": 10,
+              "title": "실전 10번",
               "answer": 2
             },
             {
               "id": "reason_mock_11",
-              "num": 87,
-              "orig_num": 11,
-              "title": "실전모의 11번",
+              "num": 11,
+              "title": "실전 11번",
               "answer": 5
             }
           ],
@@ -2869,23 +3084,23 @@ const SKCT_DATA = {
           "page_id": "reason_p44",
           "num": 44,
           "section": "언어추리",
+          "part": "실전모의",
           "category": "실전모의 (전체유형)",
-          "title": "언어추리 (실전모의 12~13번)",
-          "q_label": "실전모의 12~13번",
+          "title": "실전모의 (실전 12~13번)",
+          "q_label": "실전 12~13번",
           "answer": 2,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "reason_mock_12",
-              "num": 88,
-              "orig_num": 12,
-              "title": "실전모의 12번",
+              "num": 12,
+              "title": "실전 12번",
               "answer": 2
             },
             {
               "id": "reason_mock_13",
-              "num": 89,
-              "orig_num": 13,
-              "title": "실전모의 13번",
+              "num": 13,
+              "title": "실전 13번",
               "answer": 2
             }
           ],
@@ -2898,23 +3113,23 @@ const SKCT_DATA = {
           "page_id": "reason_p45",
           "num": 45,
           "section": "언어추리",
+          "part": "실전모의",
           "category": "실전모의 (전체유형)",
-          "title": "언어추리 (실전모의 14~15번)",
-          "q_label": "실전모의 14~15번",
+          "title": "실전모의 (실전 14~15번)",
+          "q_label": "실전 14~15번",
           "answer": 3,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "reason_mock_14",
-              "num": 90,
-              "orig_num": 14,
-              "title": "실전모의 14번",
+              "num": 14,
+              "title": "실전 14번",
               "answer": 3
             },
             {
               "id": "reason_mock_15",
-              "num": 91,
-              "orig_num": 15,
-              "title": "실전모의 15번",
+              "num": 15,
+              "title": "실전 15번",
               "answer": 1
             }
           ],
@@ -2927,23 +3142,23 @@ const SKCT_DATA = {
           "page_id": "reason_p46",
           "num": 46,
           "section": "언어추리",
+          "part": "실전모의",
           "category": "실전모의 (전체유형)",
-          "title": "언어추리 (실전모의 16~17번)",
-          "q_label": "실전모의 16~17번",
+          "title": "실전모의 (실전 16~17번)",
+          "q_label": "실전 16~17번",
           "answer": 3,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "reason_mock_16",
-              "num": 92,
-              "orig_num": 16,
-              "title": "실전모의 16번",
+              "num": 16,
+              "title": "실전 16번",
               "answer": 3
             },
             {
               "id": "reason_mock_17",
-              "num": 93,
-              "orig_num": 17,
-              "title": "실전모의 17번",
+              "num": 17,
+              "title": "실전 17번",
               "answer": 3
             }
           ],
@@ -2956,23 +3171,23 @@ const SKCT_DATA = {
           "page_id": "reason_p47",
           "num": 47,
           "section": "언어추리",
+          "part": "실전모의",
           "category": "실전모의 (전체유형)",
-          "title": "언어추리 (실전모의 18~19번)",
-          "q_label": "실전모의 18~19번",
+          "title": "실전모의 (실전 18~19번)",
+          "q_label": "실전 18~19번",
           "answer": 4,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "reason_mock_18",
-              "num": 94,
-              "orig_num": 18,
-              "title": "실전모의 18번",
+              "num": 18,
+              "title": "실전 18번",
               "answer": 4
             },
             {
               "id": "reason_mock_19",
-              "num": 95,
-              "orig_num": 19,
-              "title": "실전모의 19번",
+              "num": 19,
+              "title": "실전 19번",
               "answer": 4
             }
           ],
@@ -2985,16 +3200,17 @@ const SKCT_DATA = {
           "page_id": "reason_p48",
           "num": 48,
           "section": "언어추리",
+          "part": "실전모의",
           "category": "실전모의 (전체유형)",
-          "title": "언어추리 (실전모의 20번)",
-          "q_label": "실전모의 20번",
+          "title": "실전모의 (실전 20번)",
+          "q_label": "실전 20번",
           "answer": 3,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "reason_mock_20",
-              "num": 96,
-              "orig_num": 20,
-              "title": "실전모의 20번",
+              "num": 20,
+              "title": "실전 20번",
               "answer": 3
             }
           ],
@@ -3007,7 +3223,7 @@ const SKCT_DATA = {
     {
       "id": "seq",
       "name": "수열추리",
-      "description": "등차/등비, 계차수열, 도형 및 매트릭스 숫자 규칙 추리 (40문항)",
+      "description": "등차/등비, 계차수열, 도형 및 매트릭스 숫자 규칙 추리 (40문항, 14페이지)",
       "page_count": 14,
       "question_count": 40,
       "time_limit_minutes": 15,
@@ -3017,10 +3233,12 @@ const SKCT_DATA = {
           "page_id": "seq_p01",
           "num": 1,
           "section": "수열추리",
+          "part": "수열추리",
           "category": "수열 및 규칙성",
-          "title": "수열추리 1~3번",
+          "title": "수열추리 (1~3번)",
           "q_label": "1~3번",
           "answer": 3,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "seq_1",
@@ -3050,10 +3268,12 @@ const SKCT_DATA = {
           "page_id": "seq_p02",
           "num": 2,
           "section": "수열추리",
+          "part": "수열추리",
           "category": "수열 및 규칙성",
-          "title": "수열추리 4~5번",
+          "title": "수열추리 (4~5번)",
           "q_label": "4~5번",
           "answer": 5,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "seq_4",
@@ -3077,10 +3297,12 @@ const SKCT_DATA = {
           "page_id": "seq_p03",
           "num": 3,
           "section": "수열추리",
+          "part": "수열추리",
           "category": "수열 및 규칙성",
-          "title": "수열추리 6~7번",
+          "title": "수열추리 (6~7번)",
           "q_label": "6~7번",
           "answer": 3,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "seq_6",
@@ -3104,10 +3326,12 @@ const SKCT_DATA = {
           "page_id": "seq_p04",
           "num": 4,
           "section": "수열추리",
+          "part": "수열추리",
           "category": "수열 및 규칙성",
-          "title": "수열추리 8~9번",
+          "title": "수열추리 (8~9번)",
           "q_label": "8~9번",
           "answer": 2,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "seq_8",
@@ -3131,10 +3355,12 @@ const SKCT_DATA = {
           "page_id": "seq_p05",
           "num": 5,
           "section": "수열추리",
+          "part": "수열추리",
           "category": "수열 및 규칙성",
-          "title": "수열추리 10~11번",
+          "title": "수열추리 (10~11번)",
           "q_label": "10~11번",
           "answer": 5,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "seq_10",
@@ -3158,10 +3384,12 @@ const SKCT_DATA = {
           "page_id": "seq_p06",
           "num": 6,
           "section": "수열추리",
+          "part": "수열추리",
           "category": "수열 및 규칙성",
-          "title": "수열추리 12~13번",
+          "title": "수열추리 (12~13번)",
           "q_label": "12~13번",
           "answer": 1,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "seq_12",
@@ -3185,10 +3413,12 @@ const SKCT_DATA = {
           "page_id": "seq_p07",
           "num": 7,
           "section": "수열추리",
+          "part": "수열추리",
           "category": "수열 및 규칙성",
-          "title": "수열추리 14~15번",
+          "title": "수열추리 (14~15번)",
           "q_label": "14~15번",
           "answer": 3,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "seq_14",
@@ -3212,10 +3442,12 @@ const SKCT_DATA = {
           "page_id": "seq_p08",
           "num": 8,
           "section": "수열추리",
+          "part": "수열추리",
           "category": "수열 및 규칙성",
-          "title": "수열추리 16~17번",
+          "title": "수열추리 (16~17번)",
           "q_label": "16~17번",
           "answer": 5,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "seq_16",
@@ -3239,10 +3471,12 @@ const SKCT_DATA = {
           "page_id": "seq_p09",
           "num": 9,
           "section": "수열추리",
+          "part": "수열추리",
           "category": "수열 및 규칙성",
-          "title": "수열추리 18~19번",
+          "title": "수열추리 (18~19번)",
           "q_label": "18~19번",
           "answer": 3,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "seq_18",
@@ -3266,10 +3500,12 @@ const SKCT_DATA = {
           "page_id": "seq_p10",
           "num": 10,
           "section": "수열추리",
+          "part": "수열추리",
           "category": "수열 및 규칙성",
-          "title": "수열추리 20~22번",
+          "title": "수열추리 (20~22번)",
           "q_label": "20~22번",
           "answer": 1,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "seq_20",
@@ -3299,10 +3535,12 @@ const SKCT_DATA = {
           "page_id": "seq_p11",
           "num": 11,
           "section": "수열추리",
+          "part": "수열추리",
           "category": "수열 및 규칙성",
-          "title": "수열추리 23~24번",
+          "title": "수열추리 (23~24번)",
           "q_label": "23~24번",
           "answer": 1,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "seq_23",
@@ -3326,10 +3564,12 @@ const SKCT_DATA = {
           "page_id": "seq_p12",
           "num": 12,
           "section": "수열추리",
+          "part": "수열추리",
           "category": "수열 및 규칙성",
-          "title": "수열추리 25~30번",
+          "title": "수열추리 (25~30번)",
           "q_label": "25~30번",
           "answer": 5,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "seq_25",
@@ -3377,10 +3617,12 @@ const SKCT_DATA = {
           "page_id": "seq_p13",
           "num": 13,
           "section": "수열추리",
+          "part": "수열추리",
           "category": "수열 및 규칙성",
-          "title": "수열추리 31~35번",
+          "title": "수열추리 (31~35번)",
           "q_label": "31~35번",
           "answer": 1,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "seq_31",
@@ -3422,10 +3664,12 @@ const SKCT_DATA = {
           "page_id": "seq_p14",
           "num": 14,
           "section": "수열추리",
+          "part": "수열추리",
           "category": "수열 및 규칙성",
-          "title": "수열추리 36~40번",
+          "title": "수열추리 (36~40번)",
           "q_label": "36~40번",
           "answer": 4,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "seq_36",
@@ -3467,7 +3711,7 @@ const SKCT_DATA = {
     {
       "id": "math",
       "name": "응용수리",
-      "description": "기초 연산, 방정식, 소금물, 거리/속력/시간, 경우의 수 및 확률 (85문항)",
+      "description": "응용수리(40문항) + 경우의 수 및 확률(45문항) (총 85문항, 28페이지)",
       "page_count": 28,
       "question_count": 85,
       "time_limit_minutes": 30,
@@ -3477,33 +3721,35 @@ const SKCT_DATA = {
           "page_id": "math_p01",
           "num": 1,
           "section": "응용수리",
-          "category": "응용수리 (소금물/거리속력/일의양/비율)",
-          "title": "응용수리 1~4번",
-          "q_label": "1~4번",
+          "part": "응용수리",
+          "category": "응용수리 (소금물/거속시/일의양/비율)",
+          "title": "응용수리 (응용 1~4번)",
+          "q_label": "응용 1~4번",
           "answer": 3,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "math_1",
               "num": 1,
-              "title": "응용수리 1번",
+              "title": "응용 1번",
               "answer": 3
             },
             {
               "id": "math_2",
               "num": 2,
-              "title": "응용수리 2번",
+              "title": "응용 2번",
               "answer": 4
             },
             {
               "id": "math_3",
               "num": 3,
-              "title": "응용수리 3번",
+              "title": "응용 3번",
               "answer": 1
             },
             {
               "id": "math_4",
               "num": 4,
-              "title": "응용수리 4번",
+              "title": "응용 4번",
               "answer": 2
             }
           ],
@@ -3516,27 +3762,29 @@ const SKCT_DATA = {
           "page_id": "math_p02",
           "num": 2,
           "section": "응용수리",
-          "category": "응용수리 (소금물/거리속력/일의양/비율)",
-          "title": "응용수리 5~7번",
-          "q_label": "5~7번",
+          "part": "응용수리",
+          "category": "응용수리 (소금물/거속시/일의양/비율)",
+          "title": "응용수리 (응용 5~7번)",
+          "q_label": "응용 5~7번",
           "answer": 3,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "math_5",
               "num": 5,
-              "title": "응용수리 5번",
+              "title": "응용 5번",
               "answer": 3
             },
             {
               "id": "math_6",
               "num": 6,
-              "title": "응용수리 6번",
+              "title": "응용 6번",
               "answer": 5
             },
             {
               "id": "math_7",
               "num": 7,
-              "title": "응용수리 7번",
+              "title": "응용 7번",
               "answer": 2
             }
           ],
@@ -3549,27 +3797,29 @@ const SKCT_DATA = {
           "page_id": "math_p03",
           "num": 3,
           "section": "응용수리",
-          "category": "응용수리 (소금물/거리속력/일의양/비율)",
-          "title": "응용수리 8~10번",
-          "q_label": "8~10번",
+          "part": "응용수리",
+          "category": "응용수리 (소금물/거속시/일의양/비율)",
+          "title": "응용수리 (응용 8~10번)",
+          "q_label": "응용 8~10번",
           "answer": 4,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "math_8",
               "num": 8,
-              "title": "응용수리 8번",
+              "title": "응용 8번",
               "answer": 4
             },
             {
               "id": "math_9",
               "num": 9,
-              "title": "응용수리 9번",
+              "title": "응용 9번",
               "answer": 3
             },
             {
               "id": "math_10",
               "num": 10,
-              "title": "응용수리 10번",
+              "title": "응용 10번",
               "answer": 2
             }
           ],
@@ -3582,27 +3832,29 @@ const SKCT_DATA = {
           "page_id": "math_p04",
           "num": 4,
           "section": "응용수리",
-          "category": "응용수리 (소금물/거리속력/일의양/비율)",
-          "title": "응용수리 11~13번",
-          "q_label": "11~13번",
+          "part": "응용수리",
+          "category": "응용수리 (소금물/거속시/일의양/비율)",
+          "title": "응용수리 (응용 11~13번)",
+          "q_label": "응용 11~13번",
           "answer": 2,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "math_11",
               "num": 11,
-              "title": "응용수리 11번",
+              "title": "응용 11번",
               "answer": 2
             },
             {
               "id": "math_12",
               "num": 12,
-              "title": "응용수리 12번",
+              "title": "응용 12번",
               "answer": 2
             },
             {
               "id": "math_13",
               "num": 13,
-              "title": "응용수리 13번",
+              "title": "응용 13번",
               "answer": 4
             }
           ],
@@ -3615,27 +3867,29 @@ const SKCT_DATA = {
           "page_id": "math_p05",
           "num": 5,
           "section": "응용수리",
-          "category": "응용수리 (소금물/거리속력/일의양/비율)",
-          "title": "응용수리 14~16번",
-          "q_label": "14~16번",
+          "part": "응용수리",
+          "category": "응용수리 (소금물/거속시/일의양/비율)",
+          "title": "응용수리 (응용 14~16번)",
+          "q_label": "응용 14~16번",
           "answer": 1,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "math_14",
               "num": 14,
-              "title": "응용수리 14번",
+              "title": "응용 14번",
               "answer": 1
             },
             {
               "id": "math_15",
               "num": 15,
-              "title": "응용수리 15번",
+              "title": "응용 15번",
               "answer": 5
             },
             {
               "id": "math_16",
               "num": 16,
-              "title": "응용수리 16번",
+              "title": "응용 16번",
               "answer": 1
             }
           ],
@@ -3648,27 +3902,29 @@ const SKCT_DATA = {
           "page_id": "math_p06",
           "num": 6,
           "section": "응용수리",
-          "category": "응용수리 (소금물/거리속력/일의양/비율)",
-          "title": "응용수리 17~19번",
-          "q_label": "17~19번",
+          "part": "응용수리",
+          "category": "응용수리 (소금물/거속시/일의양/비율)",
+          "title": "응용수리 (응용 17~19번)",
+          "q_label": "응용 17~19번",
           "answer": 3,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "math_17",
               "num": 17,
-              "title": "응용수리 17번",
+              "title": "응용 17번",
               "answer": 3
             },
             {
               "id": "math_18",
               "num": 18,
-              "title": "응용수리 18번",
+              "title": "응용 18번",
               "answer": 2
             },
             {
               "id": "math_19",
               "num": 19,
-              "title": "응용수리 19번",
+              "title": "응용 19번",
               "answer": 2
             }
           ],
@@ -3681,27 +3937,29 @@ const SKCT_DATA = {
           "page_id": "math_p07",
           "num": 7,
           "section": "응용수리",
-          "category": "응용수리 (소금물/거리속력/일의양/비율)",
-          "title": "응용수리 20~22번",
-          "q_label": "20~22번",
+          "part": "응용수리",
+          "category": "응용수리 (소금물/거속시/일의양/비율)",
+          "title": "응용수리 (응용 20~22번)",
+          "q_label": "응용 20~22번",
           "answer": 1,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "math_20",
               "num": 20,
-              "title": "응용수리 20번",
+              "title": "응용 20번",
               "answer": 1
             },
             {
               "id": "math_21",
               "num": 21,
-              "title": "응용수리 21번",
+              "title": "응용 21번",
               "answer": 5
             },
             {
               "id": "math_22",
               "num": 22,
-              "title": "응용수리 22번",
+              "title": "응용 22번",
               "answer": 1
             }
           ],
@@ -3714,27 +3972,29 @@ const SKCT_DATA = {
           "page_id": "math_p08",
           "num": 8,
           "section": "응용수리",
-          "category": "응용수리 (소금물/거리속력/일의양/비율)",
-          "title": "응용수리 23~25번",
-          "q_label": "23~25번",
+          "part": "응용수리",
+          "category": "응용수리 (소금물/거속시/일의양/비율)",
+          "title": "응용수리 (응용 23~25번)",
+          "q_label": "응용 23~25번",
           "answer": 3,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "math_23",
               "num": 23,
-              "title": "응용수리 23번",
+              "title": "응용 23번",
               "answer": 3
             },
             {
               "id": "math_24",
               "num": 24,
-              "title": "응용수리 24번",
+              "title": "응용 24번",
               "answer": 3
             },
             {
               "id": "math_25",
               "num": 25,
-              "title": "응용수리 25번",
+              "title": "응용 25번",
               "answer": 1
             }
           ],
@@ -3747,27 +4007,29 @@ const SKCT_DATA = {
           "page_id": "math_p09",
           "num": 9,
           "section": "응용수리",
-          "category": "응용수리 (소금물/거리속력/일의양/비율)",
-          "title": "응용수리 26~28번",
-          "q_label": "26~28번",
+          "part": "응용수리",
+          "category": "응용수리 (소금물/거속시/일의양/비율)",
+          "title": "응용수리 (응용 26~28번)",
+          "q_label": "응용 26~28번",
           "answer": 2,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "math_26",
               "num": 26,
-              "title": "응용수리 26번",
+              "title": "응용 26번",
               "answer": 2
             },
             {
               "id": "math_27",
               "num": 27,
-              "title": "응용수리 27번",
+              "title": "응용 27번",
               "answer": 1
             },
             {
               "id": "math_28",
               "num": 28,
-              "title": "응용수리 28번",
+              "title": "응용 28번",
               "answer": 5
             }
           ],
@@ -3780,21 +4042,23 @@ const SKCT_DATA = {
           "page_id": "math_p10",
           "num": 10,
           "section": "응용수리",
-          "category": "응용수리 (소금물/거리속력/일의양/비율)",
-          "title": "응용수리 29~30번",
-          "q_label": "29~30번",
+          "part": "응용수리",
+          "category": "응용수리 (소금물/거속시/일의양/비율)",
+          "title": "응용수리 (응용 29~30번)",
+          "q_label": "응용 29~30번",
           "answer": 3,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "math_29",
               "num": 29,
-              "title": "응용수리 29번",
+              "title": "응용 29번",
               "answer": 3
             },
             {
               "id": "math_30",
               "num": 30,
-              "title": "응용수리 30번",
+              "title": "응용 30번",
               "answer": 1
             }
           ],
@@ -3807,27 +4071,29 @@ const SKCT_DATA = {
           "page_id": "math_p11",
           "num": 11,
           "section": "응용수리",
-          "category": "응용수리 (소금물/거리속력/일의양/비율)",
-          "title": "응용수리 31~33번",
-          "q_label": "31~33번",
+          "part": "응용수리",
+          "category": "응용수리 (소금물/거속시/일의양/비율)",
+          "title": "응용수리 (응용 31~33번)",
+          "q_label": "응용 31~33번",
           "answer": 5,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "math_31",
               "num": 31,
-              "title": "응용수리 31번",
+              "title": "응용 31번",
               "answer": 5
             },
             {
               "id": "math_32",
               "num": 32,
-              "title": "응용수리 32번",
+              "title": "응용 32번",
               "answer": 4
             },
             {
               "id": "math_33",
               "num": 33,
-              "title": "응용수리 33번",
+              "title": "응용 33번",
               "answer": 3
             }
           ],
@@ -3840,33 +4106,35 @@ const SKCT_DATA = {
           "page_id": "math_p12",
           "num": 12,
           "section": "응용수리",
-          "category": "응용수리 (소금물/거리속력/일의양/비율)",
-          "title": "응용수리 34~37번",
-          "q_label": "34~37번",
+          "part": "응용수리",
+          "category": "응용수리 (소금물/거속시/일의양/비율)",
+          "title": "응용수리 (응용 34~37번)",
+          "q_label": "응용 34~37번",
           "answer": 4,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "math_34",
               "num": 34,
-              "title": "응용수리 34번",
+              "title": "응용 34번",
               "answer": 4
             },
             {
               "id": "math_35",
               "num": 35,
-              "title": "응용수리 35번",
+              "title": "응용 35번",
               "answer": 3
             },
             {
               "id": "math_36",
               "num": 36,
-              "title": "응용수리 36번",
+              "title": "응용 36번",
               "answer": 4
             },
             {
               "id": "math_37",
               "num": 37,
-              "title": "응용수리 37번",
+              "title": "응용 37번",
               "answer": 4
             }
           ],
@@ -3879,27 +4147,29 @@ const SKCT_DATA = {
           "page_id": "math_p13",
           "num": 13,
           "section": "응용수리",
-          "category": "응용수리 (소금물/거리속력/일의양/비율)",
-          "title": "응용수리 38~40번",
-          "q_label": "38~40번",
+          "part": "응용수리",
+          "category": "응용수리 (소금물/거속시/일의양/비율)",
+          "title": "응용수리 (응용 38~40번)",
+          "q_label": "응용 38~40번",
           "answer": 3,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "math_38",
               "num": 38,
-              "title": "응용수리 38번",
+              "title": "응용 38번",
               "answer": 3
             },
             {
               "id": "math_39",
               "num": 39,
-              "title": "응용수리 39번",
+              "title": "응용 39번",
               "answer": 1
             },
             {
               "id": "math_40",
               "num": 40,
-              "title": "응용수리 40번",
+              "title": "응용 40번",
               "answer": 2
             }
           ],
@@ -3912,27 +4182,29 @@ const SKCT_DATA = {
           "page_id": "math_p14",
           "num": 14,
           "section": "응용수리",
+          "part": "경우의수",
           "category": "경우의 수 및 확률",
-          "title": "경우의 1~3번",
-          "q_label": "1~3번",
+          "title": "경우의수 (경우 1~3번)",
+          "q_label": "경우 1~3번",
           "answer": 3,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "case_1",
               "num": 1,
-              "title": "경우의 1번",
+              "title": "경우 1번",
               "answer": 3
             },
             {
               "id": "case_2",
               "num": 2,
-              "title": "경우의 2번",
+              "title": "경우 2번",
               "answer": 1
             },
             {
               "id": "case_3",
               "num": 3,
-              "title": "경우의 3번",
+              "title": "경우 3번",
               "answer": 4
             }
           ],
@@ -3945,27 +4217,29 @@ const SKCT_DATA = {
           "page_id": "math_p15",
           "num": 15,
           "section": "응용수리",
+          "part": "경우의수",
           "category": "경우의 수 및 확률",
-          "title": "경우의 4~6번",
-          "q_label": "4~6번",
+          "title": "경우의수 (경우 4~6번)",
+          "q_label": "경우 4~6번",
           "answer": 3,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "case_4",
               "num": 4,
-              "title": "경우의 4번",
+              "title": "경우 4번",
               "answer": 3
             },
             {
               "id": "case_5",
               "num": 5,
-              "title": "경우의 5번",
+              "title": "경우 5번",
               "answer": 1
             },
             {
               "id": "case_6",
               "num": 6,
-              "title": "경우의 6번",
+              "title": "경우 6번",
               "answer": 5
             }
           ],
@@ -3978,27 +4252,29 @@ const SKCT_DATA = {
           "page_id": "math_p16",
           "num": 16,
           "section": "응용수리",
+          "part": "경우의수",
           "category": "경우의 수 및 확률",
-          "title": "경우의 7~9번",
-          "q_label": "7~9번",
+          "title": "경우의수 (경우 7~9번)",
+          "q_label": "경우 7~9번",
           "answer": 5,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "case_7",
               "num": 7,
-              "title": "경우의 7번",
+              "title": "경우 7번",
               "answer": 5
             },
             {
               "id": "case_8",
               "num": 8,
-              "title": "경우의 8번",
+              "title": "경우 8번",
               "answer": 4
             },
             {
               "id": "case_9",
               "num": 9,
-              "title": "경우의 9번",
+              "title": "경우 9번",
               "answer": 2
             }
           ],
@@ -4011,21 +4287,23 @@ const SKCT_DATA = {
           "page_id": "math_p17",
           "num": 17,
           "section": "응용수리",
+          "part": "경우의수",
           "category": "경우의 수 및 확률",
-          "title": "경우의 10~11번",
-          "q_label": "10~11번",
+          "title": "경우의수 (경우 10~11번)",
+          "q_label": "경우 10~11번",
           "answer": 4,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "case_10",
               "num": 10,
-              "title": "경우의 10번",
+              "title": "경우 10번",
               "answer": 4
             },
             {
               "id": "case_11",
               "num": 11,
-              "title": "경우의 11번",
+              "title": "경우 11번",
               "answer": 1
             }
           ],
@@ -4038,33 +4316,35 @@ const SKCT_DATA = {
           "page_id": "math_p18",
           "num": 18,
           "section": "응용수리",
+          "part": "경우의수",
           "category": "경우의 수 및 확률",
-          "title": "경우의 12~15번",
-          "q_label": "12~15번",
+          "title": "경우의수 (경우 12~15번)",
+          "q_label": "경우 12~15번",
           "answer": 3,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "case_12",
               "num": 12,
-              "title": "경우의 12번",
+              "title": "경우 12번",
               "answer": 3
             },
             {
               "id": "case_13",
               "num": 13,
-              "title": "경우의 13번",
+              "title": "경우 13번",
               "answer": 4
             },
             {
               "id": "case_14",
               "num": 14,
-              "title": "경우의 14번",
+              "title": "경우 14번",
               "answer": 2
             },
             {
               "id": "case_15",
               "num": 15,
-              "title": "경우의 15번",
+              "title": "경우 15번",
               "answer": 1
             }
           ],
@@ -4077,21 +4357,23 @@ const SKCT_DATA = {
           "page_id": "math_p19",
           "num": 19,
           "section": "응용수리",
+          "part": "경우의수",
           "category": "경우의 수 및 확률",
-          "title": "경우의 16~17번",
-          "q_label": "16~17번",
+          "title": "경우의수 (경우 16~17번)",
+          "q_label": "경우 16~17번",
           "answer": 1,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "case_16",
               "num": 16,
-              "title": "경우의 16번",
+              "title": "경우 16번",
               "answer": 1
             },
             {
               "id": "case_17",
               "num": 17,
-              "title": "경우의 17번",
+              "title": "경우 17번",
               "answer": 2
             }
           ],
@@ -4104,27 +4386,29 @@ const SKCT_DATA = {
           "page_id": "math_p20",
           "num": 20,
           "section": "응용수리",
+          "part": "경우의수",
           "category": "경우의 수 및 확률",
-          "title": "경우의 18~20번",
-          "q_label": "18~20번",
+          "title": "경우의수 (경우 18~20번)",
+          "q_label": "경우 18~20번",
           "answer": 1,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "case_18",
               "num": 18,
-              "title": "경우의 18번",
+              "title": "경우 18번",
               "answer": 1
             },
             {
               "id": "case_19",
               "num": 19,
-              "title": "경우의 19번",
+              "title": "경우 19번",
               "answer": 4
             },
             {
               "id": "case_20",
               "num": 20,
-              "title": "경우의 20번",
+              "title": "경우 20번",
               "answer": 4
             }
           ],
@@ -4137,27 +4421,29 @@ const SKCT_DATA = {
           "page_id": "math_p21",
           "num": 21,
           "section": "응용수리",
+          "part": "경우의수",
           "category": "경우의 수 및 확률",
-          "title": "경우의 21~23번",
-          "q_label": "21~23번",
+          "title": "경우의수 (경우 21~23번)",
+          "q_label": "경우 21~23번",
           "answer": 4,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "case_21",
               "num": 21,
-              "title": "경우의 21번",
+              "title": "경우 21번",
               "answer": 4
             },
             {
               "id": "case_22",
               "num": 22,
-              "title": "경우의 22번",
+              "title": "경우 22번",
               "answer": 1
             },
             {
               "id": "case_23",
               "num": 23,
-              "title": "경우의 23번",
+              "title": "경우 23번",
               "answer": 2
             }
           ],
@@ -4170,27 +4456,29 @@ const SKCT_DATA = {
           "page_id": "math_p22",
           "num": 22,
           "section": "응용수리",
+          "part": "경우의수",
           "category": "경우의 수 및 확률",
-          "title": "경우의 24~26번",
-          "q_label": "24~26번",
+          "title": "경우의수 (경우 24~26번)",
+          "q_label": "경우 24~26번",
           "answer": 3,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "case_24",
               "num": 24,
-              "title": "경우의 24번",
+              "title": "경우 24번",
               "answer": 3
             },
             {
               "id": "case_25",
               "num": 25,
-              "title": "경우의 25번",
+              "title": "경우 25번",
               "answer": 4
             },
             {
               "id": "case_26",
               "num": 26,
-              "title": "경우의 26번",
+              "title": "경우 26번",
               "answer": 4
             }
           ],
@@ -4203,27 +4491,29 @@ const SKCT_DATA = {
           "page_id": "math_p23",
           "num": 23,
           "section": "응용수리",
+          "part": "경우의수",
           "category": "경우의 수 및 확률",
-          "title": "경우의 27~29번",
-          "q_label": "27~29번",
+          "title": "경우의수 (경우 27~29번)",
+          "q_label": "경우 27~29번",
           "answer": 2,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "case_27",
               "num": 27,
-              "title": "경우의 27번",
+              "title": "경우 27번",
               "answer": 2
             },
             {
               "id": "case_28",
               "num": 28,
-              "title": "경우의 28번",
+              "title": "경우 28번",
               "answer": 5
             },
             {
               "id": "case_29",
               "num": 29,
-              "title": "경우의 29번",
+              "title": "경우 29번",
               "answer": 3
             }
           ],
@@ -4236,21 +4526,23 @@ const SKCT_DATA = {
           "page_id": "math_p24",
           "num": 24,
           "section": "응용수리",
+          "part": "경우의수",
           "category": "경우의 수 및 확률",
-          "title": "경우의 30~31번",
-          "q_label": "30~31번",
+          "title": "경우의수 (경우 30~31번)",
+          "q_label": "경우 30~31번",
           "answer": 2,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "case_30",
               "num": 30,
-              "title": "경우의 30번",
+              "title": "경우 30번",
               "answer": 2
             },
             {
               "id": "case_31",
               "num": 31,
-              "title": "경우의 31번",
+              "title": "경우 31번",
               "answer": 5
             }
           ],
@@ -4263,33 +4555,35 @@ const SKCT_DATA = {
           "page_id": "math_p25",
           "num": 25,
           "section": "응용수리",
+          "part": "경우의수",
           "category": "경우의 수 및 확률",
-          "title": "경우의 32~35번",
-          "q_label": "32~35번",
+          "title": "경우의수 (경우 32~35번)",
+          "q_label": "경우 32~35번",
           "answer": 3,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "case_32",
               "num": 32,
-              "title": "경우의 32번",
+              "title": "경우 32번",
               "answer": 3
             },
             {
               "id": "case_33",
               "num": 33,
-              "title": "경우의 33번",
+              "title": "경우 33번",
               "answer": 1
             },
             {
               "id": "case_34",
               "num": 34,
-              "title": "경우의 34번",
+              "title": "경우 34번",
               "answer": 4
             },
             {
               "id": "case_35",
               "num": 35,
-              "title": "경우의 35번",
+              "title": "경우 35번",
               "answer": 3
             }
           ],
@@ -4302,33 +4596,35 @@ const SKCT_DATA = {
           "page_id": "math_p26",
           "num": 26,
           "section": "응용수리",
+          "part": "경우의수",
           "category": "경우의 수 및 확률",
-          "title": "경우의 36~39번",
-          "q_label": "36~39번",
+          "title": "경우의수 (경우 36~39번)",
+          "q_label": "경우 36~39번",
           "answer": 5,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "case_36",
               "num": 36,
-              "title": "경우의 36번",
+              "title": "경우 36번",
               "answer": 5
             },
             {
               "id": "case_37",
               "num": 37,
-              "title": "경우의 37번",
+              "title": "경우 37번",
               "answer": 1
             },
             {
               "id": "case_38",
               "num": 38,
-              "title": "경우의 38번",
+              "title": "경우 38번",
               "answer": 4
             },
             {
               "id": "case_39",
               "num": 39,
-              "title": "경우의 39번",
+              "title": "경우 39번",
               "answer": 4
             }
           ],
@@ -4341,27 +4637,29 @@ const SKCT_DATA = {
           "page_id": "math_p27",
           "num": 27,
           "section": "응용수리",
+          "part": "경우의수",
           "category": "경우의 수 및 확률",
-          "title": "경우의 40~42번",
-          "q_label": "40~42번",
+          "title": "경우의수 (경우 40~42번)",
+          "q_label": "경우 40~42번",
           "answer": 1,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "case_40",
               "num": 40,
-              "title": "경우의 40번",
+              "title": "경우 40번",
               "answer": 1
             },
             {
               "id": "case_41",
               "num": 41,
-              "title": "경우의 41번",
+              "title": "경우 41번",
               "answer": 1
             },
             {
               "id": "case_42",
               "num": 42,
-              "title": "경우의 42번",
+              "title": "경우 42번",
               "answer": 2
             }
           ],
@@ -4374,27 +4672,29 @@ const SKCT_DATA = {
           "page_id": "math_p28",
           "num": 28,
           "section": "응용수리",
+          "part": "경우의수",
           "category": "경우의 수 및 확률",
-          "title": "경우의 43~45번",
-          "q_label": "43~45번",
+          "title": "경우의수 (경우 43~45번)",
+          "q_label": "경우 43~45번",
           "answer": 4,
+          "is_passage": false,
           "subQuestions": [
             {
               "id": "case_43",
               "num": 43,
-              "title": "경우의 43번",
+              "title": "경우 43번",
               "answer": 4
             },
             {
               "id": "case_44",
               "num": 44,
-              "title": "경우의 44번",
+              "title": "경우 44번",
               "answer": 3
             },
             {
               "id": "case_45",
               "num": 45,
-              "title": "경우의 45번",
+              "title": "경우 45번",
               "answer": 1
             }
           ],
@@ -4406,4 +4706,4 @@ const SKCT_DATA = {
     }
   ]
 };
-if (typeof module !== 'undefined') module.exports = SKCT_DATA;
+if (typeof module !== "undefined") module.exports = SKCT_DATA;
