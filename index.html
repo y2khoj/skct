@@ -3,12 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SKCT 온라인 실전 모의고사 및 문제풀이</title>
-  <meta name="description" content="SKCT 온라인 유형별 실전 문제풀이, 자동 채점, 메모장, 계산기 지원 웹앱">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <title>SKCT 훈련실 · 진단부터 시간 전략까지</title>
+  <meta name="description" content="SKCT 유형 진단, 15분 집중 훈련, 문항별 풀이시간 기록과 보류·회수·오답 복습">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="training.css">
 </head>
 <body>
   <div id="app-container">
@@ -348,6 +346,7 @@
   <!-- Load Dataset -->
   <script src="data/skct_data.js"></script>
   <!-- Load App Logic -->
-  <script src="app.js"></script>
+  <script src="training-core.js"></script>
+  <script src="training.js"></script>
 </body>
 </html>
