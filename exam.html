@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SKCT 기존 모의고사 · 온라인 실전 풀이관</title>
+  <meta name="description" content="SKCT 유형 진단, 15분 집중 훈련, 문항별 풀이시간 기록과 보류·회수·오답 복습">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="exam.css">
+</head>
+<body>
+  <div id="app-container">
+    <!-- Top Global Header -->
+    <header id="main-header">
+      <div class="header-left">
+        <a href="index.html" class="header-action-btn back-training-btn" title="나의 훈련실로 돌아가기">
+          <span>🏠 나의 훈련실</span>
+        </a>
+        <div class="logo-area">
+          <span class="logo-badge">SKCT</span>
+          <h1 class="logo-title">온라인 실전 풀이관</h1>
+        </div>
+        <div class="section-selector-wrapper">
+          <label for="section-select" class="sr-only">과목 선택</label>
+          <select id="section-select">
+            <!-- Populated via JS -->
+          </select>
+        </div>
+      </div>
+
+      <div class="header-center">
+        <div class="q-progress-badge">
+          <span class="q-label">문제</span>
+          <span id="current-q-num" class="q-number">01</span>
+          <span class="q-total">/ <span id="total-q-num">48</span></span>
+        </div>
+
+        <div class="timer-card" id="timer-box">
+          <span class="timer-icon">⏱️</span>
+          <span id="timer-display" class="timer-digits">25:00</span>
+          <button id="timer-toggle-btn" class="timer-btn" title="타이머 일시정지/시작">⏸️</button>
+          <button id="timer-reset-btn" class="timer-btn" title="타이머 리셋">🔄</button>
+        </div>
+      </div>
+
+      <div class="header-right">
+        <button id="flag-btn" class="header-action-btn flag-btn" title="나중에 다시 볼 문제로 표시">
+          <span class="flag-icon">★</span>
+          <span class="flag-text">검토 표시</span>
+        </button>
+
+        <button id="omr-drawer-toggle" class="header-action-btn omr-toggle-btn">
+          <span class="omr-icon">📋</span>
+          <span>OMR 현황 (<span id="omr-answered-count">0</span>/<span id="omr-total-count">48</span>)</span>
+        </button>
+
+        <button id="submit-exam-btn" class="header-action-btn submit-btn">
+          <span class="submit-icon">✅</span>
+          <span>제출 및 자동 채점</span>
+        </button>
+      </div>
+    </header>
+
+    <nav class="exam-mode-bar" aria-label="화면 전환">
+      <a href="index.html" class="exam-back-btn">← 나의 훈련실로 돌아가기</a>
+      <span class="exam-bar-divider">|</span>
+      <strong>기존 모의고사 (실전 풀이관)</strong>
+      <span>과목별 · 전체 통합 / 객관식 140문항 · 계산연습은 훈련실에서</span>
+    </nav>
+    <!-- Main Workspace: 75% Left, 25% Right Split -->
+    <main id="workspace">
+      <!-- 75% Question Area -->
+      <section id="question-panel" class="workspace-col-75">
+        <!-- Question Toolbar -->
+        <div class="q-top-bar">
+          <strong id="exam-question-time" class="exam-question-time">이 문제 누적 00:00</strong>
+          <div class="q-category-tag">
+            <span id="q-category-text">언어이해 · 출제예상문제</span>
+          </div>
+
+          <div class="q-zoom-controls">
+            <button id="zoom-out-btn" class="zoom-btn" title="축소">－</button>
+            <span id="zoom-level-text">100%</span>
+            <button id="zoom-in-btn" class="zoom-btn" title="확대">＋</button>
+            <button id="zoom-fit-width" class="zoom-btn text-btn">너비 맞춤</button>
+            <button id="zoom-fit-page" class="zoom-btn text-btn">원래 크기</button>
+          </div>
+
+          <div class="review-status-tag" id="review-status-tag" style="display: none;">
+            <span id="review-status-badge" class="badge-result">정답 확인</span>
+          </div>
+        </div>
+
+        <!-- Question Viewport -->
+        <div id="q-viewport" class="q-viewport">
+          <div id="q-image-container" class="q-image-container">
+            <img id="question-image" src="" alt="SKCT 문제 이미지" loading="eager">
+          </div>
+        </div>
+
+        <!-- Answer & Navigation Bar (Bottom of 75% area) -->
+        <footer id="q-footer">
+          <div class="omr-options-bar">
+            <span class="omr-bar-title">정답 마킹:</span>
+            <div class="options-group">
+              <button class="opt-btn" data-val="1">
+                <span class="opt-num">①</span>
+                <span class="opt-key">키 1</span>
+              </button>
+              <button class="opt-btn" data-val="2">
+                <span class="opt-num">②</span>
+                <span class="opt-key">키 2</span>
+              </button>
+              <button class="opt-btn" data-val="3">
+                <span class="opt-num">③</span>
+                <span class="opt-key">키 3</span>
+              </button>
+              <button class="opt-btn" data-val="4">
+                <span class="opt-num">④</span>
+                <span class="opt-key">키 4</span>
+              </button>
+              <button class="opt-btn" data-val="5">
+                <span class="opt-num">⑤</span>
+                <span class="opt-key">키 5</span>
+              </button>
+            </div>
+            <button id="clear-ans-btn" class="clear-ans-btn" title="답안 선택 해제 (Space/Delete)">답안 취소</button>
+          </div>
+
+          <div class="q-nav-actions">
+            <button id="prev-q-btn" class="nav-btn prev-btn">
+              <span class="nav-arrow">◀</span> 이전 문제
+            </button>
+            <button id="view-sol-btn" class="nav-btn sol-btn" style="display: none;">
+              📖 상세 해설 보기
+            </button>
+            <button id="next-q-btn" class="nav-btn next-btn">
+              다음 문제 <span class="nav-arrow">▶</span>
+            </button>
+          </div>
+        </footer>
+      </section>
+
+      <!-- 25% Side Panel (Top: Notepad, Bottom: Calculator) -->
+      <aside id="side-panel" class="workspace-col-25">
+        <!-- Top Half: Notepad (메모장) -->
+        <div id="notepad-container" class="side-half">
+          <div class="side-header">
+            <div class="notepad-tabs">
+              <button id="tab-q-memo" class="tab-btn active" data-tab="question">
+                📝 문제별 메모 (<span id="memo-q-num">1</span>)
+              </button>
+              <button id="tab-global-memo" class="tab-btn" data-tab="global">
+                📒 공통 연습장
+              </button>
+            </div>
+            <div class="notepad-actions">
+              <button id="notepad-font-dec" class="tool-icon-btn" title="글자 작게">A-</button>
+              <button id="notepad-font-inc" class="tool-icon-btn" title="글자 크게">A+</button>
+              <button id="notepad-copy-btn" class="tool-icon-btn" title="메모 복사">📋</button>
+              <button id="notepad-clear-btn" class="tool-icon-btn" title="메모 지우기">🗑️</button>
+            </div>
+          </div>
+          <div class="notepad-body">
+            <textarea id="notepad-textarea" placeholder="여기에 풀이 과정, 조건 표, 메모를 자유롭게 작성하세요. (문제 이동 시 자동 저장됩니다)"></textarea>
+          </div>
+          <div class="side-footer-status">
+            <span id="notepad-save-indicator" class="save-status">💾 자동 저장됨</span>
+            <span id="notepad-char-count" class="char-count">0자</span>
+          </div>
+        </div>
+
+        <!-- Horizontal Resizer Divider -->
+        <div class="side-divider" id="side-divider"></div>
+
+        <!-- Bottom Half: Calculator (계산기) -->
+        <div id="calculator-container" class="side-half">
+          <div class="side-header calc-header">
+            <div class="calc-title">
+              <span class="calc-icon">🧮</span>
+              <span>온라인 계산기</span>
+              <span class="calc-numpad-badge" title="숫자패드(0~9) 및 수식(+ - * / Enter) 연동">⌨️ 키패드 연동</span>
+            </div>
+            <div class="calc-top-tools">
+              <button id="calc-history-toggle" class="calc-small-btn" title="계산 기록 열기/닫기">📜 기록</button>
+              <button id="calc-clear-history" class="calc-small-btn" title="기록 초기화">기록 삭제</button>
+            </div>
+          </div>
+
+          <div class="calc-display-area">
+            <div id="calc-expression" class="calc-expr">&nbsp;</div>
+            <div id="calc-screen" class="calc-screen">0</div>
+          </div>
+
+          <!-- Calculator Keypad Grid -->
+          <div class="calc-keypad">
+            <!-- Row 1: Memory & Clear -->
+            <button class="c-key op-key" data-action="mc">MC</button>
+            <button class="c-key op-key" data-action="mr">MR</button>
+            <button class="c-key op-key" data-action="m-plus">M+</button>
+            <button class="c-key op-key" data-action="m-minus">M-</button>
+            <button class="c-key clear-key" data-action="ce">CE</button>
+            <button class="c-key clear-key" data-action="c">C</button>
+
+            <!-- Row 2: Scientific & Div -->
+            <button class="c-key fn-key" data-action="paren-open">(</button>
+            <button class="c-key fn-key" data-action="paren-close">)</button>
+            <button class="c-key fn-key" data-action="recip" title="역수 (1/x)">1/x</button>
+            <button class="c-key fn-key" data-action="sqr" title="제곱 (x²)">x²</button>
+            <button class="c-key fn-key" data-action="sqrt" title="제곱근 (√x)">√</button>
+            <button class="c-key op-key" data-action="div">÷</button>
+
+            <!-- Row 3: 7 8 9 Mult -->
+            <button class="c-key num-key" data-val="7">7</button>
+            <button class="c-key num-key" data-val="8">8</button>
+            <button class="c-key num-key" data-val="9">9</button>
+            <button class="c-key op-key" data-action="mult">×</button>
+            <button class="c-key fn-key" data-action="pct">%</button>
+            <button class="c-key clear-key" data-action="backspace">⌫</button>
+
+            <!-- Row 4: 4 5 6 Sub -->
+            <button class="c-key num-key" data-val="4">4</button>
+            <button class="c-key num-key" data-val="5">5</button>
+            <button class="c-key num-key" data-val="6">6</button>
+            <button class="c-key op-key" data-action="sub">-</button>
+            <button class="c-key num-key" data-val="00">00</button>
+            <button class="c-key fn-key" data-action="neg">±</button>
+
+            <!-- Row 5: 1 2 3 Add -->
+            <button class="c-key num-key" data-val="1">1</button>
+            <button class="c-key num-key" data-val="2">2</button>
+            <button class="c-key num-key" data-val="3">3</button>
+            <button class="c-key op-key" data-action="add">+</button>
+            <button class="c-key num-key" data-val="0">0</button>
+            <button class="c-key num-key" data-val=".">.</button>
+
+            <!-- Equal Key spanning -->
+            <button class="c-key equals-key" data-action="equals">=</button>
+          </div>
+
+          <!-- Slide-out Calculation History Tape -->
+          <div id="calc-history-drawer" class="calc-history-drawer">
+            <div class="history-title">계산 기록</div>
+            <div id="calc-history-list" class="history-list">
+              <div class="empty-history">계산 기록이 없습니다.</div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <!-- OMR Quick Navigation Drawer (Modal/Flyout) -->
+    <div id="omr-drawer" class="omr-flyout">
+      <div class="omr-drawer-header">
+        <h3>📋 전체 문항 OMR 답안 현황</h3>
+        <button id="close-omr-btn" class="close-btn">&times;</button>
+      </div>
+      <div class="omr-legend">
+        <span class="legend-item"><span class="legend-dot answered"></span> 마킹 완료</span>
+        <span class="legend-item"><span class="legend-dot unanswered"></span> 미응답</span>
+        <span class="legend-item"><span class="legend-dot flagged"></span> 검토 표시</span>
+      </div>
+      <div id="omr-grid" class="omr-grid">
+        <!-- Populated via JS -->
+      </div>
+      <div class="omr-drawer-footer">
+        <button id="omr-submit-btn" class="btn-primary">시험 제출 및 자동 채점</button>
+      </div>
+    </div>
+
+    <!-- Score & Auto-Grading Modal -->
+    <div id="score-modal" class="modal-overlay">
+      <div class="modal-card">
+        <div class="modal-header">
+          <h2>🎉 SKCT 자동 채점 결과 리포트</h2>
+          <button id="close-score-modal-btn" class="close-btn">&times;</button>
+        </div>
+
+        <div class="score-summary-grid">
+          <div class="score-card main-score">
+            <div class="score-label">획득 점수</div>
+            <div id="res-score-val" class="score-number">85</div>
+            <div class="score-sub">100점 만점 기준</div>
+          </div>
+          <div class="score-card">
+            <div class="score-label">정답 수</div>
+            <div id="res-correct-count" class="score-number correct">34</div>
+            <div class="score-sub">문항</div>
+          </div>
+          <div class="score-card">
+            <div class="score-label">오답 수</div>
+            <div id="res-wrong-count" class="score-number wrong">10</div>
+            <div class="score-sub">문항</div>
+          </div>
+          <div class="score-card">
+            <div class="score-label">미응답</div>
+            <div id="res-unanswered-count" class="score-number unanswered">4</div>
+            <div class="score-sub">문항</div>
+          </div>
+          <div class="score-card">
+            <div class="score-label">정답률</div>
+            <div id="res-accuracy-rate" class="score-number rate">77.3%</div>
+            <div class="score-sub">정답 / 푼 문항</div>
+          </div>
+          <div class="score-card">
+            <div class="score-label">소요 시간</div>
+            <div id="res-time-spent" class="score-number time">18:42</div>
+            <div class="score-sub">총 풀이 시간</div>
+          </div>
+        </div>
+
+        <!-- Filter buttons for review -->
+        <div class="review-filter-bar">
+          <span class="filter-title">문항별 결과 확인:</span>
+          <button class="filter-btn active" data-filter="all">전체 문항</button>
+          <button class="filter-btn" data-filter="wrong">❌ 오답만 보기</button>
+          <button class="filter-btn" data-filter="flagged">⭐ 검토 표시 문항</button>
+        </div>
+
+        <!-- Question Result Grid -->
+        <div id="score-review-grid" class="score-review-grid">
+          <!-- Populated via JS -->
+        </div>
+
+        <div class="modal-footer">
+          <button id="btn-review-exam" class="btn-secondary">📖 문제 및 해설 검토하기</button>
+          <button id="btn-retry-exam" class="btn-primary">🔄 다시 풀기 (새 시험)</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Solution / Explanation Modal -->
+    <div id="solution-modal" class="modal-overlay">
+      <div class="modal-card sol-modal-card">
+        <div class="modal-header">
+          <h2 id="sol-modal-title">📖 상세 해설 및 풀이</h2>
+          <button id="close-sol-modal-btn" class="close-btn">&times;</button>
+        </div>
+        <div class="sol-modal-body">
+          <div class="sol-correct-answer-banner">
+            정답: <span id="sol-correct-num" class="sol-highlight">⑤번</span>
+            <span class="sol-category" id="sol-category-name">언어이해 1번</span>
+          </div>
+          <div class="sol-image-wrapper">
+            <img id="solution-image" src="" alt="해설 이미지">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button id="close-sol-btn" class="btn-secondary">닫기</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Load Dataset -->
+  <script src="data/skct_data.js"></script>
+  <!-- Load App Logic -->
+  <script src="app.js"></script>
+</body>
+</html>

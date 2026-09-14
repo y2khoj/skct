@@ -42,7 +42,7 @@
   function buildUI() {
     const home = el('main','home'); home.id='training-home';
     home.innerHTML = `
-      <nav class="home-nav"><div class="home-brand"><span class="logo-badge">SKCT</span> 나의 훈련실</div><span class="muted" id="storage-status">이 브라우저에 자동 저장</span></nav>
+      <nav class="home-nav"><div class="home-brand"><span class="logo-badge">SKCT</span> 나의 훈련실</div><div class="home-mode-links"><span class="muted" id="storage-status">이 브라우저에 자동 저장</span><a href="exam.html" class="action primary-link" style="background:#2563eb; color:#ffffff; border-color:#3b82f6; text-decoration:none; padding:8px 14px; border-radius:8px; font-weight:700; display:inline-flex; align-items:center; gap:6px;">📝 기존 모의고사 바로가기 →</a></div></nav>
       <div class="home-hero"><div><div class="eyebrow">PRACTICE WITH A STRATEGY</div><h1>풀 수 있는 문제부터,<br>시간 안에 정확하게.</h1><p>유형을 익히고, 풀이 속도를 재고, 놓친 문제를 다시 회수하세요.<br>자료해석과 언어추리부터 시작하는 나만의 SKCT 훈련 루틴.</p></div><aside class="strategy-card"><div class="eyebrow">오늘 기억할 한 가지</div><strong>15초 판단 → 보류 → 회수</strong><p>풀이 방향이 안 보이면 잠시 넘기세요.<br>확실한 문제를 푼 뒤, 보류한 문제로 돌아옵니다.</p></aside></div>
       <div id="resume-banner" class="resume-banner" hidden><span id="resume-description"></span><button id="resume-session" class="action">이어하기</button></div>
       <div class="mode-grid" role="group" aria-label="훈련 단계">
@@ -50,6 +50,7 @@
        <button class="mode-card" data-mode="timed" aria-pressed="false"><small>STEP 02 · 다음 단계</small><b>15분 집중</b><span>영역별 시간 제한으로<br>보류와 회수 연습하기</span></button>
        <button class="mode-card" data-mode="full" aria-pressed="false"><small>STEP 03 · 실전 적응</small><b>5영역 연속</b><span>영역마다 시간을 나누어<br>연속으로 집중하기</span></button>
        <button class="mode-card" data-mode="review" aria-pressed="false"><small>STEP 04 · 시험 직전</small><b>약점 복습</b><span>오답·미응답·시간 초과<br>다시 풀고 원인 기록하기</span></button>
+       <a href="exam.html" class="mode-card mode-card-exam"><small>실전 풀세트 · 75:25 분할</small><b>기존 모의고사</b><span>3/4 문제화면 + 메모장 + 계산기<br>과목별 / 전체 실전 OMR 풀이 →</span></a>
       </div>
       <section class="setup" aria-label="훈련 설정"><div class="setup-fields">
        <label>집중할 영역<select id="train-section"></select></label>
@@ -59,7 +60,7 @@
        <button id="start-training" class="action primary">유형 진단 시작 →</button>
       </div><p id="setup-description" class="setup-note"></p><p class="setup-note">훈련용 설정입니다. 실제 시험의 문항 수·제한 시간·계산기 허용 여부는 본인 응시 안내에 맞춰 조정하세요.</p><p id="start-message" role="status" class="notice"></p></section>
       <div class="home-bottom"><section class="home-panel"><h2>영역별 훈련 기록</h2><div id="area-stats"></div><p class="muted">객관식 정답률은 각 문항의 최근 시도 기준입니다.<br>45초 초과는 훈련 지표이며, 계산연습 페이지에는 적용하지 않습니다.</p></section><section class="home-panel"><h2>오늘의 계산 워밍업</h2><p>증가율 · 구성비 · 비율 비교 · 평균 · 역산<br>계산기 없이 근사하고, 계산식과 비교해 보세요.</p><button id="open-drill" class="action" style="margin-top:16px">5문제 워밍업 시작</button><h2 style="margin-top:26px">최근 훈련</h2><div id="recent-sessions"></div></section></div>
-      <div class="home-links"><button id="export-records" class="action">기록 백업</button><button id="import-records" class="action">백업 가져오기</button><input id="import-file" type="file" accept="application/json" hidden></div><p class="muted" style="margin:16px 0 30px">기존 앱의 답안·메모는 보관되어 있습니다. 새 훈련은 회차별로 독립적으로 기록합니다.</p>`;
+      <div class="home-links"><a href="exam.html" class="action" style="text-decoration:none; background:#1e3a5f; color:#93c5fd; border-color:#3b82f6; font-weight:700;">📝 기존 모의고사 화면으로 이동</a><button id="export-records" class="action">기록 백업</button><button id="import-records" class="action">백업 가져오기</button><input id="import-file" type="file" accept="application/json" hidden></div><p class="muted" style="margin:16px 0 30px">기존 앱의 답안·메모는 보관되어 있습니다. 새 훈련은 회차별로 독립적으로 기록합니다.</p>`;
     document.body.prepend(home);
     sections.forEach(s=>{const o=el('option','',s.name);o.value=s.id;$('train-section').append(o);});
     $('train-section').value='data';

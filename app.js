@@ -26,6 +26,8 @@
   let isTimerRunning = false;
   let initialTimerSeconds = 25 * 60;
   let elapsedTime = 0;
+  let questionTimes = {};
+  let lastClockTick = 0;
 
   // Zoom State
   let zoomLevel = 1.0;
@@ -125,7 +127,10 @@
     loadPersistence();
 
     if (typeof SKCT_DATA !== 'undefined') {
-      appData = SKCT_DATA;
+      // Worksheets contain several exercises per page and cannot be scored as MCQs.
+      const objectiveSections = SKCT_DATA.sections.filter(s => s.id !== 'math');
+      appData = { ...SKCT_DATA, sections: objectiveSections,
+        total_questions: objectiveSections.reduce((n, s) => n + s.questions.length, 0) };
     } else {
       console.error('SKCT_DATA not loaded!');
       return;
@@ -149,6 +154,7 @@
       questionMemos = JSON.parse(localStorage.getItem('skct_q_memos') || '{}');
       globalMemo = localStorage.getItem('skct_global_memo') || '';
       calcHistory = JSON.parse(localStorage.getItem('skct_calc_history') || '[]');
+      questionTimes = JSON.parse(localStorage.getItem('skct_question_times') || '{}');
     } catch (e) {
       console.warn('Storage read error:', e);
     }
@@ -161,6 +167,7 @@
       localStorage.setItem('skct_q_memos', JSON.stringify(questionMemos));
       localStorage.setItem('skct_global_memo', globalMemo);
       localStorage.setItem('skct_calc_history', JSON.stringify(calcHistory));
+      localStorage.setItem('skct_question_times', JSON.stringify(questionTimes));
     } catch (e) {
       console.warn('Storage save error:', e);
     }
@@ -186,6 +193,7 @@
   }
 
   function switchSection(secId) {
+    pauseTimer();
     if (secId === 'all') {
       // Flatten all questions
       let allQuestions = [];
@@ -266,10 +274,11 @@
     }
 
     updateOMRCount();
+    updateQuestionClock();
   }
 
   function pickAnswer(val) {
-    if (!activeSection) return;
+    if (!activeSection || isReviewMode) return;
     const q = activeSection.questions[currentQIndex];
     if (!q) return;
 
@@ -280,7 +289,7 @@
   }
 
   function clearAnswer() {
-    if (!activeSection) return;
+    if (!activeSection || isReviewMode) return;
     const q = activeSection.questions[currentQIndex];
     if (!q) return;
 
@@ -302,6 +311,7 @@
   }
 
   function nextQuestion() {
+    accrueTime();
     if (currentQIndex < activeSection.questions.length - 1) {
       currentQIndex++;
       renderQuestion();
@@ -310,6 +320,7 @@
   }
 
   function prevQuestion() {
+    accrueTime();
     if (currentQIndex > 0) {
       currentQIndex--;
       renderQuestion();
@@ -318,6 +329,7 @@
   }
 
   function jumpToQuestion(idx) {
+    accrueTime();
     if (idx >= 0 && idx < activeSection.questions.length) {
       currentQIndex = idx;
       renderQuestion();
@@ -333,27 +345,51 @@
   }
 
   // --- TIMER ---
+  function formatQuestionTime(seconds) {
+    const n = Math.floor(seconds || 0);
+    return `${String(Math.floor(n / 60)).padStart(2, '0')}:${String(n % 60).padStart(2, '0')}`;
+  }
+
+  function updateQuestionClock() {
+    const q = activeSection?.questions[currentQIndex];
+    const clock = document.getElementById('exam-question-time');
+    if (clock && q) clock.textContent = `이 문제 누적 ${formatQuestionTime(questionTimes[q.id])}`;
+  }
+
+  function accrueTime() {
+    if (!isTimerRunning || isReviewMode || !activeSection) return;
+    const now = performance.now();
+    const delta = Math.min(Math.max(0, (now - lastClockTick) / 1000), timerSeconds);
+    lastClockTick = now;
+    const q = activeSection.questions[currentQIndex];
+    questionTimes[q.id] = (questionTimes[q.id] || 0) + delta;
+    elapsedTime += delta;
+    timerSeconds = Math.max(0, timerSeconds - delta);
+    updateQuestionClock();
+  }
+
   function startTimer() {
+    if (isReviewMode || timerSeconds <= 0) return;
     if (timerInterval) clearInterval(timerInterval);
     isTimerRunning = true;
+    lastClockTick = performance.now();
     els.timerToggleBtn.textContent = '⏸️';
 
     timerInterval = setInterval(() => {
-      if (timerSeconds > 0) {
-        timerSeconds--;
-        elapsedTime++;
-        updateTimerDisplay();
-      } else {
+      accrueTime();
+      updateTimerDisplay();
+      savePersistence();
+      if (timerSeconds <= 0) {
         clearInterval(timerInterval);
         isTimerRunning = false;
         els.timerToggleBtn.textContent = '▶️';
-        alert('시험 시간이 종료되었습니다! 자동 채점을 진행합니다.');
         submitAndScore();
       }
     }, 1000);
   }
 
   function pauseTimer() {
+    accrueTime();
     if (timerInterval) clearInterval(timerInterval);
     isTimerRunning = false;
     els.timerToggleBtn.textContent = '▶️';
@@ -369,8 +405,9 @@
   }
 
   function updateTimerDisplay() {
-    const mins = Math.floor(timerSeconds / 60);
-    const secs = timerSeconds % 60;
+    const remaining = Math.ceil(timerSeconds);
+    const mins = Math.floor(remaining / 60);
+    const secs = remaining % 60;
     els.timerDisplay.textContent = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
 
     if (timerSeconds < 300) { // under 5 min
@@ -641,6 +678,7 @@
   // --- AUTO-GRADING & SCORING ---
   function submitAndScore() {
     if (!activeSection) return;
+    pauseTimer();
 
     let total = activeSection.questions.length;
     let correct = 0;
@@ -663,7 +701,7 @@
     const accuracy = answeredCount > 0 ? ((correct / answeredCount) * 100).toFixed(1) + '%' : '0.0%';
 
     const mins = Math.floor(elapsedTime / 60);
-    const secs = elapsedTime % 60;
+    const secs = Math.floor(elapsedTime % 60);
     const timeSpentStr = `${mins}분 ${secs}초`;
 
     // Populate Modal
@@ -715,6 +753,7 @@
           <span>선택: ${chosen ? chosen + '번' : '-'}</span>
           <span>정답: ${q.answer}번</span>
         </div>
+        <div class="res-q-time">누적 풀이 ${formatQuestionTime(questionTimes[q.id])}</div>
       `;
 
       card.addEventListener('click', () => {
@@ -944,8 +983,11 @@
 
     els.btnRetryExam.addEventListener('click', () => {
       if (confirm('기존 답안을 모두 초기화하고 처음부터 다시 응시하시겠습니까?')) {
-        userAnswers = {};
-        userFlags = {};
+        activeSection.questions.forEach(q => {
+          delete userAnswers[q.id];
+          delete userFlags[q.id];
+          delete questionTimes[q.id];
+        });
         savePersistence();
         isReviewMode = false;
         els.scoreModal.classList.remove('open');
