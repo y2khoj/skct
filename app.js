@@ -130,10 +130,7 @@
     loadPersistence();
 
     if (typeof SKCT_DATA !== 'undefined') {
-      // Worksheets contain several exercises per page and cannot be scored as MCQs.
-      const objectiveSections = SKCT_DATA.sections.filter(s => s.id !== 'math');
-      appData = { ...SKCT_DATA, sections: objectiveSections,
-        total_questions: objectiveSections.reduce((n, s) => n + s.questions.length, 0) };
+      appData = SKCT_DATA;
     } else {
       console.error('SKCT_DATA not loaded!');
       return;
@@ -989,126 +986,160 @@
   // --- EVENT BINDINGS ---
   function bindEvents() {
     // Section Select
-    els.sectionSelect.addEventListener('change', e => {
-      switchSection(e.target.value);
-    });
+    if (els.sectionSelect) {
+      els.sectionSelect.addEventListener('change', e => {
+        switchSection(e.target.value);
+      });
+    }
 
     // OMR Choice Buttons
-    els.optBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const val = parseInt(btn.getAttribute('data-val'), 10);
-        pickAnswer(val);
-      });
-    });
-
-    els.clearAnsBtn.addEventListener('click', clearAnswer);
-
-    // Navigation
-    els.prevQBtn.addEventListener('click', prevQuestion);
-    els.nextQBtn.addEventListener('click', nextQuestion);
-    els.flagBtn.addEventListener('click', toggleFlag);
-    els.viewSolBtn.addEventListener('click', showSolutionModal);
-
-    // Zoom
-    els.zoomInBtn.addEventListener('click', () => setZoom(zoomLevel + 0.15));
-    els.zoomOutBtn.addEventListener('click', () => setZoom(zoomLevel - 0.15));
-    els.zoomFitWidth.addEventListener('click', () => {
-      const containerWidth = els.qViewport.clientWidth - 48;
-      const targetWidth = 900;
-      setZoom(containerWidth / targetWidth);
-    });
-    els.zoomFitPage.addEventListener('click', () => setZoom(1.0));
-
-    // Timer
-    els.timerToggleBtn.addEventListener('click', () => {
-      if (isTimerRunning) pauseTimer();
-      else startTimer();
-    });
-    els.timerResetBtn.addEventListener('click', () => {
-      if (confirm('타이머를 초기화하시겠습니까?')) {
-        resetTimer(activeSection.time_limit_minutes * 60);
-      }
-    });
-
-    // Submit
-    els.submitExamBtn.addEventListener('click', () => {
-      let unansweredCount = 0;
-      activeSection.questions.forEach(p => {
-        const subQuestions = p.subQuestions && p.subQuestions.length ? p.subQuestions : [
-          { id: p.id, num: p.num, title: `${p.num}번`, answer: p.answer }
-        ];
-        subQuestions.forEach(sq => {
-          if (userAnswers[sq.id] === undefined) unansweredCount++;
+    if (els.optBtns) {
+      els.optBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const val = parseInt(btn.getAttribute('data-val'), 10);
+          pickAnswer(val);
         });
       });
+    }
 
-      let msg = '시험을 제출하고 자동 채점을 진행하시겠습니까?';
-      if (unansweredCount > 0) {
-        msg = `아직 풀지 않은 문제가 ${unansweredCount}문항 있습니다.\n정말 제출하고 채점하시겠습니까?`;
-      }
-      if (confirm(msg)) {
+    if (els.clearAnsBtn) {
+      els.clearAnsBtn.addEventListener('click', clearAnswer);
+    }
+
+    // Navigation
+    if (els.prevQBtn) els.prevQBtn.addEventListener('click', prevQuestion);
+    if (els.nextQBtn) els.nextQBtn.addEventListener('click', nextQuestion);
+    if (els.flagBtn) els.flagBtn.addEventListener('click', toggleFlag);
+    if (els.viewSolBtn) els.viewSolBtn.addEventListener('click', showSolutionModal);
+
+    // Zoom
+    if (els.zoomInBtn) els.zoomInBtn.addEventListener('click', () => setZoom(zoomLevel + 0.15));
+    if (els.zoomOutBtn) els.zoomOutBtn.addEventListener('click', () => setZoom(zoomLevel - 0.15));
+    if (els.zoomFitWidth) {
+      els.zoomFitWidth.addEventListener('click', () => {
+        const containerWidth = els.qViewport ? (els.qViewport.clientWidth - 48) : 900;
+        setZoom(containerWidth / 900);
+      });
+    }
+    if (els.zoomFitPage) els.zoomFitPage.addEventListener('click', () => setZoom(1.0));
+
+    // Timer
+    if (els.timerToggleBtn) {
+      els.timerToggleBtn.addEventListener('click', () => {
+        if (isTimerRunning) pauseTimer();
+        else startTimer();
+      });
+    }
+    if (els.timerResetBtn) {
+      els.timerResetBtn.addEventListener('click', () => {
+        if (confirm('타이머를 초기화하시겠습니까?')) {
+          resetTimer((activeSection?.time_limit_minutes || 25) * 60);
+        }
+      });
+    }
+
+    // Submit
+    if (els.submitExamBtn) {
+      els.submitExamBtn.addEventListener('click', () => {
+        let unansweredCount = 0;
+        if (activeSection?.questions) {
+          activeSection.questions.forEach(p => {
+            if (p.is_passage) return;
+            const subQuestions = p.subQuestions && p.subQuestions.length ? p.subQuestions : [
+              { id: p.id, num: p.num, title: `${p.num}번`, answer: p.answer }
+            ];
+            subQuestions.forEach(sq => {
+              if (userAnswers[sq.id] === undefined) unansweredCount++;
+            });
+          });
+        }
+
+        let msg = '시험을 제출하고 자동 채점을 진행하시겠습니까?';
+        if (unansweredCount > 0) {
+          msg = `아직 풀지 않은 문제가 ${unansweredCount}문항 있습니다.\n정말 제출하고 채점하시겠습니까?`;
+        }
+        if (confirm(msg)) {
+          submitAndScore();
+        }
+      });
+    }
+
+    if (els.omrSubmitBtn) {
+      els.omrSubmitBtn.addEventListener('click', () => {
+        if (els.omrDrawer) els.omrDrawer.classList.remove('open');
         submitAndScore();
-      }
-    });
-
-    els.omrSubmitBtn.addEventListener('click', () => {
-      els.omrDrawer.classList.remove('open');
-      submitAndScore();
-    });
+      });
+    }
 
     // OMR Drawer Toggle
-    els.omrDrawerToggle.addEventListener('click', () => {
-      updateOMRDrawer();
-      els.omrDrawer.classList.toggle('open');
-    });
-    els.closeOmrBtn.addEventListener('click', () => {
-      els.omrDrawer.classList.remove('open');
-    });
+    if (els.omrDrawerToggle) {
+      els.omrDrawerToggle.addEventListener('click', () => {
+        updateOMRDrawer();
+        if (els.omrDrawer) els.omrDrawer.classList.toggle('open');
+      });
+    }
+    if (els.closeOmrBtn) {
+      els.closeOmrBtn.addEventListener('click', () => {
+        if (els.omrDrawer) els.omrDrawer.classList.remove('open');
+      });
+    }
 
     // Notepad Tabs
-    els.tabQMemo.addEventListener('click', () => {
-      activeMemoTab = 'question';
-      els.tabQMemo.classList.add('active');
-      els.tabGlobalMemo.classList.remove('active');
-      updateNotepadView();
-    });
+    if (els.tabQMemo) {
+      els.tabQMemo.addEventListener('click', () => {
+        activeMemoTab = 'question';
+        els.tabQMemo.classList.add('active');
+        if (els.tabGlobalMemo) els.tabGlobalMemo.classList.remove('active');
+        updateNotepadView();
+      });
+    }
 
-    els.tabGlobalMemo.addEventListener('click', () => {
-      activeMemoTab = 'global';
-      els.tabGlobalMemo.classList.add('active');
-      els.tabQMemo.classList.remove('active');
-      updateNotepadView();
-    });
+    if (els.tabGlobalMemo) {
+      els.tabGlobalMemo.addEventListener('click', () => {
+        activeMemoTab = 'global';
+        els.tabGlobalMemo.classList.add('active');
+        if (els.tabQMemo) els.tabQMemo.classList.remove('active');
+        updateNotepadView();
+      });
+    }
 
     // Notepad Tools
-    els.notepadTextarea.addEventListener('input', handleNotepadInput);
+    if (els.notepadTextarea) els.notepadTextarea.addEventListener('input', handleNotepadInput);
 
-    els.notepadFontInc.addEventListener('click', () => {
-      if (memoFontSize < 24) {
-        memoFontSize += 2;
-        els.notepadTextarea.style.fontSize = `${memoFontSize}px`;
-      }
-    });
-
-    els.notepadFontDec.addEventListener('click', () => {
-      if (memoFontSize > 10) {
-        memoFontSize -= 2;
-        els.notepadTextarea.style.fontSize = `${memoFontSize}px`;
-      }
-    });
-
-    els.notepadCopyBtn.addEventListener('click', () => {
-      navigator.clipboard.writeText(els.notepadTextarea.value).then(() => {
-        alert('메모 내용이 클립보드에 복사되었습니다.');
+    if (els.notepadFontInc) {
+      els.notepadFontInc.addEventListener('click', () => {
+        if (memoFontSize < 24) {
+          memoFontSize += 2;
+          if (els.notepadTextarea) els.notepadTextarea.style.fontSize = `${memoFontSize}px`;
+        }
       });
-    });
+    }
 
-    els.notepadClearBtn.addEventListener('click', () => {
-      if (confirm('현재 작성된 메모를 모두 지우시겠습니까?')) {
-        els.notepadTextarea.value = '';
-        handleNotepadInput();
-      }
-    });
+    if (els.notepadFontDec) {
+      els.notepadFontDec.addEventListener('click', () => {
+        if (memoFontSize > 10) {
+          memoFontSize -= 2;
+          if (els.notepadTextarea) els.notepadTextarea.style.fontSize = `${memoFontSize}px`;
+        }
+      });
+    }
+
+    if (els.notepadCopyBtn) {
+      els.notepadCopyBtn.addEventListener('click', () => {
+        navigator.clipboard.writeText(els.notepadTextarea ? els.notepadTextarea.value : '').then(() => {
+          alert('메모 내용이 클립보드에 복사되었습니다.');
+        });
+      });
+    }
+
+    if (els.notepadClearBtn) {
+      els.notepadClearBtn.addEventListener('click', () => {
+        if (confirm('현재 작성된 메모를 모두 지우시겠습니까?')) {
+          if (els.notepadTextarea) els.notepadTextarea.value = '';
+          handleNotepadInput();
+        }
+      });
+    }
 
     // Calculator Keypad
     document.querySelectorAll('.calc-keypad .c-key').forEach(btn => {
@@ -1158,15 +1189,19 @@
     });
 
     // Calculator History Drawer
-    els.calcHistoryToggle.addEventListener('click', () => {
-      els.calcHistoryDrawer.classList.toggle('open');
-    });
+    if (els.calcHistoryToggle) {
+      els.calcHistoryToggle.addEventListener('click', () => {
+        if (els.calcHistoryDrawer) els.calcHistoryDrawer.classList.toggle('open');
+      });
+    }
 
-    els.calcClearHistory.addEventListener('click', () => {
-      calcHistory = [];
-      savePersistence();
-      renderCalcHistory();
-    });
+    if (els.calcClearHistory) {
+      els.calcClearHistory.addEventListener('click', () => {
+        calcHistory = [];
+        savePersistence();
+        renderCalcHistory();
+      });
+    }
 
     // Score Modal Filters & Actions
     document.querySelectorAll('.filter-btn').forEach(btn => {
@@ -1177,44 +1212,56 @@
       });
     });
 
-    els.closeScoreModalBtn.addEventListener('click', () => {
-      els.scoreModal.classList.remove('open');
-    });
+    if (els.closeScoreModalBtn) {
+      els.closeScoreModalBtn.addEventListener('click', () => {
+        if (els.scoreModal) els.scoreModal.classList.remove('open');
+      });
+    }
 
-    els.btnReviewExam.addEventListener('click', () => {
-      els.scoreModal.classList.remove('open');
-      isReviewMode = true;
-      jumpToQuestion(0);
-    });
+    if (els.btnReviewExam) {
+      els.btnReviewExam.addEventListener('click', () => {
+        if (els.scoreModal) els.scoreModal.classList.remove('open');
+        isReviewMode = true;
+        jumpToQuestion(0);
+      });
+    }
 
-    els.btnRetryExam.addEventListener('click', () => {
-      if (confirm('기존 답안을 모두 초기화하고 처음부터 다시 응시하시겠습니까?')) {
-        activeSection.questions.forEach(p => {
-          delete userFlags[p.id];
-          delete questionTimes[p.id];
-          const subQuestions = p.subQuestions && p.subQuestions.length ? p.subQuestions : [
-            { id: p.id }
-          ];
-          subQuestions.forEach(sq => {
-            delete userAnswers[sq.id];
-            delete userFlags[sq.id];
-          });
-        });
-        savePersistence();
-        isReviewMode = false;
-        els.scoreModal.classList.remove('open');
-        resetTimer(activeSection.time_limit_minutes * 60);
-        renderQuestion();
-      }
-    });
+    if (els.btnRetryExam) {
+      els.btnRetryExam.addEventListener('click', () => {
+        if (confirm('기존 답안을 모두 초기화하고 처음부터 다시 응시하시겠습니까?')) {
+          if (activeSection?.questions) {
+            activeSection.questions.forEach(p => {
+              delete userFlags[p.id];
+              delete questionTimes[p.id];
+              const subQuestions = p.subQuestions && p.subQuestions.length ? p.subQuestions : [
+                { id: p.id }
+              ];
+              subQuestions.forEach(sq => {
+                delete userAnswers[sq.id];
+                delete userFlags[sq.id];
+              });
+            });
+          }
+          savePersistence();
+          isReviewMode = false;
+          if (els.scoreModal) els.scoreModal.classList.remove('open');
+          resetTimer((activeSection?.time_limit_minutes || 25) * 60);
+          renderQuestion();
+        }
+      });
+    }
 
     // Solution Modal
-    els.closeSolModalBtn.addEventListener('click', () => {
-      els.solutionModal.classList.remove('open');
-    });
-    els.closeSolBtn.addEventListener('click', () => {
-      els.solutionModal.classList.remove('open');
-    });
+    if (els.closeSolModalBtn) {
+      els.closeSolModalBtn.addEventListener('click', () => {
+        if (els.solutionModal) els.solutionModal.classList.remove('open');
+      });
+    }
+    if (els.closeSolBtn) {
+      els.closeSolBtn.addEventListener('click', () => {
+        if (els.solutionModal) els.solutionModal.classList.remove('open');
+      });
+    }
   }
 
   // --- KEYBOARD SHORTCUTS & CALCULATOR INPUT ---
