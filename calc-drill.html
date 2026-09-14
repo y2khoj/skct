@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SKCT 스피드 계산 연습관 · 자료해석 속산 특훈</title>
+  <meta name="description" content="SKCT 자료해석 및 수리 대비 스피드 계산 연습: 분수 크기 비교, 증가율 어림셈, 구성비, 2자리 곱셈 비타민 연산 훈련">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="calc-drill.css">
+</head>
+<body>
+  <div id="calc-app">
+    <!-- Header -->
+    <header class="calc-header-nav">
+      <div class="calc-nav-left">
+        <span class="logo-badge">SKCT</span>
+        <h1 class="calc-nav-title">⚡ 스피드 계산 연습관</h1>
+      </div>
+
+      <div class="calc-nav-center" id="nav-stats-bar" style="display: none;">
+        <div class="stat-chip streak-chip" id="streak-chip">
+          <span class="streak-icon">🔥</span>
+          <span id="streak-count">0</span>연속 정답
+        </div>
+        <div class="stat-chip timer-chip">
+          <span class="timer-icon">⏱️</span>
+          <span id="drill-total-timer">00:00</span>
+        </div>
+        <div class="stat-chip progress-chip">
+          <span id="drill-progress-text">1 / 10</span>
+        </div>
+      </div>
+
+      <div class="calc-nav-right">
+        <a href="index.html" class="nav-link-btn" title="전략 훈련실로 이동">🎯 훈련실</a>
+        <a href="exam.html" class="nav-link-btn primary" title="기존 모의고사 화면으로 이동">📝 모의고사</a>
+      </div>
+    </header>
+
+    <!-- Main View Area -->
+    <main class="calc-main-container">
+
+      <!-- View 1: Setup & Mode Selection -->
+      <section id="setup-view" class="calc-card view-panel active">
+        <div class="setup-hero">
+          <div class="hero-badge">DATA INTERPRETATION DRILL</div>
+          <h2>자료해석의 승패는 <span class="highlight-text">속산과 어림셈</span>에서 갈립니다.</h2>
+          <p class="hero-sub">
+            계산기를 두드리기 전, 직관과 어림산으로 1초 만에 판별하는 감각을 훈련하세요.<br>
+            분수 비교 · 증가율 · 비중 · 2자리 곱셈을 유형별로 집중 마스터할 수 있습니다.
+          </p>
+        </div>
+
+        <!-- Mode Cards Grid -->
+        <div class="mode-select-grid" role="radiogroup" aria-label="계산 훈련 모드">
+          <button type="button" class="calc-mode-card active" data-mode="all" aria-checked="true">
+            <div class="mode-card-header">
+              <span class="mode-icon">🏆</span>
+              <span class="mode-badge best">종합 추천</span>
+            </div>
+            <strong class="mode-title">종합 실전 챌린지</strong>
+            <p class="mode-desc">분수 비교 + 증가율 + 비중 + 사칙연산이 랜덤 출제되어 실전 자료해석 적응력을 극대화합니다.</p>
+          </button>
+
+          <button type="button" class="calc-mode-card" data-mode="fraction" aria-checked="false">
+            <div class="mode-card-header">
+              <span class="mode-icon">⚖️</span>
+              <span class="mode-badge">비타민 핵심</span>
+            </div>
+            <strong class="mode-title">분수 크기 비교</strong>
+            <p class="mode-desc">두 분수(A vs B) 중 더 큰 값을 1초 만에 판단. 자모 비교 및 차분법 감각을 완성합니다. (키보드 ← / → 연동)</p>
+          </button>
+
+          <button type="button" class="calc-mode-card" data-mode="growth" aria-checked="false">
+            <div class="mode-card-header">
+              <span class="mode-icon">📈</span>
+              <span class="mode-badge">단골 유형</span>
+            </div>
+            <strong class="mode-title">증가율 어림셈</strong>
+            <p class="mode-desc">기준값 대비 변화량의 증가율(%)을 빠르게 근사. 허용 오차(±1.5%p) 내 근사 성공 훈련.</p>
+          </button>
+
+          <button type="button" class="calc-mode-card" data-mode="ratio" aria-checked="false">
+            <div class="mode-card-header">
+              <span class="mode-icon">📊</span>
+              <span class="mode-badge">도표 비중</span>
+            </div>
+            <strong class="mode-title">구성비 / 비중 계산</strong>
+            <p class="mode-desc">전체 N 중 부분 M이 차지하는 비중(%)을 기준 분수법(10%, 5%, 1% 기준)으로 어림셈합니다.</p>
+          </button>
+
+          <button type="button" class="calc-mode-card" data-mode="multiply" aria-checked="false">
+            <div class="mode-card-header">
+              <span class="mode-icon">🔢</span>
+              <span class="mode-badge">속산 기초</span>
+            </div>
+            <strong class="mode-title">2자리 곱셈 & 연산</strong>
+            <p class="mode-desc">자료해석 보기 검증에 필요한 두 자리 수 곱셈(예: 37 × 48)과 3자리 덧셈/뺄셈을 빠르고 정확하게 암산합니다.</p>
+          </button>
+        </div>
+
+        <!-- Drill Options -->
+        <div class="setup-controls-panel">
+          <div class="control-group">
+            <label for="q-count-select">훈련 문항 수</label>
+            <select id="q-count-select" class="calc-select">
+              <option value="10" selected>10문제 (가벼운 워밍업 · 약 2분)</option>
+              <option value="20">20문제 (집중 훈련 · 약 4분)</option>
+              <option value="30">30문제 (실전 타임어택 · 약 6분)</option>
+              <option value="50">50문제 (한계 돌파 모드)</option>
+              <option value="999">무제한 (틀릴 때까지 연속 연습)</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <label for="time-mode-select">시간 제한 모드</label>
+            <select id="time-mode-select" class="calc-select">
+              <option value="none" selected>제한 없음 (문제당 소요 시간 측정)</option>
+              <option value="10">문제당 10초 타임어택 (실전 페이스)</option>
+              <option value="7">문제당 7초 스피드 챌린지 (고득점 목표)</option>
+              <option value="5">문제당 5초 번개 챌린지 (극강 직관)</option>
+            </select>
+          </div>
+
+          <button type="button" id="start-drill-btn" class="btn-start-drill">
+            ⚡ 계산 훈련 시작하기 (Enter)
+          </button>
+        </div>
+
+        <!-- Tips & Guide -->
+        <div class="setup-tips-card">
+          <div class="tip-header">💡 자료해석 속산 핵심 꿀팁</div>
+          <ul class="tip-list">
+            <li><strong>분수 비교</strong>: 분모가 커지는 비율보다 분자가 커지는 비율이 크면 오른쪽 분수가 더 큽니다.</li>
+            <li><strong>증가율 계산</strong>: 기준값의 10%와 1% 값을 머릿속에 먼저 띄우고, 변화량이 몇 배인지 맞춥니다.</li>
+            <li><strong>단축키</strong>: 분수 비교 시 키보드 <kbd>A</kbd> / <kbd>B</kbd> 또는 방향키 <kbd>←</kbd> / <kbd>→</kbd> 로 마우스 없이 1초 컷 가능!</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- View 2: Active Drill Arena -->
+      <section id="drill-view" class="calc-card view-panel" style="display: none;">
+        <!-- Question Meta Header -->
+        <div class="drill-top-bar">
+          <div class="drill-badge-group">
+            <span class="type-pill" id="current-type-pill">⚖️ 분수 비교</span>
+            <span class="q-seq-text" id="current-seq-text">문제 1 / 10</span>
+          </div>
+          <div class="drill-lap-timer" id="question-lap-timer">
+            ⏱️ <span id="lap-seconds">0.0</span>초
+          </div>
+        </div>
+
+        <!-- Question Body Area -->
+        <div class="drill-question-area" id="drill-question-container">
+          <!-- Populated dynamically: either fraction compare UI or prompt+input UI -->
+        </div>
+
+        <!-- Solution & Feedback Banner -->
+        <div class="feedback-banner" id="feedback-banner" style="display: none;">
+          <div class="feedback-header">
+            <span class="feedback-icon" id="feedback-icon">✓</span>
+            <strong class="feedback-title" id="feedback-title">정답입니다!</strong>
+            <span class="feedback-time" id="feedback-time-text">소요: 1.8초</span>
+          </div>
+          <div class="feedback-solution" id="feedback-solution-text">
+            변화량 78 ÷ 기준값 300 = 26%
+          </div>
+          <button type="button" id="next-drill-btn" class="btn-next-drill">
+            다음 문제 ▶ (Enter 또는 Space)
+          </button>
+        </div>
+
+        <!-- Mobile/Mouse Keypad Area (for numeric inputs) -->
+        <div class="drill-keypad" id="drill-keypad" style="display: none;">
+          <button type="button" class="kp-btn" data-key="7">7</button>
+          <button type="button" class="kp-btn" data-key="8">8</button>
+          <button type="button" class="kp-btn" data-key="9">9</button>
+          <button type="button" class="kp-btn op" data-key="backspace">⌫</button>
+          <button type="button" class="kp-btn" data-key="4">4</button>
+          <button type="button" class="kp-btn" data-key="5">5</button>
+          <button type="button" class="kp-btn" data-key="6">6</button>
+          <button type="button" class="kp-btn op" data-key="clear">C</button>
+          <button type="button" class="kp-btn" data-key="1">1</button>
+          <button type="button" class="kp-btn" data-key="2">2</button>
+          <button type="button" class="kp-btn" data-key="3">3</button>
+          <button type="button" class="kp-btn" data-key=".">.</button>
+          <button type="button" class="kp-btn" data-key="-">±</button>
+          <button type="button" class="kp-btn" data-key="0">0</button>
+          <button type="button" class="kp-btn primary enter" data-key="enter">확인 ↵</button>
+        </div>
+
+        <!-- Bottom Actions -->
+        <div class="drill-footer-actions">
+          <button type="button" id="abort-drill-btn" class="btn-abort">중단하고 나가기</button>
+          <span class="keyboard-guide" id="keyboard-guide-text">⌨️ 키보드 숫자 입력 후 Enter키를 누르세요.</span>
+        </div>
+      </section>
+
+      <!-- View 3: Drill Results & Analysis -->
+      <section id="result-view" class="calc-card view-panel" style="display: none;">
+        <div class="result-hero">
+          <div class="result-trophy" id="result-trophy-icon">🏆</div>
+          <h2 id="result-title">훈련 완료!</h2>
+          <p class="result-sub" id="result-subtitle">집중력 있는 훈련으로 어림셈 감각이 한층 날카로워졌습니다.</p>
+        </div>
+
+        <!-- Stat Highlights Grid -->
+        <div class="result-stats-grid">
+          <div class="res-stat-card main">
+            <span class="res-stat-label">최종 정답률</span>
+            <strong class="res-stat-val" id="res-accuracy-val">90%</strong>
+            <span class="res-stat-sub" id="res-correct-ratio">9 / 10 성공</span>
+          </div>
+          <div class="res-stat-card">
+            <span class="res-stat-label">문항당 평균 속도</span>
+            <strong class="res-stat-val speed" id="res-avg-time-val">2.8초</strong>
+            <span class="res-stat-sub" id="res-speed-rank">⚡ 번개 페이스</span>
+          </div>
+          <div class="res-stat-card">
+            <span class="res-stat-label">최대 연속 정답</span>
+            <strong class="res-stat-val streak" id="res-max-streak-val">🔥 8연속</strong>
+            <span class="res-stat-sub">안정적인 집중력 유지</span>
+          </div>
+          <div class="res-stat-card">
+            <span class="res-stat-label">총 소요 시간</span>
+            <strong class="res-stat-val time" id="res-total-time-val">00:28</strong>
+            <span class="res-stat-sub" id="res-date-text">방금 완료</span>
+          </div>
+        </div>
+
+        <!-- Question Review Accordion / List -->
+        <div class="result-history-box">
+          <div class="history-header">
+            <h3>📋 풀이 문항 전수 분석</h3>
+            <div class="history-filter-pills">
+              <button type="button" class="hist-filter-pill active" data-filter="all">전체 (<span id="count-all">10</span>)</button>
+              <button type="button" class="hist-filter-pill" data-filter="wrong">오답만 (<span id="count-wrong">1</span>)</button>
+            </div>
+          </div>
+          <div class="history-list" id="drill-history-list">
+            <!-- Populated via JS -->
+          </div>
+        </div>
+
+        <!-- Footer Action Buttons -->
+        <div class="result-actions-bar">
+          <button type="button" id="btn-restart-same" class="btn-res-action primary">
+            🔄 같은 설정으로 다시 풀기
+          </button>
+          <button type="button" id="btn-retry-wrong" class="btn-res-action warning" style="display: none;">
+            ❌ 오답만 다시 풀기 (<span id="wrong-retry-count">0</span>)
+          </button>
+          <button type="button" id="btn-change-mode" class="btn-res-action secondary">
+            ⚙️ 다른 유형 선택
+          </button>
+          <a href="index.html" class="btn-res-action outline">
+            🎯 훈련실 홈으로
+          </a>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="calc-drill.js"></script>
+</body>
+</html>
