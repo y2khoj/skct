@@ -1,5 +1,8 @@
 # Python scripts & caches
 *.py
+!verify_mapping.py
+!generate_perfect_skct_data.py
+!extract_question_bank.py
 *.pyc
 __pycache__/
 

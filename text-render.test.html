@@ -1,0 +1,27 @@
+<!doctype html><html lang="ko"><meta charset="UTF-8"><title>SKCT 텍스트 렌더링 검증</title>
+<link rel="stylesheet" href="question-text.css"><style>body{font-family:'Malgun Gothic',sans-serif;background:#edf2f5;margin:24px}header{max-width:950px;margin:auto;padding:15px}#q-viewport,.sol-modal-body{max-width:950px;margin:auto}#q-viewport{height:65vh;overflow:auto}button,select{padding:8px}#checks{white-space:pre-line}</style>
+<header><h1>텍스트 문항 검증</h1><p id="checks">검증 중</p><select id="case-select" aria-label="검증할 문제"></select><label><input id="review" type="checkbox"> 정답 보기</label><p id="selected"></p></header>
+<main id="q-viewport"><img id="question-image"></main><section class="sol-modal-body"><img id="solution-image"></section>
+<script src="data/skct_data.js"></script><script src="data/question-bank.js"></script><script src="question-bank-core.js"></script><script src="question-text.js"></script>
+<script>
+const pages=SKCT_DATA.sections.flatMap(s=>s.questions),select=document.getElementById('case-select'),answers={};
+let errors=[],count=0;
+for(const page of pages){
+  try{
+    SKCTText.renderQuestion(page,{selected:{},locked:true});
+    if(!page.is_passage){
+      if(document.querySelectorAll('.text-option').length!==page.subQuestions.length*5)throw Error('보기 개수 불일치');
+      SKCTText.renderSolution(page);
+      if(document.querySelectorAll('#solution-text .bound-answer').length!==page.subQuestions.length)throw Error('정답 카드 누락');
+      count+=page.subQuestions.length;
+    }
+  }catch(error){errors.push(`${page.id}: ${error.message}`);}
+  const option=document.createElement('option');option.value=page.id;option.textContent=page.title;select.append(option);
+}
+document.getElementById('checks').textContent=`문항 ${count}개 / 렌더링 오류 ${errors.length}개`+(errors.length?'\n'+errors.join('\n'):'');
+function show(){const page=pages.find(p=>p.id===select.value),review=document.getElementById('review').checked;
+  SKCTText.renderQuestion(page,{selected:answers,review,locked:review,onChoose:(id,n)=>{answers[id]=n;document.getElementById('selected').textContent=`${id} → ${n}번`;show();}});
+  if(!page.is_passage)SKCTText.renderSolution(page);document.querySelector('.sol-modal-body').hidden=!review;
+}
+select.value=new URLSearchParams(location.search).get('page')||pages[0].id;select.addEventListener('change',show);document.getElementById('review').addEventListener('change',show);show();
+</script></html>

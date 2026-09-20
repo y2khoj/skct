@@ -234,6 +234,11 @@
     $('q-category-text').textContent=`${q.section} · ${q.part ? q.part + ' · ' : ''}${q.q_label || (q.num + (isManual ? '페이지' : '번'))} · ${q.category}`;
     if($('question-image').getAttribute('src')!==q.image){$('question-image').src=q.image;$('q-viewport').scrollTop=0;}
     $('question-image').alt=q.title;
+    SKCTText.renderQuestion(q, {
+      selected:a.answers || (a.answer!=null?{[q.subQuestions[0]?.id]:a.answer}:{}),
+      locked:session.review, review:session.review,
+      onChoose:(qid,value)=>{activeSubIdx=q.subQuestions.findIndex(s=>s.id===qid);pickSub(qid,value);}
+    });
     renderTrainingOMROptions(q, a);
     const bar = $('omr-options-bar') || document.querySelector('.omr-options-bar');
     if(bar) bar.hidden = isManual;
@@ -276,7 +281,7 @@
     pickSub(target.id, value);
   }
   function pickSub(qid, value) {
-    if(session.review||!running||C.manual(question())||question().is_passage)return;
+    if(session.review||!running||question().is_passage)return;
     tick();if(session.review)return;
     const a = attempt();
     a.answers ||= {};
@@ -384,9 +389,12 @@
     const subs = q.subQuestions && q.subQuestions.length ? q.subQuestions : [{ answer: q.answer }];
     const ansStr = subs.length > 1 ? subs.map(s => `${s.num}번: ${s.answer}번`).join(', ') : `${q.answer}번`;
     $('sol-modal-title').textContent=q.title+' · 해설';
-    $('sol-correct-num').textContent=C.manual(q)?'페이지별 해설 대조':ansStr;
-    $('sol-category-name').textContent=q.section;
+    $('sol-correct-num').textContent=ansStr;
+    $('sol-category-name').textContent=`${q.section} · 원본 해설 PDF ${q.solution_pages.join(', ')}페이지`;
     $('solution-image').src=q.solution_image;
+    $('solution-image').alt=`${q.title} 해설 · PDF ${q.solution_pages.join(', ')}페이지`;
+    $('solution-image').closest('.sol-modal-body').scrollTop=0;
+    SKCTText.renderSolution(q);
     $('solution-modal').classList.add('open');
   }
   function home() {if(session&&!session.review)pause();else running=false;persist();session=null;document.querySelectorAll('.modal-overlay').forEach(n=>n.classList.remove('open'));renderHome();}

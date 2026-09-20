@@ -255,6 +255,10 @@
 
     // Question Image
     els.questionImage.src = q.image;
+    SKCTText.renderQuestion(q, {
+      selected:userAnswers, locked:isReviewMode, review:isReviewMode,
+      onChoose:(qid,value)=>{activeSubQIndex=q.subQuestions.findIndex(s=>s.id===qid);pickAnswer(value,qid);}
+    });
 
     // Dynamic OMR Options rendering for all subQuestions on this page
     renderOMROptions(q);
@@ -1034,16 +1038,19 @@
 
     els.solModalTitle.textContent = `📖 ${q.title} 상세 해설`;
     els.solCorrectNum.textContent = `정답 [${ansSummary}]`;
-    els.solCategoryName.textContent = `${q.section} (${q.category || ''})`;
+    els.solCategoryName.textContent = `${q.section} · 원본 해설 PDF ${q.solution_pages.join(', ')}페이지`;
 
     if (q.solution_image) {
       els.solutionImage.src = q.solution_image;
+      els.solutionImage.alt = `${q.title} 해설 · PDF ${q.solution_pages.join(', ')}페이지`;
+      els.solutionImage.closest('.sol-modal-body').scrollTop = 0;
       els.solutionImage.style.display = 'block';
     } else {
       els.solutionImage.style.display = 'none';
     }
 
     els.solutionModal.classList.add('open');
+    SKCTText.renderSolution(q);
   }
 
   // --- EVENT BINDINGS ---

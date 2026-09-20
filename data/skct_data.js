@@ -28,12 +28,19 @@ const SKCT_DATA = {
               "id": "lang_exp_1",
               "num": 1,
               "title": "1번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 2,
+              "solution_pages": [
+                3
+              ]
             }
           ],
           "image": "assets/questions/lang_01.png",
-          "solution_image": "assets/solutions/sol_lang_01.png",
-          "page": 4
+          "solution_image": "assets/solutions/sol_lang_01.png?v=20260915_mapping2",
+          "page": 4,
+          "solution_pages": [
+            3
+          ]
         },
         {
           "id": "lang_exp_2",
@@ -51,12 +58,19 @@ const SKCT_DATA = {
               "id": "lang_exp_2",
               "num": 2,
               "title": "2번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 2,
+              "solution_pages": [
+                3
+              ]
             }
           ],
           "image": "assets/questions/lang_02.png",
-          "solution_image": "assets/solutions/sol_lang_02.png",
-          "page": 5
+          "solution_image": "assets/solutions/sol_lang_02.png?v=20260915_mapping2",
+          "page": 5,
+          "solution_pages": [
+            3
+          ]
         },
         {
           "id": "lang_exp_3",
@@ -74,12 +88,19 @@ const SKCT_DATA = {
               "id": "lang_exp_3",
               "num": 3,
               "title": "3번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 2,
+              "solution_pages": [
+                3
+              ]
             }
           ],
           "image": "assets/questions/lang_03.png",
-          "solution_image": "assets/solutions/sol_lang_03.png",
-          "page": 6
+          "solution_image": "assets/solutions/sol_lang_03.png?v=20260915_mapping2",
+          "page": 6,
+          "solution_pages": [
+            3
+          ]
         },
         {
           "id": "lang_exp_4",
@@ -97,12 +118,19 @@ const SKCT_DATA = {
               "id": "lang_exp_4",
               "num": 4,
               "title": "4번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 2,
+              "solution_pages": [
+                3
+              ]
             }
           ],
           "image": "assets/questions/lang_04.png",
-          "solution_image": "assets/solutions/sol_lang_04.png",
-          "page": 7
+          "solution_image": "assets/solutions/sol_lang_04.png?v=20260915_mapping2",
+          "page": 7,
+          "solution_pages": [
+            3
+          ]
         },
         {
           "id": "lang_exp_5",
@@ -120,12 +148,19 @@ const SKCT_DATA = {
               "id": "lang_exp_5",
               "num": 5,
               "title": "5번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 2,
+              "solution_pages": [
+                3
+              ]
             }
           ],
           "image": "assets/questions/lang_05.png",
-          "solution_image": "assets/solutions/sol_lang_05.png",
-          "page": 8
+          "solution_image": "assets/solutions/sol_lang_05.png?v=20260915_mapping2",
+          "page": 8,
+          "solution_pages": [
+            3
+          ]
         },
         {
           "id": "lang_exp_6",
@@ -143,12 +178,19 @@ const SKCT_DATA = {
               "id": "lang_exp_6",
               "num": 6,
               "title": "6번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 2,
+              "solution_pages": [
+                3
+              ]
             }
           ],
           "image": "assets/questions/lang_06.png",
-          "solution_image": "assets/solutions/sol_lang_06.png",
-          "page": 9
+          "solution_image": "assets/solutions/sol_lang_06.png?v=20260915_mapping2",
+          "page": 9,
+          "solution_pages": [
+            3
+          ]
         },
         {
           "id": "lang_exp_7",
@@ -166,12 +208,19 @@ const SKCT_DATA = {
               "id": "lang_exp_7",
               "num": 7,
               "title": "7번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 2,
+              "solution_pages": [
+                4
+              ]
             }
           ],
           "image": "assets/questions/lang_07.png",
-          "solution_image": "assets/solutions/sol_lang_07.png",
-          "page": 10
+          "solution_image": "assets/solutions/sol_lang_07.png?v=20260915_mapping2",
+          "page": 10,
+          "solution_pages": [
+            4
+          ]
         },
         {
           "id": "lang_exp_8",
@@ -189,12 +238,19 @@ const SKCT_DATA = {
               "id": "lang_exp_8",
               "num": 8,
               "title": "8번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 2,
+              "solution_pages": [
+                4
+              ]
             }
           ],
           "image": "assets/questions/lang_08.png",
-          "solution_image": "assets/solutions/sol_lang_08.png",
-          "page": 11
+          "solution_image": "assets/solutions/sol_lang_08.png?v=20260915_mapping2",
+          "page": 11,
+          "solution_pages": [
+            4
+          ]
         },
         {
           "id": "lang_exp_9",
@@ -212,12 +268,19 @@ const SKCT_DATA = {
               "id": "lang_exp_9",
               "num": 9,
               "title": "9번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 2,
+              "solution_pages": [
+                4
+              ]
             }
           ],
           "image": "assets/questions/lang_09.png",
-          "solution_image": "assets/solutions/sol_lang_09.png",
-          "page": 12
+          "solution_image": "assets/solutions/sol_lang_09.png?v=20260915_mapping2",
+          "page": 12,
+          "solution_pages": [
+            4
+          ]
         },
         {
           "id": "lang_exp_10",
@@ -235,12 +298,19 @@ const SKCT_DATA = {
               "id": "lang_exp_10",
               "num": 10,
               "title": "10번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 2,
+              "solution_pages": [
+                4
+              ]
             }
           ],
           "image": "assets/questions/lang_10.png",
-          "solution_image": "assets/solutions/sol_lang_10.png",
-          "page": 13
+          "solution_image": "assets/solutions/sol_lang_10.png?v=20260915_mapping2",
+          "page": 13,
+          "solution_pages": [
+            4
+          ]
         },
         {
           "id": "lang_exp_11",
@@ -258,12 +328,19 @@ const SKCT_DATA = {
               "id": "lang_exp_11",
               "num": 11,
               "title": "11번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 2,
+              "solution_pages": [
+                4
+              ]
             }
           ],
           "image": "assets/questions/lang_11.png",
-          "solution_image": "assets/solutions/sol_lang_11.png",
-          "page": 14
+          "solution_image": "assets/solutions/sol_lang_11.png?v=20260915_mapping2",
+          "page": 14,
+          "solution_pages": [
+            4
+          ]
         },
         {
           "id": "lang_exp_12",
@@ -281,12 +358,19 @@ const SKCT_DATA = {
               "id": "lang_exp_12",
               "num": 12,
               "title": "12번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 2,
+              "solution_pages": [
+                4
+              ]
             }
           ],
           "image": "assets/questions/lang_12.png",
-          "solution_image": "assets/solutions/sol_lang_12.png",
-          "page": 15
+          "solution_image": "assets/solutions/sol_lang_12.png?v=20260915_mapping2",
+          "page": 15,
+          "solution_pages": [
+            4
+          ]
         },
         {
           "id": "lang_exp_13",
@@ -304,12 +388,19 @@ const SKCT_DATA = {
               "id": "lang_exp_13",
               "num": 13,
               "title": "13번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 2,
+              "solution_pages": [
+                4
+              ]
             }
           ],
           "image": "assets/questions/lang_13.png",
-          "solution_image": "assets/solutions/sol_lang_13.png",
-          "page": 16
+          "solution_image": "assets/solutions/sol_lang_13.png?v=20260915_mapping2",
+          "page": 16,
+          "solution_pages": [
+            4
+          ]
         },
         {
           "id": "lang_exp_14",
@@ -327,12 +418,19 @@ const SKCT_DATA = {
               "id": "lang_exp_14",
               "num": 14,
               "title": "14번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 2,
+              "solution_pages": [
+                4
+              ]
             }
           ],
           "image": "assets/questions/lang_14.png",
-          "solution_image": "assets/solutions/sol_lang_14.png",
-          "page": 17
+          "solution_image": "assets/solutions/sol_lang_14.png?v=20260915_mapping2",
+          "page": 17,
+          "solution_pages": [
+            4
+          ]
         },
         {
           "id": "lang_exp_15",
@@ -350,12 +448,19 @@ const SKCT_DATA = {
               "id": "lang_exp_15",
               "num": 15,
               "title": "15번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 2,
+              "solution_pages": [
+                5
+              ]
             }
           ],
           "image": "assets/questions/lang_15.png",
-          "solution_image": "assets/solutions/sol_lang_15.png",
-          "page": 18
+          "solution_image": "assets/solutions/sol_lang_15.png?v=20260915_mapping2",
+          "page": 18,
+          "solution_pages": [
+            5
+          ]
         },
         {
           "id": "lang_exp_16",
@@ -373,12 +478,19 @@ const SKCT_DATA = {
               "id": "lang_exp_16",
               "num": 16,
               "title": "16번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 2,
+              "solution_pages": [
+                5
+              ]
             }
           ],
           "image": "assets/questions/lang_16.png",
-          "solution_image": "assets/solutions/sol_lang_16.png",
-          "page": 19
+          "solution_image": "assets/solutions/sol_lang_16.png?v=20260915_mapping2",
+          "page": 19,
+          "solution_pages": [
+            5
+          ]
         },
         {
           "id": "lang_exp_17",
@@ -396,12 +508,19 @@ const SKCT_DATA = {
               "id": "lang_exp_17",
               "num": 17,
               "title": "17번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 2,
+              "solution_pages": [
+                5
+              ]
             }
           ],
           "image": "assets/questions/lang_17.png",
-          "solution_image": "assets/solutions/sol_lang_17.png",
-          "page": 20
+          "solution_image": "assets/solutions/sol_lang_17.png?v=20260915_mapping2",
+          "page": 20,
+          "solution_pages": [
+            5
+          ]
         },
         {
           "id": "lang_exp_18",
@@ -419,12 +538,19 @@ const SKCT_DATA = {
               "id": "lang_exp_18",
               "num": 18,
               "title": "18번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 2,
+              "solution_pages": [
+                5
+              ]
             }
           ],
           "image": "assets/questions/lang_18.png",
-          "solution_image": "assets/solutions/sol_lang_18.png",
-          "page": 21
+          "solution_image": "assets/solutions/sol_lang_18.png?v=20260915_mapping2",
+          "page": 21,
+          "solution_pages": [
+            5
+          ]
         },
         {
           "id": "lang_exp_19",
@@ -442,12 +568,19 @@ const SKCT_DATA = {
               "id": "lang_exp_19",
               "num": 19,
               "title": "19번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 2,
+              "solution_pages": [
+                5
+              ]
             }
           ],
           "image": "assets/questions/lang_19.png",
-          "solution_image": "assets/solutions/sol_lang_19.png",
-          "page": 22
+          "solution_image": "assets/solutions/sol_lang_19.png?v=20260915_mapping2",
+          "page": 22,
+          "solution_pages": [
+            5
+          ]
         },
         {
           "id": "lang_exp_20",
@@ -465,12 +598,19 @@ const SKCT_DATA = {
               "id": "lang_exp_20",
               "num": 20,
               "title": "20번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 2,
+              "solution_pages": [
+                5
+              ]
             }
           ],
           "image": "assets/questions/lang_20.png",
-          "solution_image": "assets/solutions/sol_lang_20.png",
-          "page": 23
+          "solution_image": "assets/solutions/sol_lang_20.png?v=20260915_mapping2",
+          "page": 23,
+          "solution_pages": [
+            5
+          ]
         },
         {
           "id": "lang_psat_p24",
@@ -488,12 +628,19 @@ const SKCT_DATA = {
               "id": "lang_psat_1",
               "num": 1,
               "title": "PSAT 1번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 6,
+              "solution_pages": [
+                7
+              ]
             }
           ],
           "image": "assets/questions/lang_21.png",
-          "solution_image": "assets/solutions/sol_lang_21.png",
-          "page": 24
+          "solution_image": "assets/solutions/sol_lang_21.png?v=20260915_mapping2",
+          "page": 24,
+          "solution_pages": [
+            7
+          ]
         },
         {
           "id": "lang_psat_p25",
@@ -511,12 +658,19 @@ const SKCT_DATA = {
               "id": "lang_psat_2",
               "num": 2,
               "title": "PSAT 2번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 6,
+              "solution_pages": [
+                8
+              ]
             }
           ],
           "image": "assets/questions/lang_22.png",
-          "solution_image": "assets/solutions/sol_lang_22.png",
-          "page": 25
+          "solution_image": "assets/solutions/sol_lang_22.png?v=20260915_mapping2",
+          "page": 25,
+          "solution_pages": [
+            8
+          ]
         },
         {
           "id": "lang_psat_p26",
@@ -534,12 +688,19 @@ const SKCT_DATA = {
               "id": "lang_psat_3",
               "num": 3,
               "title": "PSAT 3번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 6,
+              "solution_pages": [
+                9
+              ]
             }
           ],
           "image": "assets/questions/lang_23.png",
-          "solution_image": "assets/solutions/sol_lang_23.png",
-          "page": 26
+          "solution_image": "assets/solutions/sol_lang_23.png?v=20260915_mapping2",
+          "page": 26,
+          "solution_pages": [
+            9
+          ]
         },
         {
           "id": "lang_psat_p27",
@@ -557,12 +718,19 @@ const SKCT_DATA = {
               "id": "lang_psat_4",
               "num": 4,
               "title": "PSAT 4번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 6,
+              "solution_pages": [
+                10
+              ]
             }
           ],
           "image": "assets/questions/lang_24.png",
-          "solution_image": "assets/solutions/sol_lang_24.png",
-          "page": 27
+          "solution_image": "assets/solutions/sol_lang_24.png?v=20260915_mapping2",
+          "page": 27,
+          "solution_pages": [
+            10
+          ]
         },
         {
           "id": "lang_psat_p28",
@@ -580,12 +748,19 @@ const SKCT_DATA = {
               "id": "lang_psat_5",
               "num": 5,
               "title": "PSAT 5번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 6,
+              "solution_pages": [
+                11
+              ]
             }
           ],
           "image": "assets/questions/lang_25.png",
-          "solution_image": "assets/solutions/sol_lang_25.png",
-          "page": 28
+          "solution_image": "assets/solutions/sol_lang_25.png?v=20260915_mapping2",
+          "page": 28,
+          "solution_pages": [
+            11
+          ]
         },
         {
           "id": "lang_psat_p29",
@@ -603,12 +778,19 @@ const SKCT_DATA = {
               "id": "lang_psat_6",
               "num": 6,
               "title": "PSAT 6번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 6,
+              "solution_pages": [
+                12
+              ]
             }
           ],
           "image": "assets/questions/lang_26.png",
-          "solution_image": "assets/solutions/sol_lang_26.png",
-          "page": 29
+          "solution_image": "assets/solutions/sol_lang_26.png?v=20260915_mapping2",
+          "page": 29,
+          "solution_pages": [
+            12
+          ]
         },
         {
           "id": "lang_psat_p30",
@@ -626,12 +808,19 @@ const SKCT_DATA = {
               "id": "lang_psat_7",
               "num": 7,
               "title": "PSAT 7번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 6,
+              "solution_pages": [
+                13
+              ]
             }
           ],
           "image": "assets/questions/lang_27.png",
-          "solution_image": "assets/solutions/sol_lang_27.png",
-          "page": 30
+          "solution_image": "assets/solutions/sol_lang_27.png?v=20260915_mapping2",
+          "page": 30,
+          "solution_pages": [
+            13
+          ]
         },
         {
           "id": "lang_psat_p31",
@@ -647,8 +836,11 @@ const SKCT_DATA = {
           "answer": null,
           "subQuestions": [],
           "image": "assets/questions/lang_28.png",
-          "solution_image": "assets/solutions/sol_lang_28.png",
-          "page": 31
+          "solution_image": "assets/solutions/sol_lang_28.png?v=20260915_mapping2",
+          "page": 31,
+          "solution_pages": [
+            14
+          ]
         },
         {
           "id": "lang_psat_p32",
@@ -666,18 +858,29 @@ const SKCT_DATA = {
               "id": "lang_psat_8",
               "num": 8,
               "title": "PSAT 8번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 6,
+              "solution_pages": [
+                14
+              ]
             },
             {
               "id": "lang_psat_9",
               "num": 9,
               "title": "PSAT 9번",
-              "answer": 1
+              "answer": 1,
+              "answer_key_page": 6,
+              "solution_pages": [
+                14
+              ]
             }
           ],
           "image": "assets/questions/lang_29.png",
-          "solution_image": "assets/solutions/sol_lang_29.png",
-          "page": 32
+          "solution_image": "assets/solutions/sol_lang_29.png?v=20260915_mapping2",
+          "page": 32,
+          "solution_pages": [
+            14
+          ]
         },
         {
           "id": "lang_psat_p33",
@@ -695,12 +898,19 @@ const SKCT_DATA = {
               "id": "lang_psat_10",
               "num": 10,
               "title": "PSAT 10번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 6,
+              "solution_pages": [
+                15
+              ]
             }
           ],
           "image": "assets/questions/lang_30.png",
-          "solution_image": "assets/solutions/sol_lang_30.png",
-          "page": 33
+          "solution_image": "assets/solutions/sol_lang_30.png?v=20260915_mapping2",
+          "page": 33,
+          "solution_pages": [
+            15
+          ]
         },
         {
           "id": "lang_psat_p34",
@@ -718,12 +928,19 @@ const SKCT_DATA = {
               "id": "lang_psat_11",
               "num": 11,
               "title": "PSAT 11번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 6,
+              "solution_pages": [
+                16
+              ]
             }
           ],
           "image": "assets/questions/lang_31.png",
-          "solution_image": "assets/solutions/sol_lang_31.png",
-          "page": 34
+          "solution_image": "assets/solutions/sol_lang_31.png?v=20260915_mapping2",
+          "page": 34,
+          "solution_pages": [
+            16
+          ]
         },
         {
           "id": "lang_psat_p35",
@@ -739,8 +956,11 @@ const SKCT_DATA = {
           "answer": null,
           "subQuestions": [],
           "image": "assets/questions/lang_32.png",
-          "solution_image": "assets/solutions/sol_lang_32.png",
-          "page": 35
+          "solution_image": "assets/solutions/sol_lang_32.png?v=20260915_mapping2",
+          "page": 35,
+          "solution_pages": [
+            17
+          ]
         },
         {
           "id": "lang_psat_p36",
@@ -758,18 +978,29 @@ const SKCT_DATA = {
               "id": "lang_psat_12",
               "num": 12,
               "title": "PSAT 12번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 6,
+              "solution_pages": [
+                17
+              ]
             },
             {
               "id": "lang_psat_13",
               "num": 13,
               "title": "PSAT 13번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 6,
+              "solution_pages": [
+                17
+              ]
             }
           ],
           "image": "assets/questions/lang_33.png",
-          "solution_image": "assets/solutions/sol_lang_33.png",
-          "page": 36
+          "solution_image": "assets/solutions/sol_lang_33.png?v=20260915_mapping2",
+          "page": 36,
+          "solution_pages": [
+            17
+          ]
         },
         {
           "id": "lang_psat_p37",
@@ -787,12 +1018,19 @@ const SKCT_DATA = {
               "id": "lang_psat_14",
               "num": 14,
               "title": "PSAT 14번",
-              "answer": 1
+              "answer": 1,
+              "answer_key_page": 6,
+              "solution_pages": [
+                18
+              ]
             }
           ],
           "image": "assets/questions/lang_34.png",
-          "solution_image": "assets/solutions/sol_lang_34.png",
-          "page": 37
+          "solution_image": "assets/solutions/sol_lang_34.png?v=20260915_mapping2",
+          "page": 37,
+          "solution_pages": [
+            18
+          ]
         },
         {
           "id": "lang_psat_p38",
@@ -810,12 +1048,19 @@ const SKCT_DATA = {
               "id": "lang_psat_15",
               "num": 15,
               "title": "PSAT 15번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 6,
+              "solution_pages": [
+                19
+              ]
             }
           ],
           "image": "assets/questions/lang_35.png",
-          "solution_image": "assets/solutions/sol_lang_35.png",
-          "page": 38
+          "solution_image": "assets/solutions/sol_lang_35.png?v=20260915_mapping2",
+          "page": 38,
+          "solution_pages": [
+            19
+          ]
         },
         {
           "id": "lang_psat_p39",
@@ -833,12 +1078,19 @@ const SKCT_DATA = {
               "id": "lang_psat_16",
               "num": 16,
               "title": "PSAT 16번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 6,
+              "solution_pages": [
+                20
+              ]
             }
           ],
           "image": "assets/questions/lang_36.png",
-          "solution_image": "assets/solutions/sol_lang_36.png",
-          "page": 39
+          "solution_image": "assets/solutions/sol_lang_36.png?v=20260915_mapping2",
+          "page": 39,
+          "solution_pages": [
+            20
+          ]
         },
         {
           "id": "lang_psat_p40",
@@ -856,12 +1108,19 @@ const SKCT_DATA = {
               "id": "lang_psat_17",
               "num": 17,
               "title": "PSAT 17번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 6,
+              "solution_pages": [
+                21
+              ]
             }
           ],
           "image": "assets/questions/lang_37.png",
-          "solution_image": "assets/solutions/sol_lang_37.png",
-          "page": 40
+          "solution_image": "assets/solutions/sol_lang_37.png?v=20260915_mapping2",
+          "page": 40,
+          "solution_pages": [
+            21
+          ]
         },
         {
           "id": "lang_psat_p41",
@@ -879,12 +1138,19 @@ const SKCT_DATA = {
               "id": "lang_psat_18",
               "num": 18,
               "title": "PSAT 18번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 6,
+              "solution_pages": [
+                22
+              ]
             }
           ],
           "image": "assets/questions/lang_38.png",
-          "solution_image": "assets/solutions/sol_lang_38.png",
-          "page": 41
+          "solution_image": "assets/solutions/sol_lang_38.png?v=20260915_mapping2",
+          "page": 41,
+          "solution_pages": [
+            22
+          ]
         },
         {
           "id": "lang_psat_p42",
@@ -902,12 +1168,19 @@ const SKCT_DATA = {
               "id": "lang_psat_19",
               "num": 19,
               "title": "PSAT 19번",
-              "answer": 1
+              "answer": 1,
+              "answer_key_page": 6,
+              "solution_pages": [
+                23
+              ]
             }
           ],
           "image": "assets/questions/lang_39.png",
-          "solution_image": "assets/solutions/sol_lang_39.png",
-          "page": 42
+          "solution_image": "assets/solutions/sol_lang_39.png?v=20260915_mapping2",
+          "page": 42,
+          "solution_pages": [
+            23
+          ]
         },
         {
           "id": "lang_psat_p43",
@@ -925,12 +1198,19 @@ const SKCT_DATA = {
               "id": "lang_psat_20",
               "num": 20,
               "title": "PSAT 20번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 6,
+              "solution_pages": [
+                24
+              ]
             }
           ],
           "image": "assets/questions/lang_40.png",
-          "solution_image": "assets/solutions/sol_lang_40.png",
-          "page": 43
+          "solution_image": "assets/solutions/sol_lang_40.png?v=20260915_mapping2",
+          "page": 43,
+          "solution_pages": [
+            24
+          ]
         },
         {
           "id": "lang_psat_p44",
@@ -948,12 +1228,19 @@ const SKCT_DATA = {
               "id": "lang_psat_21",
               "num": 21,
               "title": "PSAT 21번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 6,
+              "solution_pages": [
+                25
+              ]
             }
           ],
           "image": "assets/questions/lang_41.png",
-          "solution_image": "assets/solutions/sol_lang_41.png",
-          "page": 44
+          "solution_image": "assets/solutions/sol_lang_41.png?v=20260915_mapping2",
+          "page": 44,
+          "solution_pages": [
+            25
+          ]
         },
         {
           "id": "lang_psat_p45",
@@ -971,12 +1258,19 @@ const SKCT_DATA = {
               "id": "lang_psat_22",
               "num": 22,
               "title": "PSAT 22번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 6,
+              "solution_pages": [
+                26
+              ]
             }
           ],
           "image": "assets/questions/lang_42.png",
-          "solution_image": "assets/solutions/sol_lang_42.png",
-          "page": 45
+          "solution_image": "assets/solutions/sol_lang_42.png?v=20260915_mapping2",
+          "page": 45,
+          "solution_pages": [
+            26
+          ]
         },
         {
           "id": "lang_psat_p46",
@@ -994,12 +1288,19 @@ const SKCT_DATA = {
               "id": "lang_psat_23",
               "num": 23,
               "title": "PSAT 23번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 6,
+              "solution_pages": [
+                27
+              ]
             }
           ],
           "image": "assets/questions/lang_43.png",
-          "solution_image": "assets/solutions/sol_lang_43.png",
-          "page": 46
+          "solution_image": "assets/solutions/sol_lang_43.png?v=20260915_mapping2",
+          "page": 46,
+          "solution_pages": [
+            27
+          ]
         },
         {
           "id": "lang_psat_p47",
@@ -1017,12 +1318,19 @@ const SKCT_DATA = {
               "id": "lang_psat_24",
               "num": 24,
               "title": "PSAT 24번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 6,
+              "solution_pages": [
+                28
+              ]
             }
           ],
           "image": "assets/questions/lang_44.png",
-          "solution_image": "assets/solutions/sol_lang_44.png",
-          "page": 47
+          "solution_image": "assets/solutions/sol_lang_44.png?v=20260915_mapping2",
+          "page": 47,
+          "solution_pages": [
+            28
+          ]
         },
         {
           "id": "lang_psat_p48",
@@ -1040,12 +1348,19 @@ const SKCT_DATA = {
               "id": "lang_psat_25",
               "num": 25,
               "title": "PSAT 25번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 6,
+              "solution_pages": [
+                29
+              ]
             }
           ],
           "image": "assets/questions/lang_45.png",
-          "solution_image": "assets/solutions/sol_lang_45.png",
-          "page": 48
+          "solution_image": "assets/solutions/sol_lang_45.png?v=20260915_mapping2",
+          "page": 48,
+          "solution_pages": [
+            29
+          ]
         },
         {
           "id": "lang_psat_p49",
@@ -1063,12 +1378,19 @@ const SKCT_DATA = {
               "id": "lang_psat_26",
               "num": 26,
               "title": "PSAT 26번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 6,
+              "solution_pages": [
+                30
+              ]
             }
           ],
           "image": "assets/questions/lang_46.png",
-          "solution_image": "assets/solutions/sol_lang_46.png",
-          "page": 49
+          "solution_image": "assets/solutions/sol_lang_46.png?v=20260915_mapping2",
+          "page": 49,
+          "solution_pages": [
+            30
+          ]
         },
         {
           "id": "lang_psat_p50",
@@ -1086,12 +1408,19 @@ const SKCT_DATA = {
               "id": "lang_psat_27",
               "num": 27,
               "title": "PSAT 27번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 6,
+              "solution_pages": [
+                31
+              ]
             }
           ],
           "image": "assets/questions/lang_47.png",
-          "solution_image": "assets/solutions/sol_lang_47.png",
-          "page": 50
+          "solution_image": "assets/solutions/sol_lang_47.png?v=20260915_mapping2",
+          "page": 50,
+          "solution_pages": [
+            31
+          ]
         },
         {
           "id": "lang_psat_p51",
@@ -1109,12 +1438,19 @@ const SKCT_DATA = {
               "id": "lang_psat_28",
               "num": 28,
               "title": "PSAT 28번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 6,
+              "solution_pages": [
+                32
+              ]
             }
           ],
           "image": "assets/questions/lang_48.png",
-          "solution_image": "assets/solutions/sol_lang_48.png",
-          "page": 51
+          "solution_image": "assets/solutions/sol_lang_48.png?v=20260915_mapping2",
+          "page": 51,
+          "solution_pages": [
+            32
+          ]
         }
       ]
     },
@@ -1142,12 +1478,19 @@ const SKCT_DATA = {
               "id": "data_1",
               "num": 1,
               "title": "1번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 35,
+              "solution_pages": [
+                36
+              ]
             }
           ],
           "image": "assets/questions/data_01.png",
-          "solution_image": "assets/solutions/sol_data_01.png",
-          "page": 54
+          "solution_image": "assets/solutions/sol_data_01.png?v=20260915_mapping2",
+          "page": 54,
+          "solution_pages": [
+            36
+          ]
         },
         {
           "id": "data_2",
@@ -1165,12 +1508,19 @@ const SKCT_DATA = {
               "id": "data_2",
               "num": 2,
               "title": "2번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 35,
+              "solution_pages": [
+                36
+              ]
             }
           ],
           "image": "assets/questions/data_02.png",
-          "solution_image": "assets/solutions/sol_data_02.png",
-          "page": 55
+          "solution_image": "assets/solutions/sol_data_02.png?v=20260915_mapping2",
+          "page": 55,
+          "solution_pages": [
+            36
+          ]
         },
         {
           "id": "data_3",
@@ -1188,12 +1538,19 @@ const SKCT_DATA = {
               "id": "data_3",
               "num": 3,
               "title": "3번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 35,
+              "solution_pages": [
+                36
+              ]
             }
           ],
           "image": "assets/questions/data_03.png",
-          "solution_image": "assets/solutions/sol_data_03.png",
-          "page": 56
+          "solution_image": "assets/solutions/sol_data_03.png?v=20260915_mapping2",
+          "page": 56,
+          "solution_pages": [
+            36
+          ]
         },
         {
           "id": "data_4",
@@ -1211,12 +1568,19 @@ const SKCT_DATA = {
               "id": "data_4",
               "num": 4,
               "title": "4번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 35,
+              "solution_pages": [
+                36
+              ]
             }
           ],
           "image": "assets/questions/data_04.png",
-          "solution_image": "assets/solutions/sol_data_04.png",
-          "page": 57
+          "solution_image": "assets/solutions/sol_data_04.png?v=20260915_mapping2",
+          "page": 57,
+          "solution_pages": [
+            36
+          ]
         },
         {
           "id": "data_5",
@@ -1234,12 +1598,19 @@ const SKCT_DATA = {
               "id": "data_5",
               "num": 5,
               "title": "5번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 35,
+              "solution_pages": [
+                36
+              ]
             }
           ],
           "image": "assets/questions/data_05.png",
-          "solution_image": "assets/solutions/sol_data_05.png",
-          "page": 58
+          "solution_image": "assets/solutions/sol_data_05.png?v=20260915_mapping2",
+          "page": 58,
+          "solution_pages": [
+            36
+          ]
         },
         {
           "id": "data_6",
@@ -1257,12 +1628,19 @@ const SKCT_DATA = {
               "id": "data_6",
               "num": 6,
               "title": "6번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 35,
+              "solution_pages": [
+                37
+              ]
             }
           ],
           "image": "assets/questions/data_06.png",
-          "solution_image": "assets/solutions/sol_data_06.png",
-          "page": 59
+          "solution_image": "assets/solutions/sol_data_06.png?v=20260915_mapping2",
+          "page": 59,
+          "solution_pages": [
+            37
+          ]
         },
         {
           "id": "data_7",
@@ -1280,12 +1658,19 @@ const SKCT_DATA = {
               "id": "data_7",
               "num": 7,
               "title": "7번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 35,
+              "solution_pages": [
+                37
+              ]
             }
           ],
           "image": "assets/questions/data_07.png",
-          "solution_image": "assets/solutions/sol_data_07.png",
-          "page": 60
+          "solution_image": "assets/solutions/sol_data_07.png?v=20260915_mapping2",
+          "page": 60,
+          "solution_pages": [
+            37
+          ]
         },
         {
           "id": "data_8",
@@ -1303,12 +1688,19 @@ const SKCT_DATA = {
               "id": "data_8",
               "num": 8,
               "title": "8번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 35,
+              "solution_pages": [
+                37
+              ]
             }
           ],
           "image": "assets/questions/data_08.png",
-          "solution_image": "assets/solutions/sol_data_08.png",
-          "page": 61
+          "solution_image": "assets/solutions/sol_data_08.png?v=20260915_mapping2",
+          "page": 61,
+          "solution_pages": [
+            37
+          ]
         },
         {
           "id": "data_9",
@@ -1326,12 +1718,19 @@ const SKCT_DATA = {
               "id": "data_9",
               "num": 9,
               "title": "9번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 35,
+              "solution_pages": [
+                37
+              ]
             }
           ],
           "image": "assets/questions/data_09.png",
-          "solution_image": "assets/solutions/sol_data_09.png",
-          "page": 62
+          "solution_image": "assets/solutions/sol_data_09.png?v=20260915_mapping2",
+          "page": 62,
+          "solution_pages": [
+            37
+          ]
         },
         {
           "id": "data_10",
@@ -1349,12 +1748,19 @@ const SKCT_DATA = {
               "id": "data_10",
               "num": 10,
               "title": "10번",
-              "answer": 1
+              "answer": 1,
+              "answer_key_page": 35,
+              "solution_pages": [
+                38
+              ]
             }
           ],
           "image": "assets/questions/data_10.png",
-          "solution_image": "assets/solutions/sol_data_10.png",
-          "page": 63
+          "solution_image": "assets/solutions/sol_data_10.png?v=20260915_mapping2",
+          "page": 63,
+          "solution_pages": [
+            38
+          ]
         },
         {
           "id": "data_11",
@@ -1372,12 +1778,19 @@ const SKCT_DATA = {
               "id": "data_11",
               "num": 11,
               "title": "11번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 35,
+              "solution_pages": [
+                38
+              ]
             }
           ],
           "image": "assets/questions/data_11.png",
-          "solution_image": "assets/solutions/sol_data_11.png",
-          "page": 64
+          "solution_image": "assets/solutions/sol_data_11.png?v=20260915_mapping2",
+          "page": 64,
+          "solution_pages": [
+            38
+          ]
         },
         {
           "id": "data_12",
@@ -1395,12 +1808,19 @@ const SKCT_DATA = {
               "id": "data_12",
               "num": 12,
               "title": "12번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 35,
+              "solution_pages": [
+                38
+              ]
             }
           ],
           "image": "assets/questions/data_12.png",
-          "solution_image": "assets/solutions/sol_data_12.png",
-          "page": 65
+          "solution_image": "assets/solutions/sol_data_12.png?v=20260915_mapping2",
+          "page": 65,
+          "solution_pages": [
+            38
+          ]
         },
         {
           "id": "data_13",
@@ -1418,12 +1838,19 @@ const SKCT_DATA = {
               "id": "data_13",
               "num": 13,
               "title": "13번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 35,
+              "solution_pages": [
+                38
+              ]
             }
           ],
           "image": "assets/questions/data_13.png",
-          "solution_image": "assets/solutions/sol_data_13.png",
-          "page": 66
+          "solution_image": "assets/solutions/sol_data_13.png?v=20260915_mapping2",
+          "page": 66,
+          "solution_pages": [
+            38
+          ]
         },
         {
           "id": "data_14",
@@ -1441,12 +1868,19 @@ const SKCT_DATA = {
               "id": "data_14",
               "num": 14,
               "title": "14번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 35,
+              "solution_pages": [
+                38
+              ]
             }
           ],
           "image": "assets/questions/data_14.png",
-          "solution_image": "assets/solutions/sol_data_14.png",
-          "page": 67
+          "solution_image": "assets/solutions/sol_data_14.png?v=20260915_mapping2",
+          "page": 67,
+          "solution_pages": [
+            38
+          ]
         },
         {
           "id": "data_15",
@@ -1464,12 +1898,19 @@ const SKCT_DATA = {
               "id": "data_15",
               "num": 15,
               "title": "15번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 35,
+              "solution_pages": [
+                39
+              ]
             }
           ],
           "image": "assets/questions/data_15.png",
-          "solution_image": "assets/solutions/sol_data_15.png",
-          "page": 68
+          "solution_image": "assets/solutions/sol_data_15.png?v=20260915_mapping2",
+          "page": 68,
+          "solution_pages": [
+            39
+          ]
         },
         {
           "id": "data_16",
@@ -1487,12 +1928,19 @@ const SKCT_DATA = {
               "id": "data_16",
               "num": 16,
               "title": "16번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 35,
+              "solution_pages": [
+                39
+              ]
             }
           ],
           "image": "assets/questions/data_16.png",
-          "solution_image": "assets/solutions/sol_data_16.png",
-          "page": 69
+          "solution_image": "assets/solutions/sol_data_16.png?v=20260915_mapping2",
+          "page": 69,
+          "solution_pages": [
+            39
+          ]
         },
         {
           "id": "data_17",
@@ -1510,12 +1958,19 @@ const SKCT_DATA = {
               "id": "data_17",
               "num": 17,
               "title": "17번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 35,
+              "solution_pages": [
+                39
+              ]
             }
           ],
           "image": "assets/questions/data_17.png",
-          "solution_image": "assets/solutions/sol_data_17.png",
-          "page": 70
+          "solution_image": "assets/solutions/sol_data_17.png?v=20260915_mapping2",
+          "page": 70,
+          "solution_pages": [
+            39
+          ]
         },
         {
           "id": "data_18",
@@ -1533,12 +1988,19 @@ const SKCT_DATA = {
               "id": "data_18",
               "num": 18,
               "title": "18번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 35,
+              "solution_pages": [
+                39
+              ]
             }
           ],
           "image": "assets/questions/data_18.png",
-          "solution_image": "assets/solutions/sol_data_18.png",
-          "page": 71
+          "solution_image": "assets/solutions/sol_data_18.png?v=20260915_mapping2",
+          "page": 71,
+          "solution_pages": [
+            39
+          ]
         },
         {
           "id": "data_19",
@@ -1556,12 +2018,19 @@ const SKCT_DATA = {
               "id": "data_19",
               "num": 19,
               "title": "19번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 35,
+              "solution_pages": [
+                39
+              ]
             }
           ],
           "image": "assets/questions/data_19.png",
-          "solution_image": "assets/solutions/sol_data_19.png",
-          "page": 72
+          "solution_image": "assets/solutions/sol_data_19.png?v=20260915_mapping2",
+          "page": 72,
+          "solution_pages": [
+            39
+          ]
         },
         {
           "id": "data_20",
@@ -1579,12 +2048,19 @@ const SKCT_DATA = {
               "id": "data_20",
               "num": 20,
               "title": "20번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 35,
+              "solution_pages": [
+                39
+              ]
             }
           ],
           "image": "assets/questions/data_20.png",
-          "solution_image": "assets/solutions/sol_data_20.png",
-          "page": 73
+          "solution_image": "assets/solutions/sol_data_20.png?v=20260915_mapping2",
+          "page": 73,
+          "solution_pages": [
+            39
+          ]
         },
         {
           "id": "data_21",
@@ -1602,12 +2078,19 @@ const SKCT_DATA = {
               "id": "data_21",
               "num": 21,
               "title": "21번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 35,
+              "solution_pages": [
+                40
+              ]
             }
           ],
           "image": "assets/questions/data_21.png",
-          "solution_image": "assets/solutions/sol_data_21.png",
-          "page": 74
+          "solution_image": "assets/solutions/sol_data_21.png?v=20260915_mapping2",
+          "page": 74,
+          "solution_pages": [
+            40
+          ]
         },
         {
           "id": "data_22",
@@ -1625,12 +2108,19 @@ const SKCT_DATA = {
               "id": "data_22",
               "num": 22,
               "title": "22번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 35,
+              "solution_pages": [
+                40
+              ]
             }
           ],
           "image": "assets/questions/data_22.png",
-          "solution_image": "assets/solutions/sol_data_22.png",
-          "page": 75
+          "solution_image": "assets/solutions/sol_data_22.png?v=20260915_mapping2",
+          "page": 75,
+          "solution_pages": [
+            40
+          ]
         },
         {
           "id": "data_23",
@@ -1648,12 +2138,19 @@ const SKCT_DATA = {
               "id": "data_23",
               "num": 23,
               "title": "23번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 35,
+              "solution_pages": [
+                40
+              ]
             }
           ],
           "image": "assets/questions/data_23.png",
-          "solution_image": "assets/solutions/sol_data_23.png",
-          "page": 76
+          "solution_image": "assets/solutions/sol_data_23.png?v=20260915_mapping2",
+          "page": 76,
+          "solution_pages": [
+            40
+          ]
         },
         {
           "id": "data_24",
@@ -1671,12 +2168,19 @@ const SKCT_DATA = {
               "id": "data_24",
               "num": 24,
               "title": "24번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 35,
+              "solution_pages": [
+                41
+              ]
             }
           ],
           "image": "assets/questions/data_24.png",
-          "solution_image": "assets/solutions/sol_data_24.png",
-          "page": 77
+          "solution_image": "assets/solutions/sol_data_24.png?v=20260915_mapping2",
+          "page": 77,
+          "solution_pages": [
+            41
+          ]
         },
         {
           "id": "data_25",
@@ -1694,12 +2198,19 @@ const SKCT_DATA = {
               "id": "data_25",
               "num": 25,
               "title": "25번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 35,
+              "solution_pages": [
+                41
+              ]
             }
           ],
           "image": "assets/questions/data_25.png",
-          "solution_image": "assets/solutions/sol_data_25.png",
-          "page": 78
+          "solution_image": "assets/solutions/sol_data_25.png?v=20260915_mapping2",
+          "page": 78,
+          "solution_pages": [
+            41
+          ]
         },
         {
           "id": "data_26",
@@ -1717,12 +2228,19 @@ const SKCT_DATA = {
               "id": "data_26",
               "num": 26,
               "title": "26번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 35,
+              "solution_pages": [
+                41
+              ]
             }
           ],
           "image": "assets/questions/data_26.png",
-          "solution_image": "assets/solutions/sol_data_26.png",
-          "page": 79
+          "solution_image": "assets/solutions/sol_data_26.png?v=20260915_mapping2",
+          "page": 79,
+          "solution_pages": [
+            41
+          ]
         },
         {
           "id": "data_27",
@@ -1740,12 +2258,19 @@ const SKCT_DATA = {
               "id": "data_27",
               "num": 27,
               "title": "27번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 35,
+              "solution_pages": [
+                42
+              ]
             }
           ],
           "image": "assets/questions/data_27.png",
-          "solution_image": "assets/solutions/sol_data_27.png",
-          "page": 80
+          "solution_image": "assets/solutions/sol_data_27.png?v=20260915_mapping2",
+          "page": 80,
+          "solution_pages": [
+            42
+          ]
         },
         {
           "id": "data_28",
@@ -1763,12 +2288,19 @@ const SKCT_DATA = {
               "id": "data_28",
               "num": 28,
               "title": "28번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 35,
+              "solution_pages": [
+                42
+              ]
             }
           ],
           "image": "assets/questions/data_28.png",
-          "solution_image": "assets/solutions/sol_data_28.png",
-          "page": 81
+          "solution_image": "assets/solutions/sol_data_28.png?v=20260915_mapping2",
+          "page": 81,
+          "solution_pages": [
+            42
+          ]
         },
         {
           "id": "data_29",
@@ -1786,12 +2318,19 @@ const SKCT_DATA = {
               "id": "data_29",
               "num": 29,
               "title": "29번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 35,
+              "solution_pages": [
+                43
+              ]
             }
           ],
           "image": "assets/questions/data_29.png",
-          "solution_image": "assets/solutions/sol_data_29.png",
-          "page": 82
+          "solution_image": "assets/solutions/sol_data_29.png?v=20260915_mapping2",
+          "page": 82,
+          "solution_pages": [
+            43
+          ]
         },
         {
           "id": "data_30",
@@ -1809,12 +2348,19 @@ const SKCT_DATA = {
               "id": "data_30",
               "num": 30,
               "title": "30번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 35,
+              "solution_pages": [
+                43
+              ]
             }
           ],
           "image": "assets/questions/data_30.png",
-          "solution_image": "assets/solutions/sol_data_30.png",
-          "page": 83
+          "solution_image": "assets/solutions/sol_data_30.png?v=20260915_mapping2",
+          "page": 83,
+          "solution_pages": [
+            43
+          ]
         }
       ]
     },
@@ -1842,18 +2388,29 @@ const SKCT_DATA = {
               "id": "reason_prop_1",
               "num": 1,
               "title": "1번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 73,
+              "solution_pages": [
+                74
+              ]
             },
             {
               "id": "reason_prop_2",
               "num": 2,
               "title": "2번",
-              "answer": 1
+              "answer": 1,
+              "answer_key_page": 73,
+              "solution_pages": [
+                74
+              ]
             }
           ],
           "image": "assets/questions/reason_01.png",
-          "solution_image": "assets/solutions/sol_reason_01.png",
-          "page": 118
+          "solution_image": "assets/solutions/sol_reason_01.png?v=20260915_mapping2",
+          "page": 118,
+          "solution_pages": [
+            74
+          ]
         },
         {
           "id": "reason_p02",
@@ -1871,18 +2428,29 @@ const SKCT_DATA = {
               "id": "reason_prop_3",
               "num": 3,
               "title": "3번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 73,
+              "solution_pages": [
+                74
+              ]
             },
             {
               "id": "reason_prop_4",
               "num": 4,
               "title": "4번",
-              "answer": 1
+              "answer": 1,
+              "answer_key_page": 73,
+              "solution_pages": [
+                74
+              ]
             }
           ],
           "image": "assets/questions/reason_02.png",
-          "solution_image": "assets/solutions/sol_reason_02.png",
-          "page": 119
+          "solution_image": "assets/solutions/sol_reason_02.png?v=20260915_mapping2",
+          "page": 119,
+          "solution_pages": [
+            74
+          ]
         },
         {
           "id": "reason_p03",
@@ -1900,18 +2468,29 @@ const SKCT_DATA = {
               "id": "reason_prop_5",
               "num": 5,
               "title": "5번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 73,
+              "solution_pages": [
+                74
+              ]
             },
             {
               "id": "reason_prop_6",
               "num": 6,
               "title": "6번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 73,
+              "solution_pages": [
+                74
+              ]
             }
           ],
           "image": "assets/questions/reason_03.png",
-          "solution_image": "assets/solutions/sol_reason_03.png",
-          "page": 120
+          "solution_image": "assets/solutions/sol_reason_03.png?v=20260915_mapping2",
+          "page": 120,
+          "solution_pages": [
+            74
+          ]
         },
         {
           "id": "reason_p04",
@@ -1929,18 +2508,29 @@ const SKCT_DATA = {
               "id": "reason_prop_7",
               "num": 7,
               "title": "7번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 73,
+              "solution_pages": [
+                75
+              ]
             },
             {
               "id": "reason_prop_8",
               "num": 8,
               "title": "8번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 73,
+              "solution_pages": [
+                75
+              ]
             }
           ],
           "image": "assets/questions/reason_04.png",
-          "solution_image": "assets/solutions/sol_reason_04.png",
-          "page": 121
+          "solution_image": "assets/solutions/sol_reason_04.png?v=20260915_mapping2",
+          "page": 121,
+          "solution_pages": [
+            75
+          ]
         },
         {
           "id": "reason_p05",
@@ -1958,18 +2548,29 @@ const SKCT_DATA = {
               "id": "reason_prop_9",
               "num": 9,
               "title": "9번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 73,
+              "solution_pages": [
+                75
+              ]
             },
             {
               "id": "reason_prop_10",
               "num": 10,
               "title": "10번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 73,
+              "solution_pages": [
+                75
+              ]
             }
           ],
           "image": "assets/questions/reason_05.png",
-          "solution_image": "assets/solutions/sol_reason_05.png",
-          "page": 122
+          "solution_image": "assets/solutions/sol_reason_05.png?v=20260915_mapping2",
+          "page": 122,
+          "solution_pages": [
+            75
+          ]
         },
         {
           "id": "reason_p06",
@@ -1987,18 +2588,29 @@ const SKCT_DATA = {
               "id": "reason_prop_11",
               "num": 11,
               "title": "11번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 73,
+              "solution_pages": [
+                76
+              ]
             },
             {
               "id": "reason_prop_12",
               "num": 12,
               "title": "12번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 73,
+              "solution_pages": [
+                76
+              ]
             }
           ],
           "image": "assets/questions/reason_06.png",
-          "solution_image": "assets/solutions/sol_reason_06.png",
-          "page": 123
+          "solution_image": "assets/solutions/sol_reason_06.png?v=20260915_mapping2",
+          "page": 123,
+          "solution_pages": [
+            76
+          ]
         },
         {
           "id": "reason_p07",
@@ -2016,18 +2628,30 @@ const SKCT_DATA = {
               "id": "reason_prop_13",
               "num": 13,
               "title": "13번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 73,
+              "solution_pages": [
+                76
+              ]
             },
             {
               "id": "reason_prop_14",
               "num": 14,
               "title": "14번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 73,
+              "solution_pages": [
+                77
+              ]
             }
           ],
           "image": "assets/questions/reason_07.png",
-          "solution_image": "assets/solutions/sol_reason_07.png",
-          "page": 124
+          "solution_image": "assets/solutions/sol_reason_07.png?v=20260915_mapping2",
+          "page": 124,
+          "solution_pages": [
+            76,
+            77
+          ]
         },
         {
           "id": "reason_p08",
@@ -2045,18 +2669,29 @@ const SKCT_DATA = {
               "id": "reason_prop_15",
               "num": 15,
               "title": "15번",
-              "answer": 1
+              "answer": 1,
+              "answer_key_page": 73,
+              "solution_pages": [
+                77
+              ]
             },
             {
               "id": "reason_prop_16",
               "num": 16,
               "title": "16번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 73,
+              "solution_pages": [
+                77
+              ]
             }
           ],
           "image": "assets/questions/reason_08.png",
-          "solution_image": "assets/solutions/sol_reason_08.png",
-          "page": 125
+          "solution_image": "assets/solutions/sol_reason_08.png?v=20260915_mapping2",
+          "page": 125,
+          "solution_pages": [
+            77
+          ]
         },
         {
           "id": "reason_p09",
@@ -2074,18 +2709,29 @@ const SKCT_DATA = {
               "id": "reason_prop_17",
               "num": 17,
               "title": "17번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 73,
+              "solution_pages": [
+                78
+              ]
             },
             {
               "id": "reason_prop_18",
               "num": 18,
               "title": "18번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 73,
+              "solution_pages": [
+                78
+              ]
             }
           ],
           "image": "assets/questions/reason_09.png",
-          "solution_image": "assets/solutions/sol_reason_09.png",
-          "page": 126
+          "solution_image": "assets/solutions/sol_reason_09.png?v=20260915_mapping2",
+          "page": 126,
+          "solution_pages": [
+            78
+          ]
         },
         {
           "id": "reason_p10",
@@ -2103,18 +2749,29 @@ const SKCT_DATA = {
               "id": "reason_prop_19",
               "num": 19,
               "title": "19번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 73,
+              "solution_pages": [
+                78
+              ]
             },
             {
               "id": "reason_prop_20",
               "num": 20,
               "title": "20번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 73,
+              "solution_pages": [
+                78
+              ]
             }
           ],
           "image": "assets/questions/reason_10.png",
-          "solution_image": "assets/solutions/sol_reason_10.png",
-          "page": 127
+          "solution_image": "assets/solutions/sol_reason_10.png?v=20260915_mapping2",
+          "page": 127,
+          "solution_pages": [
+            78
+          ]
         },
         {
           "id": "reason_p11",
@@ -2132,18 +2789,29 @@ const SKCT_DATA = {
               "id": "reason_prop_21",
               "num": 21,
               "title": "21번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 73,
+              "solution_pages": [
+                79
+              ]
             },
             {
               "id": "reason_prop_22",
               "num": 22,
               "title": "22번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 73,
+              "solution_pages": [
+                79
+              ]
             }
           ],
           "image": "assets/questions/reason_11.png",
-          "solution_image": "assets/solutions/sol_reason_11.png",
-          "page": 128
+          "solution_image": "assets/solutions/sol_reason_11.png?v=20260915_mapping2",
+          "page": 128,
+          "solution_pages": [
+            79
+          ]
         },
         {
           "id": "reason_p12",
@@ -2161,18 +2829,30 @@ const SKCT_DATA = {
               "id": "reason_prop_23",
               "num": 23,
               "title": "23번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 73,
+              "solution_pages": [
+                79
+              ]
             },
             {
               "id": "reason_prop_24",
               "num": 24,
               "title": "24번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 73,
+              "solution_pages": [
+                80
+              ]
             }
           ],
           "image": "assets/questions/reason_12.png",
-          "solution_image": "assets/solutions/sol_reason_12.png",
-          "page": 129
+          "solution_image": "assets/solutions/sol_reason_12.png?v=20260915_mapping2",
+          "page": 129,
+          "solution_pages": [
+            79,
+            80
+          ]
         },
         {
           "id": "reason_p13",
@@ -2190,18 +2870,30 @@ const SKCT_DATA = {
               "id": "reason_prop_25",
               "num": 25,
               "title": "25번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 73,
+              "solution_pages": [
+                80
+              ]
             },
             {
               "id": "reason_prop_26",
               "num": 26,
               "title": "26번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 73,
+              "solution_pages": [
+                81
+              ]
             }
           ],
           "image": "assets/questions/reason_13.png",
-          "solution_image": "assets/solutions/sol_reason_13.png",
-          "page": 130
+          "solution_image": "assets/solutions/sol_reason_13.png?v=20260915_mapping2",
+          "page": 130,
+          "solution_pages": [
+            80,
+            81
+          ]
         },
         {
           "id": "reason_p14",
@@ -2219,18 +2911,30 @@ const SKCT_DATA = {
               "id": "reason_prop_27",
               "num": 27,
               "title": "27번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 73,
+              "solution_pages": [
+                81
+              ]
             },
             {
               "id": "reason_prop_28",
               "num": 28,
               "title": "28번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 73,
+              "solution_pages": [
+                82
+              ]
             }
           ],
           "image": "assets/questions/reason_14.png",
-          "solution_image": "assets/solutions/sol_reason_14.png",
-          "page": 131
+          "solution_image": "assets/solutions/sol_reason_14.png?v=20260915_mapping2",
+          "page": 131,
+          "solution_pages": [
+            81,
+            82
+          ]
         },
         {
           "id": "reason_p15",
@@ -2248,18 +2952,30 @@ const SKCT_DATA = {
               "id": "reason_prop_29",
               "num": 29,
               "title": "29번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 73,
+              "solution_pages": [
+                82
+              ]
             },
             {
               "id": "reason_prop_30",
               "num": 30,
               "title": "30번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 73,
+              "solution_pages": [
+                83
+              ]
             }
           ],
           "image": "assets/questions/reason_15.png",
-          "solution_image": "assets/solutions/sol_reason_15.png",
-          "page": 132
+          "solution_image": "assets/solutions/sol_reason_15.png?v=20260915_mapping2",
+          "page": 132,
+          "solution_pages": [
+            82,
+            83
+          ]
         },
         {
           "id": "reason_p16",
@@ -2277,18 +2993,30 @@ const SKCT_DATA = {
               "id": "reason_prop_31",
               "num": 31,
               "title": "31번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 73,
+              "solution_pages": [
+                83
+              ]
             },
             {
               "id": "reason_prop_32",
               "num": 32,
               "title": "32번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 73,
+              "solution_pages": [
+                84
+              ]
             }
           ],
           "image": "assets/questions/reason_16.png",
-          "solution_image": "assets/solutions/sol_reason_16.png",
-          "page": 133
+          "solution_image": "assets/solutions/sol_reason_16.png?v=20260915_mapping2",
+          "page": 133,
+          "solution_pages": [
+            83,
+            84
+          ]
         },
         {
           "id": "reason_p17",
@@ -2306,18 +3034,30 @@ const SKCT_DATA = {
               "id": "reason_prop_33",
               "num": 33,
               "title": "33번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 73,
+              "solution_pages": [
+                84
+              ]
             },
             {
               "id": "reason_prop_34",
               "num": 34,
               "title": "34번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 73,
+              "solution_pages": [
+                85
+              ]
             }
           ],
           "image": "assets/questions/reason_17.png",
-          "solution_image": "assets/solutions/sol_reason_17.png",
-          "page": 134
+          "solution_image": "assets/solutions/sol_reason_17.png?v=20260915_mapping2",
+          "page": 134,
+          "solution_pages": [
+            84,
+            85
+          ]
         },
         {
           "id": "reason_p18",
@@ -2335,18 +3075,30 @@ const SKCT_DATA = {
               "id": "reason_prop_35",
               "num": 35,
               "title": "35번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 73,
+              "solution_pages": [
+                85
+              ]
             },
             {
               "id": "reason_prop_36",
               "num": 36,
               "title": "36번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 73,
+              "solution_pages": [
+                86
+              ]
             }
           ],
           "image": "assets/questions/reason_18.png",
-          "solution_image": "assets/solutions/sol_reason_18.png",
-          "page": 135
+          "solution_image": "assets/solutions/sol_reason_18.png?v=20260915_mapping2",
+          "page": 135,
+          "solution_pages": [
+            85,
+            86
+          ]
         },
         {
           "id": "reason_p19",
@@ -2364,18 +3116,29 @@ const SKCT_DATA = {
               "id": "reason_prop_37",
               "num": 37,
               "title": "37번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 73,
+              "solution_pages": [
+                87
+              ]
             },
             {
               "id": "reason_prop_38",
               "num": 38,
               "title": "38번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 73,
+              "solution_pages": [
+                87
+              ]
             }
           ],
           "image": "assets/questions/reason_19.png",
-          "solution_image": "assets/solutions/sol_reason_19.png",
-          "page": 136
+          "solution_image": "assets/solutions/sol_reason_19.png?v=20260915_mapping2",
+          "page": 136,
+          "solution_pages": [
+            87
+          ]
         },
         {
           "id": "reason_p20",
@@ -2393,18 +3156,29 @@ const SKCT_DATA = {
               "id": "reason_prop_39",
               "num": 39,
               "title": "39번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 73,
+              "solution_pages": [
+                88
+              ]
             },
             {
               "id": "reason_prop_40",
               "num": 40,
               "title": "40번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 73,
+              "solution_pages": [
+                88
+              ]
             }
           ],
           "image": "assets/questions/reason_20.png",
-          "solution_image": "assets/solutions/sol_reason_20.png",
-          "page": 137
+          "solution_image": "assets/solutions/sol_reason_20.png?v=20260915_mapping2",
+          "page": 137,
+          "solution_pages": [
+            88
+          ]
         },
         {
           "id": "reason_p21",
@@ -2422,18 +3196,29 @@ const SKCT_DATA = {
               "id": "reason_prop_41",
               "num": 41,
               "title": "41번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 73,
+              "solution_pages": [
+                89
+              ]
             },
             {
               "id": "reason_prop_42",
               "num": 42,
               "title": "42번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 73,
+              "solution_pages": [
+                89
+              ]
             }
           ],
           "image": "assets/questions/reason_21.png",
-          "solution_image": "assets/solutions/sol_reason_21.png",
-          "page": 138
+          "solution_image": "assets/solutions/sol_reason_21.png?v=20260915_mapping2",
+          "page": 138,
+          "solution_pages": [
+            89
+          ]
         },
         {
           "id": "reason_p22",
@@ -2451,18 +3236,29 @@ const SKCT_DATA = {
               "id": "reason_prop_43",
               "num": 43,
               "title": "43번",
-              "answer": 1
+              "answer": 1,
+              "answer_key_page": 73,
+              "solution_pages": [
+                90
+              ]
             },
             {
               "id": "reason_prop_44",
               "num": 44,
               "title": "44번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 73,
+              "solution_pages": [
+                90
+              ]
             }
           ],
           "image": "assets/questions/reason_22.png",
-          "solution_image": "assets/solutions/sol_reason_22.png",
-          "page": 139
+          "solution_image": "assets/solutions/sol_reason_22.png?v=20260915_mapping2",
+          "page": 139,
+          "solution_pages": [
+            90
+          ]
         },
         {
           "id": "reason_p23",
@@ -2480,18 +3276,29 @@ const SKCT_DATA = {
               "id": "reason_prop_45",
               "num": 45,
               "title": "45번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 73,
+              "solution_pages": [
+                91
+              ]
             },
             {
               "id": "reason_prop_46",
               "num": 46,
               "title": "46번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 73,
+              "solution_pages": [
+                91
+              ]
             }
           ],
           "image": "assets/questions/reason_23.png",
-          "solution_image": "assets/solutions/sol_reason_23.png",
-          "page": 140
+          "solution_image": "assets/solutions/sol_reason_23.png?v=20260915_mapping2",
+          "page": 140,
+          "solution_pages": [
+            91
+          ]
         },
         {
           "id": "reason_p24",
@@ -2509,18 +3316,29 @@ const SKCT_DATA = {
               "id": "reason_prop_47",
               "num": 47,
               "title": "47번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 73,
+              "solution_pages": [
+                92
+              ]
             },
             {
               "id": "reason_prop_48",
               "num": 48,
               "title": "48번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 73,
+              "solution_pages": [
+                92
+              ]
             }
           ],
           "image": "assets/questions/reason_24.png",
-          "solution_image": "assets/solutions/sol_reason_24.png",
-          "page": 141
+          "solution_image": "assets/solutions/sol_reason_24.png?v=20260915_mapping2",
+          "page": 141,
+          "solution_pages": [
+            92
+          ]
         },
         {
           "id": "reason_p25",
@@ -2538,18 +3356,29 @@ const SKCT_DATA = {
               "id": "reason_prop_49",
               "num": 49,
               "title": "49번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 73,
+              "solution_pages": [
+                93
+              ]
             },
             {
               "id": "reason_prop_50",
               "num": 50,
               "title": "50번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 73,
+              "solution_pages": [
+                93
+              ]
             }
           ],
           "image": "assets/questions/reason_25.png",
-          "solution_image": "assets/solutions/sol_reason_25.png",
-          "page": 142
+          "solution_image": "assets/solutions/sol_reason_25.png?v=20260915_mapping2",
+          "page": 142,
+          "solution_pages": [
+            93
+          ]
         },
         {
           "id": "reason_p26",
@@ -2567,18 +3396,29 @@ const SKCT_DATA = {
               "id": "reason_prop_51",
               "num": 51,
               "title": "51번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 73,
+              "solution_pages": [
+                94
+              ]
             },
             {
               "id": "reason_prop_52",
               "num": 52,
               "title": "52번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 73,
+              "solution_pages": [
+                94
+              ]
             }
           ],
           "image": "assets/questions/reason_26.png",
-          "solution_image": "assets/solutions/sol_reason_26.png",
-          "page": 143
+          "solution_image": "assets/solutions/sol_reason_26.png?v=20260915_mapping2",
+          "page": 143,
+          "solution_pages": [
+            94
+          ]
         },
         {
           "id": "reason_p27",
@@ -2596,18 +3436,30 @@ const SKCT_DATA = {
               "id": "reason_prop_53",
               "num": 53,
               "title": "53번",
-              "answer": 1
+              "answer": 1,
+              "answer_key_page": 73,
+              "solution_pages": [
+                94
+              ]
             },
             {
               "id": "reason_prop_54",
               "num": 54,
               "title": "54번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 73,
+              "solution_pages": [
+                95
+              ]
             }
           ],
           "image": "assets/questions/reason_27.png",
-          "solution_image": "assets/solutions/sol_reason_27.png",
-          "page": 144
+          "solution_image": "assets/solutions/sol_reason_27.png?v=20260915_mapping2",
+          "page": 144,
+          "solution_pages": [
+            94,
+            95
+          ]
         },
         {
           "id": "reason_p28",
@@ -2625,18 +3477,29 @@ const SKCT_DATA = {
               "id": "reason_prop_55",
               "num": 55,
               "title": "55번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 73,
+              "solution_pages": [
+                95
+              ]
             },
             {
               "id": "reason_prop_56",
               "num": 56,
               "title": "56번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 73,
+              "solution_pages": [
+                95
+              ]
             }
           ],
           "image": "assets/questions/reason_28.png",
-          "solution_image": "assets/solutions/sol_reason_28.png",
-          "page": 145
+          "solution_image": "assets/solutions/sol_reason_28.png?v=20260915_mapping2",
+          "page": 145,
+          "solution_pages": [
+            95
+          ]
         },
         {
           "id": "reason_p29",
@@ -2654,18 +3517,30 @@ const SKCT_DATA = {
               "id": "reason_prop_57",
               "num": 57,
               "title": "57번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 73,
+              "solution_pages": [
+                95
+              ]
             },
             {
               "id": "reason_prop_58",
               "num": 58,
               "title": "58번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 73,
+              "solution_pages": [
+                96
+              ]
             }
           ],
           "image": "assets/questions/reason_29.png",
-          "solution_image": "assets/solutions/sol_reason_29.png",
-          "page": 146
+          "solution_image": "assets/solutions/sol_reason_29.png?v=20260915_mapping2",
+          "page": 146,
+          "solution_pages": [
+            95,
+            96
+          ]
         },
         {
           "id": "reason_p30",
@@ -2683,18 +3558,29 @@ const SKCT_DATA = {
               "id": "reason_prop_59",
               "num": 59,
               "title": "59번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 73,
+              "solution_pages": [
+                96
+              ]
             },
             {
               "id": "reason_prop_60",
               "num": 60,
               "title": "60번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 73,
+              "solution_pages": [
+                96
+              ]
             }
           ],
           "image": "assets/questions/reason_30.png",
-          "solution_image": "assets/solutions/sol_reason_30.png",
-          "page": 147
+          "solution_image": "assets/solutions/sol_reason_30.png?v=20260915_mapping2",
+          "page": 147,
+          "solution_pages": [
+            96
+          ]
         },
         {
           "id": "reason_p31",
@@ -2712,18 +3598,29 @@ const SKCT_DATA = {
               "id": "reason_quiz_1",
               "num": 1,
               "title": "조건 1번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 97,
+              "solution_pages": [
+                98
+              ]
             },
             {
               "id": "reason_quiz_2",
               "num": 2,
               "title": "조건 2번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 97,
+              "solution_pages": [
+                98
+              ]
             }
           ],
           "image": "assets/questions/reason_31.png",
-          "solution_image": "assets/solutions/sol_reason_31.png",
-          "page": 148
+          "solution_image": "assets/solutions/sol_reason_31.png?v=20260915_mapping2",
+          "page": 148,
+          "solution_pages": [
+            98
+          ]
         },
         {
           "id": "reason_p32",
@@ -2741,18 +3638,29 @@ const SKCT_DATA = {
               "id": "reason_quiz_3",
               "num": 3,
               "title": "조건 3번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 97,
+              "solution_pages": [
+                99
+              ]
             },
             {
               "id": "reason_quiz_4",
               "num": 4,
               "title": "조건 4번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 97,
+              "solution_pages": [
+                99
+              ]
             }
           ],
           "image": "assets/questions/reason_32.png",
-          "solution_image": "assets/solutions/sol_reason_32.png",
-          "page": 149
+          "solution_image": "assets/solutions/sol_reason_32.png?v=20260915_mapping2",
+          "page": 149,
+          "solution_pages": [
+            99
+          ]
         },
         {
           "id": "reason_p33",
@@ -2770,18 +3678,30 @@ const SKCT_DATA = {
               "id": "reason_quiz_5",
               "num": 5,
               "title": "조건 5번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 97,
+              "solution_pages": [
+                99
+              ]
             },
             {
               "id": "reason_quiz_6",
               "num": 6,
               "title": "조건 6번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 97,
+              "solution_pages": [
+                100
+              ]
             }
           ],
           "image": "assets/questions/reason_33.png",
-          "solution_image": "assets/solutions/sol_reason_33.png",
-          "page": 150
+          "solution_image": "assets/solutions/sol_reason_33.png?v=20260915_mapping2",
+          "page": 150,
+          "solution_pages": [
+            99,
+            100
+          ]
         },
         {
           "id": "reason_p34",
@@ -2799,18 +3719,30 @@ const SKCT_DATA = {
               "id": "reason_quiz_7",
               "num": 7,
               "title": "조건 7번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 97,
+              "solution_pages": [
+                100
+              ]
             },
             {
               "id": "reason_quiz_8",
               "num": 8,
               "title": "조건 8번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 97,
+              "solution_pages": [
+                101
+              ]
             }
           ],
           "image": "assets/questions/reason_34.png",
-          "solution_image": "assets/solutions/sol_reason_34.png",
-          "page": 151
+          "solution_image": "assets/solutions/sol_reason_34.png?v=20260915_mapping2",
+          "page": 151,
+          "solution_pages": [
+            100,
+            101
+          ]
         },
         {
           "id": "reason_p35",
@@ -2828,18 +3760,29 @@ const SKCT_DATA = {
               "id": "reason_quiz_9",
               "num": 9,
               "title": "조건 9번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 97,
+              "solution_pages": [
+                101
+              ]
             },
             {
               "id": "reason_quiz_10",
               "num": 10,
               "title": "조건 10번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 97,
+              "solution_pages": [
+                101
+              ]
             }
           ],
           "image": "assets/questions/reason_35.png",
-          "solution_image": "assets/solutions/sol_reason_35.png",
-          "page": 152
+          "solution_image": "assets/solutions/sol_reason_35.png?v=20260915_mapping2",
+          "page": 152,
+          "solution_pages": [
+            101
+          ]
         },
         {
           "id": "reason_p36",
@@ -2857,18 +3800,29 @@ const SKCT_DATA = {
               "id": "reason_quiz_11",
               "num": 11,
               "title": "조건 11번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 97,
+              "solution_pages": [
+                102
+              ]
             },
             {
               "id": "reason_quiz_12",
               "num": 12,
               "title": "조건 12번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 97,
+              "solution_pages": [
+                102
+              ]
             }
           ],
           "image": "assets/questions/reason_36.png",
-          "solution_image": "assets/solutions/sol_reason_36.png",
-          "page": 153
+          "solution_image": "assets/solutions/sol_reason_36.png?v=20260915_mapping2",
+          "page": 153,
+          "solution_pages": [
+            102
+          ]
         },
         {
           "id": "reason_p37",
@@ -2886,18 +3840,30 @@ const SKCT_DATA = {
               "id": "reason_quiz_13",
               "num": 13,
               "title": "조건 13번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 97,
+              "solution_pages": [
+                102
+              ]
             },
             {
               "id": "reason_quiz_14",
               "num": 14,
               "title": "조건 14번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 97,
+              "solution_pages": [
+                103
+              ]
             }
           ],
           "image": "assets/questions/reason_37.png",
-          "solution_image": "assets/solutions/sol_reason_37.png",
-          "page": 154
+          "solution_image": "assets/solutions/sol_reason_37.png?v=20260915_mapping2",
+          "page": 154,
+          "solution_pages": [
+            102,
+            103
+          ]
         },
         {
           "id": "reason_p38",
@@ -2915,18 +3881,30 @@ const SKCT_DATA = {
               "id": "reason_quiz_15",
               "num": 15,
               "title": "조건 15번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 97,
+              "solution_pages": [
+                103
+              ]
             },
             {
               "id": "reason_quiz_16",
               "num": 16,
               "title": "조건 16번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 97,
+              "solution_pages": [
+                104
+              ]
             }
           ],
           "image": "assets/questions/reason_38.png",
-          "solution_image": "assets/solutions/sol_reason_38.png",
-          "page": 155
+          "solution_image": "assets/solutions/sol_reason_38.png?v=20260915_mapping2",
+          "page": 155,
+          "solution_pages": [
+            103,
+            104
+          ]
         },
         {
           "id": "reason_p39",
@@ -2944,24 +3922,39 @@ const SKCT_DATA = {
               "id": "reason_mock_1",
               "num": 1,
               "title": "실전 1번",
-              "answer": 1
+              "answer": 1,
+              "answer_key_page": 105,
+              "solution_pages": [
+                106
+              ]
             },
             {
               "id": "reason_mock_2",
               "num": 2,
               "title": "실전 2번",
-              "answer": 1
+              "answer": 1,
+              "answer_key_page": 105,
+              "solution_pages": [
+                106
+              ]
             },
             {
               "id": "reason_mock_3",
               "num": 3,
               "title": "실전 3번",
-              "answer": 1
+              "answer": 1,
+              "answer_key_page": 105,
+              "solution_pages": [
+                106
+              ]
             }
           ],
           "image": "assets/questions/reason_39.png",
-          "solution_image": "assets/solutions/sol_reason_39.png",
-          "page": 156
+          "solution_image": "assets/solutions/sol_reason_39.png?v=20260915_mapping2",
+          "page": 156,
+          "solution_pages": [
+            106
+          ]
         },
         {
           "id": "reason_p40",
@@ -2979,18 +3972,29 @@ const SKCT_DATA = {
               "id": "reason_mock_4",
               "num": 4,
               "title": "실전 4번",
-              "answer": 1
+              "answer": 1,
+              "answer_key_page": 105,
+              "solution_pages": [
+                106
+              ]
             },
             {
               "id": "reason_mock_5",
               "num": 5,
               "title": "실전 5번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 105,
+              "solution_pages": [
+                106
+              ]
             }
           ],
           "image": "assets/questions/reason_40.png",
-          "solution_image": "assets/solutions/sol_reason_40.png",
-          "page": 157
+          "solution_image": "assets/solutions/sol_reason_40.png?v=20260915_mapping2",
+          "page": 157,
+          "solution_pages": [
+            106
+          ]
         },
         {
           "id": "reason_p41",
@@ -3008,18 +4012,30 @@ const SKCT_DATA = {
               "id": "reason_mock_6",
               "num": 6,
               "title": "실전 6번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 105,
+              "solution_pages": [
+                106
+              ]
             },
             {
               "id": "reason_mock_7",
               "num": 7,
               "title": "실전 7번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 105,
+              "solution_pages": [
+                107
+              ]
             }
           ],
           "image": "assets/questions/reason_41.png",
-          "solution_image": "assets/solutions/sol_reason_41.png",
-          "page": 158
+          "solution_image": "assets/solutions/sol_reason_41.png?v=20260915_mapping2",
+          "page": 158,
+          "solution_pages": [
+            106,
+            107
+          ]
         },
         {
           "id": "reason_p42",
@@ -3037,18 +4053,29 @@ const SKCT_DATA = {
               "id": "reason_mock_8",
               "num": 8,
               "title": "실전 8번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 105,
+              "solution_pages": [
+                107
+              ]
             },
             {
               "id": "reason_mock_9",
               "num": 9,
               "title": "실전 9번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 105,
+              "solution_pages": [
+                107
+              ]
             }
           ],
           "image": "assets/questions/reason_42.png",
-          "solution_image": "assets/solutions/sol_reason_42.png",
-          "page": 159
+          "solution_image": "assets/solutions/sol_reason_42.png?v=20260915_mapping2",
+          "page": 159,
+          "solution_pages": [
+            107
+          ]
         },
         {
           "id": "reason_p43",
@@ -3066,18 +4093,29 @@ const SKCT_DATA = {
               "id": "reason_mock_10",
               "num": 10,
               "title": "실전 10번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 105,
+              "solution_pages": [
+                107
+              ]
             },
             {
               "id": "reason_mock_11",
               "num": 11,
               "title": "실전 11번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 105,
+              "solution_pages": [
+                107
+              ]
             }
           ],
           "image": "assets/questions/reason_43.png",
-          "solution_image": "assets/solutions/sol_reason_43.png",
-          "page": 160
+          "solution_image": "assets/solutions/sol_reason_43.png?v=20260915_mapping2",
+          "page": 160,
+          "solution_pages": [
+            107
+          ]
         },
         {
           "id": "reason_p44",
@@ -3095,18 +4133,30 @@ const SKCT_DATA = {
               "id": "reason_mock_12",
               "num": 12,
               "title": "실전 12번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 105,
+              "solution_pages": [
+                107
+              ]
             },
             {
               "id": "reason_mock_13",
               "num": 13,
               "title": "실전 13번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 105,
+              "solution_pages": [
+                108
+              ]
             }
           ],
           "image": "assets/questions/reason_44.png",
-          "solution_image": "assets/solutions/sol_reason_44.png",
-          "page": 161
+          "solution_image": "assets/solutions/sol_reason_44.png?v=20260915_mapping2",
+          "page": 161,
+          "solution_pages": [
+            107,
+            108
+          ]
         },
         {
           "id": "reason_p45",
@@ -3124,18 +4174,29 @@ const SKCT_DATA = {
               "id": "reason_mock_14",
               "num": 14,
               "title": "실전 14번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 105,
+              "solution_pages": [
+                108
+              ]
             },
             {
               "id": "reason_mock_15",
               "num": 15,
               "title": "실전 15번",
-              "answer": 1
+              "answer": 1,
+              "answer_key_page": 105,
+              "solution_pages": [
+                108
+              ]
             }
           ],
           "image": "assets/questions/reason_45.png",
-          "solution_image": "assets/solutions/sol_reason_45.png",
-          "page": 162
+          "solution_image": "assets/solutions/sol_reason_45.png?v=20260915_mapping2",
+          "page": 162,
+          "solution_pages": [
+            108
+          ]
         },
         {
           "id": "reason_p46",
@@ -3153,18 +4214,29 @@ const SKCT_DATA = {
               "id": "reason_mock_16",
               "num": 16,
               "title": "실전 16번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 105,
+              "solution_pages": [
+                108
+              ]
             },
             {
               "id": "reason_mock_17",
               "num": 17,
               "title": "실전 17번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 105,
+              "solution_pages": [
+                108
+              ]
             }
           ],
           "image": "assets/questions/reason_46.png",
-          "solution_image": "assets/solutions/sol_reason_46.png",
-          "page": 163
+          "solution_image": "assets/solutions/sol_reason_46.png?v=20260915_mapping2",
+          "page": 163,
+          "solution_pages": [
+            108
+          ]
         },
         {
           "id": "reason_p47",
@@ -3182,18 +4254,30 @@ const SKCT_DATA = {
               "id": "reason_mock_18",
               "num": 18,
               "title": "실전 18번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 105,
+              "solution_pages": [
+                108
+              ]
             },
             {
               "id": "reason_mock_19",
               "num": 19,
               "title": "실전 19번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 105,
+              "solution_pages": [
+                109
+              ]
             }
           ],
           "image": "assets/questions/reason_47.png",
-          "solution_image": "assets/solutions/sol_reason_47.png",
-          "page": 164
+          "solution_image": "assets/solutions/sol_reason_47.png?v=20260915_mapping2",
+          "page": 164,
+          "solution_pages": [
+            108,
+            109
+          ]
         },
         {
           "id": "reason_p48",
@@ -3211,12 +4295,19 @@ const SKCT_DATA = {
               "id": "reason_mock_20",
               "num": 20,
               "title": "실전 20번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 105,
+              "solution_pages": [
+                109
+              ]
             }
           ],
           "image": "assets/questions/reason_48.png",
-          "solution_image": "assets/solutions/sol_reason_48.png",
-          "page": 165
+          "solution_image": "assets/solutions/sol_reason_48.png?v=20260915_mapping2",
+          "page": 165,
+          "solution_pages": [
+            109
+          ]
         }
       ]
     },
@@ -3244,24 +4335,39 @@ const SKCT_DATA = {
               "id": "seq_1",
               "num": 1,
               "title": "1번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 111,
+              "solution_pages": [
+                111
+              ]
             },
             {
               "id": "seq_2",
               "num": 2,
               "title": "2번",
-              "answer": 1
+              "answer": 1,
+              "answer_key_page": 111,
+              "solution_pages": [
+                111
+              ]
             },
             {
               "id": "seq_3",
               "num": 3,
               "title": "3번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 111,
+              "solution_pages": [
+                111
+              ]
             }
           ],
           "image": "assets/questions/seq_01.png",
-          "solution_image": "assets/solutions/sol_seq_01.png",
-          "page": 167
+          "solution_image": "assets/solutions/sol_seq_01.png?v=20260915_mapping2",
+          "page": 167,
+          "solution_pages": [
+            111
+          ]
         },
         {
           "id": "seq_p02",
@@ -3279,18 +4385,30 @@ const SKCT_DATA = {
               "id": "seq_4",
               "num": 4,
               "title": "4번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 111,
+              "solution_pages": [
+                111
+              ]
             },
             {
               "id": "seq_5",
               "num": 5,
               "title": "5번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 111,
+              "solution_pages": [
+                112
+              ]
             }
           ],
           "image": "assets/questions/seq_02.png",
-          "solution_image": "assets/solutions/sol_seq_02.png",
-          "page": 168
+          "solution_image": "assets/solutions/sol_seq_02.png?v=20260915_mapping2",
+          "page": 168,
+          "solution_pages": [
+            111,
+            112
+          ]
         },
         {
           "id": "seq_p03",
@@ -3308,18 +4426,29 @@ const SKCT_DATA = {
               "id": "seq_6",
               "num": 6,
               "title": "6번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 111,
+              "solution_pages": [
+                112
+              ]
             },
             {
               "id": "seq_7",
               "num": 7,
               "title": "7번",
-              "answer": 1
+              "answer": 1,
+              "answer_key_page": 111,
+              "solution_pages": [
+                112
+              ]
             }
           ],
           "image": "assets/questions/seq_03.png",
-          "solution_image": "assets/solutions/sol_seq_03.png",
-          "page": 169
+          "solution_image": "assets/solutions/sol_seq_03.png?v=20260915_mapping2",
+          "page": 169,
+          "solution_pages": [
+            112
+          ]
         },
         {
           "id": "seq_p04",
@@ -3337,18 +4466,29 @@ const SKCT_DATA = {
               "id": "seq_8",
               "num": 8,
               "title": "8번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 111,
+              "solution_pages": [
+                113
+              ]
             },
             {
               "id": "seq_9",
               "num": 9,
               "title": "9번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 111,
+              "solution_pages": [
+                113
+              ]
             }
           ],
           "image": "assets/questions/seq_04.png",
-          "solution_image": "assets/solutions/sol_seq_04.png",
-          "page": 170
+          "solution_image": "assets/solutions/sol_seq_04.png?v=20260915_mapping2",
+          "page": 170,
+          "solution_pages": [
+            113
+          ]
         },
         {
           "id": "seq_p05",
@@ -3366,18 +4506,29 @@ const SKCT_DATA = {
               "id": "seq_10",
               "num": 10,
               "title": "10번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 111,
+              "solution_pages": [
+                113
+              ]
             },
             {
               "id": "seq_11",
               "num": 11,
               "title": "11번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 111,
+              "solution_pages": [
+                113
+              ]
             }
           ],
           "image": "assets/questions/seq_05.png",
-          "solution_image": "assets/solutions/sol_seq_05.png",
-          "page": 171
+          "solution_image": "assets/solutions/sol_seq_05.png?v=20260915_mapping2",
+          "page": 171,
+          "solution_pages": [
+            113
+          ]
         },
         {
           "id": "seq_p06",
@@ -3395,18 +4546,29 @@ const SKCT_DATA = {
               "id": "seq_12",
               "num": 12,
               "title": "12번",
-              "answer": 1
+              "answer": 1,
+              "answer_key_page": 111,
+              "solution_pages": [
+                113
+              ]
             },
             {
               "id": "seq_13",
               "num": 13,
               "title": "13번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 111,
+              "solution_pages": [
+                113
+              ]
             }
           ],
           "image": "assets/questions/seq_06.png",
-          "solution_image": "assets/solutions/sol_seq_06.png",
-          "page": 172
+          "solution_image": "assets/solutions/sol_seq_06.png?v=20260915_mapping2",
+          "page": 172,
+          "solution_pages": [
+            113
+          ]
         },
         {
           "id": "seq_p07",
@@ -3424,18 +4586,29 @@ const SKCT_DATA = {
               "id": "seq_14",
               "num": 14,
               "title": "14번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 111,
+              "solution_pages": [
+                113
+              ]
             },
             {
               "id": "seq_15",
               "num": 15,
               "title": "15번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 111,
+              "solution_pages": [
+                113
+              ]
             }
           ],
           "image": "assets/questions/seq_07.png",
-          "solution_image": "assets/solutions/sol_seq_07.png",
-          "page": 173
+          "solution_image": "assets/solutions/sol_seq_07.png?v=20260915_mapping2",
+          "page": 173,
+          "solution_pages": [
+            113
+          ]
         },
         {
           "id": "seq_p08",
@@ -3453,18 +4626,30 @@ const SKCT_DATA = {
               "id": "seq_16",
               "num": 16,
               "title": "16번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 111,
+              "solution_pages": [
+                113
+              ]
             },
             {
               "id": "seq_17",
               "num": 17,
               "title": "17번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 111,
+              "solution_pages": [
+                114
+              ]
             }
           ],
           "image": "assets/questions/seq_08.png",
-          "solution_image": "assets/solutions/sol_seq_08.png",
-          "page": 174
+          "solution_image": "assets/solutions/sol_seq_08.png?v=20260915_mapping2",
+          "page": 174,
+          "solution_pages": [
+            113,
+            114
+          ]
         },
         {
           "id": "seq_p09",
@@ -3482,18 +4667,29 @@ const SKCT_DATA = {
               "id": "seq_18",
               "num": 18,
               "title": "18번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 111,
+              "solution_pages": [
+                114
+              ]
             },
             {
               "id": "seq_19",
               "num": 19,
               "title": "19번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 111,
+              "solution_pages": [
+                114
+              ]
             }
           ],
           "image": "assets/questions/seq_09.png",
-          "solution_image": "assets/solutions/sol_seq_09.png",
-          "page": 175
+          "solution_image": "assets/solutions/sol_seq_09.png?v=20260915_mapping2",
+          "page": 175,
+          "solution_pages": [
+            114
+          ]
         },
         {
           "id": "seq_p10",
@@ -3511,24 +4707,39 @@ const SKCT_DATA = {
               "id": "seq_20",
               "num": 20,
               "title": "20번",
-              "answer": 1
+              "answer": 1,
+              "answer_key_page": 111,
+              "solution_pages": [
+                114
+              ]
             },
             {
               "id": "seq_21",
               "num": 21,
               "title": "21번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 111,
+              "solution_pages": [
+                114
+              ]
             },
             {
               "id": "seq_22",
               "num": 22,
               "title": "22번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 111,
+              "solution_pages": [
+                114
+              ]
             }
           ],
           "image": "assets/questions/seq_10.png",
-          "solution_image": "assets/solutions/sol_seq_10.png",
-          "page": 176
+          "solution_image": "assets/solutions/sol_seq_10.png?v=20260915_mapping2",
+          "page": 176,
+          "solution_pages": [
+            114
+          ]
         },
         {
           "id": "seq_p11",
@@ -3546,18 +4757,29 @@ const SKCT_DATA = {
               "id": "seq_23",
               "num": 23,
               "title": "23번",
-              "answer": 1
+              "answer": 1,
+              "answer_key_page": 111,
+              "solution_pages": [
+                114
+              ]
             },
             {
               "id": "seq_24",
               "num": 24,
               "title": "24번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 111,
+              "solution_pages": [
+                114
+              ]
             }
           ],
           "image": "assets/questions/seq_11.png",
-          "solution_image": "assets/solutions/sol_seq_11.png",
-          "page": 177
+          "solution_image": "assets/solutions/sol_seq_11.png?v=20260915_mapping2",
+          "page": 177,
+          "solution_pages": [
+            114
+          ]
         },
         {
           "id": "seq_p12",
@@ -3575,42 +4797,69 @@ const SKCT_DATA = {
               "id": "seq_25",
               "num": 25,
               "title": "25번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 111,
+              "solution_pages": [
+                115
+              ]
             },
             {
               "id": "seq_26",
               "num": 26,
               "title": "26번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 111,
+              "solution_pages": [
+                115
+              ]
             },
             {
               "id": "seq_27",
               "num": 27,
               "title": "27번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 111,
+              "solution_pages": [
+                115
+              ]
             },
             {
               "id": "seq_28",
               "num": 28,
               "title": "28번",
-              "answer": 1
+              "answer": 1,
+              "answer_key_page": 111,
+              "solution_pages": [
+                115
+              ]
             },
             {
               "id": "seq_29",
               "num": 29,
               "title": "29번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 111,
+              "solution_pages": [
+                115
+              ]
             },
             {
               "id": "seq_30",
               "num": 30,
               "title": "30번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 111,
+              "solution_pages": [
+                115
+              ]
             }
           ],
           "image": "assets/questions/seq_12.png",
-          "solution_image": "assets/solutions/sol_seq_12.png",
-          "page": 178
+          "solution_image": "assets/solutions/sol_seq_12.png?v=20260915_mapping2",
+          "page": 178,
+          "solution_pages": [
+            115
+          ]
         },
         {
           "id": "seq_p13",
@@ -3628,36 +4877,60 @@ const SKCT_DATA = {
               "id": "seq_31",
               "num": 31,
               "title": "31번",
-              "answer": 1
+              "answer": 1,
+              "answer_key_page": 111,
+              "solution_pages": [
+                115
+              ]
             },
             {
               "id": "seq_32",
               "num": 32,
               "title": "32번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 111,
+              "solution_pages": [
+                115
+              ]
             },
             {
               "id": "seq_33",
               "num": 33,
               "title": "33번",
-              "answer": 1
+              "answer": 1,
+              "answer_key_page": 111,
+              "solution_pages": [
+                115
+              ]
             },
             {
               "id": "seq_34",
               "num": 34,
               "title": "34번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 111,
+              "solution_pages": [
+                116
+              ]
             },
             {
               "id": "seq_35",
               "num": 35,
               "title": "35번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 111,
+              "solution_pages": [
+                116
+              ]
             }
           ],
           "image": "assets/questions/seq_13.png",
-          "solution_image": "assets/solutions/sol_seq_13.png",
-          "page": 179
+          "solution_image": "assets/solutions/sol_seq_13.png?v=20260915_mapping2",
+          "page": 179,
+          "solution_pages": [
+            115,
+            116
+          ]
         },
         {
           "id": "seq_p14",
@@ -3675,36 +4948,59 @@ const SKCT_DATA = {
               "id": "seq_36",
               "num": 36,
               "title": "36번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 111,
+              "solution_pages": [
+                116
+              ]
             },
             {
               "id": "seq_37",
               "num": 37,
               "title": "37번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 111,
+              "solution_pages": [
+                116
+              ]
             },
             {
               "id": "seq_38",
               "num": 38,
               "title": "38번",
-              "answer": 1
+              "answer": 1,
+              "answer_key_page": 111,
+              "solution_pages": [
+                116
+              ]
             },
             {
               "id": "seq_39",
               "num": 39,
               "title": "39번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 111,
+              "solution_pages": [
+                116
+              ]
             },
             {
               "id": "seq_40",
               "num": 40,
               "title": "40번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 111,
+              "solution_pages": [
+                116
+              ]
             }
           ],
           "image": "assets/questions/seq_14.png",
-          "solution_image": "assets/solutions/sol_seq_14.png",
-          "page": 180
+          "solution_image": "assets/solutions/sol_seq_14.png?v=20260915_mapping2",
+          "page": 180,
+          "solution_pages": [
+            116
+          ]
         }
       ]
     },
@@ -3732,30 +5028,50 @@ const SKCT_DATA = {
               "id": "math_1",
               "num": 1,
               "title": "응용 1번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 45,
+              "solution_pages": [
+                46
+              ]
             },
             {
               "id": "math_2",
               "num": 2,
               "title": "응용 2번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 45,
+              "solution_pages": [
+                46
+              ]
             },
             {
               "id": "math_3",
               "num": 3,
               "title": "응용 3번",
-              "answer": 1
+              "answer": 1,
+              "answer_key_page": 45,
+              "solution_pages": [
+                46
+              ]
             },
             {
               "id": "math_4",
               "num": 4,
               "title": "응용 4번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 45,
+              "solution_pages": [
+                47
+              ]
             }
           ],
           "image": "assets/questions/math_page_01.png",
-          "solution_image": "assets/solutions/sol_math_01.png",
-          "page": 87
+          "solution_image": "assets/solutions/sol_math_01.png?v=20260915_mapping2",
+          "page": 87,
+          "solution_pages": [
+            46,
+            47
+          ]
         },
         {
           "id": "math_p02",
@@ -3773,24 +5089,40 @@ const SKCT_DATA = {
               "id": "math_5",
               "num": 5,
               "title": "응용 5번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 45,
+              "solution_pages": [
+                47
+              ]
             },
             {
               "id": "math_6",
               "num": 6,
               "title": "응용 6번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 45,
+              "solution_pages": [
+                48
+              ]
             },
             {
               "id": "math_7",
               "num": 7,
               "title": "응용 7번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 45,
+              "solution_pages": [
+                48
+              ]
             }
           ],
           "image": "assets/questions/math_page_02.png",
-          "solution_image": "assets/solutions/sol_math_02.png",
-          "page": 88
+          "solution_image": "assets/solutions/sol_math_02.png?v=20260915_mapping2",
+          "page": 88,
+          "solution_pages": [
+            47,
+            48
+          ]
         },
         {
           "id": "math_p03",
@@ -3808,24 +5140,40 @@ const SKCT_DATA = {
               "id": "math_8",
               "num": 8,
               "title": "응용 8번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 45,
+              "solution_pages": [
+                49
+              ]
             },
             {
               "id": "math_9",
               "num": 9,
               "title": "응용 9번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 45,
+              "solution_pages": [
+                49
+              ]
             },
             {
               "id": "math_10",
               "num": 10,
               "title": "응용 10번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 45,
+              "solution_pages": [
+                50
+              ]
             }
           ],
           "image": "assets/questions/math_page_03.png",
-          "solution_image": "assets/solutions/sol_math_03.png",
-          "page": 89
+          "solution_image": "assets/solutions/sol_math_03.png?v=20260915_mapping2",
+          "page": 89,
+          "solution_pages": [
+            49,
+            50
+          ]
         },
         {
           "id": "math_p04",
@@ -3843,24 +5191,40 @@ const SKCT_DATA = {
               "id": "math_11",
               "num": 11,
               "title": "응용 11번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 45,
+              "solution_pages": [
+                50
+              ]
             },
             {
               "id": "math_12",
               "num": 12,
               "title": "응용 12번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 45,
+              "solution_pages": [
+                50
+              ]
             },
             {
               "id": "math_13",
               "num": 13,
               "title": "응용 13번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 45,
+              "solution_pages": [
+                51
+              ]
             }
           ],
           "image": "assets/questions/math_page_04.png",
-          "solution_image": "assets/solutions/sol_math_04.png",
-          "page": 90
+          "solution_image": "assets/solutions/sol_math_04.png?v=20260915_mapping2",
+          "page": 90,
+          "solution_pages": [
+            50,
+            51
+          ]
         },
         {
           "id": "math_p05",
@@ -3878,24 +5242,40 @@ const SKCT_DATA = {
               "id": "math_14",
               "num": 14,
               "title": "응용 14번",
-              "answer": 1
+              "answer": 1,
+              "answer_key_page": 45,
+              "solution_pages": [
+                51
+              ]
             },
             {
               "id": "math_15",
               "num": 15,
               "title": "응용 15번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 45,
+              "solution_pages": [
+                51
+              ]
             },
             {
               "id": "math_16",
               "num": 16,
               "title": "응용 16번",
-              "answer": 1
+              "answer": 1,
+              "answer_key_page": 45,
+              "solution_pages": [
+                52
+              ]
             }
           ],
           "image": "assets/questions/math_page_05.png",
-          "solution_image": "assets/solutions/sol_math_05.png",
-          "page": 91
+          "solution_image": "assets/solutions/sol_math_05.png?v=20260915_mapping2",
+          "page": 91,
+          "solution_pages": [
+            51,
+            52
+          ]
         },
         {
           "id": "math_p06",
@@ -3913,24 +5293,40 @@ const SKCT_DATA = {
               "id": "math_17",
               "num": 17,
               "title": "응용 17번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 45,
+              "solution_pages": [
+                52
+              ]
             },
             {
               "id": "math_18",
               "num": 18,
               "title": "응용 18번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 45,
+              "solution_pages": [
+                52
+              ]
             },
             {
               "id": "math_19",
               "num": 19,
               "title": "응용 19번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 45,
+              "solution_pages": [
+                53
+              ]
             }
           ],
           "image": "assets/questions/math_page_06.png",
-          "solution_image": "assets/solutions/sol_math_06.png",
-          "page": 92
+          "solution_image": "assets/solutions/sol_math_06.png?v=20260915_mapping2",
+          "page": 92,
+          "solution_pages": [
+            52,
+            53
+          ]
         },
         {
           "id": "math_p07",
@@ -3948,24 +5344,40 @@ const SKCT_DATA = {
               "id": "math_20",
               "num": 20,
               "title": "응용 20번",
-              "answer": 1
+              "answer": 1,
+              "answer_key_page": 45,
+              "solution_pages": [
+                53
+              ]
             },
             {
               "id": "math_21",
               "num": 21,
               "title": "응용 21번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 45,
+              "solution_pages": [
+                53
+              ]
             },
             {
               "id": "math_22",
               "num": 22,
               "title": "응용 22번",
-              "answer": 1
+              "answer": 1,
+              "answer_key_page": 45,
+              "solution_pages": [
+                54
+              ]
             }
           ],
           "image": "assets/questions/math_page_07.png",
-          "solution_image": "assets/solutions/sol_math_07.png",
-          "page": 93
+          "solution_image": "assets/solutions/sol_math_07.png?v=20260915_mapping2",
+          "page": 93,
+          "solution_pages": [
+            53,
+            54
+          ]
         },
         {
           "id": "math_p08",
@@ -3983,24 +5395,40 @@ const SKCT_DATA = {
               "id": "math_23",
               "num": 23,
               "title": "응용 23번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 45,
+              "solution_pages": [
+                54
+              ]
             },
             {
               "id": "math_24",
               "num": 24,
               "title": "응용 24번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 45,
+              "solution_pages": [
+                55
+              ]
             },
             {
               "id": "math_25",
               "num": 25,
               "title": "응용 25번",
-              "answer": 1
+              "answer": 1,
+              "answer_key_page": 45,
+              "solution_pages": [
+                55
+              ]
             }
           ],
           "image": "assets/questions/math_page_08.png",
-          "solution_image": "assets/solutions/sol_math_08.png",
-          "page": 94
+          "solution_image": "assets/solutions/sol_math_08.png?v=20260915_mapping2",
+          "page": 94,
+          "solution_pages": [
+            54,
+            55
+          ]
         },
         {
           "id": "math_p09",
@@ -4018,24 +5446,40 @@ const SKCT_DATA = {
               "id": "math_26",
               "num": 26,
               "title": "응용 26번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 45,
+              "solution_pages": [
+                55
+              ]
             },
             {
               "id": "math_27",
               "num": 27,
               "title": "응용 27번",
-              "answer": 1
+              "answer": 1,
+              "answer_key_page": 45,
+              "solution_pages": [
+                56
+              ]
             },
             {
               "id": "math_28",
               "num": 28,
               "title": "응용 28번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 45,
+              "solution_pages": [
+                56
+              ]
             }
           ],
           "image": "assets/questions/math_page_09.png",
-          "solution_image": "assets/solutions/sol_math_09.png",
-          "page": 95
+          "solution_image": "assets/solutions/sol_math_09.png?v=20260915_mapping2",
+          "page": 95,
+          "solution_pages": [
+            55,
+            56
+          ]
         },
         {
           "id": "math_p10",
@@ -4053,18 +5497,30 @@ const SKCT_DATA = {
               "id": "math_29",
               "num": 29,
               "title": "응용 29번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 45,
+              "solution_pages": [
+                57
+              ]
             },
             {
               "id": "math_30",
               "num": 30,
               "title": "응용 30번",
-              "answer": 1
+              "answer": 1,
+              "answer_key_page": 45,
+              "solution_pages": [
+                58
+              ]
             }
           ],
           "image": "assets/questions/math_page_10.png",
-          "solution_image": "assets/solutions/sol_math_10.png",
-          "page": 96
+          "solution_image": "assets/solutions/sol_math_10.png?v=20260915_mapping2",
+          "page": 96,
+          "solution_pages": [
+            57,
+            58
+          ]
         },
         {
           "id": "math_p11",
@@ -4082,24 +5538,39 @@ const SKCT_DATA = {
               "id": "math_31",
               "num": 31,
               "title": "응용 31번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 45,
+              "solution_pages": [
+                59
+              ]
             },
             {
               "id": "math_32",
               "num": 32,
               "title": "응용 32번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 45,
+              "solution_pages": [
+                59
+              ]
             },
             {
               "id": "math_33",
               "num": 33,
               "title": "응용 33번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 45,
+              "solution_pages": [
+                59
+              ]
             }
           ],
           "image": "assets/questions/math_page_11.png",
-          "solution_image": "assets/solutions/sol_math_11.png",
-          "page": 97
+          "solution_image": "assets/solutions/sol_math_11.png?v=20260915_mapping2",
+          "page": 97,
+          "solution_pages": [
+            59
+          ]
         },
         {
           "id": "math_p12",
@@ -4117,30 +5588,50 @@ const SKCT_DATA = {
               "id": "math_34",
               "num": 34,
               "title": "응용 34번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 45,
+              "solution_pages": [
+                60
+              ]
             },
             {
               "id": "math_35",
               "num": 35,
               "title": "응용 35번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 45,
+              "solution_pages": [
+                60
+              ]
             },
             {
               "id": "math_36",
               "num": 36,
               "title": "응용 36번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 45,
+              "solution_pages": [
+                61
+              ]
             },
             {
               "id": "math_37",
               "num": 37,
               "title": "응용 37번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 45,
+              "solution_pages": [
+                61
+              ]
             }
           ],
           "image": "assets/questions/math_page_12.png",
-          "solution_image": "assets/solutions/sol_math_12.png",
-          "page": 98
+          "solution_image": "assets/solutions/sol_math_12.png?v=20260915_mapping2",
+          "page": 98,
+          "solution_pages": [
+            60,
+            61
+          ]
         },
         {
           "id": "math_p13",
@@ -4158,24 +5649,40 @@ const SKCT_DATA = {
               "id": "math_38",
               "num": 38,
               "title": "응용 38번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 45,
+              "solution_pages": [
+                61
+              ]
             },
             {
               "id": "math_39",
               "num": 39,
               "title": "응용 39번",
-              "answer": 1
+              "answer": 1,
+              "answer_key_page": 45,
+              "solution_pages": [
+                62
+              ]
             },
             {
               "id": "math_40",
               "num": 40,
               "title": "응용 40번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 45,
+              "solution_pages": [
+                62
+              ]
             }
           ],
           "image": "assets/questions/math_page_13.png",
-          "solution_image": "assets/solutions/sol_math_13.png",
-          "page": 99
+          "solution_image": "assets/solutions/sol_math_13.png?v=20260915_mapping2",
+          "page": 99,
+          "solution_pages": [
+            61,
+            62
+          ]
         },
         {
           "id": "math_p14",
@@ -4193,24 +5700,39 @@ const SKCT_DATA = {
               "id": "case_1",
               "num": 1,
               "title": "경우 1번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 63,
+              "solution_pages": [
+                65
+              ]
             },
             {
               "id": "case_2",
               "num": 2,
               "title": "경우 2번",
-              "answer": 1
+              "answer": 1,
+              "answer_key_page": 63,
+              "solution_pages": [
+                65
+              ]
             },
             {
               "id": "case_3",
               "num": 3,
               "title": "경우 3번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 63,
+              "solution_pages": [
+                65
+              ]
             }
           ],
           "image": "assets/questions/math_page_14.png",
-          "solution_image": "assets/solutions/sol_math_14.png",
-          "page": 100
+          "solution_image": "assets/solutions/sol_math_14.png?v=20260915_mapping2",
+          "page": 100,
+          "solution_pages": [
+            65
+          ]
         },
         {
           "id": "math_p15",
@@ -4228,24 +5750,39 @@ const SKCT_DATA = {
               "id": "case_4",
               "num": 4,
               "title": "경우 4번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 63,
+              "solution_pages": [
+                65
+              ]
             },
             {
               "id": "case_5",
               "num": 5,
               "title": "경우 5번",
-              "answer": 1
+              "answer": 1,
+              "answer_key_page": 63,
+              "solution_pages": [
+                65
+              ]
             },
             {
               "id": "case_6",
               "num": 6,
               "title": "경우 6번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 63,
+              "solution_pages": [
+                65
+              ]
             }
           ],
           "image": "assets/questions/math_page_15.png",
-          "solution_image": "assets/solutions/sol_math_15.png",
-          "page": 101
+          "solution_image": "assets/solutions/sol_math_15.png?v=20260915_mapping2",
+          "page": 101,
+          "solution_pages": [
+            65
+          ]
         },
         {
           "id": "math_p16",
@@ -4263,24 +5800,40 @@ const SKCT_DATA = {
               "id": "case_7",
               "num": 7,
               "title": "경우 7번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 63,
+              "solution_pages": [
+                65
+              ]
             },
             {
               "id": "case_8",
               "num": 8,
               "title": "경우 8번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 63,
+              "solution_pages": [
+                66
+              ]
             },
             {
               "id": "case_9",
               "num": 9,
               "title": "경우 9번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 63,
+              "solution_pages": [
+                66
+              ]
             }
           ],
           "image": "assets/questions/math_page_16.png",
-          "solution_image": "assets/solutions/sol_math_16.png",
-          "page": 102
+          "solution_image": "assets/solutions/sol_math_16.png?v=20260915_mapping2",
+          "page": 102,
+          "solution_pages": [
+            65,
+            66
+          ]
         },
         {
           "id": "math_p17",
@@ -4298,18 +5851,29 @@ const SKCT_DATA = {
               "id": "case_10",
               "num": 10,
               "title": "경우 10번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 63,
+              "solution_pages": [
+                66
+              ]
             },
             {
               "id": "case_11",
               "num": 11,
               "title": "경우 11번",
-              "answer": 1
+              "answer": 1,
+              "answer_key_page": 63,
+              "solution_pages": [
+                66
+              ]
             }
           ],
           "image": "assets/questions/math_page_17.png",
-          "solution_image": "assets/solutions/sol_math_17.png",
-          "page": 103
+          "solution_image": "assets/solutions/sol_math_17.png?v=20260915_mapping2",
+          "page": 103,
+          "solution_pages": [
+            66
+          ]
         },
         {
           "id": "math_p18",
@@ -4327,30 +5891,49 @@ const SKCT_DATA = {
               "id": "case_12",
               "num": 12,
               "title": "경우 12번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 63,
+              "solution_pages": [
+                66
+              ]
             },
             {
               "id": "case_13",
               "num": 13,
               "title": "경우 13번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 63,
+              "solution_pages": [
+                66
+              ]
             },
             {
               "id": "case_14",
               "num": 14,
               "title": "경우 14번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 63,
+              "solution_pages": [
+                66
+              ]
             },
             {
               "id": "case_15",
               "num": 15,
               "title": "경우 15번",
-              "answer": 1
+              "answer": 1,
+              "answer_key_page": 63,
+              "solution_pages": [
+                66
+              ]
             }
           ],
           "image": "assets/questions/math_page_18.png",
-          "solution_image": "assets/solutions/sol_math_18.png",
-          "page": 104
+          "solution_image": "assets/solutions/sol_math_18.png?v=20260915_mapping2",
+          "page": 104,
+          "solution_pages": [
+            66
+          ]
         },
         {
           "id": "math_p19",
@@ -4368,18 +5951,29 @@ const SKCT_DATA = {
               "id": "case_16",
               "num": 16,
               "title": "경우 16번",
-              "answer": 1
+              "answer": 1,
+              "answer_key_page": 63,
+              "solution_pages": [
+                67
+              ]
             },
             {
               "id": "case_17",
               "num": 17,
               "title": "경우 17번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 63,
+              "solution_pages": [
+                67
+              ]
             }
           ],
           "image": "assets/questions/math_page_19.png",
-          "solution_image": "assets/solutions/sol_math_19.png",
-          "page": 105
+          "solution_image": "assets/solutions/sol_math_19.png?v=20260915_mapping2",
+          "page": 105,
+          "solution_pages": [
+            67
+          ]
         },
         {
           "id": "math_p20",
@@ -4397,24 +5991,39 @@ const SKCT_DATA = {
               "id": "case_18",
               "num": 18,
               "title": "경우 18번",
-              "answer": 1
+              "answer": 1,
+              "answer_key_page": 63,
+              "solution_pages": [
+                67
+              ]
             },
             {
               "id": "case_19",
               "num": 19,
               "title": "경우 19번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 63,
+              "solution_pages": [
+                67
+              ]
             },
             {
               "id": "case_20",
               "num": 20,
               "title": "경우 20번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 63,
+              "solution_pages": [
+                67
+              ]
             }
           ],
           "image": "assets/questions/math_page_20.png",
-          "solution_image": "assets/solutions/sol_math_20.png",
-          "page": 106
+          "solution_image": "assets/solutions/sol_math_20.png?v=20260915_mapping2",
+          "page": 106,
+          "solution_pages": [
+            67
+          ]
         },
         {
           "id": "math_p21",
@@ -4432,24 +6041,39 @@ const SKCT_DATA = {
               "id": "case_21",
               "num": 21,
               "title": "경우 21번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 63,
+              "solution_pages": [
+                67
+              ]
             },
             {
               "id": "case_22",
               "num": 22,
               "title": "경우 22번",
-              "answer": 1
+              "answer": 1,
+              "answer_key_page": 63,
+              "solution_pages": [
+                67
+              ]
             },
             {
               "id": "case_23",
               "num": 23,
               "title": "경우 23번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 63,
+              "solution_pages": [
+                67
+              ]
             }
           ],
           "image": "assets/questions/math_page_21.png",
-          "solution_image": "assets/solutions/sol_math_21.png",
-          "page": 107
+          "solution_image": "assets/solutions/sol_math_21.png?v=20260915_mapping2",
+          "page": 107,
+          "solution_pages": [
+            67
+          ]
         },
         {
           "id": "math_p22",
@@ -4467,24 +6091,39 @@ const SKCT_DATA = {
               "id": "case_24",
               "num": 24,
               "title": "경우 24번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 63,
+              "solution_pages": [
+                67
+              ]
             },
             {
               "id": "case_25",
               "num": 25,
               "title": "경우 25번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 63,
+              "solution_pages": [
+                67
+              ]
             },
             {
               "id": "case_26",
               "num": 26,
               "title": "경우 26번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 63,
+              "solution_pages": [
+                67
+              ]
             }
           ],
           "image": "assets/questions/math_page_22.png",
-          "solution_image": "assets/solutions/sol_math_22.png",
-          "page": 108
+          "solution_image": "assets/solutions/sol_math_22.png?v=20260915_mapping2",
+          "page": 108,
+          "solution_pages": [
+            67
+          ]
         },
         {
           "id": "math_p23",
@@ -4502,24 +6141,39 @@ const SKCT_DATA = {
               "id": "case_27",
               "num": 27,
               "title": "경우 27번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 63,
+              "solution_pages": [
+                67
+              ]
             },
             {
               "id": "case_28",
               "num": 28,
               "title": "경우 28번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 63,
+              "solution_pages": [
+                67
+              ]
             },
             {
               "id": "case_29",
               "num": 29,
               "title": "경우 29번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 63,
+              "solution_pages": [
+                67
+              ]
             }
           ],
           "image": "assets/questions/math_page_23.png",
-          "solution_image": "assets/solutions/sol_math_23.png",
-          "page": 109
+          "solution_image": "assets/solutions/sol_math_23.png?v=20260915_mapping2",
+          "page": 109,
+          "solution_pages": [
+            67
+          ]
         },
         {
           "id": "math_p24",
@@ -4537,18 +6191,29 @@ const SKCT_DATA = {
               "id": "case_30",
               "num": 30,
               "title": "경우 30번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 63,
+              "solution_pages": [
+                68
+              ]
             },
             {
               "id": "case_31",
               "num": 31,
               "title": "경우 31번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 63,
+              "solution_pages": [
+                68
+              ]
             }
           ],
           "image": "assets/questions/math_page_24.png",
-          "solution_image": "assets/solutions/sol_math_24.png",
-          "page": 110
+          "solution_image": "assets/solutions/sol_math_24.png?v=20260915_mapping2",
+          "page": 110,
+          "solution_pages": [
+            68
+          ]
         },
         {
           "id": "math_p25",
@@ -4566,30 +6231,49 @@ const SKCT_DATA = {
               "id": "case_32",
               "num": 32,
               "title": "경우 32번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 63,
+              "solution_pages": [
+                68
+              ]
             },
             {
               "id": "case_33",
               "num": 33,
               "title": "경우 33번",
-              "answer": 1
+              "answer": 1,
+              "answer_key_page": 63,
+              "solution_pages": [
+                68
+              ]
             },
             {
               "id": "case_34",
               "num": 34,
               "title": "경우 34번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 63,
+              "solution_pages": [
+                68
+              ]
             },
             {
               "id": "case_35",
               "num": 35,
               "title": "경우 35번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 63,
+              "solution_pages": [
+                68
+              ]
             }
           ],
           "image": "assets/questions/math_page_25.png",
-          "solution_image": "assets/solutions/sol_math_25.png",
-          "page": 111
+          "solution_image": "assets/solutions/sol_math_25.png?v=20260915_mapping2",
+          "page": 111,
+          "solution_pages": [
+            68
+          ]
         },
         {
           "id": "math_p26",
@@ -4607,30 +6291,50 @@ const SKCT_DATA = {
               "id": "case_36",
               "num": 36,
               "title": "경우 36번",
-              "answer": 5
+              "answer": 5,
+              "answer_key_page": 63,
+              "solution_pages": [
+                68
+              ]
             },
             {
               "id": "case_37",
               "num": 37,
               "title": "경우 37번",
-              "answer": 1
+              "answer": 1,
+              "answer_key_page": 63,
+              "solution_pages": [
+                68
+              ]
             },
             {
               "id": "case_38",
               "num": 38,
               "title": "경우 38번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 63,
+              "solution_pages": [
+                68
+              ]
             },
             {
               "id": "case_39",
               "num": 39,
               "title": "경우 39번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 63,
+              "solution_pages": [
+                69
+              ]
             }
           ],
           "image": "assets/questions/math_page_26.png",
-          "solution_image": "assets/solutions/sol_math_26.png",
-          "page": 112
+          "solution_image": "assets/solutions/sol_math_26.png?v=20260915_mapping2",
+          "page": 112,
+          "solution_pages": [
+            68,
+            69
+          ]
         },
         {
           "id": "math_p27",
@@ -4648,24 +6352,39 @@ const SKCT_DATA = {
               "id": "case_40",
               "num": 40,
               "title": "경우 40번",
-              "answer": 1
+              "answer": 1,
+              "answer_key_page": 63,
+              "solution_pages": [
+                69
+              ]
             },
             {
               "id": "case_41",
               "num": 41,
               "title": "경우 41번",
-              "answer": 1
+              "answer": 1,
+              "answer_key_page": 63,
+              "solution_pages": [
+                69
+              ]
             },
             {
               "id": "case_42",
               "num": 42,
               "title": "경우 42번",
-              "answer": 2
+              "answer": 2,
+              "answer_key_page": 63,
+              "solution_pages": [
+                69
+              ]
             }
           ],
           "image": "assets/questions/math_page_27.png",
-          "solution_image": "assets/solutions/sol_math_27.png",
-          "page": 113
+          "solution_image": "assets/solutions/sol_math_27.png?v=20260915_mapping2",
+          "page": 113,
+          "solution_pages": [
+            69
+          ]
         },
         {
           "id": "math_p28",
@@ -4683,27 +6402,44 @@ const SKCT_DATA = {
               "id": "case_43",
               "num": 43,
               "title": "경우 43번",
-              "answer": 4
+              "answer": 4,
+              "answer_key_page": 63,
+              "solution_pages": [
+                69
+              ]
             },
             {
               "id": "case_44",
               "num": 44,
               "title": "경우 44번",
-              "answer": 3
+              "answer": 3,
+              "answer_key_page": 63,
+              "solution_pages": [
+                69
+              ]
             },
             {
               "id": "case_45",
               "num": 45,
               "title": "경우 45번",
-              "answer": 1
+              "answer": 1,
+              "answer_key_page": 63,
+              "solution_pages": [
+                70
+              ]
             }
           ],
           "image": "assets/questions/math_page_28.png",
-          "solution_image": "assets/solutions/sol_math_28.png",
-          "page": 114
+          "solution_image": "assets/solutions/sol_math_28.png?v=20260915_mapping2",
+          "page": 114,
+          "solution_pages": [
+            69,
+            70
+          ]
         }
       ]
     }
-  ]
+  ],
+  "mapping_version": "20260915_mapping2"
 };
 if (typeof module !== "undefined") module.exports = SKCT_DATA;
