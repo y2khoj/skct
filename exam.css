@@ -1,13 +1,13 @@
 /* Keep the original exam workspace and add a route back to strategy training. */
-.exam-mode-bar { display:flex; align-items:center; flex-wrap:wrap; gap:14px; padding:8px 18px; background:#16263f; border-bottom:1px solid #324468; flex-shrink:0; font-size:13px; }
-.exam-mode-bar a.exam-back-btn { color:#93c5fd; font-weight:700; text-decoration:none; background:#1e3a5f; border:1px solid #3b82f6; padding:4px 10px; border-radius:6px; transition:all .2s ease; }
-.exam-mode-bar a.exam-back-btn:hover { background:#2563eb; color:#fff; }
-.exam-mode-bar span { color:#a9b8ce; }
-.exam-mode-bar strong { color:#e2e8f0; }
-.exam-bar-divider { color:#3b5478; }
-.back-training-btn { background:#1e3a5f !important; color:#93c5fd !important; border:1px solid #3b82f6 !important; text-decoration:none; font-weight:700; transition:all .2s ease; }
-.back-training-btn:hover { background:#2563eb !important; color:#fff !important; transform:translateY(-1px); }
-.exam-question-time { color:#9ac2ff; font-size:13px; white-space:nowrap; }
+.exam-mode-bar { display:flex; align-items:center; flex-wrap:wrap; gap:14px; padding:8px 18px; background: var(--bg-card-alt); border-bottom: 1px solid var(--border-color); flex-shrink:0; font-size:13px; }
+.exam-mode-bar a.exam-back-btn { color: var(--brand-ink); font-weight:700; text-decoration:none; background: var(--bg-card-alt); border: 1px solid var(--primary); padding:4px 10px; border-radius: 6px; transition:all .2s ease; }
+.exam-mode-bar a.exam-back-btn:hover { background: var(--primary); color: #fff; }
+.exam-mode-bar span { color: var(--text-muted); }
+.exam-mode-bar strong { color: var(--text-main); }
+.exam-bar-divider { color: var(--text-muted); }
+.back-training-btn { background: var(--bg-card-alt) !important; color: var(--brand-ink) !important; border: 1px solid var(--primary) !important; text-decoration:none; font-weight:700; transition:all .2s ease; }
+.back-training-btn:hover { background: var(--primary) !important; color: #fff !important; transform:translateY(-1px); }
+.exam-question-time { color: var(--brand-ink); font-size:13px; white-space:nowrap; }
 #workspace { flex:1 1 0; min-height:0; height:auto; display:flex; overflow:hidden; }
 #main-header { height:auto; min-height:56px; flex-wrap:wrap; padding:8px 16px; flex-shrink:0; }
 .q-top-bar { flex-wrap:wrap; gap:8px; height:auto; min-height:40px; padding:6px 16px; flex-shrink:0; }
@@ -19,8 +19,8 @@
 .calc-numpad-badge { display:none; }
 .modal-overlay:not(.open),.omr-flyout:not(.open),.calc-history-drawer:not(.open) { visibility:hidden; }
 .modal-card { overflow:auto; }
-.res-q-time { color:#a9c7ed; font-size:12px; margin-top:8px; }
-a:focus-visible,button:focus-visible,select:focus-visible { outline:3px solid #88b5ff; outline-offset:3px; }
+.res-q-time { color: var(--brand-ink); font-size:12px; margin-top:8px; }
+a:focus-visible,button:focus-visible,select:focus-visible { outline: 3px solid var(--primary); outline-offset:3px; }
 @media(max-width:800px) {
   #app-container { overflow:auto; }
   #workspace { flex-direction:column; flex:none; overflow:visible; height:auto; }

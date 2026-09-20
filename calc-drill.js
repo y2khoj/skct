@@ -79,7 +79,7 @@
     const denGrowth = Math.abs(b_den - a_den) / Math.min(a_den, b_den);
     let tip = `A: ${a_num}/${a_den} (${pctA}) vs B: ${b_num}/${b_den} (${pctB}) → <strong>${larger}</strong>`;
     if (a_num < b_num && a_den < b_den) {
-      tip += `<br><span style="color:#94a3b8; font-size:0.85em;">💡 분모 변화율 대비 분자 변화율: 분자 ${(numGrowth*100).toFixed(0)}% vs 분모 ${(denGrowth*100).toFixed(0)}%</span>`;
+      tip += `<br><span style="color: var(--text-muted); font-size:0.85em;">💡 분모 변화율 대비 분자 변화율: 분자 ${(numGrowth*100).toFixed(0)}% vs 분모 ${(denGrowth*100).toFixed(0)}%</span>`;
     }
 
     return {
@@ -108,7 +108,7 @@
     return {
       type: 'growth',
       typeName: '📈 증가율 어림셈',
-      prompt: `${base.toLocaleString()}에서 ${target.toLocaleString()}로 ${directionWord}했습니다.<br><span style="color:#38bdf8">${directionWord}율은 약 몇 %</span>일까요?`,
+      prompt: `${base.toLocaleString()}에서 ${target.toLocaleString()}로 ${directionWord}했습니다.<br><span style="color: var(--brand-ink)">${directionWord}율은 약 몇 %</span>일까요?`,
       expression: `${base.toLocaleString()} → ${target.toLocaleString()}`,
       correct: absRate,
       unit: '%',
@@ -678,7 +678,7 @@
     });
 
     if (!filtered.length) {
-      list.innerHTML = '<div style="text-align:center; padding:1.5rem; color:#64748b;">해당하는 문항이 없습니다.</div>';
+      list.innerHTML = '<div style="text-align:center; padding:1.5rem; color: var(--text-muted);">해당하는 문항이 없습니다.</div>';
       return;
     }
 
