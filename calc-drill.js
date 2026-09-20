@@ -423,7 +423,7 @@
         <div class="prompt-expression">${q.expression}</div>
         <div class="prompt-text">${q.prompt}</div>
         <div class="calc-input-wrapper">
-          <input type="text" id="calc-input-field" class="calc-main-input" inputmode="decimal" autocomplete="off" autofocus placeholder="?">
+          <input type="text" id="calc-input-field" aria-label="계산 답 입력" class="calc-main-input" inputmode="decimal" autocomplete="off" autofocus placeholder="?">
           ${q.unit ? `<span class="input-unit">${q.unit}</span>` : ''}
         </div>
         <button type="button" id="btn-input-submit" class="btn-submit-answer">정답 확인 (Enter)</button>
@@ -568,6 +568,10 @@
   }
 
   function handleGlobalKeydown(e) {
+    if(e.defaultPrevented||e.ctrlKey||e.metaKey||e.altKey||e.repeat)return;
+    const tag=e.target?.tagName;
+    if(['SELECT','TEXTAREA'].includes(tag)||e.target?.isContentEditable)return;
+    if(['BUTTON','A','SUMMARY'].includes(tag)&&['Enter',' '].includes(e.key))return;
     // 1. Setup View Hotkeys
     if (setupView.style.display !== 'none') {
       if (e.key === 'Enter') {

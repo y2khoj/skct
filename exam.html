@@ -2,18 +2,19 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="SKCT 모의고사">
-  <title>SKCT 기존 모의고사 · 온라인 실전 풀이관</title>
+  <title>SKCT 실전 모의고사 · 온라인 실전 풀이관</title>
   <meta name="description" content="SKCT 유형 진단, 15분 집중 훈련, 문항별 풀이시간 기록과 보류·회수·오답 복습">
-  <link rel="stylesheet" href="style.css?v=20260920_hynix1">
-  <link rel="stylesheet" href="exam.css?v=20260920_hynix1">
-  <link rel="stylesheet" href="question-text.css?v=20260920_hynix1">
+  <link rel="stylesheet" href="style.css?v=20260920_ux1">
+  <link rel="stylesheet" href="exam.css?v=20260920_ux1">
+  <link rel="stylesheet" href="question-text.css?v=20260920_ux1">
   <meta name="theme-color" content="#EA002C">
-  <link rel="stylesheet" href="hynix-theme.css?v=20260920_hynix1">
+  <link rel="stylesheet" href="hynix-theme.css?v=20260920_ux1">
+  <link rel="stylesheet" href="usability.css?v=20260920_ux1">
 </head>
 <body>
   <div id="app-container">
@@ -21,7 +22,7 @@
     <header id="main-header">
       <div class="header-left">
         <a href="index.html" class="header-action-btn back-training-btn" title="나의 훈련실로 돌아가기">
-          <span>🏠 나의 훈련실</span>
+          <span>훈련실</span>
         </a>
         <div class="logo-area">
           <span class="logo-badge">SKCT</span>
@@ -58,17 +59,17 @@
 
         <button id="flag-btn" class="header-action-btn flag-btn" title="나중에 다시 볼 문제로 표시">
           <span class="flag-icon">★</span>
-          <span class="flag-text">검토 표시</span>
+          <span class="flag-text">검토</span>
         </button>
 
         <button id="omr-drawer-toggle" class="header-action-btn omr-toggle-btn">
           <span class="omr-icon">📋</span>
-          <span>OMR 현황 (<span id="omr-answered-count">0</span>/<span id="omr-total-count">48</span>)</span>
+          <span>답안 (<span id="omr-answered-count">0</span>/<span id="omr-total-count">48</span>)</span>
         </button>
 
         <button id="submit-exam-btn" class="header-action-btn submit-btn">
           <span class="submit-icon">✅</span>
-          <span>제출 및 자동 채점</span>
+          <span>채점하기</span>
         </button>
       </div>
     </header>
@@ -76,7 +77,7 @@
     <nav class="exam-mode-bar" aria-label="화면 전환">
       <a href="index.html" class="exam-back-btn">← 나의 훈련실로 이동</a>
       <span class="exam-bar-divider">|</span>
-      <strong>기존 모의고사 (실전 풀이관)</strong>
+      <strong>실전 모의고사</strong>
       <span>과목별 · 전체 통합 / 299문항</span>
       <span class="exam-bar-divider">|</span>
       <a href="calc-drill.html" class="exam-calc-link" style=" text-decoration:none; font-weight:700; display:inline-flex; align-items:center; gap:5px;   padding:4px 12px; border-radius: 6px; margin-left:auto;">⚡ 스피드 계산 연습관 바로가기 →</a>
@@ -93,11 +94,11 @@
           </div>
 
           <div class="q-zoom-controls">
-            <button id="zoom-out-btn" class="zoom-btn" title="축소">－</button>
-            <span id="zoom-level-text">100%</span>
-            <button id="zoom-in-btn" class="zoom-btn" title="확대">＋</button>
-            <button id="zoom-fit-width" class="zoom-btn text-btn">너비 맞춤</button>
-            <button id="zoom-fit-page" class="zoom-btn text-btn">원래 크기</button>
+            <button id="zoom-out-btn" class="zoom-btn" title="글자 작게" aria-label="글자 작게">－</button>
+            <span id="zoom-level-text" aria-live="polite">100%</span>
+            <button id="zoom-in-btn" class="zoom-btn" title="글자 크게" aria-label="글자 크게">＋</button>
+            <button id="zoom-fit-width" class="zoom-btn text-btn">기본 크기</button>
+            <button id="zoom-fit-page" hidden class="zoom-btn text-btn">원래 크기</button>
           </div>
 
           <div class="review-status-tag" id="review-status-tag" style="display: none;">
@@ -321,13 +322,13 @@
       <div class="omr-legend">
         <span class="legend-item"><span class="legend-dot answered"></span> 마킹 완료</span>
         <span class="legend-item"><span class="legend-dot unanswered"></span> 미응답</span>
-        <span class="legend-item"><span class="legend-dot flagged"></span> 검토 표시</span>
+        <span class="legend-item"><span class="legend-dot flagged"></span> 검토</span>
       </div>
       <div id="omr-grid" class="omr-grid">
         <!-- Populated via JS -->
       </div>
       <div class="omr-drawer-footer">
-        <button id="omr-submit-btn" class="btn-primary">시험 제출 및 자동 채점</button>
+        <button id="omr-submit-btn" class="btn-primary">시험 채점하기</button>
       </div>
     </div>
 
@@ -417,15 +418,16 @@
   </div>
 
   <!-- Load Dataset -->
-  <script src="data/skct_data.js?v=20260920_hynix1"></script>
-  <script src="data/question-bank.js?v=20260920_hynix1"></script>
-  <script src="question-bank-core.js?v=20260920_hynix1"></script>
-  <script src="question-text.js?v=20260920_hynix1"></script>
+  <script src="data/skct_data.js?v=20260920_ux1"></script>
+  <script src="data/question-bank.js?v=20260920_ux1"></script>
+  <script src="question-bank-core.js?v=20260920_ux1"></script>
+  <script src="question-text.js?v=20260920_ux1"></script>
   <!-- Load Drawing Canvas Engine -->
-  <script src="paint.js?v=20260920_hynix1"></script>
+  <script src="paint.js?v=20260920_ux1"></script>
   <!-- Load Fullscreen Controller -->
-  <script src="fullscreen.js?v=20260920_hynix1"></script>
+  <script src="fullscreen.js?v=20260920_ux1"></script>
   <!-- Load App Logic -->
-  <script src="app.js?v=20260920_hynix1"></script>
+  <script src="app.js?v=20260920_ux1"></script>
+  <script src="ui-shell.js?v=20260920_ux1"></script>
 </body>
 </html>

@@ -257,7 +257,8 @@
     els.questionImage.src = q.image;
     SKCTText.renderQuestion(q, {
       selected:userAnswers, locked:isReviewMode, review:isReviewMode,
-      onChoose:(qid,value)=>{activeSubQIndex=q.subQuestions.findIndex(s=>s.id===qid);pickAnswer(value,qid);}
+      onChoose:(qid,value)=>{activeSubQIndex=q.subQuestions.findIndex(s=>s.id===qid);pickAnswer(value,qid);},
+      onClear:clearAnswer
     });
 
     // Dynamic OMR Options rendering for all subQuestions on this page
@@ -546,9 +547,7 @@
 
   // --- ZOOM CONTROLS ---
   function setZoom(level) {
-    zoomLevel = Math.max(0.5, Math.min(2.5, level));
-    els.qImageContainer.style.transform = `scale(${zoomLevel})`;
-    els.zoomLevelText.textContent = `${Math.round(zoomLevel * 100)}%`;
+    zoomLevel = SKCTText.setZoom(level);
   }
 
   // --- TIMER ---
@@ -1120,8 +1119,7 @@
     if (els.zoomOutBtn) els.zoomOutBtn.addEventListener('click', () => setZoom(zoomLevel - 0.15));
     if (els.zoomFitWidth) {
       els.zoomFitWidth.addEventListener('click', () => {
-        const containerWidth = els.qViewport ? (els.qViewport.clientWidth - 48) : 900;
-        setZoom(containerWidth / 900);
+        setZoom(1);
       });
     }
     if (els.zoomFitPage) els.zoomFitPage.addEventListener('click', () => setZoom(1.0));
@@ -1397,7 +1395,10 @@
 
     window.addEventListener('keydown', e => {
       const activeTag = document.activeElement ? document.activeElement.tagName.toLowerCase() : '';
-      const inTextarea = (activeTag === 'textarea' || activeTag === 'input');
+      const inTextarea = ['textarea','input','select'].includes(activeTag)||document.activeElement?.isContentEditable;
+      if(e.key==='Tab'||e.ctrlKey||e.metaKey||e.altKey)return;
+      if(document.querySelector('.modal-overlay.open'))return;
+      if(['button','a','summary'].includes(activeTag)&&[' ','Enter','ArrowUp','ArrowDown'].includes(e.key))return;
 
       // If user is actively typing in the notepad textarea, don't intercept normal typing
       if (inTextarea) {
@@ -1517,22 +1518,6 @@
       }
 
       // 4. Question Screen Hotkeys (when calculator is NOT specifically focused)
-      // Tab or Shift+Tab: cycle sub-questions on the current page
-      if (e.key === 'Tab') {
-        const q = activeSection?.questions[currentQIndex];
-        const subLen = q?.subQuestions?.length || 1;
-        if (subLen > 1) {
-          e.preventDefault();
-          if (e.shiftKey) {
-            activeSubQIndex = (activeSubQIndex - 1 + subLen) % subLen;
-          } else {
-            activeSubQIndex = (activeSubQIndex + 1) % subLen;
-          }
-          updateActiveSubQHighlight();
-          return;
-        }
-      }
-
       // ArrowUp / ArrowDown: cycle sub-questions on the current page
       if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
         const q = activeSection?.questions[currentQIndex];

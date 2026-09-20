@@ -39,12 +39,12 @@
   function content(q,includeOptions,config={}) {
     const card=node('article','text-question-card');card.dataset.questionId=q.id;
     const header=node('div','text-question-meta');header.append(node('span','text-number',q.title),node('span','text-source',`원본 ${q.source.question_page}p`));card.append(header);
-    if(q.passage_id){const passage=bank.passages[q.passage_id],section=node('section','text-passage');section.append(node('h3','','공통 지문'),prose(passage.text));card.append(section);}
+    if(q.passage_id){const passage=bank.passages[q.passage_id],section=node('section','text-passage');section.append(node('h3','','공통 지문'),prose(passage.text,'text-flow'));card.append(section);}
     card.append(node('h3','text-stem',q.stem));
     if(q.tables) q.tables.forEach(t=>card.append(table(t)));
     if(q.figure_description) card.append(node('p','text-source-note',q.figure_description));
     if(q.layout_mode==='spatial_text'&&q.context_svg)card.append(svg(q.context_svg,`${q.title} 자료·조건`));
-    else if(q.context)card.append(prose(q.context,'text-context'));
+    else if(q.context)card.append(prose(q.context,'text-context'+(q.section_id==='lang'?' text-flow':'')));
     if(includeOptions){
       const choices=node('div','text-options');choices.setAttribute('role','group');choices.setAttribute('aria-label',`${q.title} 답 선택`);
       q.options.forEach(o=>{
@@ -57,6 +57,14 @@
         if(config.review&&config.selected?.[q.id]===o.number&&o.id!==q.answer_option_id)b.classList.add('is-wrong');
         b.addEventListener('click',()=>config.onChoose?.(q.id,o.number));choices.append(b);
       });card.append(choices);
+      const selected=config.selected?.[q.id];
+      if(selected&&!config.locked&&config.onClear){
+        const row=node('div','text-selection-status');
+        row.append(node('span','',`${selected}번 선택됨`));
+        const clear=node('button','text-clear-answer','선택 취소');clear.type='button';clear.setAttribute('aria-label',`${q.title} 선택 취소`);
+        clear.addEventListener('click',()=>{config.onClear(q.id);document.querySelector(`[data-question-id="${CSS.escape(q.id)}"] .text-option`)?.focus({preventScroll:true});});
+        row.append(clear);card.append(row);
+      }
     }
     return card;
   }
@@ -72,7 +80,7 @@
     const focused=document.activeElement?.dataset.optionId;
     const root=mount('question-text','question-image');
     root.dataset.pageId=page.id;
-    if(page.is_passage){const passage=bank.passages[page.id];const card=node('article','text-question-card');card.append(prose(passage.text));root.append(card);return;}
+    if(page.is_passage){const passage=bank.passages[page.id];const card=node('article','text-question-card');card.append(prose(passage.text,'text-flow'));root.append(card);return;}
     page.subQuestions.forEach(sub=>root.append(content(bank.questions[sub.id],true,config)));
     const original=node('details','text-original');original.append(node('summary','','원본 페이지 확인'));
     const img=node('img');img.src=page.image;img.alt='원본 문제 페이지';img.loading='lazy';original.append(img);root.append(original);
@@ -90,5 +98,15 @@
     const original=node('details','text-original');original.append(node('summary','','원본 해설·손글씨 풀이 확인'));
     const img=node('img');img.src=page.solution_image;img.alt='원본 해설';img.loading='lazy';original.append(img);root.append(original);
   }
-  window.SKCTText={renderQuestion,renderSolution};
+  function setZoom(value) {
+    const scale=Math.max(.85,Math.min(1.75,value));
+    const container=document.getElementById('q-image-container');
+    container.style.transform='none';container.style.width='100%';container.style.maxWidth='900px';
+    container.style.setProperty('--reading-scale',scale);
+    document.getElementById('zoom-level-text').textContent=Math.round(scale*100)+'%';
+    document.getElementById('zoom-out-btn').disabled=scale<=.85;
+    document.getElementById('zoom-in-btn').disabled=scale>=1.75;
+    return scale;
+  }
+  window.SKCTText={renderQuestion,renderSolution,setZoom};
 })();

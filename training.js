@@ -42,26 +42,38 @@
   function buildUI() {
     const home = el('main','home'); home.id='training-home';
     home.innerHTML = `
-      <nav class="home-nav"><div class="home-brand"><span class="logo-badge">SKCT</span> 나의 훈련실</div><div class="home-mode-links"><span class="muted" id="storage-status">이 브라우저에 자동 저장</span><button type="button" id="home-fullscreen-btn" class="fullscreen-toggle-btn action" style="background: var(--bg-card-alt); color: var(--brand-ink); border: 1px solid var(--primary); padding:8px 14px; border-radius: 8px; font-weight:700; display:inline-flex; align-items:center; gap:6px; cursor:pointer;" title="태블릿/PC 전체화면 몰입 모드 (F11)"><span class="fullscreen-icon">⛶</span> <span class="fullscreen-text">전체화면</span></button><a href="calc-drill.html" class="action calc-link" style="   text-decoration:none; padding:8px 14px; border-radius: 8px; font-weight:700; display:inline-flex; align-items:center; gap:6px;">⚡ 스피드 계산 연습관 →</a><a href="exam.html" class="action primary-link" style="   text-decoration:none; padding:8px 14px; border-radius: 8px; font-weight:700; display:inline-flex; align-items:center; gap:6px;">📝 기존 모의고사 바로가기 →</a></div></nav>
-      <div class="home-hero"><div><div class="eyebrow">SK hynix · SKCT PRACTICE</div><h1>풀 수 있는 문제부터,<br>시간 안에 정확하게.</h1><p>유형을 익히고, 풀이 속도를 재고, 놓친 문제를 다시 회수하세요.<br>자료해석과 언어추리부터 시작하는 나만의 SKCT 훈련 루틴.</p></div><aside class="strategy-card"><div class="eyebrow">오늘 기억할 한 가지</div><strong>15초 판단 → 보류 → 회수</strong><p>풀이 방향이 안 보이면 잠시 넘기세요.<br>확실한 문제를 푼 뒤, 보류한 문제로 돌아옵니다.</p></aside></div>
+      <nav class="home-nav" aria-label="주요 메뉴">
+        <div class="home-brand"><span class="logo-badge">SKCT</span> 나의 훈련실</div>
+        <div class="home-mode-links"><a href="calc-drill.html">계산 연습</a><a href="exam.html">실전 모의고사 →</a></div>
+      </nav>
+      <div class="home-hero"><div><div class="eyebrow">SK hynix · SKCT PRACTICE</div><h1>오늘의 훈련을 시작하세요.</h1><p>훈련 방식과 영역을 고르면 바로 시작할 수 있어요.</p></div><span class="muted" id="storage-status">이 브라우저에 자동 저장</span></div>
       <div id="resume-banner" class="resume-banner" hidden><span id="resume-description"></span><button id="resume-session" class="action">이어하기</button></div>
-      <div class="mode-grid" role="group" aria-label="훈련 단계">
-       <button class="mode-card" data-mode="diagnose" aria-pressed="true"><small>STEP 01 · 이번 주</small><b>유형 진단</b><span>시간 제한 없이 풀고<br>약한 유형부터 찾기</span></button>
-       <button class="mode-card" data-mode="timed" aria-pressed="false"><small>STEP 02 · 다음 단계</small><b>15분 집중</b><span>영역별 시간 제한으로<br>보류와 회수 연습하기</span></button>
-       <button class="mode-card" data-mode="full" aria-pressed="false"><small>STEP 03 · 실전 적응</small><b>5영역 연속</b><span>영역마다 시간을 나누어<br>연속으로 집중하기</span></button>
-       <button class="mode-card" data-mode="review" aria-pressed="false"><small>STEP 04 · 시험 직전</small><b>약점 복습</b><span>오답·미응답·시간 초과<br>다시 풀고 원인 기록하기</span></button>
-       <a href="calc-drill.html" class="mode-card mode-card-calc calc-link" style=" "><small>자료해석 속산 특훈 · 비타민</small><b>⚡ 스피드 계산 연습</b><span>분수 비교 · 증가율 · 비중 · 곱셈<br>타임어택 어림셈 무한 드릴 →</span></a>
-       <a href="exam.html" class="mode-card mode-card-exam"><small>실전 풀세트 · 75:25 분할</small><b>기존 모의고사</b><span>3/4 문제화면 + 메모장 + 계산기<br>과목별 / 전체 실전 OMR 풀이 →</span></a>
+      <section class="training-start" aria-labelledby="training-start-title">
+        <h2 id="training-start-title" class="step-title"><span>1</span> 훈련 방식</h2>
+        <div class="mode-grid" role="group" aria-label="훈련 방식">
+          <button class="mode-card" data-mode="diagnose" aria-pressed="true"><small>처음이라면 추천</small><b>유형 진단</b><span>시간 제한 없이 유형 익히기</span></button>
+          <button class="mode-card" data-mode="timed" aria-pressed="false"><small>시간 관리</small><b>15분 집중</b><span>보류와 회수 연습하기</span></button>
+          <button class="mode-card" data-mode="full" aria-pressed="false"><small>실전 적응</small><b>5영역 연속</b><span>영역을 바꾸며 집중하기</span></button>
+          <button class="mode-card" data-mode="review" aria-pressed="false"><small>기록 기반</small><b>약점 복습</b><span>오답과 놓친 문제 다시 풀기</span></button>
+        </div>
+        <section class="setup" aria-labelledby="setup-title">
+          <h2 id="setup-title" class="step-title"><span>2</span> 영역과 분량</h2>
+          <div class="setup-fields">
+            <label>집중할 영역<select id="train-section"></select></label>
+            <label>출제 페이지 수<input id="train-count" type="number" min="1" max="48" value="10" aria-describedby="setup-description"></label>
+            <label id="minutes-label" hidden>영역당 제한 (분)<input id="train-minutes" type="number" min="1" max="90" value="15"></label>
+            <label class="check-label"><input id="allow-calc" type="checkbox"> 계산기 사용</label>
+            <button id="start-training" class="action primary">유형 진단 시작 →</button>
+          </div>
+          <p id="setup-description" class="setup-note"></p><p id="start-message" role="status" class="notice"></p>
+        </section>
+      </section>
+      <details class="training-help"><summary>훈련 방법과 출제 단위 안내</summary><p>한 페이지에 여러 문항이 포함될 수 있습니다. 풀이 방향이 15초 안에 떠오르지 않으면 보류하고, 풀 수 있는 문제부터 해결하세요.</p><p>이곳은 개인 훈련용입니다. 실제 시험의 문항 수·제한 시간·계산기 허용 여부는 본인 응시 안내를 확인하세요.</p></details>
+      <div class="home-bottom">
+        <section class="home-panel"><h2>영역별 훈련 기록</h2><div id="area-stats"></div><p class="muted">각 문항의 최근 시도 기준 · 45초 초과는 복습 지표입니다.<br>계산연습 페이지는 직접 점검으로 기록합니다.</p></section>
+        <section class="home-panel"><h2>최근 훈련</h2><div id="recent-sessions"></div><div class="warmup-row"><div><b>시작 전, 계산 워밍업</b><p>증가율·비중·비율을 5문제로 가볍게</p></div><button id="open-drill" class="action">워밍업</button></div></section>
       </div>
-      <section class="setup" aria-label="훈련 설정"><div class="setup-fields">
-       <label>집중할 영역<select id="train-section"></select></label>
-       <label>문항 / 페이지 수<input id="train-count" type="number" min="1" max="48" value="10"></label>
-       <label id="minutes-label" hidden>영역당 제한 (분)<input id="train-minutes" type="number" min="1" max="90" value="15"></label>
-       <label class="check-label"><input id="allow-calc" type="checkbox"> 계산기 사용</label>
-       <button id="start-training" class="action primary">유형 진단 시작 →</button>
-      </div><p id="setup-description" class="setup-note"></p><p class="setup-note">훈련용 설정입니다. 실제 시험의 문항 수·제한 시간·계산기 허용 여부는 본인 응시 안내에 맞춰 조정하세요.</p><p id="start-message" role="status" class="notice"></p></section>
-      <div class="home-bottom"><section class="home-panel"><h2>영역별 훈련 기록</h2><div id="area-stats"></div><p class="muted">객관식 정답률은 각 문항의 최근 시도 기준입니다.<br>45초 초과는 훈련 지표이며, 계산연습 페이지에는 적용하지 않습니다.</p></section><section class="home-panel"><h2>오늘의 계산 워밍업</h2><p>증가율 · 구성비 · 비율 비교 · 평균 · 역산<br>계산기 없이 근사하고, 계산식과 비교해 보세요.</p><div style="display:flex; gap:10px; margin-top:16px; flex-wrap:wrap;"><a href="calc-drill.html" class="action primary calc-link" style="text-decoration:none;    font-weight:700;">⚡ 스피드 계산 연습관 입장</a><button id="open-drill" class="action">5문제 퀵 워밍업</button></div><h2 style="margin-top:26px">최근 훈련</h2><div id="recent-sessions"></div></section></div>
-      <div class="home-links"><a href="calc-drill.html" class="action calc-link" style="text-decoration:none;    font-weight:700;">⚡ 스피드 계산 연습관</a><a href="exam.html" class="action" style="text-decoration:none;    font-weight:700;">📝 기존 모의고사 화면으로 이동</a><button id="export-records" class="action">기록 백업</button><button id="import-records" class="action">백업 가져오기</button><input id="import-file" type="file" accept="application/json" hidden></div><p class="muted" style="margin:16px 0 30px">기존 앱의 답안·메모는 보관되어 있습니다. 새 훈련은 회차별로 독립적으로 기록합니다.</p>`;
+      <footer class="home-links"><span class="muted">학습 기록 관리</span><button id="export-records" class="action">기록 백업</button><button id="import-records" class="action">백업 가져오기</button><input id="import-file" type="file" accept="application/json" hidden><button type="button" id="home-fullscreen-btn" class="fullscreen-toggle-btn action" title="전체화면 전환"><span class="fullscreen-icon">⛶</span> <span class="fullscreen-text">전체화면</span></button></footer>`;
     document.body.prepend(home);
     sections.forEach(s=>{const o=el('option','',s.name);o.value=s.id;$('train-section').append(o);});
     $('train-section').value='data';
@@ -111,6 +123,7 @@
   function renderHome(save=true) {
     $('training-home').hidden=false;$('app-container').hidden=true;
     $('resume-banner').hidden=!db.active;
+    if(db.active) $('resume-session').textContent=db.active.review?'결과 보기':'이어 풀기';
     if(db.active) $('resume-description').textContent=`${labels[db.active.mode]} · ${db.active.blocks[db.active.block].name} ${db.active.review?'결과 이어보기':'진행 중'}`;
     $('area-stats').replaceChildren();
     sections.forEach(s=>{
@@ -130,7 +143,7 @@
   }
   async function startTraining() {
     const count=Number($('train-count').value), minutes=Number($('train-minutes').value);
-    if(!Number.isInteger(count)||count<1||count>48||!Number.isInteger(minutes)||minutes<1||minutes>90){$('start-message').textContent='문항 수는 1~48, 제한 시간은 1~90분의 정수로 입력하세요.';return;}
+    if(!Number.isInteger(count)||count<1||count>48||!Number.isInteger(minutes)||minutes<1||minutes>90){$('start-message').textContent='페이지 수는 1~48, 제한 시간은 1~90분의 정수로 입력하세요.';(!Number.isInteger(count)||count<1||count>48?$('train-count'):$('train-minutes')).focus();return;}
     if(db.active&&!db.active.review&&!await confirmAction('진행 중인 훈련을 새 훈련으로 바꿀까요? 완료한 훈련 기록은 보관됩니다.'))return;
     const chosen=mode==='full'?['lang','data','math','reason','seq'].map(id=>sections.find(s=>s.id===id)):[sections.find(s=>s.id===$('train-section').value)];
     const blocks=chosen.map(s=>{
@@ -237,7 +250,8 @@
     SKCTText.renderQuestion(q, {
       selected:a.answers || (a.answer!=null?{[q.subQuestions[0]?.id]:a.answer}:{}),
       locked:session.review, review:session.review,
-      onChoose:(qid,value)=>{activeSubIdx=q.subQuestions.findIndex(s=>s.id===qid);pickSub(qid,value);}
+      onChoose:(qid,value)=>{activeSubIdx=q.subQuestions.findIndex(s=>s.id===qid);pickSub(qid,value);},
+      onClear:qid=>{if(session.review||!running)return;delete a.answers?.[qid];if(q.subQuestions[0]?.id===qid)delete a.answer;renderQuestion();persist();}
     });
     renderTrainingOMROptions(q, a);
     const bar = $('omr-options-bar') || document.querySelector('.omr-options-bar');
@@ -398,7 +412,7 @@
     $('solution-modal').classList.add('open');
   }
   function home() {if(session&&!session.review)pause();else running=false;persist();session=null;document.querySelectorAll('.modal-overlay').forEach(n=>n.classList.remove('open'));renderHome();}
-  function setZoom(n){zoom=Math.max(.5,Math.min(2.5,n));$('q-image-container').style.transform='none';$('q-image-container').style.width=zoom*100+'%';$('q-image-container').style.maxWidth=900*zoom+'px';$('zoom-level-text').textContent=Math.round(zoom*100)+'%';}
+  function setZoom(n){zoom=SKCTText.setZoom(n);}
   function bind() {
     document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>setMode(b.dataset.mode)));
     on('train-section',setupDescription,'change');on('start-training',startTraining);on('back-home',home);
@@ -435,7 +449,8 @@
     window.addEventListener('keydown',e=>{
       if(!session||$('app-container').hidden||e.ctrlKey||e.metaKey||e.altKey||e.repeat)return;
       const tag=document.activeElement?.tagName;
-      if(['INPUT','TEXTAREA','SELECT'].includes(tag)||document.activeElement?.isContentEditable)return;
+      if(e.key==='Tab'||['INPUT','TEXTAREA','SELECT'].includes(tag)||document.activeElement?.isContentEditable)return;
+      if(['BUTTON','A','SUMMARY'].includes(tag)&&[' ','Enter','ArrowUp','ArrowDown'].includes(e.key))return;
       if(document.querySelector('.modal-overlay.open')){if(e.key==='Escape')document.querySelectorAll('.modal-overlay').forEach(n=>n.classList.remove('open'));return;}
       if(e.key==='Escape'){if(running)pause();return;}
       if(!running&&!session.review)return;
@@ -447,10 +462,6 @@
         const subQ=subs[activeSubIdx]||subs[0];
         pickSub(subQ.id, val);
         if(activeSubIdx<subs.length-1){activeSubIdx++;renderQuestion();}
-      }
-      else if(e.key==='Tab'){
-        const subs=question().subQuestions||[];
-        if(subs.length>1){e.preventDefault();activeSubIdx=(activeSubIdx+(e.shiftKey?-1:1)+subs.length)%subs.length;renderQuestion();}
       }
       else if(e.key==='ArrowUp'||e.key==='ArrowDown'){
         const subs=question().subQuestions||[];
