@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#EA002C">
+  <title>원본 자료실 · SKCT 훈련실</title>
+  <link rel="stylesheet" href="style.css?v=20260921_reading1">
+  <link rel="stylesheet" href="hynix-theme.css?v=20260921_reading1">
+  <link rel="stylesheet" href="source-library.css?v=20260921_reading1">
+</head>
+<body class="source-library">
+  <header class="library-header">
+    <a class="library-brand" href="index.html"><span class="logo-badge">SKCT</span> 나의 훈련실</a>
+    <nav aria-label="주요 메뉴"><a href="index.html">훈련실</a><a href="exam.html">실전 모의고사</a><a href="calc-drill.html">계산 연습</a></nav>
+  </header>
+  <main class="library-main">
+    <div class="library-intro"><p class="library-eyebrow">SOURCE LIBRARY</p><h1>원본 자료실</h1><p>문제·공통 지문·해설·손글씨 풀이를 한곳에서 확인하세요.</p></div>
+    <section class="library-filters" aria-label="원본 검색">
+      <label for="source-section">과목<select id="source-section"><option value="all">전체 과목</option></select></label>
+      <label for="source-search">문항 찾기<input id="source-search" type="search" placeholder="예: 언어이해 8번, 자료해석 30번" autocomplete="off"></label>
+      <button id="clear-source-search" type="button">검색 초기화</button>
+    </section>
+    <p id="source-count" class="library-count" role="status"></p>
+    <div class="library-workspace">
+      <aside class="library-index" aria-label="원본 목록"><div id="source-list"></div></aside>
+      <section id="source-viewer" class="source-viewer" aria-labelledby="source-title">
+        <header class="source-viewer-header"><div><h2 id="source-title" tabindex="-1"></h2><p id="source-meta"></p></div><div class="source-paging"><button id="source-prev" type="button" aria-label="이전 원본">←</button><button id="source-next" type="button" aria-label="다음 원본">→</button></div></header>
+        <div class="source-viewer-tools"><div role="group" aria-label="자료 종류"><button id="show-source-question" type="button" aria-pressed="true">문제 원본</button><button id="show-source-solution" type="button" aria-pressed="false">해설·손글씨</button></div><a id="source-open-image" target="_blank" rel="noopener">이미지 크게 열기 ↗</a></div>
+        <p id="source-load-status" role="status"></p>
+        <figure class="source-image-wrap"><img id="source-preview" alt=""><figcaption id="source-caption"></figcaption></figure>
+      </section>
+      <p id="source-empty" hidden>일치하는 원본이 없습니다. 과목이나 검색어를 바꿔 주세요.</p>
+    </div>
+  </main>
+  <script src="data/skct_data.js?v=20260921_reading1"></script>
+  <script src="source-library.js?v=20260921_reading1"></script>
+</body>
+</html>

@@ -253,8 +253,7 @@
     els.memoQNum.textContent = currentQIndex + 1;
     els.qCategoryText.textContent = `${q.section} · ${q.part ? q.part + ' · ' : ''}${q.q_label ? q.q_label : (q.category || '')}`;
 
-    // Question Image
-    els.questionImage.src = q.image;
+    // Text questions; original images are loaded only in the source library.
     SKCTText.renderQuestion(q, {
       selected:userAnswers, locked:isReviewMode, review:isReviewMode,
       onChoose:(qid,value)=>{activeSubQIndex=q.subQuestions.findIndex(s=>s.id===qid);pickAnswer(value,qid);},
@@ -1039,14 +1038,7 @@
     els.solCorrectNum.textContent = `정답 [${ansSummary}]`;
     els.solCategoryName.textContent = `${q.section} · 원본 해설 PDF ${q.solution_pages.join(', ')}페이지`;
 
-    if (q.solution_image) {
-      els.solutionImage.src = q.solution_image;
-      els.solutionImage.alt = `${q.title} 해설 · PDF ${q.solution_pages.join(', ')}페이지`;
-      els.solutionImage.closest('.sol-modal-body').scrollTop = 0;
-      els.solutionImage.style.display = 'block';
-    } else {
-      els.solutionImage.style.display = 'none';
-    }
+    els.solutionImage.closest('.sol-modal-body').scrollTop = 0;
 
     els.solutionModal.classList.add('open');
     SKCTText.renderSolution(q);

@@ -22,6 +22,7 @@
     toolsButton=document.createElement('button');toolsButton.id='toggle-tools';toolsButton.className='tools-toggle';toolsButton.type='button';toolsButton.textContent='풀이 도구';toolsButton.setAttribute('aria-controls','side-panel');
     document.querySelector('.q-top-bar').append(toolsButton);
     const heading=document.createElement('div');heading.className='tools-heading';heading.innerHTML='<h2>메모 · 그림판 · 계산기</h2><button id="close-tools" class="tools-close" type="button" aria-label="풀이 도구 닫기">닫기</button>';toolsPanel.prepend(heading);
+    const archive=document.createElement('a');archive.href='sources.html';archive.target='_blank';archive.rel='noopener';archive.className='tools-source-link';archive.textContent='원본 자료실 열기 ↗';archive.setAttribute('aria-label','원본 자료실 (새 탭)');heading.after(archive);
     toolsBackdrop=document.createElement('div');toolsBackdrop.className='tools-backdrop';toolsBackdrop.hidden=true;document.body.append(toolsBackdrop);
     toolsButton.addEventListener('click',()=>showTools(toolsPanel.hidden));
     $('close-tools').addEventListener('click',()=>showTools(false));toolsBackdrop.addEventListener('click',()=>showTools(false));

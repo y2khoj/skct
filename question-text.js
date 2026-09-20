@@ -3,11 +3,10 @@
   const bank = SKCT_QUESTION_BANK;
   QuestionBankCore.bind(SKCT_DATA, bank);
   const node = (tag,cls,text) => {const el=document.createElement(tag);if(cls)el.className=cls;if(text!=null)el.textContent=text;return el;};
-  // Only separate explicit paragraph/list boundaries; keep source wording and line breaks.
+  // Reflow extracted line wraps while preserving explicit paragraph/list boundaries.
   function prose(text, cls='') {
     const wrap=node('div',`text-prose ${cls}`.trim());
-    const parts=String(text).split(/(?:\n[ \t]*\n)|(?=^[ \t]*[•●▶※])|(?<=[.!?。]\s)(?=(?:첫째|둘째|셋째|넷째|다섯째)(?:로)?[,，])/mu);
-    parts.filter(part=>part.trim()).forEach(part=>wrap.append(node('p','text-paragraph',part)));
+    SKCTTextLayout.paragraphs(text).forEach(part=>wrap.append(node('p','text-paragraph',part)));
     return wrap;
   }
   function svg(markup, label) {
@@ -40,7 +39,7 @@
     const card=node('article','text-question-card');card.dataset.questionId=q.id;
     const header=node('div','text-question-meta');header.append(node('span','text-number',q.title),node('span','text-source',`원본 ${q.source.question_page}p`));card.append(header);
     if(q.passage_id){const passage=bank.passages[q.passage_id],section=node('section','text-passage');section.append(node('h3','','공통 지문'),prose(passage.text,'text-flow'));card.append(section);}
-    card.append(node('h3','text-stem',q.stem));
+    card.append(node('h3','text-stem',SKCTTextLayout.inline(q.stem)));
     if(q.tables) q.tables.forEach(t=>card.append(table(t)));
     if(q.figure_description) card.append(node('p','text-source-note',q.figure_description));
     if(q.layout_mode==='spatial_text'&&q.context_svg)card.append(svg(q.context_svg,`${q.title} 자료·조건`));
@@ -51,7 +50,7 @@
         const b=node('button','text-option');b.type='button';b.dataset.optionId=o.id;b.dataset.questionId=q.id;
         b.setAttribute('aria-pressed',String(config.selected?.[q.id]===o.number));
         b.disabled=!!config.locked;
-        b.append(node('span','text-option-number',['①','②','③','④','⑤'][o.number-1]),node('span','text-option-copy',o.text));
+        b.append(node('span','text-option-number',['①','②','③','④','⑤'][o.number-1]),node('span','text-option-copy',SKCTTextLayout.inline(o.text)));
         if(o.diagram)b.append(clock(o.diagram));
         if(config.review&&o.id===q.answer_option_id){b.classList.add('is-correct');b.append(node('span','text-answer-label','정답'));}
         if(config.review&&config.selected?.[q.id]===o.number&&o.id!==q.answer_option_id)b.classList.add('is-wrong');
@@ -82,8 +81,6 @@
     root.dataset.pageId=page.id;
     if(page.is_passage){const passage=bank.passages[page.id];const card=node('article','text-question-card');card.append(prose(passage.text,'text-flow'));root.append(card);return;}
     page.subQuestions.forEach(sub=>root.append(content(bank.questions[sub.id],true,config)));
-    const original=node('details','text-original');original.append(node('summary','','원본 페이지 확인'));
-    const img=node('img');img.src=page.image;img.alt='원본 문제 페이지';img.loading='lazy';original.append(img);root.append(original);
     viewport.scrollTop=scroll;
     if(focused)root.querySelector(`[data-option-id="${CSS.escape(focused)}"]`)?.focus({preventScroll:true});
   }
@@ -91,18 +88,16 @@
     const root=mount('solution-text','solution-image');
     page.subQuestions.forEach(sub=>{
       const q=bank.questions[sub.id],answer=QuestionBankCore.answer(q),card=node('article','text-question-card');
-      card.dataset.questionId=q.id;card.append(node('h3','text-stem',q.title),node('p','bound-answer',`정답 ${answer.number}번 · ${answer.text}`));
+      card.dataset.questionId=q.id;card.append(node('h3','text-stem',q.title),node('p','bound-answer',`정답 ${answer.number}번 · ${SKCTTextLayout.inline(answer.text)}`));
       if(q.explanation?.text)card.append(prose(q.explanation.text));
       card.append(node('p','text-source-note',`원본 정답표 ${q.source.answer_key_page}p · 해설 ${q.source.solution_pages.join(', ')}p`));root.append(card);
     });
-    const original=node('details','text-original');original.append(node('summary','','원본 해설·손글씨 풀이 확인'));
-    const img=node('img');img.src=page.solution_image;img.alt='원본 해설';img.loading='lazy';original.append(img);root.append(original);
   }
   function setZoom(value) {
     const scale=Math.max(.85,Math.min(1.75,value));
     const container=document.getElementById('q-image-container');
     container.style.transform='none';container.style.width='100%';container.style.maxWidth='900px';
-    container.style.setProperty('--reading-scale',scale);
+    document.documentElement.style.setProperty('--reading-scale',scale);
     document.getElementById('zoom-level-text').textContent=Math.round(scale*100)+'%';
     document.getElementById('zoom-out-btn').disabled=scale<=.85;
     document.getElementById('zoom-in-btn').disabled=scale>=1.75;

@@ -44,7 +44,7 @@
     home.innerHTML = `
       <nav class="home-nav" aria-label="주요 메뉴">
         <div class="home-brand"><span class="logo-badge">SKCT</span> 나의 훈련실</div>
-        <div class="home-mode-links"><a href="calc-drill.html">계산 연습</a><a href="exam.html">실전 모의고사 →</a></div>
+        <div class="home-mode-links"><a href="sources.html">원본 자료실</a><a href="calc-drill.html">계산 연습</a><a href="exam.html">실전 모의고사 →</a></div>
       </nav>
       <div class="home-hero"><div><div class="eyebrow">SK hynix · SKCT PRACTICE</div><h1>오늘의 훈련을 시작하세요.</h1><p>훈련 방식과 영역을 고르면 바로 시작할 수 있어요.</p></div><span class="muted" id="storage-status">이 브라우저에 자동 저장</span></div>
       <div id="resume-banner" class="resume-banner" hidden><span id="resume-description"></span><button id="resume-session" class="action">이어하기</button></div>
@@ -245,8 +245,6 @@
     $('session-label').textContent=`${labels[session.mode]} · ${session.block+1}/${session.blocks.length}영역`;
     $('current-q-num').textContent=session.index+1;$('total-q-num').textContent=block().ids.length;$('memo-q-num').textContent=q.num;
     $('q-category-text').textContent=`${q.section} · ${q.part ? q.part + ' · ' : ''}${q.q_label || (q.num + (isManual ? '페이지' : '번'))} · ${q.category}`;
-    if($('question-image').getAttribute('src')!==q.image){$('question-image').src=q.image;$('q-viewport').scrollTop=0;}
-    $('question-image').alt=q.title;
     SKCTText.renderQuestion(q, {
       selected:a.answers || (a.answer!=null?{[q.subQuestions[0]?.id]:a.answer}:{}),
       locked:session.review, review:session.review,
@@ -405,8 +403,6 @@
     $('sol-modal-title').textContent=q.title+' · 해설';
     $('sol-correct-num').textContent=ansStr;
     $('sol-category-name').textContent=`${q.section} · 원본 해설 PDF ${q.solution_pages.join(', ')}페이지`;
-    $('solution-image').src=q.solution_image;
-    $('solution-image').alt=`${q.title} 해설 · PDF ${q.solution_pages.join(', ')}페이지`;
     $('solution-image').closest('.sol-modal-body').scrollTop=0;
     SKCTText.renderSolution(q);
     $('solution-modal').classList.add('open');

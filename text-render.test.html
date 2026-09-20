@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="question-text.css"><style>body{font-family:'Malgun Gothic',sans-serif;background:#edf2f5;margin:24px}header{max-width:950px;margin:auto;padding:15px}#q-viewport,.sol-modal-body{max-width:950px;margin:auto}#q-viewport{height:65vh;overflow:auto}button,select{padding:8px}#checks{white-space:pre-line}</style>
 <header><h1>텍스트 문항 검증</h1><p id="checks">검증 중</p><select id="case-select" aria-label="검증할 문제"></select><label><input id="review" type="checkbox"> 정답 보기</label><p id="selected"></p></header>
 <main id="q-viewport"><img id="question-image"></main><section class="sol-modal-body"><img id="solution-image"></section>
-<script src="data/skct_data.js"></script><script src="data/question-bank.js"></script><script src="question-bank-core.js"></script><script src="question-text.js"></script>
+<script src="data/skct_data.js"></script><script src="data/question-bank.js"></script><script src="question-bank-core.js"></script><script src="text-layout-core.js?v=20260921_reading1"></script><script src="question-text.js"></script>
 <script>
 const pages=SKCT_DATA.sections.flatMap(s=>s.questions),select=document.getElementById('case-select'),answers={};
 let errors=[],count=0;

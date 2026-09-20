@@ -172,3 +172,6 @@ button:disabled { cursor:default; }
 .text-clear-answer { min-height:40px; padding:8px 12px; border:1px solid var(--border-color); border-radius:8px; color:var(--text-muted); background:#fff; cursor:pointer; }
 /* The text solution already includes its bound answer and source details. */
 .sol-modal-body:has(#solution-text) .sol-correct-answer-banner { display:none; }
+.source-library-link,.tools-source-link{color:var(--brand-ink);text-decoration:none;background:#fff;border:1px solid var(--border-color);border-radius:8px}
+.tools-source-link{margin:8px 12px;padding:8px 12px;min-height:40px;font-size:14px;flex-shrink:0}
+.source-library-link:hover,.tools-source-link:hover{background:var(--brand-soft)}
