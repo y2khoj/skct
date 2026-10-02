@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#b90023">
+  <link rel="icon" href="data:,">
+  <meta name="description" content="내 PDF로 풀어보는 SKCT 실전 시험. 문제와 답안은 브라우저에서 처리됩니다.">
+  <title>내 PDF로 보는 SKCT 실전 시험</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./pdf-engine.js" defer></script>
+  <script src="./answer-engine.js" defer></script>
+  <script src="./storage.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="site-header">
+      <div class="brand-lockup">
+        <span class="brand-mark" aria-hidden="true">SKCT</span>
+        <div>
+          <p class="brand-eyebrow">PDF 실전 시험</p>
+          <h1>내 문제집으로 연습하기</h1>
+        </div>
+      </div>
+      <a class="site-home-link" href="../index.html">기존 훈련실로 이동 <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main>
+      <section id="setup-view" class="view setup-view" aria-labelledby="setup-title">
+        <div class="setup-heading">
+          <div>
+            <span class="eyebrow">나만의 시험지 만들기</span>
+            <h2 id="setup-title">PDF를 선택하면 시험지를 준비합니다.</h2>
+            <p>각자 가지고 있는 SKCT 문제집을 불러와 회차와 영역, 풀 문제를 고르세요.</p>
+          </div>
+          <div class="time-rule" aria-label="영역별 제한 시간 15분">
+            <span>영역별</span><strong>15<span>분</span></strong>
+          </div>
+        </div>
+
+        <div class="setup-grid">
+          <div class="setup-primary">
+            <section class="card import-card" aria-labelledby="import-title">
+              <div class="card-heading">
+                <span class="step-number">01</span>
+                <div>
+                  <h3 id="import-title">문제 PDF 가져오기</h3>
+                  <p>여러 파일을 선택하면 회차별로 이어서 시험을 볼 수 있습니다.</p>
+                </div>
+              </div>
+              <label class="file-picker" for="pdf-input">
+                <span class="file-icon" aria-hidden="true">＋</span>
+                <strong>문제 PDF 선택</strong>
+                <span>클릭해서 한 개 이상 선택하세요</span>
+              </label>
+              <input id="pdf-input" class="visually-hidden" type="file" accept="application/pdf,.pdf" multiple aria-describedby="pdf-privacy-note">
+              <div class="password-row">
+                <label for="pdf-password-input">암호가 있는 PDF</label>
+                <input id="pdf-password-input" type="password" autocomplete="off" placeholder="필요할 때만 입력" aria-describedby="pdf-privacy-note">
+                <button id="analyze-btn" class="button button-secondary" type="button" disabled>다시 분석</button>
+              </div>
+              <p id="pdf-privacy-note" class="privacy-note">PDF와 암호는 이 브라우저에서 처리합니다. 암호는 저장하지 않습니다.</p>
+              <div id="file-list" class="file-list" aria-live="polite">
+                <p class="empty-state">선택한 PDF가 없습니다.</p>
+              </div>
+            </section>
+
+            <section class="card prepare-card" aria-labelledby="prepare-title">
+              <div class="card-heading">
+                <span class="step-number">02</span>
+                <div>
+                  <h3 id="prepare-title">회차와 문제 선택</h3>
+                  <p>인식된 목록을 확인하고 이번 시험에 넣을 문제를 선택하세요.</p>
+                </div>
+              </div>
+              <div id="analysis-status" class="status-banner" role="status" aria-live="polite">문제 PDF를 선택하면 분석을 시작합니다.</div>
+              <div class="progress-line">
+                <progress id="analysis-progress" max="100" value="0" hidden></progress>
+                <span id="analysis-progress-text" aria-live="polite"></span>
+              </div>
+              <div id="setup-summary" class="setup-summary" aria-live="polite"></div>
+              <div id="issue-list" class="issue-list" role="status" aria-live="polite"></div>
+              <div id="section-list" class="section-list">
+                <p class="empty-state">PDF 분석이 끝나면 회차와 영역이 여기에 표시됩니다.</p>
+              </div>
+              <div id="manual-range-panel" class="manual-range-panel" hidden>
+                <h4>회차·영역을 찾지 못했나요?</h4>
+                <p>문제가 있는 페이지 범위를 지정하면 해당 부분을 다시 분석합니다.</p>
+                <div class="manual-range-fields">
+                  <label>문제 PDF<select id="manual-range-source"></select></label>
+                  <label>회차·영역 이름<input id="manual-range-name" type="text" placeholder="예: 1회 언어이해"></label>
+                  <label>시작 페이지<input id="manual-range-start" type="number" min="1" inputmode="numeric" placeholder="1"></label>
+                  <label>끝 페이지<input id="manual-range-end" type="number" min="1" inputmode="numeric" placeholder="20"></label>
+                  <button id="add-manual-range-btn" class="button button-secondary" type="button">범위 분석</button>
+                </div>
+              </div>
+            </section>
+
+            <section class="card answer-card" aria-labelledby="answer-title">
+              <div class="card-heading">
+                <span class="step-number">03</span>
+                <div>
+                  <h3 id="answer-title">정답과 해설 확인</h3>
+                  <p>정답 PDF가 따로 있다면 불러오세요. 인식된 번호는 시험 전후에 고칠 수 있습니다.</p>
+                </div>
+              </div>
+              <div class="answer-import-row">
+                <label for="answer-target-source">연결할 문제 PDF</label>
+                <select id="answer-target-source" aria-label="정답을 연결할 문제 PDF"></select>
+                <label class="button button-secondary file-inline" for="answer-pdf-input">정답·해설 PDF 선택</label>
+                <input id="answer-pdf-input" class="visually-hidden" type="file" accept="application/pdf,.pdf">
+                <button id="extract-answers-btn" class="button button-secondary" type="button" disabled>정답 추출</button>
+              </div>
+              <div id="answer-file-list" class="file-list compact-list" aria-live="polite"></div>
+              <div id="answer-extraction-status" class="inline-status" role="status" aria-live="polite"></div>
+              <div id="answer-editor-list" class="answer-editor-list">
+                <p class="empty-state">문제 분석 후 정답 번호를 입력하거나 확인할 수 있습니다.</p>
+              </div>
+              <button id="save-corrections-btn" class="button button-secondary" type="button" hidden>정답 수정 저장</button>
+            </section>
+          </div>
+
+          <aside class="setup-aside" aria-label="시험 시작 설정">
+            <section class="card start-card">
+              <span class="aside-kicker">시험 규칙</span>
+              <h3>실제 시험처럼 한 방향으로</h3>
+              <ol class="rule-list">
+                <li>문제 또는 공통 지문 묶음이 한 번에 표시됩니다.</li>
+                <li>다음으로 이동할 때 답이 확정되며 돌아갈 수 없습니다.</li>
+                <li>영역마다 15분입니다. 종료 시 다음 영역이 시작됩니다.</li>
+              </ol>
+              <label class="save-option">
+                <input id="save-locally" type="checkbox">
+                <span><strong>이 PC에 분석 결과와 오답 저장</strong><small>이 브라우저에서 다음에 다시 사용할 수 있습니다.</small></span>
+              </label>
+              <button id="start-exam-btn" class="button button-primary start-button" type="button" disabled>시험 시작 <span aria-hidden="true">→</span></button>
+              <p class="start-footnote">첫 영역의 문제 준비가 끝나면 타이머가 시작됩니다.</p>
+            </section>
+            <section class="card local-card">
+              <h3>PC에 따로 보관하기</h3>
+              <p>분석 결과를 파일로 내려받거나 나중에 다시 불러올 수 있습니다.</p>
+              <div class="local-actions">
+                <button id="export-analysis-btn" class="button button-quiet" type="button" disabled>분석 파일 저장</button>
+                <label class="button button-quiet file-inline" for="import-analysis-input">분석 파일 불러오기</label>
+                <input id="import-analysis-input" class="visually-hidden" type="file" accept="application/json,.json">
+              </div>
+              <div id="saved-list" class="saved-list" aria-live="polite"></div>
+              <div class="mistake-panel">
+                <h4>오답 문제 번호</h4>
+                <div id="mistake-list" class="mistake-list" aria-live="polite"></div>
+                <button id="select-mistakes-btn" class="button button-secondary" type="button" hidden>저장된 오답만 선택</button>
+              </div>
+            </section>
+          </aside>
+        </div>
+      </section>
+
+      <section id="exam-view" class="view exam-view" aria-label="시험 화면" hidden>
+        <div class="exam-topbar">
+          <div class="exam-place">
+            <span id="exam-round" class="round-pill">1회</span>
+            <div>
+              <span class="mini-label">현재 영역</span>
+              <strong id="exam-section">영역 준비 중</strong>
+            </div>
+            <span class="exam-count"><b id="exam-question-number">1</b><span> / </span><span id="exam-question-total">1</span>번</span>
+          </div>
+          <div class="exam-clock" aria-label="남은 시간">
+            <span class="mini-label">영역 남은 시간</span>
+            <strong id="timer-display" aria-live="off">15:00</strong>
+          </div>
+        </div>
+        <div class="exam-workspace">
+          <div class="question-column">
+            <div class="question-toolbar">
+              <div>
+                <span class="eyebrow">문제 원본</span>
+                <p>보기 위치를 눌러 답을 고르세요.</p>
+              </div>
+              <div class="question-zoom" aria-label="문제 확대 축소">
+                <button id="zoom-out-btn" type="button" aria-label="문제 축소">−</button>
+                <span id="zoom-level">100%</span>
+                <button id="zoom-in-btn" type="button" aria-label="문제 확대">＋</button>
+              </div>
+              <button id="finish-section-btn" class="button button-quiet" type="button">영역 일찍 마치기</button>
+            </div>
+            <div id="exam-error" class="exam-error" role="alert" hidden></div>
+            <div id="question-scroll" class="question-scroll">
+              <div id="question-image-stack" class="question-image-stack" aria-live="polite"></div>
+            </div>
+            <div class="question-footer">
+              <div class="answer-indicator" role="status" aria-live="polite"><span class="answer-indicator-label">선택한 답</span><strong id="selected-answer">미응답</strong></div>
+              <p class="one-way-note">다음으로 넘어가면 이 문제로 돌아올 수 없습니다.</p>
+              <button id="next-question-btn" class="button button-primary" type="button">다음 문제 <span aria-hidden="true">→</span></button>
+            </div>
+          </div>
+
+          <aside class="tools-column" aria-label="시험 도구">
+            <div class="tools-heading"><strong>시험 도구</strong><span>메모 · 그림판 · 계산기</span></div>
+            <div class="tool-tabs" role="tablist" aria-label="시험 도구 선택">
+              <button id="tool-memo-tab" class="tool-tab active" type="button" role="tab" aria-controls="memo-panel" aria-selected="true" data-tool-target="memo-panel">메모장</button>
+              <button id="tool-draw-tab" class="tool-tab" type="button" role="tab" aria-controls="draw-panel" aria-selected="false" data-tool-target="draw-panel">그림판</button>
+              <button id="tool-calculator-tab" class="tool-tab" type="button" role="tab" aria-controls="calculator-panel" aria-selected="false" data-tool-target="calculator-panel">계산기</button>
+            </div>
+            <div id="memo-panel" class="tool-panel" role="tabpanel" aria-labelledby="tool-memo-tab">
+              <label for="memo-input" class="tool-help">풀이 과정과 필요한 숫자를 적어두세요.</label>
+              <textarea id="memo-input" spellcheck="false" placeholder="여기에 메모를 작성하세요"></textarea>
+            </div>
+            <div id="draw-panel" class="tool-panel" role="tabpanel" aria-labelledby="tool-draw-tab" hidden>
+              <div class="draw-toolbar">
+                <div class="draw-colors" aria-label="펜 색상">
+                  <button class="draw-color active" type="button" data-color="#222222" style="--swatch:#222222" aria-label="검정 펜" title="검정 펜"></button>
+                  <button class="draw-color" type="button" data-color="#2455bb" style="--swatch:#2455bb" aria-label="파랑 펜" title="파랑 펜"></button>
+                  <button class="draw-color" type="button" data-color="#c42132" style="--swatch:#c42132" aria-label="빨강 펜" title="빨강 펜"></button>
+                </div>
+                <button id="draw-clear-btn" class="button button-quiet" type="button">전체 지우기</button>
+              </div>
+              <div class="canvas-frame"><canvas id="draw-canvas" aria-label="풀이 그림판"></canvas></div>
+            </div>
+            <div id="calculator-panel" class="tool-panel" role="tabpanel" aria-labelledby="tool-calculator-tab" hidden>
+              <p class="tool-help">간단한 사칙연산 계산기</p>
+              <output id="calculator-display" class="calculator-display" aria-live="polite">0</output>
+              <div class="calculator-grid" aria-label="계산기 키패드">
+                <button class="calc-key calc-function" type="button" data-calc="clear">C</button>
+                <button class="calc-key calc-function" type="button" data-calc="backspace">⌫</button>
+                <button class="calc-key calc-function" type="button" data-calc="percent">%</button>
+                <button class="calc-key calc-operator" type="button" data-calc="/">÷</button>
+                <button class="calc-key" type="button" data-calc="7">7</button>
+                <button class="calc-key" type="button" data-calc="8">8</button>
+                <button class="calc-key" type="button" data-calc="9">9</button>
+                <button class="calc-key calc-operator" type="button" data-calc="*">×</button>
+                <button class="calc-key" type="button" data-calc="4">4</button>
+                <button class="calc-key" type="button" data-calc="5">5</button>
+                <button class="calc-key" type="button" data-calc="6">6</button>
+                <button class="calc-key calc-operator" type="button" data-calc="-">−</button>
+                <button class="calc-key" type="button" data-calc="1">1</button>
+                <button class="calc-key" type="button" data-calc="2">2</button>
+                <button class="calc-key" type="button" data-calc="3">3</button>
+                <button class="calc-key calc-operator" type="button" data-calc="+">+</button>
+                <button class="calc-key calc-zero" type="button" data-calc="0">0</button>
+                <button class="calc-key" type="button" data-calc=".">.</button>
+                <button class="calc-key calc-equals" type="button" data-calc="=">=</button>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="result-view" class="view result-view" aria-labelledby="result-title" hidden>
+        <div class="result-heading">
+          <span class="eyebrow">시험 결과</span>
+          <h2 id="result-title">수고하셨습니다.</h2>
+          <p>선택한 답과 정답을 비교하고 틀린 문제 번호를 확인하세요.</p>
+        </div>
+        <div id="result-summary" class="result-summary" aria-live="polite"></div>
+        <section class="card result-list-card" aria-labelledby="result-list-title">
+          <div class="result-list-heading">
+            <div><h3 id="result-list-title">문항별 결과</h3><p>정답이 비어 있거나 잘못 추출됐다면 아래에서 수정할 수 있습니다.</p></div>
+            <button id="export-results-btn" class="button button-secondary" type="button">결과 파일 저장</button>
+          </div>
+          <div id="result-list" class="result-list"></div>
+        </section>
+        <button id="restart-btn" class="button button-primary" type="button">새 시험 준비하기 <span aria-hidden="true">→</span></button>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="next-confirm-dialog" class="confirm-dialog" aria-labelledby="next-confirm-title" aria-describedby="next-confirm-text">
+    <div class="dialog-symbol" aria-hidden="true">→</div>
+    <h2 id="next-confirm-title">다음 문제로 이동할까요?</h2>
+    <p id="next-confirm-text">넘어가면 이전 문제로 돌아올 수 없습니다.</p>
+    <div class="dialog-actions"><button id="cancel-next-btn" class="button button-secondary" type="button">계속 풀기</button><button id="confirm-next-btn" class="button button-primary" type="button">답 확정하고 이동</button></div>
+  </dialog>
+  <dialog id="finish-section-dialog" class="confirm-dialog" aria-labelledby="finish-section-title">
+    <div class="dialog-symbol" aria-hidden="true">✓</div>
+    <h2 id="finish-section-title">이 영역을 마칠까요?</h2>
+    <p id="finish-section-text">현재 영역의 남은 시간은 다음 영역으로 넘어가지 않습니다. 마치면 되돌아올 수 없습니다.</p>
+    <div class="dialog-actions"><button id="cancel-finish-section-btn" class="button button-secondary" type="button">계속 풀기</button><button id="confirm-finish-section-btn" class="button button-primary" type="button">다음 영역 시작</button></div>
+  </dialog>
+</body>
+</html>
