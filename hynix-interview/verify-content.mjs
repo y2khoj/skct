@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 
 const context={window:{}};
 vm.createContext(context);
-for(const name of ['packaging','memory','questions','industry','curriculum','coaching','cases-packaging','cases-analysis']){
+for(const name of ['packaging','memory','questions','industry','curriculum','coaching','cases-packaging','cases-analysis','deepdives']){
   vm.runInContext(readFileSync(new URL(`./content/${name}.js`,import.meta.url),'utf8'),context);
 }
 const {PACKAGING_LESSONS:p,MEMORY_LESSONS:m,QUESTION_TREES:trees,EVIDENCE_CARDS:evidence,INDUSTRY_CARDS:industry}=context.window;
@@ -97,3 +97,18 @@ assert.equal(2048*6/8,1536);
 assert.equal(800*20/1000,16);
 assert.equal((5+1)*(5+2)/2,21);
 console.log('Verified: 18 lessons, 70 questions, 6 complete cases, 2 routes, 10 coaching guides, references and numerical checks.');
+
+assert.deepEqual(Object.keys(w.STAGE_DEEPDIVES).sort(),['T1-L2','T4-L2','T9-L1','T9-L2']);
+for(const [key,d]of Object.entries(w.STAGE_DEEPDIVES)){
+ const [id,stage]=key.split('-L');assert.ok(treeIDs.has(id)&&Number(stage)>=1&&Number(stage)<=5,key);
+ assert.ok(d.explanation.length>=3&&d.formula&&d.example&&d.limits,key);
+ assert.ok(d.sources.length&&d.sources.every(s=>new URL(s.url).protocol==='https:'),key);
+}
+assert.ok(Math.abs(1.2**3-1.728)<1e-12);
+assert.ok(Math.abs(Math.acos(.2/.4)*180/Math.PI-60)<1e-12);
+assert.equal((500-380)/(500-300),.6);
+assert.equal(100*.01/.05,20);
+assert.equal(20/40,.5);
+assert.ok(Math.abs(.5*30e-6/1.5e-5-1)<1e-12);
+assert.ok(Math.abs(.5*900e-6/1.5e-5-30)<1e-12);
+console.log('Verified: 4 stage-specific deep dives, source targets and example calculations.');

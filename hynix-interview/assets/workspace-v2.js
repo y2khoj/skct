@@ -33,7 +33,7 @@ window.createLearningWorkspace = function(ctx) {
   }
   function pathPage(id) {
     const p=paths.find(x=>x.id===id);if(!p)return missing();
-    return `<a class="back-link" href="#/dashboard">${icon('back')}학습 로드맵</a>${heading(esc(p.title),esc(p.description))}<div class="v2-goal"><span class="eyebrow">THIS ROUTE'S OUTPUT</span><h2>${esc(p.output)}</h2><p>현재 설명할 수 있는 단계는 건너뛰어도 됩니다. 읽은 표시와 답변의 검증은 별개입니다.</p></div><ol class="v2-path-steps">${p.steps.map((s,i)=>`<li><span class="v2-number">${String(i+1).padStart(2,'0')}</span><div><span class="eyebrow">${esc(s.id)} · ${{lesson:'개념',case:'풀이 사례',practice:'면접 연습',evidence:'실제 근거',industry:'산업 자료'}[s.kind]}</span><h2>${esc(s.title)}</h2><p>${esc(s.why)}</p><a class="btn btn-secondary btn-small" href="${href(s)}">이 단계 열기 ${icon('arrow')}</a></div></li>`).join('')}</ol>`;
+    return `<a class="back-link" href="#/dashboard">${icon('back')}학습 로드맵</a>${heading(esc(p.title),esc(p.description))}<div class="v2-goal"><span class="eyebrow">THIS ROUTE'S OUTPUT</span><h2>${esc(p.output)}</h2><p>현재 설명할 수 있는 단계는 건너뛰어도 됩니다. 읽은 표시와 답변의 검증은 별개입니다.</p></div><ol class="v2-path-steps">${p.steps.map((s,i)=>`<li><span class="v2-number">${String(i+1).padStart(2,'0')}</span><div><span class="eyebrow">${esc(s.id)} · ${{lesson:'개념',case:'풀이 사례',practice:'면접 연습',evidence:'실제 근거',industry:'산업 자료'}[s.kind]}</span><h2>${esc(s.title)}</h2><p>${esc(s.why)}</p><a class="btn btn-secondary btn-small" data-learning-path="${p.id}" href="${href(s)}">이 단계 열기 ${icon('arrow')}</a></div></li>`).join('')}</ol>`;
   }
   function caseIndex() {return `${heading('숫자와 조건으로 판단하는 연습','가상 문제의 풀이를 익힌 뒤, 달라진 조건에서 판단을 수정합니다.')}<div class="v2-goal"><strong>모든 사례는 학습용 가정입니다.</strong><p>지원서에 적힌 성과 수치의 정의는 실제 근거 카드에 직접 작성합니다. 아래 계산 결과를 본인의 실적으로 사용하지 마세요.</p></div><div class="v2-case-grid">${cases.map(caseCard).join('')}</div>`;}
   function textarea(field,key,label,hint) {return `<label class="v2-field" for="v2-${key}">${esc(label)}<span>브라우저 자동 저장</span></label><textarea id="v2-${key}" class="note-input v2-note" data-v2-save="${field}" data-key="${key}" maxlength="20000" placeholder="${esc(hint)}">${esc(getStore()[field][key]||'')}</textarea>`;}
@@ -72,6 +72,8 @@ window.createLearningWorkspace = function(ctx) {
     const c=coaching[id];if(!c)return;
     const step=Math.max(1,Math.min(7,parseInt(rawStep,10)||1));
     const q=document.querySelector('.practice-question');
+    const deep=window.STAGE_DEEPDIVES?.[`${id}-L${step}`];
+    if(deep)q.insertAdjacentHTML('beforeend',`<details class="v2-details v2-deepdive"><summary>이 질문의 필수 원리 · ${esc(deep.title)}</summary><div class="v2-coaching-body">${deep.explanation.map(p=>`<p>${esc(p)}</p>`).join('')}${deep.formula?`<div class="formula"><code>${esc(deep.formula)}</code></div>`:''}<div class="v2-example"><span class="eyebrow">가상 조건으로 직접 계산</span><p>${esc(deep.example)}</p></div><p class="v2-caution">${esc(deep.limits)}</p>${deep.sources.map(sourceLink).join('')}</div></details>`);
     if(step<=5)q.insertAdjacentHTML('beforeend',`<div class="v2-hint"><strong>이번 단계에서 구별할 것</strong><p>${esc(c.levelGuidance[step-1])}</p></div>`);
     else {
       const f=c.followups[step===6?'A':'B'];
@@ -92,10 +94,25 @@ window.createLearningWorkspace = function(ctx) {
   }
   function missing(){return `<h1>학습 내용을 찾을 수 없습니다.</h1><a class="btn btn-primary" href="#/dashboard">학습 로드맵으로</a>`;}
   function route(parts){return parts[0]==='case'?casePage(parts[1]):parts[0]==='cases'?caseIndex():parts[0]==='path'?pathPage(parts[1]):null;}
-  function afterRender(parts){if(parts[0]==='lesson')enrichLesson(parts[1]);if(parts[0]==='interview'&&treeMap.has(parts[1]))enrichPractice(parts[1],parts[2]);if(parts[0]==='review')enrichReview();}
+  function pathContext(parts) {
+    const path=paths.find(p=>p.id===getStore().activePath);if(!path)return;
+    const index=path.steps.findIndex(s=>(s.kind==='practice'?'interview':s.kind)===parts[0]&&s.id===parts[1]&&(s.kind!=='practice'||(s.stage||1)===(parseInt(parts[2],10)||1)));
+    if(index<0)return;
+    const next=path.steps[index+1],previous=path.steps[index-1];
+    const controls=`<div class="v2-path-controls">${previous?`<a class="v2-chip" href="${href(previous)}">${icon('back')}이전 단계</a>`:''}${next?`<a class="btn btn-primary btn-small" data-path-next href="${href(next)}">다음 단계 · ${esc(next.title)} ${icon('arrow')}</a>`:`<a class="btn btn-secondary btn-small" href="#/path/${path.id}">경로의 결과물 점검 ${icon('arrow')}</a>`}</div>`;
+    const main=document.getElementById('main');
+    main.insertAdjacentHTML('afterbegin',`<nav class="v2-path-context" aria-label="선택한 학습 경로"><div><a href="#/path/${path.id}">${esc(path.title)}</a><span>${index+1} / ${path.steps.length} 단계 · ${esc(path.steps[index].title)}</span></div><button class="v2-path-exit" data-action="v2-leave-path">자유 학습으로 전환</button>${controls}</nav>`);
+    if(parts[0]==='lesson')document.querySelector('.v2-next')?.remove();
+    const bottom=`<div class="v2-path-bottom"><p>${next?'선택한 경로에서 다음으로 확인할 것':'경로의 마지막 단계입니다. 처음 정한 결과물을 설명할 수 있는지 점검하세요.'}</p>${controls}</div>`;
+    if(parts[0]==='lesson')document.querySelector('.completion-row')?.insertAdjacentHTML('afterend',bottom);
+    else if(parts[0]==='evidence')document.getElementById(`evidence-${parts[1]}`)?.insertAdjacentHTML('beforeend',bottom);
+    else document.querySelector('.page-footer')?.insertAdjacentHTML('beforebegin',bottom);
+  }
+  function afterRender(parts){if(parts[0]==='lesson')enrichLesson(parts[1]);if(parts[0]==='interview'&&treeMap.has(parts[1]))enrichPractice(parts[1],parts[2]);if(parts[0]==='review')enrichReview();pathContext(parts);}
   document.getElementById('app').addEventListener('input',e=>{const t=e.target;if(!t.matches('[data-v2-save]'))return;const field=t.dataset.v2Save;if(!['caseNotes','integrationNotes'].includes(field))return;getStore()[field][t.dataset.key]=t.value.slice(0,20000);persist();});
   document.getElementById('app').addEventListener('click',e=>{
-    const b=e.target.closest('[data-action]');if(!b)return;const c=caseMap.get(b.dataset.id);
+    const pathLink=e.target.closest('[data-learning-path]');if(pathLink&&paths.some(p=>p.id===pathLink.dataset.learningPath)){getStore().activePath=pathLink.dataset.learningPath;persist();}
+    const b=e.target.closest('[data-action]');if(!b)return;if(b.dataset.action==='v2-leave-path'){getStore().activePath='';persist();ctx.render();return;}const c=caseMap.get(b.dataset.id);
     if(b.dataset.action==='v2-case-answer'&&c){const n=Number(b.dataset.option);getStore().caseAnswers[c.id]=n;persist();document.querySelectorAll('[data-action="v2-case-answer"]').forEach(x=>{const active=Number(x.dataset.option)===n;x.setAttribute('aria-pressed',active);x.classList.toggle('v2-selected',active);});document.getElementById('case-feedback').innerHTML=challengeFeedback(c);}
     if(b.dataset.action==='v2-branch'&&c){getStore().caseBranches[c.id]=b.dataset.branch;persist();document.querySelectorAll('[data-action="v2-branch"]').forEach(x=>{const active=x.dataset.branch===b.dataset.branch;x.setAttribute('aria-pressed',active);x.classList.toggle('active',active);});document.getElementById('case-branch-feedback').innerHTML=branchFeedback(c);}
   });

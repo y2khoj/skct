@@ -136,7 +136,7 @@ window.PACKAGING_LESSONS = [
     takeaways: ['균열 시작·진전과 계면·재료 내부 손상을 먼저 구분한다.', '특이점의 최대 응력은 메시 세분화만으로 수렴하지 않을 수 있다.', '파괴 모델의 물성·수치 해상도·독립 시험을 함께 검증한다.'],
     quiz: { question: '계면 모서리의 최대 응력이 메시를 줄일 때마다 증가한다. 가장 적절한 다음 행동은?', options: ['특이점과 평가량을 확인하고 에너지·정의된 평균량·계면 모델 등 적절한 지표를 검토한다.', '가장 작은 메시의 최대값이 실제 파괴 응력이라고 확정한다.', '측정 자료 없이 계면 강도를 높여 파손이 사라지게 한다.', '전체 변위가 수렴했으므로 균열 수명도 검증되었다고 본다.'], answer: 0, explanation: '날카로운 모서리와 계면의 특이점에서는 단일 극값이 요소 크기에 의존할 수 있다. 실제 고장 모드에 맞는 평가량과 모델을 정한 뒤 수치 검증과 실험 검증을 구분해 수행한다.' },
     related: ['T2', 'T3', 'T5'],
-    sources: [{ label: 'TSMC · 다중 재료·다중 접합 구조 참고', url: 'https://3dfabric.tsmc.com/english/dedicatedFoundry/technology/cowos.htm' }, { label: 'SK하이닉스 · 적층 패키징 구조 참고', url: 'https://news.skhynix.com/en/gyujei-lee-next-gen-packaging-tech-key-to-hbm-success/' }]
+    sources: [{ label: 'Abaqus · Cohesive traction–separation와 혼합모드 손상', url: 'https://docs.software.vt.edu/abaqusv2025/English/SIMACAEELMRefMap/simaelm-c-cohesivebehavior.htm' }, { label: 'TSMC · 다중 재료·다중 접합 구조 참고', url: 'https://3dfabric.tsmc.com/english/dedicatedFoundry/technology/cowos.htm' }, { label: 'SK하이닉스 · 적층 패키징 구조 참고', url: 'https://news.skhynix.com/en/gyujei-lee-next-gen-packaging-tech-key-to-hbm-success/' }]
   },
   {
     id: 'P7', track: 'packaging', title: 'Submodeling: 계산 절감과 검증의 설계',
@@ -153,7 +153,7 @@ window.PACKAGING_LESSONS = [
     takeaways: ['전역–국부 해석은 올바른 하중 전달과 국부 영향의 제한이라는 가정을 가진다.', '메시·시간증분·절단 경계와 실험 일치를 각각 확인한다.', '국부 손상이 전역 거동을 바꾸면 일방향 전달을 재검토한다.'],
     quiz: { question: '국부 박리가 크게 진행되어 전역 구조의 강성까지 변한다. 가장 타당한 판단은?', options: ['국부 메시를 줄이면 전역 피드백도 자동으로 반영된다.', '전역 모델의 경계를 국부 모델에 고정해서 쓰면 언제나 안전하다.', '일방향 전달 가정을 재검토하고 손상을 반영한 전역 해 또는 연성 접근을 비교한다.', '계산시간이 줄었으면 정확도는 유지된 것이다.'], answer: 2, explanation: '일방향 submodeling은 국부 상세가 전역 해에 주는 영향이 제한적이라는 가정이 중요하다. 하중 경로가 변하면 상세 국부 해석만으로는 경계 입력의 오류를 없앨 수 없다.' },
     related: ['T2', 'T1', 'T5'],
-    sources: [{ label: 'TSMC · 전역·국부 계층을 구분할 구조 참고', url: 'https://3dfabric.tsmc.com/english/dedicatedFoundry/technology/cowos.htm' }, { label: 'SK하이닉스 · HBM의 적층·연결 계층 참고', url: 'https://news.skhynix.com/en/gyujei-lee-next-gen-packaging-tech-key-to-hbm-success/' }]
+    sources: [{ label: 'Ansys · Submodeling과 절단 경계 검증', url: 'https://ansyshelp.ansys.com/public/Views/Secured/corp/v251/en/ans_adv/Hlp_G_ADV4UN.html' }, { label: 'Abaqus · Submodeling의 전역 영향 가정', url: 'https://docs.software.vt.edu/abaqusv2025/English/SIMACAEANLRefMap/simaanl-c-submodeloverview.htm' }, { label: 'TSMC · 전역·국부 계층을 구분할 구조 참고', url: 'https://3dfabric.tsmc.com/english/dedicatedFoundry/technology/cowos.htm' }, { label: 'SK하이닉스 · HBM의 적층·연결 계층 참고', url: 'https://news.skhynix.com/en/gyujei-lee-next-gen-packaging-tech-key-to-hbm-success/' }]
   },
   {
     id: 'P8', track: 'packaging', title: 'DOE·강건설계: 명목 최적점에서 양산 판단으로',
