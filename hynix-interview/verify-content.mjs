@@ -4,16 +4,17 @@ import assert from 'node:assert/strict';
 
 const context={window:{}};
 vm.createContext(context);
-for(const name of ['packaging','memory','questions','industry','curriculum','coaching','cases-packaging','cases-analysis','deepdives']){
+for(const name of ['packaging','memory','questions','industry','curriculum','coaching','cases-packaging','cases-analysis','deepdives','process-foundations','process-advanced','process-interviews','process-map','cases-process']){
   vm.runInContext(readFileSync(new URL(`./content/${name}.js`,import.meta.url),'utf8'),context);
 }
-const {PACKAGING_LESSONS:p,MEMORY_LESSONS:m,QUESTION_TREES:trees,EVIDENCE_CARDS:evidence,INDUSTRY_CARDS:industry}=context.window;
-const lessons=[...p,...m];
-assert.equal(lessons.length,18);
-assert.equal(new Set(lessons.map(x=>x.id)).size,18);
-assert.equal(trees.length,10);
-assert.equal(trees.reduce((n,t)=>n+t.levels.length,0),50);
-assert.equal(trees.reduce((n,t)=>n+t.branches.length,0),20);
+const {PACKAGING_LESSONS:p,MEMORY_LESSONS:m,QUESTION_TREES:baseTrees,EVIDENCE_CARDS:evidence,INDUSTRY_CARDS:industry}=context.window;
+const lessons=[...p,...m,...context.window.PROCESS_FOUNDATION_LESSONS,...context.window.PROCESS_ADVANCED_LESSONS];
+const trees=[...baseTrees,...context.window.PROCESS_QUESTION_TREES];
+assert.equal(lessons.length,26);
+assert.equal(new Set(lessons.map(x=>x.id)).size,26);
+assert.equal(trees.length,14);
+assert.equal(trees.reduce((n,t)=>n+t.levels.length,0),70);
+assert.equal(trees.reduce((n,t)=>n+t.branches.length,0),28);
 assert.equal(evidence.length,8);
 assert.equal(industry.length,6);
 const lessonIDs=new Set(lessons.map(x=>x.id)),treeIDs=new Set(trees.map(x=>x.id));
@@ -46,11 +47,11 @@ for(const c of industry){
 
 
 const w=context.window;
-const cases=[...w.PACKAGING_CASES,...w.ANALYSIS_CASES];
+const cases=[...w.PACKAGING_CASES,...w.ANALYSIS_CASES,...w.PROCESS_CASES];
 const caseIDs=new Set(cases.map(c=>c.id)),evidenceIDs=new Set(evidence.map(c=>c.id));
-assert.equal(caseIDs.size,6);
-assert.equal(Object.keys(w.LESSON_GUIDANCE).length,18);
-assert.equal(Object.keys(w.INTERVIEW_COACHING).length,10);
+assert.equal(caseIDs.size,8);
+assert.equal(Object.keys(w.LESSON_GUIDANCE).length,26);
+assert.equal(Object.keys(w.INTERVIEW_COACHING).length,14);
 assert.equal(w.SCORE_RUBRIC.length,5);
 assert.ok(w.SCORE_RUBRIC.every(r=>r.levels.length===3&&r.levels.every(x=>x.length>15)));
 for(const c of cases){
@@ -75,7 +76,7 @@ function checkTarget(s){
   const ids={lesson:lessonIDs,case:caseIDs,practice:treeIDs,evidence:evidenceIDs,industry:new Set(industry.map(c=>c.id))};
   assert.ok(ids[s.kind]?.has(s.id),`Broken target: ${s.kind}/${s.id}`);
 }
-assert.equal(w.LEARNING_PATHS.length,2);
+assert.equal(w.LEARNING_PATHS.length,3);
 for(const p of w.LEARNING_PATHS)p.steps.forEach(checkTarget);
 for(const [id,g]of Object.entries(w.LESSON_GUIDANCE)){
   assert.ok(lessonIDs.has(id)&&g.prerequisites.every(x=>lessonIDs.has(x)),id);
@@ -96,7 +97,7 @@ assert.ok(Math.abs(Math.pow(.8,-1.5)-1.39754248594)<1e-9);
 assert.equal(2048*6/8,1536);
 assert.equal(800*20/1000,16);
 assert.equal((5+1)*(5+2)/2,21);
-console.log('Verified: 18 lessons, 70 questions, 6 complete cases, 2 routes, 10 coaching guides, references and numerical checks.');
+console.log('Verified: 26 lessons, 98 questions, 8 complete cases, 3 routes, 14 coaching guides, references and numerical checks.');
 
 assert.deepEqual(Object.keys(w.STAGE_DEEPDIVES).sort(),['T1-L2','T4-L2','T9-L1','T9-L2']);
 for(const [key,d]of Object.entries(w.STAGE_DEEPDIVES)){
@@ -112,3 +113,29 @@ assert.equal(20/40,.5);
 assert.ok(Math.abs(.5*30e-6/1.5e-5-1)<1e-12);
 assert.ok(Math.abs(.5*900e-6/1.5e-5-30)<1e-12);
 console.log('Verified: 4 stage-specific deep dives, source targets and example calculations.');
+
+// The process extension must point to existing lessons and source chapters.
+const chapters=new Set(w.PACKAGINGBOOK.chapters.map(x=>x[0]));
+assert.equal(chapters.size,17);
+for(const item of [...w.PROCESS_FOUNDATION_LESSONS,...w.PROCESS_ADVANCED_LESSONS,...w.PROCESS_QUESTION_TREES,...w.PROCESS_CASES]){
+ assert.ok(item.sourceChapters.length&&item.sourceChapters.every(s=>chapters.has(s)),item.id);
+}
+assert.equal(w.PROCESS_FLOWS.length,3);
+for(const f of w.PROCESS_FLOWS){
+ assert.equal(f.steps.length,6,f.id);
+ for(const s of f.steps)assert.ok(lessonIDs.has(s.lesson)&&s.purpose&&s.window&&s.failure&&s.cae&&s.question,f.id);
+}
+const pass=.95*.995+.05*.01,q=.95*.995/pass;
+assert.ok(Math.abs(pass-.94575)<1e-12);
+assert.ok(Math.abs((1-q)*1e6-528.680941)<1e-5);
+assert.ok(Math.abs(q**8*.98-.9758628029)<1e-9);
+assert.ok(Math.abs((.9/.905)**4-.978083)<1e-6);
+assert.ok(Math.abs((.9/.901)**8*.98-.9713323)<1e-6);
+assert.equal((1000/20)**2/(1000/40)**2,4);
+assert.ok(Math.abs(.01/(Math.PI*(10e-4)**2/4)-12732.395447)<1e-5);
+assert.equal((50/100)**3,.125);assert.equal((100/50)**2,4);
+assert.equal(12*2**2*2,96);assert.equal(96*.5,48);
+assert.equal(2*10000/(2+2),5000);assert.equal(2e6/(40**2),1250);
+assert.ok(Math.abs(50e-12/(1e-9)-.05)<1e-12);
+assert.ok(Math.abs(1/(2*Math.PI*Math.sqrt(.5e-9*100e-9))/1e6-22.5079079)<1e-6);
+console.log('Verified: 17 source chapters, 3 process flows, conditional yield, pitch/current density, plate and PDN examples.');

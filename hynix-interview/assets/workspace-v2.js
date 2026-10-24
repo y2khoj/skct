@@ -2,8 +2,9 @@
 window.createLearningWorkspace = function(ctx) {
   'use strict';
   const {esc,icon,heading,sourceLink,lessonMap,treeMap,getStore,persist} = ctx;
-  const cases = [...(window.PACKAGING_CASES || []), ...(window.ANALYSIS_CASES || [])];
+  const cases = [...(window.PACKAGING_CASES || []), ...(window.ANALYSIS_CASES || []), ...(window.PROCESS_CASES || [])];
   const caseMap = new Map(cases.map(c => [c.id,c]));
+  const process = window.createProcessLearning(ctx);
   const paths = window.LEARNING_PATHS || [];
   const guidance = window.LESSON_GUIDANCE || {};
   const coaching = window.INTERVIEW_COACHING || {};
@@ -20,15 +21,16 @@ window.createLearningWorkspace = function(ctx) {
     const checked=ctx.lessons.filter(l=>s.quiz[l.id]===l.quiz.answer).length;
     const written=Object.values(s.notes).filter(x=>x.trim()).length;
     const reviewed=Object.values(s.assessed).filter(x=>x.length===5&&x.every(Boolean)).length;
-    return `<div class="v2-progress" aria-label="서로 다른 학습 활동 기록"><div><strong>${read}<small> / 18</small></strong><span>단원 읽음</span></div><div><strong>${checked}<small> / 18</small></strong><span>개념 문항 정답</span></div><div><strong>${written}</strong><span>면접 답변 작성</span></div><div><strong>${reviewed}</strong><span>5항목 자가검토</span></div><p>각각의 활동 기록입니다. 면접 준비도를 인증하는 점수는 아닙니다.</p></div>`;
+    return `<div class="v2-progress" aria-label="서로 다른 학습 활동 기록"><div><strong>${read}<small> / ${ctx.lessons.length}</small></strong><span>단원 읽음</span></div><div><strong>${checked}<small> / ${ctx.lessons.length}</small></strong><span>개념 문항 정답</span></div><div><strong>${written}</strong><span>면접 답변 작성</span></div><div><strong>${reviewed}</strong><span>5항목 자가검토</span></div><p>각각의 활동 기록입니다. 면접 준비도를 인증하는 점수는 아닙니다.</p></div>`;
   }
   function dashboard() {
     return `${heading('깊이 이해하고, 근거로 답하기.','2.5D 패키징 · 메모리 · 나의 CAE 경험을 하나의 판단으로 연결합니다.')}
       <section class="v2-intro"><div><span class="eyebrow">YOUR NEXT SESSION</span><h2>어디에서 막히는지부터<br>선택하세요.</h2><p>개념이 낯설면 구조부터, 경험 설명이 막히면 실적부터.<br>한 번에 한 단계씩, 설명할 수 있는 결과물을 남깁니다.</p></div><div class="v2-flow" aria-label="학습의 반복 과정"><span>원리 이해</span><b>→</b><span>사례 판단</span><b>→</b><span>내 답변</span><b>↺</b><span>근거 검토</span></div></section>
+      ${process.promo()}
       <div class="v2-path-grid">${paths.map((p,i)=>`<a class="v2-path-card" href="#/path/${p.id}"><span class="eyebrow">START ${String(i+1).padStart(2,'0')}</span><h2>${esc(p.title)} ${icon('arrow')}</h2><p>${esc(p.description)}</p><div class="v2-output"><span>이 경로의 결과물</span>${esc(p.output)}</div></a>`).join('')}</div>
       ${progress()}
       <section class="v2-section"><div class="section-heading"><h2>면접에서 증명할 네 가지</h2><span class="v2-muted">학습 순서보다 설명할 수 있는 결과에 집중</span></div><div class="v2-missions">${window.LEARNING_MISSIONS.map((m,i)=>`<article class="v2-mission"><span class="v2-number">0${i+1}</span><div><h3>${esc(m.title)}</h3><p>${esc(m.question)}</p><div class="v2-output"><span>남길 결과물</span>${esc(m.output)}</div><div class="v2-links">${link('lesson',m.lessonIds[0],'개념 살펴보기')}${link('practice',m.treeIds[0],'면접에서 확인')}</div></div></article>`).join('')}</div></section>
-      <section class="v2-section"><div class="section-heading"><h2>여섯 개의 핵심 사례</h2><a class="text-link" href="#/cases">모든 사례 ${icon('arrow')}</a></div><p class="v2-muted">가상 데이터를 직접 판단한 뒤 풀이와 비교하세요. 조건이 바뀌면 결론도 다시 검토합니다.</p><div class="v2-case-grid">${cases.map(caseCard).join('')}</div></section>
+      <section class="v2-section"><div class="section-heading"><h2>${cases.length}개의 핵심 사례</h2><a class="text-link" href="#/cases">모든 사례 ${icon('arrow')}</a></div><p class="v2-muted">가상 데이터를 직접 판단한 뒤 풀이와 비교하세요. 조건이 바뀌면 결론도 다시 검토합니다.</p><div class="v2-case-grid">${cases.map(caseCard).join('')}</div></section>
       <div class="v2-final-row"><a href="#/lesson/H1"><span class="eyebrow">FINAL TRANSFER</span><h3>신규 HBM·2.5D 구조 검토 메모</h3><p>사례 두 개 이상의 논리를 모아, 설계 판단과 추가 시험의 우선순위를 작성합니다.</p></a><a href="#/industry"><span class="eyebrow">INDUSTRY · 2026.10.17 기준</span><h3>발표의 사실과 나의 전망 구분하기</h3><p>공식 발표 6건을 제품 상태·기술 과제·반대 시나리오로 읽습니다.</p></a></div>`;
   }
   function pathPage(id) {
@@ -93,7 +95,7 @@ window.createLearningWorkspace = function(ctx) {
     document.querySelector('.data-tools')?.insertAdjacentHTML('beforebegin',`<section class="v2-section"><h2>사례 풀이와 최종 메모</h2>${saved.length?`<div class="v2-case-grid">${saved.map(caseCard).join('')}</div>`:'<p class="v2-muted">사례에 첫 판단이나 답변을 기록하면 여기에서 이어갈 수 있습니다.</p>'}${n?`<div class="v2-next"><p>신규 구조 검토 메모 · ${n}개 항목 작성</p>${link('lesson','H1','최종 메모 이어 쓰기')}</div>`:''}</section>`);
   }
   function missing(){return `<h1>학습 내용을 찾을 수 없습니다.</h1><a class="btn btn-primary" href="#/dashboard">학습 로드맵으로</a>`;}
-  function route(parts){return parts[0]==='case'?casePage(parts[1]):parts[0]==='cases'?caseIndex():parts[0]==='path'?pathPage(parts[1]):null;}
+  function route(parts){if(parts[0]==='process')return process.render();return parts[0]==='case'?casePage(parts[1]):parts[0]==='cases'?caseIndex():parts[0]==='path'?pathPage(parts[1]):null;}
   function pathContext(parts) {
     const path=paths.find(p=>p.id===getStore().activePath);if(!path)return;
     const index=path.steps.findIndex(s=>(s.kind==='practice'?'interview':s.kind)===parts[0]&&s.id===parts[1]&&(s.kind!=='practice'||(s.stage||1)===(parseInt(parts[2],10)||1)));
@@ -108,7 +110,7 @@ window.createLearningWorkspace = function(ctx) {
     else if(parts[0]==='evidence')document.getElementById(`evidence-${parts[1]}`)?.insertAdjacentHTML('beforeend',bottom);
     else document.querySelector('.page-footer')?.insertAdjacentHTML('beforebegin',bottom);
   }
-  function afterRender(parts){if(parts[0]==='lesson')enrichLesson(parts[1]);if(parts[0]==='interview'&&treeMap.has(parts[1]))enrichPractice(parts[1],parts[2]);if(parts[0]==='review')enrichReview();pathContext(parts);}
+  function afterRender(parts){if(parts[0]==='lesson')enrichLesson(parts[1]);if(parts[0]==='interview'&&treeMap.has(parts[1]))enrichPractice(parts[1],parts[2]);if(parts[0]==='review')enrichReview();pathContext(parts);process.afterRender(parts);}
   document.getElementById('app').addEventListener('input',e=>{const t=e.target;if(!t.matches('[data-v2-save]'))return;const field=t.dataset.v2Save;if(!['caseNotes','integrationNotes'].includes(field))return;getStore()[field][t.dataset.key]=t.value.slice(0,20000);persist();});
   document.getElementById('app').addEventListener('click',e=>{
     const pathLink=e.target.closest('[data-learning-path]');if(pathLink&&paths.some(p=>p.id===pathLink.dataset.learningPath)){getStore().activePath=pathLink.dataset.learningPath;persist();}
